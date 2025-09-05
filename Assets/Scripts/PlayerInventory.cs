@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int rocks; 
+    public int rocks;
+
+    public bool playerHasAmmunition = false;
 
     void Update()
     {
@@ -11,6 +13,20 @@ public class PlayerInventory : MonoBehaviour
         {
             rocks--;
         }
+
+        AmmunitionAmount();
+    }
+
+    void AmmunitionAmount() 
+    { 
+        if (rocks > 0) 
+        { 
+            playerHasAmmunition = true; 
+        } 
+        if (rocks == 0) 
+        { 
+            playerHasAmmunition = false; 
+        } 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,7 +34,8 @@ public class PlayerInventory : MonoBehaviour
         // When colliding with the player, rock is deactivated from scene and gets added to inventory 
         if (other.gameObject.CompareTag("Pickups"))
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             rocks++;
         }
     }
