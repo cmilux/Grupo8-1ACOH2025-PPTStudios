@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Floats")]
     [SerializeField] float _speed = 5f;         //speed
-    [SerializeField] float _horizontalInput;    //X axis input
-    [SerializeField] float _verticalInput;      //Y axis input
 
+    [Header("PlayerInput")]
+    public float _horizontalInput;              //X axis input
+    public float _verticalInput;                //Y axis input
+
+    [Header("Rigidbody")]
     Rigidbody2D _playerRb;      //Player rigidbody
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

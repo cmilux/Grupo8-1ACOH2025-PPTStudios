@@ -131,7 +131,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnRocksPos
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 431866948}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.53, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,8 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615cedfc28c608e4d986ba0572ff9a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  rockSpawnPos: {fileID: 431866949}
-  rocksPrefab: {fileID: 438934401745146593, guid: ffa2bad51acfc2e48b5b7b5045d2c80b, type: 3}
+  _rockSpawnPos: {fileID: 431866949}
+  _player: {fileID: 470399749}
+  _rocksPrefab: {fileID: 438934401745146593, guid: ffa2bad51acfc2e48b5b7b5045d2c80b, type: 3}
+  _rockSpeed: 2
 --- !u!4 &470399749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6639799065246547169, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
@@ -445,9 +447,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1914249348527545940, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4623430059655118794, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639799065246547169, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6639799065246547169, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
       propertyPath: m_LocalPosition.x
