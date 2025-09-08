@@ -3,27 +3,25 @@ using UnityEngine;
 public class EnemyTest : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] public int enemyDamage;
+    [SerializeField] public int enemyDamage;       // Stores how much damage the enemy can do to the player
+    [SerializeField] private int _enemyHealth;     // Stores how much health the enemy has
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-         
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Pickups"))
+        if (other.gameObject.CompareTag("Pickups"))
         {
-            //If enemy collides with a rock ("Pickups"), destroy both
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            // Gets the damage value from the rock that the enemy has collided with
+            int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
+
+            // Apply damage and destroy rock
+            _enemyHealth -= rockDamageAmount;
+            Destroy(other.gameObject);
+
+            if (_enemyHealth <= 0)   // If the enemy has no more health...
+            {
+                // Destroy enemy
+                Destroy(gameObject);
+            }
         }
     }
 }

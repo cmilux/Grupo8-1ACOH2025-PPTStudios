@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickups
   - Enemy
+  - Food
   layers:
   - Default
   - TransparentFX

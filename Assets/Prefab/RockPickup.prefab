@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2176104003986451186}
   - component: {fileID: 1174887376892630535}
   - component: {fileID: 6834987862419005149}
+  - component: {fileID: 4401649439860331332}
   m_Layer: 0
   m_Name: RockPickup
   m_TagString: Pickups
@@ -155,3 +156,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4401649439860331332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438934401745146593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e29303633fd38344923e9e377f4dd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RockManager
+  rockDamage: 10
