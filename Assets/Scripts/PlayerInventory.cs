@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [Header("Inventary")]
+    [Header("Inventory")]
     public int rocks;           //Where the rocks will be saved
     public bool playerHasAmmunition = false;        //Check if player has any ammunition
 

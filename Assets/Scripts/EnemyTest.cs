@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemyTest : MonoBehaviour
 {
+    [Header("Stats")]
+    [SerializeField] public int enemyDamage;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,6 +16,7 @@ public class EnemyTest : MonoBehaviour
     {
          
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Pickups"))
