@@ -9,8 +9,9 @@ public class PlayerMovement : MonoBehaviour
     public float _horizontalInput;              //X axis input
     public float _verticalInput;                //Y axis input
 
-    [Header("Rigidbody")]
+    [Header("References")]
     Rigidbody2D _playerRb;      //Player rigidbody
+    [SerializeField] SpriteRenderer _spriteRenderer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,5 +37,20 @@ public class PlayerMovement : MonoBehaviour
         //Adds speed to player movement
         _playerRb.linearVelocityX = _horizontalInput * _speed;
         _playerRb.linearVelocityY = _verticalInput * _speed;
+
+        PlayerRotation();
+    }
+
+    public void PlayerRotation()
+    {
+        //Flips the sprite depending on movement direction
+        if (_horizontalInput > 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (_horizontalInput < 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
     }
 }

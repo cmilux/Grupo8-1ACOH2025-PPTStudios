@@ -132,14 +132,6 @@ PrefabInstance:
       value: Food (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6524893
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.47185108
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.63
       objectReference: {fileID: 0}
@@ -448,14 +440,6 @@ PrefabInstance:
       value: Food (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6524893
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.47185108
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.22
       objectReference: {fileID: 0}
@@ -569,10 +553,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPickup (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4401649439860331332, guid: ffa2bad51acfc2e48b5b7b5045d2c80b, type: 3}
-      propertyPath: rockDamage
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7168590555543057559, guid: ffa2bad51acfc2e48b5b7b5045d2c80b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.66
@@ -683,14 +663,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
-      propertyPath: enemyDamage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
-      propertyPath: _enemyHealth
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.49
@@ -752,10 +724,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food
       objectReference: {fileID: 0}
-    - target: {fileID: 7874366913751570123, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
-      propertyPath: healingAmount
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.4312
@@ -809,14 +777,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
-      propertyPath: enemyDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
-      propertyPath: _enemyHealth
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.16

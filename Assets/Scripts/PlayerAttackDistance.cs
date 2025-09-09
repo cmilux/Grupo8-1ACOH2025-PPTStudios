@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttackDistance : MonoBehaviour
 {
     [Header("Transforms")]
     [SerializeField] Transform _rockSpawnPos; //Transform position from where the rock will be spawned
@@ -24,8 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     { 
         //Get's PlayerInventory and PlayerMovement script
-        _playerInventory = GetComponent<PlayerInventory>();
-        _playerMovement = GetComponent<PlayerMovement>();
+        _playerInventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
+        _playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -62,12 +62,6 @@ public class PlayerAttack : MonoBehaviour
 
     void SpawnDirectionRotation()
     {
-        /*
-        PROBALO MOVIENDO AL JUGADOR A LA DERECHA Y APUNTANDO A LA IZQ O VICEVERSA
-        SE DISPARA CON CLICK AHORA JE
-        igual creo q teniendo los sprites izq der se soluciona porq saben q tienen q mover al jugador jsja pero si
-        */
-
         if (_playerMovement._horizontalInput > 0)
         {
             //If player is moving to the right, it will spawn to their right
