@@ -179,4 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTest
   enemyDamage: 15
-  _enemyHealth: 20
+  enemyHealth: 20
+  _target: {fileID: 0}
+  _direction: {x: 0, y: 0}
+  _speed: 3
+  _activateFollowLogic: 0

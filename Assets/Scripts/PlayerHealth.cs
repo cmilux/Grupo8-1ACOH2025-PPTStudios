@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             // Gets the damage value from the enemy that the player has collided with 
-            int damageAmount = other.gameObject.GetComponent<EnemyTest>().enemyDamage;
+            int damageAmount = other.gameObject.GetComponent<EnemyManager>().enemyDamage;
 
             // Applies that damage amount to the player health
             _playerCurrentHealth -= damageAmount;

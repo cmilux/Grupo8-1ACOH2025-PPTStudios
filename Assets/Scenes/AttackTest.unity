@@ -379,9 +379,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
-      propertyPath: enemyHealth
-      value: 20
-      objectReference: {fileID: 0}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1455558773}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.87
@@ -667,6 +667,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+--- !u!1 &1455558773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4623430059655118794, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+  m_PrefabInstance: {fileID: 1318726890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1751415732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -793,10 +798,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
-      propertyPath: enemyHealth
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.16
