@@ -11,6 +11,15 @@ public class PlayerHealth : MonoBehaviour
         _playerCurrentHealth = _playerMaxHealth;
     }
 
+    private void Update()
+    {
+        // If the player heals more than the max health, set current health to max limit. 
+        if (_playerCurrentHealth > _playerMaxHealth)
+        {
+            _playerCurrentHealth = _playerMaxHealth;
+        }
+    }
+
     void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))

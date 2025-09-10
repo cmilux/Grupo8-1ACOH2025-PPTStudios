@@ -378,6 +378,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
+      propertyPath: enemyHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.87
@@ -606,9 +610,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3323788895849310617, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: _playerMeleeDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4623430059655118794, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675072826709028488, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6639799065246547169, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -663,6 +675,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
+      propertyPath: enemyHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.49
@@ -777,6 +793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
+      propertyPath: enemyHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.16

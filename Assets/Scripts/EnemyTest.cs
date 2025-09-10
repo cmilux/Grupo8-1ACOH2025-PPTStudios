@@ -4,7 +4,16 @@ public class EnemyTest : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] public int enemyDamage;       // Stores how much damage the enemy can do to the player
-    [SerializeField] private int _enemyHealth;     // Stores how much health the enemy has
+    [SerializeField] public int enemyHealth;     // Stores how much health the enemy has
+
+    private void Update()
+    {
+        if (enemyHealth <= 0)   // If the enemy has no more health...
+        {
+            // Destroy enemy
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,14 +23,8 @@ public class EnemyTest : MonoBehaviour
             int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
 
             // Apply damage and destroy rock
-            _enemyHealth -= rockDamageAmount;
+            enemyHealth -= rockDamageAmount;
             Destroy(other.gameObject);
-
-            if (_enemyHealth <= 0)   // If the enemy has no more health...
-            {
-                // Destroy enemy
-                Destroy(gameObject);
-            }
         }
     }
 }

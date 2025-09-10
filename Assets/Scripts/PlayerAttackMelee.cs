@@ -2,19 +2,30 @@ using UnityEngine;
 
 public class PlayerAttackMelee : MonoBehaviour
 {
+    [Header("Attack Radius")]
     [SerializeField] Transform _radiusT;
-
     [SerializeField] float _radiusD = 2f;
-    
-    /*
-     * no se como hacer para que solo lo destruya/haga daño presionando un boton/tecla
-     * intente nonstop
-    */
-    private void OnTriggerEnter2D(Collider2D collider)
+
+    [Header("Bools")]
+    [SerializeField] bool _isAttacking = false;
+
+    [Header("Stats")]
+    [SerializeField] int _playerMeleeDamage;
+
+    private void FixedUpdate()
     {
-        if (collider.gameObject.CompareTag("Enemy"))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            Destroy(collider.gameObject);
+            _isAttacking = true;
+        }
+        else _isAttacking = false;
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Enemy") && _isAttacking == true)
+        {
+            collider.gameObject.GetComponent<EnemyTest>().enemyHealth -= _playerMeleeDamage;
         }
     }
 
