@@ -9,6 +9,8 @@ TagManager:
   - Food
   - Inventory
   - Health
+  - Rock
+  - Spray
   layers:
   - Default
   - TransparentFX

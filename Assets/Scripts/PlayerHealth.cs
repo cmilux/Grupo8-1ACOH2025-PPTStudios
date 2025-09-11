@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Health integers")]
     [SerializeField] private int _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] private int _playerCurrentHealth;  // Stores how much health the player has currently
 
@@ -12,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void Update()
+    {
+        PreventFromExceeding();
+    }
+
+    void PreventFromExceeding()
     {
         // If the player heals more than the max health, set current health to max limit. 
         if (_playerCurrentHealth > _playerMaxHealth)
