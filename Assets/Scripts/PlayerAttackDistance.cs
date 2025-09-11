@@ -24,7 +24,7 @@ public class PlayerAttackDistance : MonoBehaviour
     private void Start()
     { 
         //Get's PlayerInventory and PlayerMovement script
-        _playerInventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
+        _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
         _playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 

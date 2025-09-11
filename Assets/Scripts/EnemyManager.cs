@@ -35,7 +35,7 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Pickups"))
+        if (other.gameObject.CompareTag("Rock") || other.gameObject.CompareTag("Spray"))
         {
             // Gets the damage value from the rock that the enemy has collided with
             int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
