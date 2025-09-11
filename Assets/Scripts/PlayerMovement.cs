@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     Rigidbody2D _playerRb;      //Player rigidbody
-    [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] SpriteRenderer _spriteRenderer;    //player sprite
+    [SerializeField] Animator animator;         //player animator
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
         //Adds speed to player movement
         _playerRb.linearVelocityX = _horizontalInput * _speed;
         _playerRb.linearVelocityY = _verticalInput * _speed;
+
+        //Set the right animation depending on axis
+        animator.SetFloat("Horizontal", _horizontalInput);
+        animator.SetFloat("Vertical", _verticalInput);
+        animator.SetFloat("Speed", _speed);
 
         PlayerRotation();
     }
