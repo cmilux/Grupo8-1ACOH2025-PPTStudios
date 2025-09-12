@@ -340,7 +340,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1739031883997701401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +357,7 @@ MonoBehaviour:
   _horizontalInput: 0
   _verticalInput: 0
   _spriteRenderer: {fileID: 1914249348527545940}
+  animator: {fileID: 0}
 --- !u!114 &139359401591071835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,5 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1dc94951361864f895b03fac09688b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Radius
-  _radiusT: {fileID: 9113808508936172453}
-  _radiusD: 1
+  _spraySpawnPos: {fileID: 0}
+  _player: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
+  _sprayPrefab: {fileID: 0}
+  _spraySpeed: 0

@@ -38,24 +38,35 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (currentWeaponIndex == 1)
-            {
-                weapons[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex = 0;
-                weapons[currentWeaponIndex].SetActive(true);
-                currentWeapon = weapons[currentWeaponIndex];
-            }
+            SwitchToRock();
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (currentWeaponIndex == 0)
-            {
-                weapons[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex = 1;
-                weapons[currentWeaponIndex].SetActive(true);
-                currentWeapon = weapons[currentWeaponIndex];
-            }
+            SwitchToSpray();
         }
     }
+
+    void SwitchToSpray()
+    {
+        if (currentWeaponIndex == 0)
+        {
+            weapons[currentWeaponIndex].SetActive(false);
+            currentWeaponIndex = 1;
+            weapons[currentWeaponIndex].SetActive(true);
+            currentWeapon = weapons[currentWeaponIndex];
+        }
+    }
+
+    public void SwitchToRock()
+    {
+        if (currentWeaponIndex == 1)
+        {
+            weapons[currentWeaponIndex].SetActive(false);
+            currentWeaponIndex = 0;
+            weapons[currentWeaponIndex].SetActive(true);
+            currentWeapon = weapons[currentWeaponIndex];
+        }
+    }
+    
 }

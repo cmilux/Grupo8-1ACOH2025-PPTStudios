@@ -33,7 +33,8 @@ public class PlayerAttackDistance : MonoBehaviour
         //Calling methods
         ThrowTheRock();
         HandleThrowDirection();
-        SpawnDirectionRotation();
+
+        //SpawnDirectionRotation();         NOT NECESSARRY SINCE PLAYERMOVEMENT CONTROLS THE ROTATION NOW
     }
     void ThrowTheRock()
     { 
@@ -47,6 +48,9 @@ public class PlayerAttackDistance : MonoBehaviour
 
             //Substracts one rock from player's inventory
             _playerInventory.rocks--;
+
+            //Destroy the rock after certain seconds
+            Destroy(rock, 3f);
         }
     }
 
