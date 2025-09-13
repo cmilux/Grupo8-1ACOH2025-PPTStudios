@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         //Calls methods
         IsPlayerMoving();
         PlayerMov();
+        PlayerRotation();
     }
     private void LateUpdate()
     {
@@ -56,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", _lastDir.x);
         animator.SetFloat("Vertical", _lastDir.y);
         animator.SetFloat("Speed", _speed);
-
-        PlayerRotation();
     }
 
     void StoreLastMove()

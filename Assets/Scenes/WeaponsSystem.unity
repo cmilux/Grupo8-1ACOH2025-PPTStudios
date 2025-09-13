@@ -224,10 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackMelee
   _sprayGas: {fileID: 56075001}
-  _weaponManager: {fileID: 0}
-  _isAttacking: 0
-  _attackDuration: 3
-  _attackTimer: 0
+  _holdTimer: 0
+  _requiredHoldTime: 1.5
+  _isHolding: 0
 --- !u!1 &56075001
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,9 +549,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDistance
   _rockSpawnPos: {fileID: 7896164885456097977}
-  _player: {fileID: 6639799065239191370}
   _rocksPrefab: {fileID: 438934401745146593, guid: e369246d364bd35439cf94a4f3039a67, type: 3}
+  _playerInventory: {fileID: 0}
   _rockSpeed: 4
+  _lastInput: 
 --- !u!4 &538480878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
@@ -798,12 +798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e51627fc9c2394db3464fb79755eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
-  currentWeaponIndex: 0
   weapons:
   - {fileID: 416745329}
   - {fileID: 40525731}
-  weaponHolder: {fileID: 654620640}
-  currentWeapon: {fileID: 416745329}
 --- !u!4 &683849869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
@@ -990,6 +987,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
   m_PrefabInstance: {fileID: 1520305772}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1849236000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849236001}
+  - component: {fileID: 1849236002}
+  m_Layer: 0
+  m_Name: PlayerHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1849236001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849236000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6639799065239191370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849236002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849236000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1bf018b53eb3349b4d60ec63ddf57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  _playerMaxHealth: 50
+  _playerCurrentHealth: 0
 --- !u!1 &1991980566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,23 +1178,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3323788895841987122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6997794218412948336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a1dc94951361864f895b03fac09688b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Radius
-  _sprayGas: {fileID: 0}
-  _weaponManager: {fileID: 0}
-  _isAttacking: 0
-  _attackDuration: 1.5
-  _attackTimer: 0
 --- !u!1 &3752733868191894079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1207,6 @@ GameObject:
   - component: {fileID: 9111779565722688114}
   - component: {fileID: 9111779565722688117}
   - component: {fileID: 1739031883996604082}
-  - component: {fileID: 9111779565722688116}
   - component: {fileID: 9111779565722688115}
   - component: {fileID: 9111779565722688118}
   m_Layer: 0
@@ -1191,42 +1216,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &5675072826701671715
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6997794218412948336}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.9860617
 --- !u!4 &6639799065239191370
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,27 +1230,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 654620641}
-  - {fileID: 9113808508941398030}
+  - {fileID: 1849236001}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6997794218412948336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9113808508941398030}
-  - component: {fileID: 5675072826701671715}
-  - component: {fileID: 3323788895841987122}
-  m_Layer: 0
-  m_Name: Radius
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!4 &7896164885456097977
 Transform:
   m_ObjectHideFlags: 0
@@ -1318,20 +1289,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
   rocks: 100
   playerHasAmmunition: 0
---- !u!114 &9111779565722688116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4623430059660409953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1bf018b53eb3349b4d60ec63ddf57d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  _playerMaxHealth: 50
-  _playerCurrentHealth: 0
 --- !u!61 &9111779565722688117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1400,21 +1357,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &9113808508941398030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6997794218412948336}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6639799065239191370}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
