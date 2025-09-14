@@ -1,39 +1,45 @@
+using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyManager : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] public int enemyDamage;       // Stores how much damage the enemy can do to the player
-    [SerializeField] public int enemyHealth;     // Stores how much health the enemy has
+    [SerializeField] public int enemyHealth;      // Stores how much health the enemy has
 
     [Header("Follow Logic")]
     [SerializeField] GameObject _target;
-    [SerializeField] Vector2 _direction;
     [SerializeField] float _speed;
-    [SerializeField] bool _activateFollowLogic;
+
+    Rigidbody2D _rb;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        _target = GameObject.Find("Player");
+    }
 
     private void Update()
     {
-        _target = GameObject.Find("Player");
-
-        // Stores player's position
-        _direction = (_target.transform.position - transform.position).normalized;
-
-        // Move towards player's position (if follow logic is activated)
-        if (_activateFollowLogic == true)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, _direction, _speed * Time.deltaTime);
-        }
-
         // If the enemy has no more health...
-        if (enemyHealth <= 0)   
+        if (enemyHealth <= 0)
         {
             // Destroy enemy
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void FixedUpdate()
+    {
+        // Calculates next position for the enemy to move towards
+        Vector2 direction = (_target.transform.position - transform.position).normalized;
+
+        // Move towards that position
+        _rb.linearVelocity = new Vector2(direction.x, direction.y) * _speed * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Rock") || other.gameObject.CompareTag("Spray"))
         {
@@ -45,4 +51,21 @@ public class EnemyManager : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _rb.constraints = RigidbodyConstraints2D.None;
+        }
+    }
 }
+
