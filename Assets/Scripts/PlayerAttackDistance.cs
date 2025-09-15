@@ -3,29 +3,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttackDistance : MonoBehaviour
 {
-    [Header("Transforms")]
+    [Header("References")]
     [SerializeField] Transform _rockSpawnPos; //Transform position from where the rock will be spawned
-    [SerializeField] Transform _player;       //Transform of player
-
-    [Header("GameObjects")]
     [SerializeField] GameObject _rocksPrefab; //Get's the rock prefab
+    [SerializeField] PlayerInventory _playerInventory;    //Player inventory script
 
     [Header("Vectors")]
     Vector2 worldPosition;      //Get mouse position on screen
     Vector2 direction;          //Used to point which direction the rock will be throwed
 
-    [Header("Scripts")]
-    PlayerInventory _playerInventory;    //Player inventory script
-    PlayerMovement _playerMovement;      //Player movement script
-
-    [Header("Floats")]
+    [Header("Variables")]
     [SerializeField] float _rockSpeed = 4.0f; //Speed of the rock when spawned
+    [SerializeField] string _lastInput;         //Stores the last input used
 
     private void Start()
     { 
         //Get's PlayerInventory and PlayerMovement script
         _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
-        _playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -33,7 +27,6 @@ public class PlayerAttackDistance : MonoBehaviour
         //Calling methods
         ThrowTheRock();
         HandleThrowDirection();
-        SpawnDirectionRotation();
     }
     void ThrowTheRock()
     { 
@@ -47,31 +40,56 @@ public class PlayerAttackDistance : MonoBehaviour
 
             //Substracts one rock from player's inventory
             _playerInventory.rocks--;
+
+            //Destroy the rock after certain seconds
+            Destroy(rock, 3f);
         }
     }
 
     void HandleThrowDirection()
     {
-        //Gets the mouse positon on the screen
+        //Sets the mouse and joy stick to zero in vector
+        Vector2 mouseDir = Vector2.zero;
+        Vector2 stickDir = Vector2.zero;
+
+        //Mouse new input system
         worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        //Points where the mouse is
-        direction = (worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
-        //Sets the direction to the spawn variable
-        _rockSpawnPos.transform.right = direction;
-    }
+        mouseDir = (worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
 
-    void SpawnDirectionRotation()
-    {
-        if (_playerMovement._horizontalInput > 0)
+        //Right stick joystick old input system
+        float stickX = Input.GetAxis("Horizontal_Joystick_R");
+        float stickY = Input.GetAxis("Vertical_Joystick_R");
+        stickDir = new Vector2(stickX, stickY);
+
+        //Checks if joystick is being used
+        if (stickDir.sqrMagnitude > 0.1f)
         {
-            //If player is moving to the right, it will spawn to their right
-            _rockSpawnPos.position = new Vector2 ((_player.position.x + 0.5f), _rockSpawnPos.position.y);
-
+            //Stores the input
+            _lastInput = "joystick";
+            //Normalizes the joystick direction
+            stickDir = stickDir.normalized;
         }
-        else if (_playerMovement._horizontalInput < 0)
+        //Checks if mouse is being used
+        else if (mouseDir.sqrMagnitude > 0.1f)
         {
-            //If player is moving to the left, it will spawn to their left
-            _rockSpawnPos.position = new Vector2((_player.position.x + (-0.5f)), _rockSpawnPos.position.y);
+            //Stores the input
+            _lastInput = "mouse";
+        }
+
+        //Checks which input was last used and sets a direction to take
+        if (_lastInput == "joystick")
+        {
+            direction = stickDir;
+        }
+        else
+        {
+            direction = mouseDir;
+        }
+
+        //Apply to spawn direction
+        if (direction != Vector2.zero)
+        {
+            _rockSpawnPos.right = direction;
         }
     }
 }

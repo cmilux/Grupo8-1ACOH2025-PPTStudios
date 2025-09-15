@@ -1,61 +1,38 @@
+using NUnit.Framework;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    [Header("Weapon variables for array")]
-    int totalWeapons = 2;
-    public int currentWeaponIndex;
-
-    [Header("GameObjects")]
+    [Header("References")]
     public GameObject[] weapons;
-    public GameObject weaponHolder;
-    public GameObject currentWeapon;
+    private int currentWeaponIndex = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        //totalWeapons = weaponHolder.transform.childCount;
-        //weapons = new GameObject[totalWeapons];
-
-        for (int i = 0; i < totalWeapons; i++)
+        //Turns off the weapons except the one being used
+        for (int i = 0; i < weapons.Length; i++)
         {
-            weapons[i] = weaponHolder.transform.GetChild(i).gameObject;
             weapons[i].SetActive(false);
         }
-
-        weapons[0].SetActive(true);
-        currentWeapon = weapons[0];
-        currentWeaponIndex = 0;
+        weapons[currentWeaponIndex].SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        ChangeWeapon();
+        if (Input.GetButtonDown("SwitchWeapons_J"))
+        {
+            SwitchWeapons();
+        }
     }
 
-    void ChangeWeapon()
+    public void SwitchWeapons()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (currentWeaponIndex == 1)
-            {
-                weapons[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex = 0;
-                weapons[currentWeaponIndex].SetActive(true);
-                currentWeapon = weapons[currentWeaponIndex];
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (currentWeaponIndex == 0)
-            {
-                weapons[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex = 1;
-                weapons[currentWeaponIndex].SetActive(true);
-                currentWeapon = weapons[currentWeaponIndex];
-            }
-        }
+        //Turn off the current weapon
+        weapons[currentWeaponIndex].SetActive(false);
+        //Switch the weapon to the next one, going back to the first item if the array is over
+        currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
+        //Turn on new weapon
+        weapons[currentWeaponIndex].SetActive(true);
     }
 }
