@@ -618,9 +618,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4623430059655118794, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5675072826709028488, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675072826709028488, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675072826709028488, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6639799065246547169, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,6 +674,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9111779565727947225, guid: 9af284b1610b04a77985b29696ebe9dd, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -680,10 +696,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7176017918016551421, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
-      propertyPath: enemyHealth
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.49
@@ -836,6 +848,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745354555843776836, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6573840027226489358, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}

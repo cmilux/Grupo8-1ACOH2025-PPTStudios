@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     [Header("Stats")]
     [SerializeField] public int enemyDamage;       // Stores how much damage the enemy can do to the player
     [SerializeField] public int enemyHealth;      // Stores how much health the enemy has
+    [SerializeField] public int attackCooldown;
 
     [Header("Follow Logic")]
     [SerializeField] GameObject _target;
@@ -31,7 +32,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    { 
         // Calculates next position for the enemy to move towards
         Vector2 direction = (_target.transform.position - transform.position).normalized;
 
@@ -56,7 +57,8 @@ public class EnemyManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            //AttackPlayer();
         }
     }
 
@@ -67,5 +69,13 @@ public class EnemyManager : MonoBehaviour
             _rb.constraints = RigidbodyConstraints2D.None;
         }
     }
+
+    //void AttackPlayer()
+    //{
+    //    if (attackCooldown <= 0)
+    //    {
+    //        _target._playerCurrentHealth -= enemyDamage;
+    //    }
+    //}
 }
 
