@@ -181,8 +181,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTest
   enemyDamage: 15
   enemyHealth: 20
+  startingAttackCooldown: 3
+  currentAttackCooldown: 0
   _target: {fileID: 0}
-  _speed: 50
+  _playerHealth: {fileID: 0}
+  _speed: 70
+  playerDetected: 0
+  detectionRange: 4
 --- !u!58 &5745354555843776836
 CircleCollider2D:
   m_ObjectHideFlags: 0
