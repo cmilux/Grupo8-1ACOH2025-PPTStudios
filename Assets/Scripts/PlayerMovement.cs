@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform _weaponManager;
     [SerializeField] Vector2 _lastDir;
     [SerializeField] Vector2 _moveDir;
+
+    Vector2 moveInput;
 
     [Header("Is player walking?")]
     bool _isWalking = false;
@@ -32,10 +35,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Calls methods
         IsPlayerMoving();
-        PlayerMov();
+        //PlayerMov();
         PlayerRotation();
+        ApplyAnimations();
     }
     private void LateUpdate()
     {
@@ -43,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Player movement on X and Y axis
+    /*
     void PlayerMov()
     {
         //Gets the input
@@ -52,17 +58,28 @@ public class PlayerMovement : MonoBehaviour
         //Adds speed to player movement
         _playerRb.linearVelocityX = _horizontalInput * _speed;
         _playerRb.linearVelocityY = _verticalInput * _speed;
-
-        //Set the right animation depending on axis
-        animator.SetFloat("Horizontal", _lastDir.x);
-        animator.SetFloat("Vertical", _lastDir.y);
-        animator.SetFloat("Speed", _speed);
     }
+    */
+
+    private void OnMove(InputValue inputValue)
+    {
+        moveInput = inputValue.Get<Vector2>();
+        _playerRb.linearVelocity = moveInput * _speed;
+    }
+
 
     void StoreLastMove()
     {
         //Saves the player last direction
+        /*
         _moveDir = new Vector2(_horizontalInput, _verticalInput);
+        if (_moveDir != Vector2.zero)
+        {
+            _lastDir = _moveDir;
+        }
+        */
+
+        _moveDir = new Vector2(moveInput.x, moveInput.y);
         if (_moveDir != Vector2.zero)
         {
             _lastDir = _moveDir;
@@ -72,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerRotation()
     {
         //Flips the sprite depending on movement direction
+        /*
         if (_horizontalInput > 0)
         {
             _spriteRenderer.flipX = true;
@@ -80,6 +98,25 @@ public class PlayerMovement : MonoBehaviour
         {
             _spriteRenderer.flipX = false;
         }
+        */
+
+        if (moveInput.x > 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (moveInput.x < 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+
+    }
+
+    void ApplyAnimations()
+    {
+        //Set the right animation depending on axis
+        animator.SetFloat("Horizontal", _lastDir.x);
+        animator.SetFloat("Vertical", _lastDir.y);
+        animator.SetFloat("Speed", _speed);
     }
 
     void IsPlayerMoving()
@@ -90,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 vector3 = Vector3.left * _lastDir.x + Vector3.down * _lastDir.y;
             _weaponManager.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
         }
-
+        /*
         if ((_horizontalInput == 0 && _verticalInput == 0) && (_playerRb.linearVelocityX != 0 || _playerRb.linearVelocityY != 0))
         {
             //Check if player is moving and sets it's last position
@@ -102,6 +139,18 @@ public class PlayerMovement : MonoBehaviour
         else if (_horizontalInput != 0 && _verticalInput != 0)
         {
             //Checks if player input is different than 0
+            _isWalking = true;
+        }
+        */
+        if ((moveInput.x == 0 && moveInput.y == 0) && (_playerRb.linearVelocityX != 0) || _playerRb.linearVelocityY != 0)
+        {
+            _isWalking = false;
+
+            Vector3 vector3 = Vector3.left * _lastDir.x + Vector3.down * _lastDir.y;
+            _weaponManager.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
+        }
+        else if (moveInput.x != 0 && moveInput.y != 0)
+        {
             _isWalking = true;
         }
     }

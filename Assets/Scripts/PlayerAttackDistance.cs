@@ -11,15 +11,123 @@ public class PlayerAttackDistance : MonoBehaviour
     [Header("Vectors")]
     Vector2 worldPosition;      //Get mouse position on screen
     Vector2 direction;          //Used to point which direction the rock will be throwed
+    //Vector2 _lookInput;
 
     [Header("Variables")]
     [SerializeField] float _rockSpeed = 4.0f; //Speed of the rock when spawned
     [SerializeField] string _lastInput;         //Stores the last input used
 
+    private InputAction _inputAction;
+    private bool _isAttacking;
+
     private void Start()
-    { 
+    {
         //Get's PlayerInventory and PlayerMovement script
         _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
+    }
+    private void Update()
+    {
+        //Calling methods
+        ThrowTheRock();
+        HandleThrowDirection();
+    }
+    void ThrowTheRock()
+    {
+        bool _fire = (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+            (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame);
+
+        //Checks if the player has ammunition and if the left click was pressed
+        if (_playerInventory.playerHasAmmunition == true && _fire)
+        {
+            //Creates a new object in rock using the rock prefab in a position and rotation (rockSpawnPos)
+            var rock = Instantiate(_rocksPrefab, _rockSpawnPos.position, _rockSpawnPos.rotation);
+            //Gets rock rb, sends it to a direction with a certain speed
+            rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
+            //Substracts one rock from player's inventory
+            _playerInventory.rocks--;
+            //Destroy the rock after certain seconds
+            Destroy(rock, 3f);
+        }
+    }
+    void HandleThrowDirection()
+    {
+        //Sets the mouse and joy stick to zero in vector
+        Vector2 mouseDir = Vector2.zero;
+        Vector2 stickDir = Vector2.zero;
+
+        if (Mouse.current != null)
+        {
+            worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            mouseDir = (worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
+            if (mouseDir.sqrMagnitude > 0.1f)
+            {
+                _lastInput = "Mouse";
+            }
+        }
+        if (Gamepad.current != null)
+        {
+            stickDir = Gamepad.current.rightStick.ReadValue();
+            if (stickDir.sqrMagnitude > 0.1f)
+            {
+                stickDir.Normalize();
+                _lastInput = "Joystick";
+            }
+        }
+
+        //Checks which input was last used and sets a direction to take
+        if (_lastInput == "Joystick")
+        {
+            direction = stickDir;
+        }
+        else
+        {
+            direction = mouseDir;
+        }
+
+        //Apply to spawn direction
+        if (direction != Vector2.zero)
+        {
+            _rockSpawnPos.right = direction;
+        }
+    }
+
+
+    /*
+    public void HandleThrowDirection(Vector2 input) //OnLook(Vector2 input)
+    {
+        if (Gamepad.current != null)
+        {
+            direction = direction.normalized; //= input.normalized;
+            Debug.Log("It's working");
+        }
+        else if(Mouse.current != null)
+        {
+            worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            direction = (worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
+        }
+
+        if (direction != Vector2.zero)
+        {
+            _rockSpawnPos.right = direction;
+        }
+    }
+
+    public void OnAttack(InputValue value)
+    {
+        //Checks if the player has ammunition and if the left click was pressed
+        if (_playerInventory.playerHasAmmunition)
+        {
+            //Creates a new object in rock using the rock prefab in a position and rotation (rockSpawnPos)
+            var rock = Instantiate(_rocksPrefab, _rockSpawnPos.position, _rockSpawnPos.rotation);
+            //Gets rock rb, sends it to a direction with a certain speed
+            rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
+
+            //Substracts one rock from player's inventory
+            _playerInventory.rocks--;
+
+            //Destroy the rock after certain seconds
+            Destroy(rock, 3f);
+        }
     }
 
     private void Update()
@@ -29,10 +137,10 @@ public class PlayerAttackDistance : MonoBehaviour
         HandleThrowDirection();
     }
     void ThrowTheRock()
-    { 
+    {
         //Checks if the player has ammunition and if the left click was pressed
-        if (_playerInventory.playerHasAmmunition == true && Input.GetButtonDown("Fire1"))
-        { 
+        if (_playerInventory.playerHasAmmunition)
+        {
             //Creates a new object in rock using the rock prefab in a position and rotation (rockSpawnPos)
             var rock = Instantiate(_rocksPrefab, _rockSpawnPos.position, _rockSpawnPos.rotation);
             //Gets rock rb, sends it to a direction with a certain speed
@@ -52,32 +160,28 @@ public class PlayerAttackDistance : MonoBehaviour
         Vector2 mouseDir = Vector2.zero;
         Vector2 stickDir = Vector2.zero;
 
-        //Mouse new input system
-        worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mouseDir = (worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
-
-        //Right stick joystick old input system
-        float stickX = Input.GetAxis("Horizontal_Joystick_R");
-        float stickY = Input.GetAxis("Vertical_Joystick_R");
-        stickDir = new Vector2(stickX, stickY);
-
-        //Checks if joystick is being used
-        if (stickDir.sqrMagnitude > 0.1f)
+        if (Mouse.current != null)
         {
-            //Stores the input
-            _lastInput = "joystick";
-            //Normalizes the joystick direction
-            stickDir = stickDir.normalized;
+            worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            mouseDir = (worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
+            if (mouseDir.sqrMagnitude > 0.1f)
+            {
+                _lastInput = "Mouse";
+            }
         }
-        //Checks if mouse is being used
-        else if (mouseDir.sqrMagnitude > 0.1f)
+
+        if (Gamepad.current != null)
         {
-            //Stores the input
-            _lastInput = "mouse";
+            stickDir = Gamepad.current.rightStick.ReadValue();
+            if (stickDir.sqrMagnitude > 0.1f)
+            {
+                stickDir.Normalize();
+                _lastInput = "Joystick";
+            }
         }
 
         //Checks which input was last used and sets a direction to take
-        if (_lastInput == "joystick")
+        if (_lastInput == "Joystick")
         {
             direction = stickDir;
         }
@@ -92,4 +196,5 @@ public class PlayerAttackDistance : MonoBehaviour
             _rockSpawnPos.right = direction;
         }
     }
+    */
 }
