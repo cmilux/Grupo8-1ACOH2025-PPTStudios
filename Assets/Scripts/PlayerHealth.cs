@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Player")]
+    [SerializeField] GameObject _player;
     [Header("Health integers")]
-    [SerializeField] private int _playerMaxHealth;      // Stores the max amount of health a player can have
+    [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] public int playerCurrentHealth;  // Stores how much health the player has currently
 
     private void Start()
@@ -15,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         PreventFromExceeding();
+        OnDeath();
     }
 
     void PreventFromExceeding()
@@ -26,12 +29,22 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void OnDeath()
+    {
+        //Checks player's health
+        if (playerCurrentHealth <= 0)
+        {
+            //Sets the player off the screen
+            _player.SetActive(false);
+        }
+    }
+
     void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             // Gets the damage value from the enemy that the player has collided with 
-            int damageAmount = other.gameObject.GetComponent<EnemyManager>().enemyDamage;
+            int damageAmount = other.gameObject.GetComponent<PathTest>().enemyDamage;
 
             // Applies that damage amount to the player health
             playerCurrentHealth -= damageAmount;

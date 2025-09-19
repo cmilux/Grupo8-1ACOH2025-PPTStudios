@@ -5,21 +5,16 @@ using UnityEngine.InputSystem;
 public class PlayerAttackMelee : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] GameObject _sprayGas;
+    [SerializeField] GameObject _sprayGas;              //Spray game object
 
     [Header("Variables")]
-    [SerializeField] float _holdTimer = 0f;
-    [SerializeField] float _requiredHoldTime = 1.5f;
-    [SerializeField] bool _isHolding = false;
+    [SerializeField] float _holdTimer = 0f;             //Variable used to check for how long the player held the spray on
+    [SerializeField] float _requiredHoldTime = 1.5f;    //Max amount of time to hold the spray on
+    [SerializeField] bool _isHolding = false;           //Checks if player is holding the input
 
-    /*
-     * HAY QUE BORRAR:
-     * LINEA 45 DE /ENEMY MANAGER/ QUE ELIMINA EL ARMA CUANDO ATACA
-     * 
-     * Diferenciar en enemymanager el daño que hace el spray de la piedra. Crear otro script como el rock manager?
-     * 
-     * Enemigos no te siguen si estas detras de una comida, como si fuese un obstaculo
-     */
+    /// <summary>
+    /// SWITCH TO NEW INPUT
+    /// </summary>
 
     private void Start()
     {

@@ -5,21 +5,22 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     [Header("References")]
-    public GameObject[] weapons;
-    private int currentWeaponIndex = 0;
+    public GameObject[] weapons;            //Array for weapons
+    private int currentWeaponIndex = 0;     //Index to check what weapon is selected
 
     private void Start()
     {
         //Turns off the weapons except the one being used
         for (int i = 0; i < weapons.Length; i++)
         {
-            weapons[i].SetActive(false);
+            weapons[i].SetActive(false);                //Turns off the weapon not used
         }
         weapons[currentWeaponIndex].SetActive(true);
     }
 
     private void Update()
     {
+        //Check if "space"/square where pressed
         if (Input.GetButtonDown("SwitchWeapons_J"))
         {
             SwitchWeapons();

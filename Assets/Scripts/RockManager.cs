@@ -14,4 +14,13 @@ public class RockManager : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Check if the rock triggers with walls or enemies and destroys it
+        if (other.gameObject.CompareTag("Walls") || other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+       
+    }
 }

@@ -4,21 +4,18 @@ using UnityEngine.InputSystem;
 public class PlayerAttackDistance : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Transform _rockSpawnPos; //Transform position from where the rock will be spawned
-    [SerializeField] GameObject _rocksPrefab; //Get's the rock prefab
-    [SerializeField] PlayerInventory _playerInventory;    //Player inventory script
+    [SerializeField] Transform _rockSpawnPos;               //Transform position from where the rock will be spawned
+    [SerializeField] GameObject _rocksPrefab;               //Get's the rock prefab
+    PlayerInventory _playerInventory;                       //Player inventory script
 
     [Header("Vectors")]
-    Vector2 worldPosition;      //Get mouse position on screen
-    Vector2 direction;          //Used to point which direction the rock will be throwed
-    //Vector2 _lookInput;
+    [SerializeField] Vector2 _worldPosition;                 //Get mouse position on screen
+    [SerializeField] Vector2 _direction;                     //Used to point which direction the rock will be throwed
 
     [Header("Variables")]
-    [SerializeField] float _rockSpeed = 4.0f; //Speed of the rock when spawned
-    [SerializeField] string _lastInput;         //Stores the last input used
-
-    private InputAction _inputAction;
-    private bool _isAttacking;
+    [SerializeField] float _rockSpeed = 4.0f;               //Speed of the rock when spawned
+    [SerializeField] string _lastInput;                     //Stores the last input used
+    [SerializeField] bool _isAttacking;                     //Bool to check if player is attacking
 
     private void Start()
     {
@@ -33,6 +30,7 @@ public class PlayerAttackDistance : MonoBehaviour
     }
     void ThrowTheRock()
     {
+        //Saves in the variable if the mouse was clicked or the R2 from joystick was triggered
         bool _fire = (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
             (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame);
 
@@ -57,19 +55,27 @@ public class PlayerAttackDistance : MonoBehaviour
 
         if (Mouse.current != null)
         {
-            worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            mouseDir = (worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
+            //Gets the mouse position
+            _worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+            //Resta la posicion del mouse con la posicion de spawn y
+                //normaliza su "velocidad" para que la piedra sepa donde ir
+            mouseDir = (_worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
             if (mouseDir.sqrMagnitude > 0.1f)
             {
+                //Stores as last input
                 _lastInput = "Mouse";
             }
         }
         if (Gamepad.current != null)
         {
+            //Gets the right stick position
             stickDir = Gamepad.current.rightStick.ReadValue();
             if (stickDir.sqrMagnitude > 0.1f)
             {
+                //Normalizes the right stick "speed"
                 stickDir.Normalize();
+                //Stores as last input
                 _lastInput = "Joystick";
             }
         }
@@ -77,20 +83,23 @@ public class PlayerAttackDistance : MonoBehaviour
         //Checks which input was last used and sets a direction to take
         if (_lastInput == "Joystick")
         {
-            direction = stickDir;
+            _direction = stickDir;
         }
         else
         {
-            direction = mouseDir;
+            _direction = mouseDir;
         }
 
         //Apply to spawn direction
-        if (direction != Vector2.zero)
+        if (_direction != Vector2.zero)
         {
-            _rockSpawnPos.right = direction;
+            _rockSpawnPos.right = _direction;
         }
     }
 
+    /// <summary>
+    /// OLD SCRIPT
+    /// </summary>
 
     /*
     public void HandleThrowDirection(Vector2 input) //OnLook(Vector2 input)
