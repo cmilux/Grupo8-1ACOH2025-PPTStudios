@@ -18,11 +18,11 @@ public class RangedEnemyManager : MonoBehaviour
     [Header("Bullet variables")]
     [SerializeField] Transform _firingPoint;          // Stores the firing point where the enemy's ink will spawn from
     [SerializeField] GameObject _inkPrefab;           // Stores the ink bullet prefab
-    [SerializeField] float _inkSpeed;                  // Stores the speed at which the ink bullet will travel
+    [SerializeField] float _inkSpeed;                 // Stores the speed at which the ink bullet will travel
 
     [Header("Stats")]
     [SerializeField] int _enemyHealth;                // Stores how much health the enemy has
-    [SerializeField] float _rotateSpeed;
+    [SerializeField] float _rotateSpeed;              // Handles the speed at which the enemy rotates towards the player
 
 
     void Start()
@@ -53,6 +53,9 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Checks whether enemy can attack or if its attack is still in cooldown
         HandleAttackCooldown();
+
+        // Makes the enemy rotate towards the player's position, so that the firing point is always facing the player when shooting
+        RotateTowardsPlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -131,11 +134,27 @@ public class RangedEnemyManager : MonoBehaviour
             // Instantiates the ink prefab at the enemy's firing point's position and rotation
             var ink = Instantiate(_inkPrefab, _firingPoint.position, _firingPoint.rotation);
 
+            // Calculates the player's direction
+            Vector2 direction = (_target.transform.position - transform.position).normalized;
+
             // Gets the bullet's rigidbody and applies velocity towards the player's direction at a certain speed
-            ink.GetComponent<Rigidbody2D>().linearVelocity = _target.transform.position * _inkSpeed;
+            ink.GetComponent<Rigidbody2D>().linearVelocity = direction * _inkSpeed;
 
             // If the bullet hasn´t hit any colliders, destroy it after a few seconds
-            Destroy(ink, 3f);
+            Destroy(ink, 2f);
         }
+    }
+
+    // SELE: Todo este void tengo que consultarlo con el profe porque si bien funciona, no termino de entender algunas funciones ;_; 
+    private void RotateTowardsPlayer()
+    { 
+        // Calculates the player's direction
+        Vector2 targetPosition = _target.transform.position - transform.position;
+
+        // Calculates the angle at which the player's at in relation to the enemy and applies an offset so it rotates correctly
+        float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg - 90f;
+
+        // Rotates the firing point towards the angle
+        transform.localRotation = Quaternion.Euler(0, 0, angle);
     }
 }
