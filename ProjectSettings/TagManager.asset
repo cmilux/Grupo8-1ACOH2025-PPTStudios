@@ -12,6 +12,7 @@ TagManager:
   - Rock
   - Spray
   - Walls
+  - Ink
   layers:
   - Default
   - TransparentFX
