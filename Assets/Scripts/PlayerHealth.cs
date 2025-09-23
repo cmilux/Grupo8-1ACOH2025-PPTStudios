@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health integers")]
     [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] public int playerCurrentHealth;  // Stores how much health the player has currently
+
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI _playerHealth;
 
     private void Start()
     {
@@ -18,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     {
         PreventFromExceeding();
         OnDeath();
+        SettingUI();
     }
 
     void PreventFromExceeding()
@@ -39,6 +44,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void SettingUI()
+    {
+        _playerHealth.SetText($"Health: {playerCurrentHealth}");
+    }
+
     void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -48,6 +58,15 @@ public class PlayerHealth : MonoBehaviour
 
             // Applies that damage amount to the player health
             playerCurrentHealth -= damageAmount;
+        }
+
+        if (other.gameObject.CompareTag("Ink"))
+        {
+            // Gets the damage value from the enemy that the player has collided with 
+            int inkDamage = other.gameObject.GetComponent<InkManager>().inkDamage;
+
+            // Applies that damage amount to the player health
+            playerCurrentHealth -= inkDamage;
         }
 
         if (other.gameObject.CompareTag("Food"))

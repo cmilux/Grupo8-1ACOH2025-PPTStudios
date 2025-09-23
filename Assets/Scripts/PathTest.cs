@@ -1,12 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class PathTest : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] Transform _target;                     //Gets target transform
     [SerializeField] NavMeshAgent _agent;                   //Get's the agent (enemy) NavMesh
-    [SerializeField] int _enemyHealth = 20;                  // Stores how much health the enemy has
+
+    [Header("Variables")]
+    [SerializeField] int _enemyHealth = 100;                  // Stores how much health the enemy has
     public int enemyDamage = 7;                             // Stores how much damage the enemy can do to the player
+
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI _enemy1Health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,8 +35,15 @@ public class PathTest : MonoBehaviour
     {
         //Follows player
         _agent.SetDestination(_target.position);
-        
+
+        SettingUI();
     }
+
+    void SettingUI()
+    {
+        _enemy1Health.SetText($"Healht: {_enemyHealth}");
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Checks if enemy collides with a rock

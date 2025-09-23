@@ -1,10 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
     [Header("Inventory")]
     public int rocks;                               //Where the rocks will be saved
     public bool playerHasAmmunition = false;        //Check if player has any ammunition
+
+    [SerializeField] TextMeshProUGUI _playerInventory;
 
     void Update()
     {
@@ -15,6 +18,7 @@ public class PlayerInventory : MonoBehaviour
         }
 
         AmmunitionAmount();
+        SettingUI();
     }
 
     void AmmunitionAmount() 
@@ -29,6 +33,11 @@ public class PlayerInventory : MonoBehaviour
             //if player has 0 rocks, then it doesn't have ammunition
             playerHasAmmunition = false; 
         } 
+    }
+
+    void SettingUI()
+    {
+        _playerInventory.SetText($"Rocks: {rocks}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)

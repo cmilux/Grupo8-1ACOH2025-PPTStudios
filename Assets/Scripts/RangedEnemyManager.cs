@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class RangedEnemyManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] int _enemyHealth;                // Stores how much health the enemy has
     [SerializeField] float _rotateSpeed;              // Handles the speed at which the enemy rotates towards the player
 
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI _enemy2Health;
 
     void Start()
     {
@@ -56,6 +59,13 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Makes the enemy rotate towards the player's position, so that the firing point is always facing the player when shooting
         RotateTowardsPlayer();
+
+        SettingUI();
+    }
+
+    void SettingUI()
+    {
+        _enemy2Health.SetText($"Health: {_enemyHealth}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
