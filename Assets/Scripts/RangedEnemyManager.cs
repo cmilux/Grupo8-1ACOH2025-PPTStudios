@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class RangedEnemyManager : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class RangedEnemyManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] GameObject inkSplatter;          // Gets the image for the ink splatter effect
     [SerializeField] PlayerHealth _playerHealth;      // Gets the player health script that calls for the ink splatter effect
-
+    [SerializeField] TextMeshProUGUI _enemy2Health;
 
     void Start()
     {
@@ -61,11 +62,18 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Makes the enemy rotate towards the player's position, so that the firing point is always facing the player when shooting
         RotateTowardsPlayer();
+        
+        SettingUI();
 
         if (_playerHealth.activateInkSplatterEffect == true)
         {
             StartCoroutine(InkSplatterEffect());
         }
+    }
+
+    void SettingUI()
+    {
+        _enemy2Health.SetText($"Health: {_enemyHealth}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -150,7 +158,7 @@ public class RangedEnemyManager : MonoBehaviour
             // Gets the bullet's rigidbody and applies velocity towards the player's direction at a certain speed
             ink.GetComponent<Rigidbody2D>().linearVelocity = direction * _inkSpeed;
 
-            // If the bullet hasn´t hit any colliders, destroy it after a few seconds
+            // If the bullet hasnÂ´t hit any colliders, destroy it after a few seconds
             Destroy(ink, 2f);
         }
     }

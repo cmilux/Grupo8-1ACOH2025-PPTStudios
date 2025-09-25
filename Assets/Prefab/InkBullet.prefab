@@ -288,4 +288,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc419f1fe3ccf1b43a2eee9859878661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InkManager
-  inkDamage: 10
+  inkDamage: 15
