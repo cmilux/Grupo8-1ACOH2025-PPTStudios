@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -26,6 +27,8 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] float _rotateSpeed;              // Handles the speed at which the enemy rotates towards the player
 
     [Header("UI")]
+    [SerializeField] GameObject inkSplatter;          // Gets the image for the ink splatter effect
+    [SerializeField] PlayerHealth _playerHealth;      // Gets the player health script that calls for the ink splatter effect
     [SerializeField] TextMeshProUGUI _enemy2Health;
 
     void Start()
@@ -59,8 +62,13 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Makes the enemy rotate towards the player's position, so that the firing point is always facing the player when shooting
         RotateTowardsPlayer();
-
+        
         SettingUI();
+
+        if (_playerHealth.activateInkSplatterEffect == true)
+        {
+            StartCoroutine(InkSplatterEffect());
+        }
     }
 
     void SettingUI()
@@ -150,7 +158,7 @@ public class RangedEnemyManager : MonoBehaviour
             // Gets the bullet's rigidbody and applies velocity towards the player's direction at a certain speed
             ink.GetComponent<Rigidbody2D>().linearVelocity = direction * _inkSpeed;
 
-            // If the bullet hasn´t hit any colliders, destroy it after a few seconds
+            // If the bullet hasnÂ´t hit any colliders, destroy it after a few seconds
             Destroy(ink, 2f);
         }
     }
@@ -166,5 +174,14 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Rotates the firing point towards the angle
         transform.localRotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    public IEnumerator InkSplatterEffect()
+    {
+        // Sets ink splatter effect active for a few seconds, then makes it inactive again
+        inkSplatter.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        inkSplatter.SetActive(false);
+        _playerHealth.activateInkSplatterEffect = false;
     }
 }

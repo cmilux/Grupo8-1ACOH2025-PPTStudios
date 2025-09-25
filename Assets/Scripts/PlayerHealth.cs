@@ -5,12 +5,17 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] GameObject _player;
+
     [Header("Health integers")]
     [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] public int playerCurrentHealth;  // Stores how much health the player has currently
 
+    [Header("Booleans")]
+    [SerializeField] public bool activateInkSplatterEffect;
+
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _playerHealth;
+
 
     private void Start()
     {
@@ -67,6 +72,9 @@ public class PlayerHealth : MonoBehaviour
 
             // Applies that damage amount to the player health
             playerCurrentHealth -= inkDamage;
+            
+            // Calls for the ink splatter effect handled by the ranged enemy manager
+            activateInkSplatterEffect = true;
         }
 
         if (other.gameObject.CompareTag("Food"))
@@ -83,6 +91,18 @@ public class PlayerHealth : MonoBehaviour
                 // Don't pickup and don't heal
                 return;
             }
+        }
+
+        if (other.gameObject.CompareTag("Ink"))
+        {
+            // Gets the damage value from the ink bullet that the player has collided with 
+            int damageAmount = other.gameObject.GetComponent<InkManager>().inkDamage;
+
+            // Applies that damage amount to the player health
+            playerCurrentHealth -= damageAmount;
+
+            // Calls for the ink splatter effect handled by the ranged enemy manager
+            activateInkSplatterEffect = true;
         }
     }
 }
