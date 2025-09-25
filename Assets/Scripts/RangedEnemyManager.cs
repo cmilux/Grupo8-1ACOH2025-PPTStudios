@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +24,10 @@ public class RangedEnemyManager : MonoBehaviour
     [Header("Stats")]
     [SerializeField] int _enemyHealth;                // Stores how much health the enemy has
     [SerializeField] float _rotateSpeed;              // Handles the speed at which the enemy rotates towards the player
+
+    [Header("UI")]
+    [SerializeField] GameObject inkSplatter;          // Gets the image for the ink splatter effect
+    [SerializeField] PlayerHealth _playerHealth;      // Gets the player health script that calls for the ink splatter effect
 
 
     void Start()
@@ -56,6 +61,11 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Makes the enemy rotate towards the player's position, so that the firing point is always facing the player when shooting
         RotateTowardsPlayer();
+
+        if (_playerHealth.activateInkSplatterEffect == true)
+        {
+            StartCoroutine(InkSplatterEffect());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -156,5 +166,14 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Rotates the firing point towards the angle
         transform.localRotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    public IEnumerator InkSplatterEffect()
+    {
+        // Sets ink splatter effect active for a few seconds, then makes it inactive again
+        inkSplatter.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        inkSplatter.SetActive(false);
+        _playerHealth.activateInkSplatterEffect = false;
     }
 }
