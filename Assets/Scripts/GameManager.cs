@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor.ShaderGraph.Internal;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -8,10 +10,16 @@ using UnityEditor;
 public class GameManager : MonoBehaviour
 {
     PlayerHealth _playerHealth;
+    public GameObject _player;
+
+    float _xRange = 8f;
+    float _yRange = 4f;
+
 
     private void Update()
     {
         //RestartGame();
+        PlayerSideScreenLimit();
     }
 
     public void StartGame()
@@ -19,6 +27,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("WeaponsSystem");        //Loads the game scene
     }
 
+   /*
     void RestartGame()
     {
         _playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
@@ -26,6 +35,39 @@ public class GameManager : MonoBehaviour
         if (_playerHealth.playerCurrentHealth <= 0)
         {
             SceneManager.LoadScene("StartMenu");
+        }
+    }
+   */
+
+    //Keeps the player between certain screen range
+    public void PlayerSideScreenLimit()
+    {
+        if (_player == null)
+        {
+            return;
+        }
+
+        //Player is on left side limit
+        if (_player.transform.position.x < -_xRange)
+        {
+            
+            _player.transform.position = new Vector2(-_xRange, _player.transform.position.y);
+        }
+
+        //Player is on right side limit
+        if (_player.transform.position.x > _xRange)
+        {
+            _player.transform.position = new Vector2(_xRange, _player.transform.position.y);
+        }
+
+        if (_player.transform.position.y > _yRange)
+        {
+            _player.transform.position = new Vector2(_player.transform.position.x, _yRange);
+        }
+
+        if (_player.transform.position.y < -_yRange)
+        {
+            _player.transform.position = new Vector2(_player.transform.position.x, -_yRange);
         }
     }
 

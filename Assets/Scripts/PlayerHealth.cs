@@ -96,18 +96,5 @@ public class PlayerHealth : MonoBehaviour
                 return;
             }
         }
-        /*
-        if (other.gameObject.CompareTag("Ink"))
-        {
-            // Gets the damage value from the ink bullet that the player has collided with 
-            int damageAmount = other.gameObject.GetComponent<InkManager>().inkDamage;
-
-            // Applies that damage amount to the player health
-            playerCurrentHealth -= damageAmount;
-
-            // Calls for the ink splatter effect handled by the ranged enemy manager
-            activateInkSplatterEffect = true;
-        }
-        */
     }
 }

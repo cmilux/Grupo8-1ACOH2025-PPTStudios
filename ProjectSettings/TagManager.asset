@@ -13,6 +13,7 @@ TagManager:
   - Spray
   - Walls
   - Ink
+  - DistanceEnemy
   layers:
   - Default
   - TransparentFX
