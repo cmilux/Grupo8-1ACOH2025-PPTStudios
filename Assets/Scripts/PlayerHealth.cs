@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         {
             //Sets the player off the screen
             _player.SetActive(false);
+            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -75,6 +77,8 @@ public class PlayerHealth : MonoBehaviour
             
             // Calls for the ink splatter effect handled by the ranged enemy manager
             activateInkSplatterEffect = true;
+
+            Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Food"))
@@ -92,7 +96,7 @@ public class PlayerHealth : MonoBehaviour
                 return;
             }
         }
-
+        /*
         if (other.gameObject.CompareTag("Ink"))
         {
             // Gets the damage value from the ink bullet that the player has collided with 
@@ -104,5 +108,6 @@ public class PlayerHealth : MonoBehaviour
             // Calls for the ink splatter effect handled by the ranged enemy manager
             activateInkSplatterEffect = true;
         }
+        */
     }
 }
