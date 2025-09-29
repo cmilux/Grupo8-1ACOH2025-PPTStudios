@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using static UnityEngine.GraphicsBuffer;
 
 public class RangedEnemyManager : MonoBehaviour
 {
@@ -29,12 +30,19 @@ public class RangedEnemyManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] GameObject inkSplatter;          // Gets the image for the ink splatter effect
     [SerializeField] PlayerHealth _playerHealth;      // Gets the player health script that calls for the ink splatter effect
-    [SerializeField] TextMeshProUGUI _enemy2Health;
+    [SerializeField] TextMeshProUGUI _enemy2Health;   // Displays enemy health in UI
+
+    [Header("Animation")]
+    [SerializeField] Animator _animator;              // Reference to the Animator component
+    [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
 
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
+
+        // Gets the Animator component from the enemy
+        _animator = GetComponent<Animator>();
 
         //-------------------
         //2D NavMesh settings
@@ -60,9 +68,15 @@ public class RangedEnemyManager : MonoBehaviour
         // Checks whether enemy can attack or if its attack is still in cooldown
         HandleAttackCooldown();
 
-        // Makes the enemy rotate towards the player's position, so that the firing point is always facing the player when shooting
-        RotateTowardsPlayer();
-        
+        // Makes the firing point rotate towards the player's position, so that it's always facing the player when shooting
+        RotateFiringPoint();
+
+        // Stores the enemy's last direction while moving
+        StoreLastMove();
+
+        // Changes enemy's sprites depending on their axes of movement (handled by StoreLastMove())
+        HandleSprites();
+
         SettingUI();
 
         if (_playerHealth.activateInkSplatterEffect == true)
@@ -163,17 +177,30 @@ public class RangedEnemyManager : MonoBehaviour
         }
     }
 
-    // SELE: Todo este void tengo que consultarlo con el profe porque si bien funciona, no termino de entender algunas funciones ;_; 
-    private void RotateTowardsPlayer()
-    { 
-        // Calculates the player's direction
-        Vector2 targetPosition = _target.transform.position - transform.position;
+    private void RotateFiringPoint()
+    {
+        // Points firing point to player's position
+        _firingPoint.LookAt(_agent.transform.position);
 
-        // Calculates the angle at which the player's at in relation to the enemy and applies an offset so it rotates correctly
-        float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg - 90f;
+        // Makes firing point rotate around the enemy
+        _firingPoint.transform.RotateAround(transform.position, Vector3.up, _rotateSpeed * Time.deltaTime);
+    }
 
-        // Rotates the firing point towards the angle
-        transform.localRotation = Quaternion.Euler(0, 0, angle);
+    private void StoreLastMove()
+    {
+        // Saves the enemy's last movement direction
+        Vector2 moveDir = new Vector2(_agent.velocity.y, _agent.velocity.x).normalized;
+
+        if (moveDir != Vector2.zero)
+        {
+            _lastDir = moveDir;
+        }
+    }
+
+    private void HandleSprites()
+    {
+        _animator.SetFloat("Horizontal", _lastDir.x);
+        _animator.SetFloat("Vertical", _lastDir.y);
     }
 
     public IEnumerator InkSplatterEffect()

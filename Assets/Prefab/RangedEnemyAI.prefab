@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3086542363420930920}
   - component: {fileID: 2182419499592130046}
   - component: {fileID: 8372391829266844754}
+  - component: {fileID: 4604921683312636566}
   m_Layer: 6
   m_Name: RangedEnemyAI
   m_TagString: Enemy
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.32, y: 3.37, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4713164510645346116}
@@ -83,8 +84,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.32455224, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8e333d1abc8d1ea42af1f91cea2e9acb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 1.21875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -183,9 +184,35 @@ MonoBehaviour:
   _firingPoint: {fileID: 4713164510645346116}
   _inkPrefab: {fileID: 438934401745146593, guid: 21ae711ad4bc28c4eaedd1c124cb5181, type: 3}
   _inkSpeed: 3
-  _enemyHealth: 20
+  _enemyHealth: 100
   _rotateSpeed: 0.03
   inkSplatter: {fileID: 0}
+  _playerHealth: {fileID: 0}
+  _enemy2Health: {fileID: 0}
+  _animator: {fileID: 0}
+  _lastDir: {x: 0, y: 0}
+--- !u!95 &4604921683312636566
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2368381465472855034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e495bb4f554d2a9469ad43c59d430338, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6897663875492849042
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4713164510645346116}
-  - component: {fileID: 3058023447885406546}
+  - component: {fileID: 3914384819828823098}
   m_Layer: 6
   m_Name: FiringPoint
   m_TagString: Untagged
@@ -218,7 +245,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5995646632468727114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3058023447885406546
+--- !u!212 &3914384819828823098
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

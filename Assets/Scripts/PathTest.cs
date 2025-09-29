@@ -5,21 +5,28 @@ using TMPro;
 public class PathTest : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Transform _target;                     //Gets target transform
-    [SerializeField] NavMeshAgent _agent;                   //Get's the agent (enemy) NavMesh
+    [SerializeField] Transform _target;               // Gets target transform
+    [SerializeField] NavMeshAgent _agent;             // Gets the agent (enemy) NavMesh
 
     [Header("Variables")]
-    [SerializeField] int _enemyHealth = 100;                  // Stores how much health the enemy has
-    public int enemyDamage = 7;                             // Stores how much damage the enemy can do to the player
+    [SerializeField] int _enemyHealth = 100;          // Stores how much health the enemy has
+    public int enemyDamage = 7;                       // Stores how much damage the enemy can do to the player
 
     [Header("UI")]
-    [SerializeField] TextMeshProUGUI _enemy1Health;
+    [SerializeField] TextMeshProUGUI _enemy1Health;   // Displays enemy health in UI
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Animation")]
+    [SerializeField] Animator _animator;              // Reference to the Animator component
+    [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
+
+    
     void Start()
     {
-        //Gets the NavMeshAgent from the enemy
+        // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
+
+        // Gets the Animator component from the enemy
+        _animator = GetComponent<Animator>();
 
         //-------------------
         //2D NavMesh settings
@@ -30,11 +37,16 @@ public class PathTest : MonoBehaviour
         _agent.updateUpAxis = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Follows player
         _agent.SetDestination(_target.position);
+
+        // Stores the enemy's last direction while moving
+        StoreLastMove();
+
+        // Changes enemy's sprites depending on their axes of movement (handled by StoreLastMove())
+        HandleSprites();
 
         SettingUI();
     }
@@ -80,5 +92,22 @@ public class PathTest : MonoBehaviour
             // Destroy enemy
             Destroy(gameObject);
         }
+    }
+
+    private void StoreLastMove()
+    {
+        // Saves the enemy's last movement direction
+        Vector2 moveDir = new Vector2(_agent.velocity.y, _agent.velocity.x).normalized;
+
+        if (moveDir != Vector2.zero)
+        {
+            _lastDir = moveDir;
+        }
+    }
+
+    private void HandleSprites()
+    {
+        _animator.SetFloat("Horizontal", _lastDir.x);
+        _animator.SetFloat("Vertical", _lastDir.y);
     }
 }
