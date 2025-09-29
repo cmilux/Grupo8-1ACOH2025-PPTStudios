@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor.ShaderGraph.Internal;
 
 
 #if UNITY_EDITOR
