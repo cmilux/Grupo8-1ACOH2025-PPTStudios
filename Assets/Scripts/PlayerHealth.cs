@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour
     [Header("Player")]
     [SerializeField] GameObject _player;
 
+    [Header("References")]
+    [SerializeField] PathTest _meleeEnemyManager;
+
     [Header("Health integers")]
     [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] public int playerCurrentHealth;  // Stores how much health the player has currently
@@ -95,6 +98,11 @@ public class PlayerHealth : MonoBehaviour
                 // Don't pickup and don't heal
                 return;
             }
+        }
+
+        if (other.gameObject.CompareTag("Hitbox"))
+        {
+            playerCurrentHealth -= _meleeEnemyManager.enemyDamage;
         }
     }
 }

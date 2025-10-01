@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using System.Collections;
 
 public class PathTest : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class PathTest : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] int _enemyHealth = 100;          // Stores how much health the enemy has
-    [SerializeField] public int enemyDamage = 7;      // Stores how much damage the enemy can do to the player
-    [SerializeField] bool _canAttack = false;         // Checks if enemy is in range to attack
+    [SerializeField] public int enemyDamage;          // Stores how much damage the enemy can do to the player
+    [SerializeField] public bool canAttack = false;         // Checks if enemy is in range to attack
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _enemy1Health;   // Displays enemy health in UI
@@ -21,7 +22,6 @@ public class PathTest : MonoBehaviour
     [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
 
-    
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
@@ -63,7 +63,7 @@ public class PathTest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Checks if enemy collides with a rock
+        // Checks if enemy collides with a rock
         if (other.gameObject.CompareTag("Rock"))
         {
             // Gets the damage value from the rock that the enemy has collided with
@@ -75,7 +75,7 @@ public class PathTest : MonoBehaviour
             //Checks enemy's health
             EnemyDeath();
         }
-        //Checks if enemy collides with the spray
+        // Checks if enemy collides with the spray
         else if (other.gameObject.CompareTag("Spray"))
         {
             // Gets the damage value from the spray that the enemy has collided with
@@ -116,9 +116,9 @@ public class PathTest : MonoBehaviour
 
         if (distance <= 1.51f)
         {
-            _canAttack = true;
+            canAttack = true;
         }
-        else _canAttack = false;
+        else canAttack = false;
     }
 
     private void HandleNPCSprites()
@@ -131,6 +131,6 @@ public class PathTest : MonoBehaviour
     {
         _alienAnimator.SetFloat("Horizontal", _lastDir.x);
         _alienAnimator.SetFloat("Vertical", _lastDir.y);
-        _alienAnimator.SetBool("Attack", _canAttack);
+        _alienAnimator.SetBool("Attack", canAttack);
     }
 }

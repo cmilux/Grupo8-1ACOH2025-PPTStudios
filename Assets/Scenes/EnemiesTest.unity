@@ -4194,6 +4194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   _player: {fileID: 4623430059660409953}
+  _meleeEnemyManager: {fileID: 0}
   _playerMaxHealth: 100
   playerCurrentHealth: 0
   activateInkSplatterEffect: 0
@@ -4233,7 +4234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13.000061, y: -46}
+  m_AnchoredPosition: {x: 13.000122, y: -46}
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1872282607
@@ -4451,7 +4452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13.000061, y: -15}
+  m_AnchoredPosition: {x: 13.000122, y: -15}
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2086479061
@@ -4735,9 +4736,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1991980567}
     m_Modifications:
+    - target: {fileID: 2023367746512771073, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 4623430059660409953}
     - target: {fileID: 2368381465472855034, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_Name
       value: EnemyAI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508314655006238317, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 5995646632468727114, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_LocalPosition.x
