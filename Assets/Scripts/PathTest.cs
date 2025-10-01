@@ -10,13 +10,15 @@ public class PathTest : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] int _enemyHealth = 100;          // Stores how much health the enemy has
-    public int enemyDamage = 7;                       // Stores how much damage the enemy can do to the player
+    [SerializeField] public int enemyDamage = 7;      // Stores how much damage the enemy can do to the player
+    [SerializeField] bool _canAttack = false;         // Checks if enemy is in range to attack
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _enemy1Health;   // Displays enemy health in UI
 
     [Header("Animation")]
-    [SerializeField] Animator _animator;              // Reference to the Animator component
+    [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
+    [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
 
     
@@ -24,9 +26,6 @@ public class PathTest : MonoBehaviour
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
-
-        // Gets the Animator component from the enemy
-        _animator = GetComponent<Animator>();
 
         //-------------------
         //2D NavMesh settings
@@ -46,7 +45,13 @@ public class PathTest : MonoBehaviour
         StoreLastMove();
 
         // Changes enemy's sprites depending on their axes of movement (handled by StoreLastMove())
-        HandleSprites();
+        HandleNPCSprites();
+
+        // Changes alien's sprites depending on their axes of movement (handled by StoreLastMove()) and if it's able to attack
+        HandleAlienSprites();
+
+        // Checks distance with player to set "_canAttack" to either true or false
+        DetectDistanceWithPlayer();
 
         SettingUI();
     }
@@ -105,9 +110,27 @@ public class PathTest : MonoBehaviour
         }
     }
 
-    private void HandleSprites()
+    private void DetectDistanceWithPlayer()
     {
-        _animator.SetFloat("Horizontal", _lastDir.x);
-        _animator.SetFloat("Vertical", _lastDir.y);
+        float distance = Vector2.Distance(transform.position, _target.transform.position);
+
+        if (distance <= 1)
+        {
+            _canAttack = true;
+        }
+        else _canAttack = false;
+    }
+
+    private void HandleNPCSprites()
+    {
+        _NPCAnimator.SetFloat("Horizontal", _lastDir.x);
+        _NPCAnimator.SetFloat("Vertical", _lastDir.y);
+    }
+
+    private void HandleAlienSprites()
+    {
+        _alienAnimator.SetFloat("Horizontal", _lastDir.x);
+        _alienAnimator.SetFloat("Vertical", _lastDir.y);
+        _alienAnimator.SetBool("Attack", _canAttack);
     }
 }

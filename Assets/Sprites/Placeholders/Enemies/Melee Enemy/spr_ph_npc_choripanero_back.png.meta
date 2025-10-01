@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8e333d1abc8d1ea42af1f91cea2e9acb
+guid: 2869840e9d64acc45b0785ecac8ce8f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4312371597186220751
-    second: spr_ph_alien_choripanero_front_0
+      213: -2519376049065532310
+    second: spr_ph_npc_choripanero_back_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_ph_alien_choripanero_front_0
+      name: spr_ph_npc_choripanero_back_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 6
         y: 0
-        width: 29
-        height: 39
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13d3b3a51e06724c0800000000000000
-      internalID: -4312371597186220751
+      spriteID: a6462d3e4d0690dd0800000000000000
+      internalID: -2519376049065532310
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_ph_alien_choripanero_front_0: -4312371597186220751
+      spr_ph_npc_choripanero_back_0: -2519376049065532310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

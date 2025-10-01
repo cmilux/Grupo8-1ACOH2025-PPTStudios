@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: b47874e4cef84304ab38b6978cf6264f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7875300213560494173
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_0
+  - first:
+      213: 754982534605574141
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_1
+  - first:
+      213: 6326387943485371969
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_2
+  - first:
+      213: 1262521928344278729
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_3
+  - first:
+      213: -3537083912383238616
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_4
+  - first:
+      213: -1613159646180077107
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_5
+  - first:
+      213: 5266712184529098028
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_6
+  - first:
+      213: 3558872676464063520
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_7
+  - first:
+      213: -1718627362504554298
+    second: spr_enemy_de_cerca_front-Sheet_32x32 (1)_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 192
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_enemy_de_cerca_front-Sheet_32x32 (1)_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 14
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a73b2f4e2055b290800000000000000
+      internalID: -7875300213560494173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_enemy_de_cerca_front-Sheet_32x32 (1)_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 14
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff0aca7d9c3a7a00800000000000000
+      internalID: 754982534605574141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_enemy_de_cerca_front-Sheet_32x32 (1)_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 14
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14672c2e058dbc750800000000000000
+      internalID: 6326387943485371969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_enemy_de_cerca_front-Sheet_32x32 (1)_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 14
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c61a143101658110800000000000000
+      internalID: 1262521928344278729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_enemy_de_cerca_front-Sheet_32x32 (1)_4
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 14
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ee5a50ce0c9eec0800000000000000
+      internalID: -3537083912383238616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_enemy_de_cerca_front-Sheet_32x32 (1)_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 14
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1117349d7ec99e0800000000000000
+      internalID: -1613159646180077107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_enemy_de_cerca_front-Sheet_32x32 (1)_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c846acf4853628e0800000000000000
+      internalID: -1718627362504554298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6409df63c28326c49b65f242833983b7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":224.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_0: -7875300213560494173
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_1: 754982534605574141
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_2: 6326387943485371969
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_3: 1262521928344278729
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_4: -3537083912383238616
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_5: -1613159646180077107
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_6: 5266712184529098028
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_7: 3558872676464063520
+      spr_enemy_de_cerca_front-Sheet_32x32 (1)_8: -1718627362504554298
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

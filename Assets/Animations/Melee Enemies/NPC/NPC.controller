@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 5076845337357467781}
-    m_Position: {x: 200, y: 230, z: 0}
+    m_Position: {x: 200, y: 220, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -28,7 +28,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MeleeEnemy
+  m_Name: NPC
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Horizontal
@@ -71,7 +71,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 985ad2b50a2458945ab46d665fc552b1, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9b93f58ecb3772448acb1c11dd669fdf, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -79,7 +79,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6bcd048b418708b41a4c6cd807bcaf45, type: 2}
+    m_Motion: {fileID: 7400000, guid: 6cd1bae1877178d4db21ed4e7980f6bc, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -87,7 +87,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 39b4989b9555edc4e82ed566203b68b2, type: 2}
+    m_Motion: {fileID: 7400000, guid: c4472c86161c17849b11abf0709910c1, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -95,7 +95,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 20e46493e95db1244b20b044ce59d8a3, type: 2}
+    m_Motion: {fileID: 7400000, guid: 87e8a0a6e5c7876409929ad30192765d, type: 2}
     m_Threshold: 1
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
