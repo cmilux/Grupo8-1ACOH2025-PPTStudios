@@ -12,10 +12,6 @@ public class PlayerAttackMelee : MonoBehaviour
     [SerializeField] float _requiredHoldTime = 1.5f;    //Max amount of time to hold the spray on
     [SerializeField] bool _isHolding = false;           //Checks if player is holding the input
 
-    /// <summary>
-    /// SWITCH TO NEW INPUT
-    /// </summary>
-
     private void Start()
     {
         //Spray is off until player press "Fire1"
@@ -30,6 +26,27 @@ public class PlayerAttackMelee : MonoBehaviour
 
     void IsButtonBeingHold()
     {
+        if ((Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+            (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame))
+        {
+            _holdTimer = 0f;                        //Sets holdtimer to 0
+            _isHolding = true;                      //Player is holding "Fire1"
+            _sprayGas.SetActive(true);          //Turns the spray gameobject on
+        }
+        if ((Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame) ||
+            (Gamepad.current != null && Gamepad.current.rightTrigger.wasReleasedThisFrame))
+        {
+            _isHolding = false;                     //Player is not longer holding "Fire1"
+            _holdTimer = 0f;                        //Sets hold time back to 0
+            _sprayGas.SetActive(false);     //Turns off spray gameObject
+        }
+
+        /*
+           /// 
+           /// <summary>
+           /// OLD INPUT
+           /// </summary>
+           /// 
         //Checks if R2/Left click has been pressed
         if (Input.GetButtonDown("Fire1"))
         {
@@ -45,12 +62,14 @@ public class PlayerAttackMelee : MonoBehaviour
             _holdTimer = 0f;                        //Sets hold time back to 0
             _sprayGas.SetActive(false);     //Turns off spray gameObject
         }
+        */
     }
 
     void MeleeTimer()
     {
         //Checks if player is holding the R2/Left click
-        if (_isHolding && Input.GetButton("Fire1"))
+        if (_isHolding && (Mouse.current != null && Mouse.current.leftButton.isPressed) ||
+            (Gamepad.current != null && Gamepad.current.rightTrigger.isPressed))//Input.GetButton("Fire1"))
         {
             //Sets time to the holder timer
             _holdTimer += Time.deltaTime;
