@@ -33,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Calls methods
-        IsPlayerMoving();
         PlayerRotation();
         ApplyAnimations();
+        RotateWeapon();
     }
 
     private void LateUpdate()
@@ -82,25 +82,16 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("Speed", _speed);
     }
 
-    void IsPlayerMoving()
+    void RotateWeapon()
     {
-        if (_isWalking)
+        //Check if the player has a movement direction stored
+        if (_lastDir != Vector2.zero)
         {
-            //Check if player is walking, rotate the weapon to the player's direction
-            Vector3 vector3 = Vector3.left * _lastDir.x + Vector3.down * _lastDir.y;
-            _weaponManager.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
-        }
-        if ((_moveInput.x == 0 && _moveInput.y == 0) && (_playerRb.linearVelocityX != 0) || _playerRb.linearVelocityY != 0)
-        {
-            _isWalking = false;         //Player is not walking anymore
+            //Convert the 2D direction (x, y) into an angle in degrees
+            float angle = Mathf.Atan2(_lastDir.y, _lastDir.x) * Mathf.Rad2Deg;
 
-            //
-            Vector3 vector3 = Vector3.left * _lastDir.x + Vector3.down * _lastDir.y;
-            _weaponManager.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
-        }
-        else if (_moveInput.x != 0 && _moveInput.y != 0)
-        {
-            _isWalking = true;          //Player is walking
+            //Apply the angle as rotation to the weapon manager (only on Z axis for 2D)
+            _weaponManager.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 }

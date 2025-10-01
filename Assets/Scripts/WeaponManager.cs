@@ -20,6 +20,10 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
+        /// <summary>
+        /// NEEDS TO BE UPDATED TO NEW INPUT SYSTEM
+        /// </summary>
+
         //Check if "space"/square where pressed
         if (Input.GetButtonDown("SwitchWeapons_J"))
         {
