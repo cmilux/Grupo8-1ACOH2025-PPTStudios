@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor.ShaderGraph.Internal;
 
 
 #if UNITY_EDITOR
@@ -12,8 +11,8 @@ public class GameManager : MonoBehaviour
     PlayerHealth _playerHealth;
     public GameObject _player;
 
-    float _xRange = 8f;
-    float _yRange = 4f;
+    float _xRange = 8.5f;
+    float _yRange = 4.5f;
 
 
     private void Update()
