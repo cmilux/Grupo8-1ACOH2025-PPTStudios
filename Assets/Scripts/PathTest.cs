@@ -114,7 +114,7 @@ public class PathTest : MonoBehaviour
     {
         float distance = Vector2.Distance(transform.position, _target.transform.position);
 
-        if (distance <= 1)
+        if (distance <= 1.51f)
         {
             _canAttack = true;
         }

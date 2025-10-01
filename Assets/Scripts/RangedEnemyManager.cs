@@ -33,16 +33,15 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _enemy2Health;   // Displays enemy health in UI
 
     [Header("Animation")]
-    [SerializeField] Animator _animator;              // Reference to the Animator component
+    [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
+    [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
+    [SerializeField] bool _playAttackAnimation;       // Checks if alien can play the attack animation
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
 
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
-
-        // Gets the Animator component from the enemy
-        _animator = GetComponent<Animator>();
 
         //-------------------
         //2D NavMesh settings
@@ -75,7 +74,10 @@ public class RangedEnemyManager : MonoBehaviour
         StoreLastMove();
 
         // Changes enemy's sprites depending on their axes of movement (handled by StoreLastMove())
-        HandleSprites();
+        HandleNPCSprites();
+
+        // Changes alien's sprites depending on their axes of movement (handled by StoreLastMove()) and if it's able to attack
+        HandleAlienSprites();
 
         SettingUI();
 
@@ -155,7 +157,11 @@ public class RangedEnemyManager : MonoBehaviour
             _currentAttackCooldown = _attackCooldown;
         }
         // If cooldown time is over zero, then tick down to zero
-        else _currentAttackCooldown -= Time.deltaTime;
+        else
+        {
+            _currentAttackCooldown -= Time.deltaTime;
+            _playAttackAnimation = false;
+        }
     }
 
     private void ThrowInk()
@@ -163,6 +169,9 @@ public class RangedEnemyManager : MonoBehaviour
         // If enemy is able to attack and "HandleAttackCooldown()" has called for the enemy to attack...
         if (_canAttack == true)
         {
+            // Plays the alien's attack animation
+            _playAttackAnimation = true;
+
             // Instantiates the ink prefab at the enemy's firing point's position and rotation
             var ink = Instantiate(_inkPrefab, _firingPoint.position, _firingPoint.rotation);
 
@@ -197,10 +206,17 @@ public class RangedEnemyManager : MonoBehaviour
         }
     }
 
-    private void HandleSprites()
+    private void HandleNPCSprites()
     {
-        _animator.SetFloat("Horizontal", _lastDir.x);
-        _animator.SetFloat("Vertical", _lastDir.y);
+        _NPCAnimator.SetFloat("Horizontal", _lastDir.x);
+        _NPCAnimator.SetFloat("Vertical", _lastDir.y);
+    }
+
+    private void HandleAlienSprites()
+    {
+        _alienAnimator.SetFloat("Horizontal", _lastDir.x);
+        _alienAnimator.SetFloat("Vertical", _lastDir.y);
+        _alienAnimator.SetBool("Attack", _playAttackAnimation);
     }
 
     public IEnumerator InkSplatterEffect()
