@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float _horizontalInput;             //X axis input
     [SerializeField] public float _verticalInput;               //Y axis input
     [SerializeField] float _speed = 5f;                         //Player speed
-    [SerializeField] bool _isWalking = false;                   //Checks if player is moving
 
     [Header("References")]
     Rigidbody2D _playerRb;                                      //Player rigidbody
@@ -17,10 +16,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector2 _lastDir;                          //Stores player last direction
     [SerializeField] Vector2 _moveDir;                          //Stores player move direction
     [SerializeField] Vector2 _moveInput;                        //Stores the input from movement
-
-    /*
-     * Hay un problema con la rotacion del weapon manager que hay q moverse un par de veces antes de que oficialmente la weapon gire
-     */
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -71,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _spriteRenderer.flipX = false;
         }
-
     }
 
     void ApplyAnimations()

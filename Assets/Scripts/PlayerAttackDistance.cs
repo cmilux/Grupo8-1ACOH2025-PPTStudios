@@ -27,8 +27,8 @@ public class PlayerAttackDistance : MonoBehaviour
     private void Update()
     {
         //Calling methods
-        ThrowTheRock();
         HandleThrowDirection();
+        ThrowTheRock();
 
         //Decrease cooldown timer
         _currentAttackTime -= Time.deltaTime;
@@ -71,9 +71,9 @@ public class PlayerAttackDistance : MonoBehaviour
 
         if (Mouse.current != null)
         {
+            //Si estas dos lineas van dentro del if, el player dispara en la posicion que mira, pero no dispara en diagonal
             //Gets the mouse position
             _worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
             //Calculate the direction from spawn position to mouse position
             mouseDir = (_worldPosition - (Vector2)_rockSpawnPos.transform.position).normalized;
 
