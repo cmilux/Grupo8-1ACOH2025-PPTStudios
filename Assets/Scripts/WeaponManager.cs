@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -20,12 +21,8 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        /// <summary>
-        /// NEEDS TO BE UPDATED TO NEW INPUT SYSTEM
-        /// </summary>
-
-        //Check if "space"/square where pressed
-        if (Input.GetButtonDown("SwitchWeapons_J"))
+        if ((Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame) ||
+            (Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame))
         {
             SwitchWeapons();
         }
