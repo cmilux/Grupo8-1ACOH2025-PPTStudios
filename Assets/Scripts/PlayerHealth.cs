@@ -99,10 +99,5 @@ public class PlayerHealth : MonoBehaviour
                 return;
             }
         }
-
-        if (other.gameObject.CompareTag("Hitbox"))
-        {
-            playerCurrentHealth -= _meleeEnemyManager.enemyDamage;
-        }
     }
 }
