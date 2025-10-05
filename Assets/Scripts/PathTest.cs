@@ -8,11 +8,12 @@ public class PathTest : MonoBehaviour
     [Header("References")]
     [SerializeField] Transform _target;               // Gets target transform
     [SerializeField] NavMeshAgent _agent;             // Gets the agent (enemy) NavMesh
+    [SerializeField] HitboxManager _hitboxManager;    // Gets the HitboxManager script from the alien
 
     [Header("Variables")]
     [SerializeField] int _enemyHealth = 100;          // Stores how much health the enemy has
     [SerializeField] public int enemyDamage;          // Stores how much damage the enemy can do to the player
-    [SerializeField] public bool canAttack = false;         // Checks if enemy is in range to attack
+    [SerializeField] public bool canAttack = false;   // Checks if enemy is in range to attack
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _enemy1Health;   // Displays enemy health in UI
@@ -21,11 +22,20 @@ public class PathTest : MonoBehaviour
     [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
     [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
+    [SerializeField] bool _attackAnimation = false;
+    [SerializeField] bool _enemyDamaged = false;
+
+    [Header("Attack Cooldown")]
+    [SerializeField] public float attackCooldown;
+    [SerializeField] public float currentAttackCooldown;
+    [SerializeField] public bool attackReady = false;
 
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
+
+        currentAttackCooldown = attackCooldown;
 
         //-------------------
         //2D NavMesh settings
@@ -53,6 +63,8 @@ public class PathTest : MonoBehaviour
         // Checks distance with player to set "_canAttack" to either true or false
         DetectDistanceWithPlayer();
 
+        HandleAttackCooldown();
+
         SettingUI();
     }
 
@@ -72,6 +84,8 @@ public class PathTest : MonoBehaviour
             // Apply damage to enemy
             _enemyHealth -= rockDamageAmount;
 
+            _enemyDamaged = true;
+
             //Checks enemy's health
             EnemyDeath();
         }
@@ -84,9 +98,12 @@ public class PathTest : MonoBehaviour
             // Apply damage to enemy
             _enemyHealth -= sprayDamage;
 
+            _enemyDamaged = true;
+
             //Checks enemy's health
             EnemyDeath();
         }
+        else _enemyDamaged = false;
     }
 
     private void EnemyDeath()
@@ -131,6 +148,25 @@ public class PathTest : MonoBehaviour
     {
         _alienAnimator.SetFloat("Horizontal", _lastDir.x);
         _alienAnimator.SetFloat("Vertical", _lastDir.y);
-        _alienAnimator.SetBool("Attack", canAttack);
+        _alienAnimator.SetBool("Attack", _attackAnimation);
+        _alienAnimator.SetBool("Damage", _enemyDamaged);
+
+        if (canAttack && attackReady)
+        {
+            _attackAnimation = true;
+        }
+        else _attackAnimation = false;
+    }
+
+    private void HandleAttackCooldown()
+    {
+        if (attackReady == false)
+        {
+            currentAttackCooldown -= Time.deltaTime;
+            if (currentAttackCooldown <= 0)
+            {
+                attackReady = true;
+            }
+        }
     }
 }

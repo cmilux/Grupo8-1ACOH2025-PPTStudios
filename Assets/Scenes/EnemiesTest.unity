@@ -523,6 +523,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172976836}
   m_CullTransparentMesh: 1
+--- !u!114 &214573847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1845096445344865689, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+  m_PrefabInstance: {fileID: 6706170029823782787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75261431f081106498a9b64c514a17f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitboxManager
 --- !u!1 &221604054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,11 +3460,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
---- !u!1 &1116995498 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2368381465472855034, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-  m_PrefabInstance: {fileID: 6706170029823782787}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1408050164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4741,61 +4747,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1991980567}
     m_Modifications:
-    - target: {fileID: 1544930928615716538, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1544930928615716538, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1845096445344865689, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 4623430059660409953}
-    - target: {fileID: 1845096445344865689, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: _meleeEnemy
-      value: 
-      objectReference: {fileID: 1116995498}
-    - target: {fileID: 1845096445344865689, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: _rotateSpeed
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845096445344865689, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: _hitboxRadius
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845096445344865689, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: _hitboxTarget
-      value: 
-      objectReference: {fileID: 4623430059660409953}
-    - target: {fileID: 2023367746512771073, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 4623430059660409953}
-    - target: {fileID: 2182419499592130046, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1.05
-      objectReference: {fileID: 0}
     - target: {fileID: 2368381465472855034, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_Name
       value: EnemyAI
       objectReference: {fileID: 0}
-    - target: {fileID: 2508314655006238317, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+    - target: {fileID: 3798361074954341599, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2508314655006238317, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+    - target: {fileID: 3798361074954341599, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2508314655006238317, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508314655006238317, guid: 68630d69201749343ae7144f15eb876b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.61
+    - target: {fileID: 3798361074954341599, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5995646632468727114, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4845,6 +4815,30 @@ PrefabInstance:
       propertyPath: _enemy1Health
       value: 
       objectReference: {fileID: 2086479061}
+    - target: {fileID: 6237464456903845930, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: _hitboxManager
+      value: 
+      objectReference: {fileID: 214573847}
+    - target: {fileID: 6237464456903845930, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: attackCooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071092581813955256, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071092581813955256, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.71875
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071092581813955256, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 61227512781541994, guid: c40c4f7d03a399a4da47e9348bbb2556, type: 3}
+    - target: {fileID: 9071092581813955256, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

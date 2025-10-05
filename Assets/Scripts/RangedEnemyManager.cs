@@ -37,6 +37,7 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] bool _playAttackAnimation;       // Checks if alien can play the attack animation
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
+    [SerializeField] bool _enemyDamaged;
 
     void Start()
     {
@@ -103,10 +104,11 @@ public class RangedEnemyManager : MonoBehaviour
             // Apply damage to enemy
             _enemyHealth -= rockDamageAmount;
 
+            _enemyDamaged = true;
+
             // Checks enemy's health
             EnemyDeath();
         }
-
         // Checks if enemy collides with the spray
         else if (other.gameObject.CompareTag("Spray"))
         {
@@ -116,9 +118,12 @@ public class RangedEnemyManager : MonoBehaviour
             // Apply damage to enemy
             _enemyHealth -= sprayDamage;
 
+            _enemyDamaged = true;
+
             // Checks enemy's health
             EnemyDeath();
         }
+        else _enemyDamaged = false;
     }
 
     private void EnemyDeath()
@@ -217,6 +222,7 @@ public class RangedEnemyManager : MonoBehaviour
         _alienAnimator.SetFloat("Horizontal", _lastDir.x);
         _alienAnimator.SetFloat("Vertical", _lastDir.y);
         _alienAnimator.SetBool("Attack", _playAttackAnimation);
+        _alienAnimator.SetBool("Damage", _enemyDamaged);
     }
 
     public IEnumerator InkSplatterEffect()

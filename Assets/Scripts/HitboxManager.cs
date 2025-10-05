@@ -12,13 +12,10 @@ public class HitboxManager : MonoBehaviour
     [SerializeField] GameObject _meleeEnemy;
     [SerializeField] float _rotateSpeed;
     [SerializeField] PathTest _meleeEnemyManager;
-    [SerializeField] Vector2 _playerDistance;
 
     private void Update()
     {
         RotateHitboxSpawn();
-
-        _playerDistance = _player.transform.position - _meleeEnemy.transform.position;
     }
 
     // SELE: Prometo hacer anotaciones de cómo funciona esto en cuanto entienda cómo funciona esto
@@ -39,12 +36,14 @@ public class HitboxManager : MonoBehaviour
     private void SpawnHitbox()
     {
         Collider2D player = Physics2D.OverlapCircle(_hitboxSpawn.transform.position, _hitboxRadius, _playerLayer);
-        
-        if (player != null)
+
+        if (player != null && _meleeEnemyManager.attackReady == true)
         {
             var playerHealth = player.GetComponentInChildren<PlayerHealth>();
             playerHealth.playerCurrentHealth -= _meleeEnemyManager.enemyDamage;
-            Debug.Log("Damaged player!");
+
+            _meleeEnemyManager.attackReady = false;
+            _meleeEnemyManager.currentAttackCooldown = _meleeEnemyManager.attackCooldown;
         }
     }
 

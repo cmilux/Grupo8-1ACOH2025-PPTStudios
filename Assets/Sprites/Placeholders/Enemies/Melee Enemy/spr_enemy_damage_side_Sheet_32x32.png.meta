@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 23b56884157c9b14cba561f46fb58065
+guid: b5ed26a4f29250b4eae8f2d85096d9e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1196122565504810368
-    second: spr_enemy_de_cerca_side-right_0
+      213: -5349142581080603379
+    second: spr_enemy_damage_side_Sheet_32x32_0
   - first:
-      213: -2583521568304839164
-    second: spr_enemy_de_cerca_side-right_1
+      213: 4314347191877984709
+    second: spr_enemy_damage_side_Sheet_32x32_1
   - first:
-      213: 1634049825227408081
-    second: spr_enemy_de_cerca_side-right_2
+      213: -6344288592828722208
+    second: spr_enemy_damage_side_Sheet_32x32_2
   - first:
-      213: 8912244923326171297
-    second: spr_enemy_de_cerca_side-right_3
+      213: 3420004089947811191
+    second: spr_enemy_damage_side_Sheet_32x32_3
   - first:
-      213: 5282741017041966678
-    second: spr_enemy_de_cerca_side-right_4
-  - first:
-      213: 330729853453218980
-    second: spr_enemy_de_cerca_side-right_5
+      213: 3149431290529893725
+    second: spr_enemy_damage_side_Sheet_32x32_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_enemy_de_cerca_side-right_0
+      name: spr_enemy_damage_side_Sheet_32x32_0
       rect:
         serializedVersion: 2
         x: 6
@@ -130,42 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08d3eb0d22b799010800000000000000
-      internalID: 1196122565504810368
+      spriteID: d0546c9d92704c5b0800000000000000
+      internalID: -5349142581080603379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_enemy_de_cerca_side-right_1
+      name: spr_enemy_damage_side_Sheet_32x32_1
       rect:
         serializedVersion: 2
         x: 38
         y: 0
-        width: 19
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 40641ab52dc752cd0800000000000000
-      internalID: -2583521568304839164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_enemy_de_cerca_side-right_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 0
         width: 20
-        height: 23
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d208f198af4da610800000000000000
-      internalID: 1634049825227408081
+      spriteID: 5c16791a9e3afdb30800000000000000
+      internalID: 4314347191877984709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_enemy_de_cerca_side-right_3
+      name: spr_enemy_damage_side_Sheet_32x32_2
       rect:
         serializedVersion: 2
-        x: 102
+        x: 69
         y: 0
-        width: 24
-        height: 23
+        width: 22
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +171,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a88226e987aeab70800000000000000
-      internalID: 8912244923326171297
+      spriteID: 0e391e7632f84f7a0800000000000000
+      internalID: -6344288592828722208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_enemy_de_cerca_side-right_4
+      name: spr_enemy_damage_side_Sheet_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77de8bf899b467f20800000000000000
+      internalID: 3420004089947811191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_enemy_damage_side_Sheet_32x32_4
       rect:
         serializedVersion: 2
         x: 134
         y: 0
-        width: 27
-        height: 23
+        width: 20
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,30 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6561c2147f0105940800000000000000
-      internalID: 5282741017041966678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_enemy_de_cerca_side-right_5
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 0
-        width: 26
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a432b7ac0df69400800000000000000
-      internalID: 330729853453218980
+      spriteID: d5dc884821705bb20800000000000000
+      internalID: 3149431290529893725
       vertices: []
       indices: 
       edges: []
@@ -260,12 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_enemy_de_cerca_side-right_0: 1196122565504810368
-      spr_enemy_de_cerca_side-right_1: -2583521568304839164
-      spr_enemy_de_cerca_side-right_2: 1634049825227408081
-      spr_enemy_de_cerca_side-right_3: 8912244923326171297
-      spr_enemy_de_cerca_side-right_4: 5282741017041966678
-      spr_enemy_de_cerca_side-right_5: 330729853453218980
+      spr_enemy_damage_side_Sheet_32x32_0: -5349142581080603379
+      spr_enemy_damage_side_Sheet_32x32_1: 4314347191877984709
+      spr_enemy_damage_side_Sheet_32x32_2: -6344288592828722208
+      spr_enemy_damage_side_Sheet_32x32_3: 3420004089947811191
+      spr_enemy_damage_side_Sheet_32x32_4: 3149431290529893725
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
