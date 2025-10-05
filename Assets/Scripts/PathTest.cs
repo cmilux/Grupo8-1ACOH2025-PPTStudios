@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PathTest : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class PathTest : MonoBehaviour
     [SerializeField] HitboxManager _hitboxManager;    // Gets the HitboxManager script from the alien
 
     [Header("Variables")]
-    [SerializeField] int _enemyHealth = 100;          // Stores how much health the enemy has
+    [SerializeField] float _enemyHealth = 100;          // Stores how much health the enemy has
+    [SerializeField] float _currentEnemyHealth;         // Stores how much health the enemy currently has
     [SerializeField] public int enemyDamage;          // Stores how much damage the enemy can do to the player
     [SerializeField] public bool canAttack = false;   // Checks if enemy is in range to attack
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _enemy1Health;   // Displays enemy health in UI
+    [SerializeField] Slider _healthBar;
 
     [Header("Animation")]
     [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
@@ -36,6 +39,8 @@ public class PathTest : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
 
         currentAttackCooldown = attackCooldown;
+
+        _currentEnemyHealth = _enemyHealth;
 
         //-------------------
         //2D NavMesh settings
@@ -65,12 +70,14 @@ public class PathTest : MonoBehaviour
 
         HandleAttackCooldown();
 
+        UpdateHealthBar();
+
         SettingUI();
     }
 
     void SettingUI()
     {
-        _enemy1Health.SetText($"Healht: {_enemyHealth}");
+        _enemy1Health.SetText($"Healht: {_currentEnemyHealth}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,7 +89,7 @@ public class PathTest : MonoBehaviour
             int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
 
             // Apply damage to enemy
-            _enemyHealth -= rockDamageAmount;
+            _currentEnemyHealth -= rockDamageAmount;
 
             _enemyDamaged = true;
 
@@ -96,7 +103,7 @@ public class PathTest : MonoBehaviour
             int sprayDamage = other.gameObject.GetComponent<SprayManager>().sprayDamage;
 
             // Apply damage to enemy
-            _enemyHealth -= sprayDamage;
+            _currentEnemyHealth -= sprayDamage;
 
             _enemyDamaged = true;
 
@@ -109,7 +116,7 @@ public class PathTest : MonoBehaviour
     private void EnemyDeath()
     {
         //Checks the enemy's health
-        if (_enemyHealth <= 0)
+        if (_currentEnemyHealth <= 0)
         {
             // Destroy enemy
             Destroy(gameObject);
@@ -168,5 +175,10 @@ public class PathTest : MonoBehaviour
                 attackReady = true;
             }
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        _healthBar.value = _currentEnemyHealth / _enemyHealth;
     }
 }

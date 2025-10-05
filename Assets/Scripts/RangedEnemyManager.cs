@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
 
 public class RangedEnemyManager : MonoBehaviour
 {
@@ -24,13 +25,15 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] float _inkSpeed;                 // Stores the speed at which the ink bullet will travel
 
     [Header("Stats")]
-    [SerializeField] int _enemyHealth;                // Stores how much health the enemy has
+    [SerializeField] float _enemyHealth;              // Stores how much health the enemy has
+    [SerializeField] float _currentEnemyHealth;       // Stores how much health the enemy currently has
     [SerializeField] float _rotateSpeed;              // Handles the speed at which the enemy rotates towards the player
 
     [Header("UI")]
     [SerializeField] GameObject inkSplatter;          // Gets the image for the ink splatter effect
     [SerializeField] PlayerHealth _playerHealth;      // Gets the player health script that calls for the ink splatter effect
     [SerializeField] TextMeshProUGUI _enemy2Health;   // Displays enemy health in UI
+    [SerializeField] Slider _healthBar;
 
     [Header("Animation")]
     [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
@@ -55,6 +58,8 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Sets current attack cooldown timer to starting cooldown timer
         _currentAttackCooldown = _attackCooldown;
+
+        _currentEnemyHealth = _enemyHealth;
     }
 
     void Update()
@@ -80,6 +85,8 @@ public class RangedEnemyManager : MonoBehaviour
         // Changes alien's sprites depending on their axes of movement (handled by StoreLastMove()) and if it's able to attack
         HandleAlienSprites();
 
+        UpdateHealthBar();
+
         SettingUI();
 
         if (_playerHealth.activateInkSplatterEffect == true)
@@ -90,7 +97,7 @@ public class RangedEnemyManager : MonoBehaviour
 
     void SettingUI()
     {
-        _enemy2Health.SetText($"Health: {_enemyHealth}");
+        _enemy2Health.SetText($"Health: {_currentEnemyHealth}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -102,7 +109,7 @@ public class RangedEnemyManager : MonoBehaviour
             int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
 
             // Apply damage to enemy
-            _enemyHealth -= rockDamageAmount;
+            _currentEnemyHealth -= rockDamageAmount;
 
             _enemyDamaged = true;
 
@@ -116,7 +123,7 @@ public class RangedEnemyManager : MonoBehaviour
             int sprayDamage = other.gameObject.GetComponent<SprayManager>().sprayDamage;
 
             // Apply damage to enemy
-            _enemyHealth -= sprayDamage;
+            _currentEnemyHealth -= sprayDamage;
 
             _enemyDamaged = true;
 
@@ -129,7 +136,7 @@ public class RangedEnemyManager : MonoBehaviour
     private void EnemyDeath()
     {
         // Checks the enemy's health
-        if (_enemyHealth <= 0)
+        if (_currentEnemyHealth <= 0)
         {
             // Destroy enemy
             Destroy(gameObject);
@@ -232,5 +239,10 @@ public class RangedEnemyManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         inkSplatter.SetActive(false);
         _playerHealth.activateInkSplatterEffect = false;
+    }
+
+    private void UpdateHealthBar()
+    {
+        _healthBar.value = _currentEnemyHealth / _enemyHealth;
     }
 }
