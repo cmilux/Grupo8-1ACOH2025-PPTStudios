@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 public class WeaponManager : MonoBehaviour
 {
     [Header("References")]
-    public GameObject[] weapons;            //Array for weapons
-    private int currentWeaponIndex = 0;     //Index to check what weapon is selected
+    public GameObject[] weapons;                        //Array for weapons
+    private int currentWeaponIndex = 0;                 //Index to check what weapon is selected
+    [SerializeField] PlayerMovement _playerMovement;    //PlayerMovement script
 
     private void Start()
     {
@@ -17,6 +18,9 @@ public class WeaponManager : MonoBehaviour
             weapons[i].SetActive(false);                //Turns off the weapon not used
         }
         weapons[currentWeaponIndex].SetActive(true);
+
+        //Gets the PlayerMovement script
+        _playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -36,5 +40,7 @@ public class WeaponManager : MonoBehaviour
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
         //Turn on new weapon
         weapons[currentWeaponIndex].SetActive(true);
+        //Lets the PlayerMovement know what weapon is on
+        _playerMovement.UpdateActiveAttack(currentWeaponIndex);
     }
 }

@@ -18,51 +18,80 @@ public class PlayerAttackDistance : MonoBehaviour
     [SerializeField] string _lastInput;                     //Stores the last input used
     [SerializeField] float _attackCooldown;                 //Cooldown time between attacks
     [SerializeField] float _currentAttackTime;              //Tracks current cooldown timer
+    public bool _isAttacking;                               //Checks if player is attacking
+
+    [Header("Animator")]
+    [SerializeField] PlayerMovement _playerAnimator;        //Player animator
 
     private void Start()
     {
         //Get's PlayerInventory and PlayerMovement script
         _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
+        _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+
+        //Initialize cooldown to 0 so player cant shoot as soon as game starts
+        _currentAttackTime = 0f;
     }
+
     private void Update()
     {
         //Calling methods
         HandleThrowDirection();
-        ThrowTheRock();
+        AttackInput();
+        ApplyAnimations();
 
-        //Decrease cooldown timer
-        _currentAttackTime -= Time.deltaTime;
+        //Decrease cooldown timer per frame
+        if (_currentAttackTime > 0f)
+        {
+            _currentAttackTime -= Time.deltaTime;
+        }
     }
 
-    void ThrowTheRock()
+    void AttackInput()
     {
-        //Check if the cooldown time has passed
-        if (_currentAttackTime > 0)
-        {
-            //Does nothing
-            return;
-        }
+        //Prevent shooting while cooldown is active
+        if (_currentAttackTime > 0) return;
 
-        //Saves in the variable if the mouse was clicked or the R2 from joystick was triggered
-        bool isAttacking = (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+        //Save if the mouse click or controller trigger was pressed
+        bool shoot = (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
             (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame);
 
-        //Checks if the player has ammunition and if the left click was pressed
-        if (_playerInventory.playerHasAmmunition == true && isAttacking)
+        //Checks if the player has ammunition and if the shoot button was pressed
+        if (_playerInventory.playerHasAmmunition == true && shoot)
         {
-            //Creates a new object in rock using the rock prefab in a position and rotation (rockSpawnPos)
-            var rock = Instantiate(_rocksPrefab, _rockSpawnPos.position, _rockSpawnPos.rotation);
-            //Gets rock rb, sends it to a direction with a certain speed
-            rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
-            //Set the cooldown timer
-            _currentAttackTime = _attackCooldown;
-            //Substracts one rock from player's inventory
-            _playerInventory.rocks--;
-            //Destroy the rock after certain seconds
-            Destroy(rock, 3f);
+            _currentAttackTime = _attackCooldown;           //Restart cooldown       
+            _isAttacking = true;                            //Player is attackin
         }
     }
 
+    /// <summary>
+    /// Instantiantes the rock with a speed and decreases the ammo
+    /// This method called from an animation event in PlayerMovement script
+    /// </summary>
+    public void SpawnRock()
+    {
+        //Creates a new object in rock using the rock prefab in a position and rotation (rockSpawnPos)
+        var rock = Instantiate(_rocksPrefab, _rockSpawnPos.position, _rockSpawnPos.rotation);
+        //Gets rock rb, sends it to a direction with a certain speed
+        rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
+        //Substracts one rock from player's inventory
+        _playerInventory.rocks--;
+        //Destroy the rock after certain seconds
+        Destroy(rock, 3f);
+        //After animation ends, reset attacking state
+        StartCoroutine(ResetAttackFlag());
+    }
+
+    IEnumerator ResetAttackFlag()
+    {
+        yield return new WaitForSeconds(0.1f);        //Waits 0.1 seconds
+        _isAttacking = false;                               //Returns that player is not attacking
+    }
+
+    /// <summary>
+    /// Detects what the player is using (mouse or gamepad)
+    /// Rotates the spawn point toward that direction
+    /// </summary>
     void HandleThrowDirection()
     {
         //Initialize vectors to store mouse and joystick directions
@@ -109,10 +138,17 @@ public class PlayerAttackDistance : MonoBehaviour
             _direction = mouseDir;
         }
 
+        
         //Apply to spawn direction
         if (_direction != Vector2.zero)
         {
             _rockSpawnPos.right = _direction;
         }
+    }
+
+    void ApplyAnimations()
+    {
+        //Applies the bool _isAttacking to the distance animation
+        _playerAnimator._animator.SetBool("IsDistanceAttacking", _isAttacking);
     }
 }
