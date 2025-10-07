@@ -8,12 +8,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float _verticalInput;                   //Y axis input
     [SerializeField] float _speed = 5f;                             //Player speed
 
+    public bool _isBeingAttacked;
+    public bool _isDead;
+
     [Header("References")]
     Rigidbody2D _playerRb;                                          //Player rigidbody
     [SerializeField] PlayerAttackDistance _playerAttackDistance;    //Distance script reference
     [SerializeField] PlayerAttackMelee _playerAttackMelee;          //Melee script reference
     [SerializeField] SpriteRenderer _spriteRenderer;                //Player sprite
-    [SerializeField] SpriteRenderer _spawnPosRenderer;              //SpawnPos Renderer
     [SerializeField] Transform _weaponManager;                      //Weapon manager transform component
     public Animator _animator;                                      //Player animator
 
@@ -89,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
         //Set the idle animation depending on axis
         _animator.SetFloat("LastDirX", _lastDir.x);
         _animator.SetFloat("LastDirY", _lastDir.y);
+
+        _animator.SetBool("IsBeingAttacked", _isBeingAttacked);
+        _animator.SetBool("IsDead", _isDead);
     }
     public void EndAnimation()
     {

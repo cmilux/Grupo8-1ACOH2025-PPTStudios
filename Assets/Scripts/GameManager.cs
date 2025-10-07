@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 
 #if UNITY_EDITOR
@@ -8,7 +10,7 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-    PlayerHealth _playerHealth;
+    PlayerMovement _playerMovement;
     public GameObject _player;
 
     float _xRange = 8.5f;
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("WeaponsSystem");        //Loads the game scene
     }
+
+    
 
    /*
     void RestartGame()

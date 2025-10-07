@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -51,17 +52,35 @@ public class PlayerHealth : MonoBehaviour
         if (playerCurrentHealth <= 0)
         {
             //Sets the player off the screen
-            _player.SetActive(false);
-            SceneManager.LoadScene("GameOver");
+            //_player.SetActive(false);
+
+            //animation
+            _playerAnimator._isDead = true;
+
+            StartCoroutine(WaitnLoadScene());
+            //Loads game over scene
+            //SceneManager.LoadScene("GameOver");
         }
     }
 
+    IEnumerator WaitnLoadScene()
+    {
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene("GameOver");
+    }
+
+    IEnumerator WaitForAnimationToEnd()
+    {
+        yield return new WaitForSeconds(1.5f);
+        _playerAnimator._isBeingAttacked = false;
+    }
     void SettingUI()
     {
         _playerHealth.SetText($"Health: {playerCurrentHealth}");
     }
 
-    void OnTriggerEnter2D (Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -70,6 +89,9 @@ public class PlayerHealth : MonoBehaviour
 
             // Applies that damage amount to the player health
             playerCurrentHealth -= damageAmount;
+
+            _playerAnimator._isBeingAttacked = true;
+            StartCoroutine(WaitForAnimationToEnd());
         }
 
         if (other.gameObject.CompareTag("Ink"))
@@ -79,9 +101,12 @@ public class PlayerHealth : MonoBehaviour
 
             // Applies that damage amount to the player health
             playerCurrentHealth -= inkDamage;
-            
+
             // Calls for the ink splatter effect handled by the ranged enemy manager
             activateInkSplatterEffect = true;
+
+            _playerAnimator._isBeingAttacked = true;
+            StartCoroutine(WaitForAnimationToEnd());
 
             Destroy(other.gameObject);
         }

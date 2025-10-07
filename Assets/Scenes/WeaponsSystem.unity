@@ -5084,6 +5084,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   _player: {fileID: 4623430059660409953}
+  _playerAnimator: {fileID: 0}
+  _meleeEnemyManager: {fileID: 0}
   _playerMaxHealth: 100
   playerCurrentHealth: 0
   activateInkSplatterEffect: 0
@@ -5553,10 +5555,11 @@ MonoBehaviour:
   _horizontalInput: 0
   _verticalInput: 0
   _speed: 5
+  _isBeingAttacked: 0
+  _isDead: 0
   _playerAttackDistance: {fileID: 416745332}
   _playerAttackMelee: {fileID: 40525735}
   _spriteRenderer: {fileID: 1914249348534836735}
-  _spawnPosRenderer: {fileID: 416745331}
   _weaponManager: {fileID: 654620641}
   _animator: {fileID: 9111779565722688118}
   _lastDir: {x: 0, y: 0}
@@ -5689,13 +5692,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1991980567}
     m_Modifications:
+    - target: {fileID: 1845096445344865689, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 4623430059660409953}
     - target: {fileID: 2368381465472855034, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_Name
       value: EnemyAI
       objectReference: {fileID: 0}
     - target: {fileID: 2368381465472855034, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5995646632468727114, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5805,6 +5812,10 @@ PrefabInstance:
     - target: {fileID: 5995646632468727114, guid: 6817798734d560048a572a887f7147f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372391829266844754, guid: 6817798734d560048a572a887f7147f8, type: 3}
+      propertyPath: _agent
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8372391829266844754, guid: 6817798734d560048a572a887f7147f8, type: 3}
       propertyPath: _target
