@@ -145,14 +145,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40525731}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 56075002}
   m_Father: {fileID: 654620641}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &40525733
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40525731}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -224,9 +224,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackMelee
   _sprayGas: {fileID: 56075001}
+  _playerAnimator: {fileID: 0}
   _holdTimer: 0
   _requiredHoldTime: 1.5
   _isHolding: 0
+  _isAttacking: 0
 --- !u!1 &56075001
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,9 +910,12 @@ MonoBehaviour:
   _rocksPrefab: {fileID: 438934401745146593, guid: e369246d364bd35439cf94a4f3039a67, type: 3}
   _worldPosition: {x: 0, y: 0}
   _direction: {x: 0, y: 0}
-  _rockSpeed: 4
+  _rockSpeed: 5
   _lastInput: 
+  _attackCooldown: 0.3
+  _currentAttackTime: 0
   _isAttacking: 0
+  _playerAnimator: {fileID: 0}
 --- !u!4 &432534796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7168590555543057559, guid: ffa2bad51acfc2e48b5b7b5045d2c80b, type: 3}
@@ -1681,6 +1686,7 @@ GameObject:
   - component: {fileID: 646319797}
   - component: {fileID: 646319796}
   - component: {fileID: 646319799}
+  - component: {fileID: 646319800}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1806,6 +1812,38 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &646319800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646319795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1 &654620640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,6 +1893,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 416745329}
   - {fileID: 40525731}
+  _playerMovement: {fileID: 0}
 --- !u!4 &683849869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2489890915012195403, guid: 6270abc779f57e24ea4ce1c8723cee3c, type: 3}
@@ -5514,10 +5553,12 @@ MonoBehaviour:
   _horizontalInput: 0
   _verticalInput: 0
   _speed: 5
-  _isWalking: 0
+  _playerAttackDistance: {fileID: 416745332}
+  _playerAttackMelee: {fileID: 40525735}
   _spriteRenderer: {fileID: 1914249348534836735}
-  _animator: {fileID: 9111779565722688118}
+  _spawnPosRenderer: {fileID: 416745331}
   _weaponManager: {fileID: 654620641}
+  _animator: {fileID: 9111779565722688118}
   _lastDir: {x: 0, y: 0}
   _moveDir: {x: 0, y: 0}
   _moveInput: {x: 0, y: 0}
@@ -5568,12 +5609,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2238340735837253153, guid: 44a1e21215be42f4db0a7ad2f4a8e110, type: 3}
+  m_Sprite: {fileID: 3323061161735268425, guid: dbc56809c688e6b41b01e649156dfbe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.59375, y: 1}
+  m_Size: {x: 0.53125, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5616,7 +5657,7 @@ GameObject:
   - component: {fileID: 9111779565722688115}
   - component: {fileID: 9111779565722688118}
   - component: {fileID: 9111779565722688119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5651,6 +5692,10 @@ PrefabInstance:
     - target: {fileID: 2368381465472855034, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_Name
       value: EnemyAI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2368381465472855034, guid: 68630d69201749343ae7144f15eb876b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5995646632468727114, guid: 68630d69201749343ae7144f15eb876b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5716,6 +5761,10 @@ PrefabInstance:
     - target: {fileID: 2368381465472855034, guid: 6817798734d560048a572a887f7147f8, type: 3}
       propertyPath: m_Name
       value: RangedEnemyAI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2368381465472855034, guid: 6817798734d560048a572a887f7147f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5995646632468727114, guid: 6817798734d560048a572a887f7147f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5792,7 +5841,7 @@ Transform:
   m_GameObject: {fileID: 3752733868191894079}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.35, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5837,7 +5886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bedbba363817714184639b012a71881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  rocks: 30
+  rocks: 1000
   playerHasAmmunition: 0
   _playerInventory: {fileID: 221604056}
 --- !u!61 &9111779565722688117
@@ -5878,8 +5927,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.59375, y: 1}
-    newSize: {x: 0.59375, y: 1}
+    oldSize: {x: 0.53125, y: 1}
+    newSize: {x: 0.53125, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

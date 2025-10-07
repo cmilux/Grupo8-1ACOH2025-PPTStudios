@@ -3,24 +3,24 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Player movement")]
-    [SerializeField] public float _horizontalInput;             //X axis input
-    [SerializeField] public float _verticalInput;               //Y axis input
-    [SerializeField] float _speed = 5f;                         //Player speed
-    [SerializeField] bool _isWalking = false;                   //Checks if player is moving
+    [Header("Player movement variables")]
+    [SerializeField] public float _horizontalInput;                 //X axis input
+    [SerializeField] public float _verticalInput;                   //Y axis input
+    [SerializeField] float _speed = 5f;                             //Player speed
 
     [Header("References")]
-    Rigidbody2D _playerRb;                                      //Player rigidbody
-    [SerializeField] SpriteRenderer _spriteRenderer;            //Player sprite
-    [SerializeField] Animator _animator;                        //Player animator
-    [SerializeField] Transform _weaponManager;                  //Weapon manager transform component
-    [SerializeField] Vector2 _lastDir;                          //Stores player last direction
-    [SerializeField] Vector2 _moveDir;                          //Stores player move direction
-    [SerializeField] Vector2 _moveInput;                        //Stores the input from movement
+    Rigidbody2D _playerRb;                                          //Player rigidbody
+    [SerializeField] PlayerAttackDistance _playerAttackDistance;    //Distance script reference
+    [SerializeField] PlayerAttackMelee _playerAttackMelee;          //Melee script reference
+    [SerializeField] SpriteRenderer _spriteRenderer;                //Player sprite
+    [SerializeField] SpriteRenderer _spawnPosRenderer;              //SpawnPos Renderer
+    [SerializeField] Transform _weaponManager;                      //Weapon manager transform component
+    public Animator _animator;                                      //Player animator
 
-    /*
-     * Hay un problema con la rotacion del weapon manager que hay q moverse un par de veces antes de que oficialmente la weapon gire
-     */
+    [Header("Vectors")]
+    [SerializeField] Vector2 _lastDir;                              //Stores player last direction
+    [SerializeField] Vector2 _moveDir;                              //Stores player move direction
+    [SerializeField] Vector2 _moveInput;                            //Stores the input from movement
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Calls methods
-        IsPlayerMoving();
         PlayerRotation();
         ApplyAnimations();
+        //RotateWeapon();
     }
 
     private void LateUpdate()
@@ -71,36 +71,94 @@ public class PlayerMovement : MonoBehaviour
         {
             _spriteRenderer.flipX = false;
         }
-
+        
+        //Forces the sprite to not flip while player moves around Y axis
+        else if (_moveInput.y > 0 || _moveInput.y < 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
     }
 
     void ApplyAnimations()
     {
-        //Set the right animation depending on axis
-        _animator.SetFloat("Horizontal", _lastDir.x);
-        _animator.SetFloat("Vertical", _lastDir.y);
-        _animator.SetFloat("Speed", _speed);
+        //Set the walk animation depending on axis
+        _animator.SetFloat("Horizontal", _moveDir.x);
+        _animator.SetFloat("Vertical", _moveDir.y);
+        _animator.SetFloat("Speed", _moveDir.sqrMagnitude);
+
+        //Set the idle animation depending on axis
+        _animator.SetFloat("LastDirX", _lastDir.x);
+        _animator.SetFloat("LastDirY", _lastDir.y);
+    }
+    public void EndAnimation()
+    {
+        //Turns the distance attack animation off
+        if (_playerAttackDistance._isAttacking == true)
+        {
+            _playerAttackDistance._isAttacking = false;
+        }
+
+        //Turns the melee attack animatio off
+        if(_playerAttackMelee._isAttacking == true)
+        {
+            _playerAttackMelee._isAttacking = false;
+        }
+       
     }
 
-    void IsPlayerMoving()
+    //Unnecesary since the rotation is controlled on the animations
+    //Here just in case for now
+    void RotateWeapon()
     {
-        if (_isWalking)
+        //Check if the player has a movement direction stored
+        if (_lastDir != Vector2.zero)
         {
-            //Check if player is walking, rotate the weapon to the player's direction
-            Vector3 vector3 = Vector3.left * _lastDir.x + Vector3.down * _lastDir.y;
-            _weaponManager.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
-        }
-        if ((_moveInput.x == 0 && _moveInput.y == 0) && (_playerRb.linearVelocityX != 0) || _playerRb.linearVelocityY != 0)
-        {
-            _isWalking = false;         //Player is not walking anymore
+            //Convert the 2D direction (x, y) into an angle in degrees
+            float angle = Mathf.Atan2(_lastDir.y, _lastDir.x) * Mathf.Rad2Deg;
 
-            //
-            Vector3 vector3 = Vector3.left * _lastDir.x + Vector3.down * _lastDir.y;
-            _weaponManager.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
+            //Apply the angle as rotation to the weapon manager (only on Z axis for 2D)
+            _weaponManager.rotation = Quaternion.Euler(0, 0, angle);
         }
-        else if (_moveInput.x != 0 && _moveInput.y != 0)
+    }
+
+    public void UpdateActiveAttack(int weaponIndex)
+    {
+        //Sets attacks to false when starts
+        _playerAttackDistance._isAttacking = false;
+        _playerAttackMelee._isAttacking = false;
+
+        //Checks if distance attack [index 0 on weapon manager] is set
+        if (weaponIndex == 0)
         {
-            _isWalking = true;          //Player is walking
+            //Enables distance attack
+            _playerAttackDistance.enabled = true;
+            //Disables melee attack
+            _playerAttackMelee.enabled = false;
         }
+        //Checks if melee attack [index 1 on weapon manager] is set
+        else if (weaponIndex == 1)
+        {
+            //Disables distance attack
+            _playerAttackDistance.enabled = false;
+            //Enables melee attack
+            _playerAttackMelee.enabled = true;
+        }
+    }
+
+    public void SpawnRockEvent()
+    {
+        //Spawn the rocks at the right time in animation
+        GetComponentInChildren<PlayerAttackDistance>().SpawnRock();
+    }
+
+    public void ActivateSprayEvent()
+    {
+        //Turns on the spray in animation
+        GetComponentInChildren<PlayerAttackMelee>().ActivateSpray();
+    }
+    public void DeactivateSprayEvent()
+    {
+        //Turns off the spray in animation
+        GetComponentInChildren<PlayerAttackMelee>().DeactivateSpray();
     }
 }

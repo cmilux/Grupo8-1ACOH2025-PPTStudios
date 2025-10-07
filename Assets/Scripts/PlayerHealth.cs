@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] GameObject _player;
+    [SerializeField] PlayerMovement _playerAnimator;
 
     [Header("Health integers")]
     [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         // Start game at max health amount
         playerCurrentHealth = _playerMaxHealth;
+        _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void Update()
