@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
 
 public class RangedEnemyManager : MonoBehaviour
 {
@@ -24,25 +25,27 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] float _inkSpeed;                 // Stores the speed at which the ink bullet will travel
 
     [Header("Stats")]
-    [SerializeField] int _enemyHealth;                // Stores how much health the enemy has
+    [SerializeField] float _enemyHealth;              // Stores how much health the enemy has
+    [SerializeField] float _currentEnemyHealth;       // Stores how much health the enemy currently has
     [SerializeField] float _rotateSpeed;              // Handles the speed at which the enemy rotates towards the player
 
     [Header("UI")]
     [SerializeField] GameObject inkSplatter;          // Gets the image for the ink splatter effect
     [SerializeField] PlayerHealth _playerHealth;      // Gets the player health script that calls for the ink splatter effect
     [SerializeField] TextMeshProUGUI _enemy2Health;   // Displays enemy health in UI
+    [SerializeField] Slider _healthBar;
 
     [Header("Animation")]
-    [SerializeField] Animator _animator;              // Reference to the Animator component
+    [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
+    [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
+    [SerializeField] bool _playAttackAnimation;       // Checks if alien can play the attack animation
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
+    [SerializeField] bool _enemyDamaged;
 
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
-
-        // Gets the Animator component from the enemy
-        _animator = GetComponent<Animator>();
 
         //-------------------
         //2D NavMesh settings
@@ -55,6 +58,8 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Sets current attack cooldown timer to starting cooldown timer
         _currentAttackCooldown = _attackCooldown;
+
+        _currentEnemyHealth = _enemyHealth;
     }
 
     void Update()
@@ -75,7 +80,12 @@ public class RangedEnemyManager : MonoBehaviour
         StoreLastMove();
 
         // Changes enemy's sprites depending on their axes of movement (handled by StoreLastMove())
-        HandleSprites();
+        HandleNPCSprites();
+
+        // Changes alien's sprites depending on their axes of movement (handled by StoreLastMove()) and if it's able to attack
+        HandleAlienSprites();
+
+        UpdateHealthBar();
 
         SettingUI();
 
@@ -87,7 +97,7 @@ public class RangedEnemyManager : MonoBehaviour
 
     void SettingUI()
     {
-        _enemy2Health.SetText($"Health: {_enemyHealth}");
+        _enemy2Health.SetText($"Health: {_currentEnemyHealth}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -99,12 +109,13 @@ public class RangedEnemyManager : MonoBehaviour
             int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
 
             // Apply damage to enemy
-            _enemyHealth -= rockDamageAmount;
+            _currentEnemyHealth -= rockDamageAmount;
+
+            _enemyDamaged = true;
 
             // Checks enemy's health
             EnemyDeath();
         }
-
         // Checks if enemy collides with the spray
         else if (other.gameObject.CompareTag("Spray"))
         {
@@ -112,17 +123,20 @@ public class RangedEnemyManager : MonoBehaviour
             int sprayDamage = other.gameObject.GetComponent<SprayManager>().sprayDamage;
 
             // Apply damage to enemy
-            _enemyHealth -= sprayDamage;
+            _currentEnemyHealth -= sprayDamage;
+
+            _enemyDamaged = true;
 
             // Checks enemy's health
             EnemyDeath();
         }
+        else _enemyDamaged = false;
     }
 
     private void EnemyDeath()
     {
         // Checks the enemy's health
-        if (_enemyHealth <= 0)
+        if (_currentEnemyHealth <= 0)
         {
             // Destroy enemy
             Destroy(gameObject);
@@ -155,7 +169,11 @@ public class RangedEnemyManager : MonoBehaviour
             _currentAttackCooldown = _attackCooldown;
         }
         // If cooldown time is over zero, then tick down to zero
-        else _currentAttackCooldown -= Time.deltaTime;
+        else
+        {
+            _currentAttackCooldown -= Time.deltaTime;
+            _playAttackAnimation = false;
+        }
     }
 
     private void ThrowInk()
@@ -163,6 +181,9 @@ public class RangedEnemyManager : MonoBehaviour
         // If enemy is able to attack and "HandleAttackCooldown()" has called for the enemy to attack...
         if (_canAttack == true)
         {
+            // Plays the alien's attack animation
+            _playAttackAnimation = true;
+
             // Instantiates the ink prefab at the enemy's firing point's position and rotation
             var ink = Instantiate(_inkPrefab, _firingPoint.position, _firingPoint.rotation);
 
@@ -197,10 +218,18 @@ public class RangedEnemyManager : MonoBehaviour
         }
     }
 
-    private void HandleSprites()
+    private void HandleNPCSprites()
     {
-        _animator.SetFloat("Horizontal", _lastDir.x);
-        _animator.SetFloat("Vertical", _lastDir.y);
+        _NPCAnimator.SetFloat("Horizontal", _lastDir.x);
+        _NPCAnimator.SetFloat("Vertical", _lastDir.y);
+    }
+
+    private void HandleAlienSprites()
+    {
+        _alienAnimator.SetFloat("Horizontal", _lastDir.x);
+        _alienAnimator.SetFloat("Vertical", _lastDir.y);
+        _alienAnimator.SetBool("Attack", _playAttackAnimation);
+        _alienAnimator.SetBool("Damage", _enemyDamaged);
     }
 
     public IEnumerator InkSplatterEffect()
@@ -210,5 +239,10 @@ public class RangedEnemyManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         inkSplatter.SetActive(false);
         _playerHealth.activateInkSplatterEffect = false;
+    }
+
+    private void UpdateHealthBar()
+    {
+        _healthBar.value = _currentEnemyHealth / _enemyHealth;
     }
 }

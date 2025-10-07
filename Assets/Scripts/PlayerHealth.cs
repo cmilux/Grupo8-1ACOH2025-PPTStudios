@@ -8,6 +8,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject _player;
     [SerializeField] PlayerMovement _playerAnimator;
 
+    [Header("References")]
+    [SerializeField] PathTest _meleeEnemyManager;
+
     [Header("Health integers")]
     [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] public int playerCurrentHealth;  // Stores how much health the player has currently

@@ -15,6 +15,7 @@ TagManager:
   - Ink
   - DistanceEnemy
   - InkSplatter
+  - Hitbox
   layers:
   - Default
   - TransparentFX
