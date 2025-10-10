@@ -1,0 +1,863 @@
+fileFormatVersion: 2
+guid: f47e159a9d9f21a44b4ff6e5b0d07780
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2767371139704557031
+    second: spr_Tiles_Floor_0
+  - first:
+      213: 1254531612519577198
+    second: spr_Tiles_Floor_1
+  - first:
+      213: 753520116049839500
+    second: spr_Tiles_Floor_2
+  - first:
+      213: -1332879598306583854
+    second: spr_Tiles_Floor_3
+  - first:
+      213: 2065288959943960440
+    second: spr_Tiles_Floor_4
+  - first:
+      213: -9077959431181399595
+    second: spr_Tiles_Floor_5
+  - first:
+      213: -8934691659661043294
+    second: spr_Tiles_Floor_6
+  - first:
+      213: 3094996136398413845
+    second: spr_Tiles_Floor_7
+  - first:
+      213: -1712049193791637360
+    second: spr_Tiles_Floor_8
+  - first:
+      213: -1643178473261963662
+    second: spr_Tiles_Floor_9
+  - first:
+      213: 3587196196902490495
+    second: spr_Tiles_Floor_10
+  - first:
+      213: -5495299966590739909
+    second: spr_Tiles_Floor_11
+  - first:
+      213: -4020301691119217938
+    second: spr_Tiles_Floor_12
+  - first:
+      213: -479464274627294230
+    second: spr_Tiles_Floor_13
+  - first:
+      213: 6484790531527878457
+    second: spr_Tiles_Floor_14
+  - first:
+      213: 6888454268089000481
+    second: spr_Tiles_Floor_15
+  - first:
+      213: -4080653987353500645
+    second: spr_Tiles_Floor_16
+  - first:
+      213: -808638431176625355
+    second: spr_Tiles_Floor_17
+  - first:
+      213: -7307676466258990307
+    second: spr_Tiles_Floor_18
+  - first:
+      213: -3589816258423920315
+    second: spr_Tiles_Floor_19
+  - first:
+      213: 3528016434254362309
+    second: spr_Tiles_Floor_20
+  - first:
+      213: 991957346087143576
+    second: spr_Tiles_Floor_21
+  - first:
+      213: 6610498212906758922
+    second: spr_Tiles_Floor_22
+  - first:
+      213: 4577779326180515308
+    second: spr_Tiles_Floor_23
+  - first:
+      213: -5877179504757504643
+    second: spr_Tiles_Floor_24
+  - first:
+      213: -1139781238147197522
+    second: spr_Tiles_Floor_25
+  - first:
+      213: 8058407559354157122
+    second: spr_Tiles_Floor_26
+  - first:
+      213: 8346944141009937271
+    second: spr_Tiles_Floor_27
+  - first:
+      213: -8170759795189313789
+    second: spr_Tiles_Floor_28
+  - first:
+      213: 5617761056582910253
+    second: spr_Tiles_Floor_29
+  - first:
+      213: 499354476032868178
+    second: spr_Tiles_Floor_30
+  - first:
+      213: -8281161821090773967
+    second: spr_Tiles_Floor_31
+  - first:
+      213: 1724569480859866044
+    second: spr_Tiles_Floor_32
+  - first:
+      213: 9169987835842273109
+    second: spr_Tiles_Floor_33
+  - first:
+      213: 5261801292163450206
+    second: spr_Tiles_Floor_34
+  - first:
+      213: 215744460681439757
+    second: spr_Tiles_Floor_35
+  - first:
+      213: 7830255275157651431
+    second: spr_Tiles_Floor_36
+  - first:
+      213: 1118859419942466432
+    second: spr_Tiles_Floor_37
+  - first:
+      213: 6182171983668009560
+    second: spr_Tiles_Floor_38
+  - first:
+      213: -3923421247211429533
+    second: spr_Tiles_Floor_39
+  - first:
+      213: 7001598413737323991
+    second: spr_Tiles_Floor_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034eb2a68c0abe244992aad3ff774671
+      internalID: -1787188829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565a519cb5d6a344fa44ad39fbefa886
+      internalID: 747645254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ef809605243094cbac057989102426
+      internalID: 1308242829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9920a0900210bed4e9b3e9d9fa570a40
+      internalID: -977269988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f43f53db8f451d4abf627b0ae9abd55
+      internalID: -1830230562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad41464fa94b934d9f33ed5b39bc66c
+      internalID: 1074926251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608f134c516ea194b8ed9fdcc53fd734
+      internalID: -2026237736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea3c9a8aefafd441b220ee3ccb003e6
+      internalID: -163590792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_8
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be4272dbedcf9243bb4994fb8c73856
+      internalID: 2047179615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_9
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc56770f3ac6dbe4293f7f9e89c4b3d9
+      internalID: 1239429774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_10
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 76
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc39d6c094b2bd64e82af88456d2e0de
+      internalID: 1171253689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2653fc2841edda341accbc99c8eb7721
+      internalID: 1231993927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_12
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0495272b07a8cf748bbc0cb8790ccd12
+      internalID: -321209921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_13
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5c132c4d4a9204585bfd5c9acf2970
+      internalID: 1706822598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_14
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de525426d8e9e5e49aeaef5b98f55c8e
+      internalID: 1669219056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_15
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e077078bd83954cbe29a69dee5d691
+      internalID: 912131609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_16
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65af9a362f2730d4ab10ae4f7ed17bb3
+      internalID: -1184590167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_17
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2293d5028cd8c1449a277ecedb5b2920
+      internalID: 1988366906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_18
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34363fb8618a8d8489a8db74a8aca8ea
+      internalID: -1297521429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda3b55e78eaaf44c8dec7fe4cefac5b
+      internalID: 910994313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_20
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f432f1e431354dd498231a1d7c5ed44d
+      internalID: -950736318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_21
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 38
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59a533b971bd2b46a86371eed459e13
+      internalID: -32145451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c5dc3e4f1427e4697d9af721b8eb88
+      internalID: -1894590639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_23
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbca1cc0130c37149b905038d461104c
+      internalID: -1016274067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_24
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37981f378a54dd94a9f65de8dee616c2
+      internalID: -901765704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_25
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01d8a200fd25f84294f04650fac4738
+      internalID: 1322751793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_Tiles_Floor_Zone_3_26
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348a15a81c19ba844ab391ab5531c2ee
+      internalID: -944717161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: baea72fe38fffea4bba4f1b8a6009625
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":6.0,"y":6.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      spr_Tiles_Floor_Zone_3_0: -1787188829
+      spr_Tiles_Floor_Zone_3_1: 747645254
+      spr_Tiles_Floor_Zone_3_10: 1171253689
+      spr_Tiles_Floor_Zone_3_11: 1231993927
+      spr_Tiles_Floor_Zone_3_12: -321209921
+      spr_Tiles_Floor_Zone_3_13: 1706822598
+      spr_Tiles_Floor_Zone_3_14: 1669219056
+      spr_Tiles_Floor_Zone_3_15: 912131609
+      spr_Tiles_Floor_Zone_3_16: -1184590167
+      spr_Tiles_Floor_Zone_3_17: 1988366906
+      spr_Tiles_Floor_Zone_3_18: -1297521429
+      spr_Tiles_Floor_Zone_3_19: 910994313
+      spr_Tiles_Floor_Zone_3_2: 1308242829
+      spr_Tiles_Floor_Zone_3_20: -950736318
+      spr_Tiles_Floor_Zone_3_21: -32145451
+      spr_Tiles_Floor_Zone_3_22: -1894590639
+      spr_Tiles_Floor_Zone_3_23: -1016274067
+      spr_Tiles_Floor_Zone_3_24: -901765704
+      spr_Tiles_Floor_Zone_3_25: 1322751793
+      spr_Tiles_Floor_Zone_3_26: -944717161
+      spr_Tiles_Floor_Zone_3_3: -977269988
+      spr_Tiles_Floor_Zone_3_4: -1830230562
+      spr_Tiles_Floor_Zone_3_5: 1074926251
+      spr_Tiles_Floor_Zone_3_6: -2026237736
+      spr_Tiles_Floor_Zone_3_7: -163590792
+      spr_Tiles_Floor_Zone_3_8: 2047179615
+      spr_Tiles_Floor_Zone_3_9: 1239429774
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
