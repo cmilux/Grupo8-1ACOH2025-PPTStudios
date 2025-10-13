@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3791081383049198089}
   - component: {fileID: 9077854045433583479}
   - component: {fileID: 7874366913751570123}
+  - component: {fileID: 9005042324501361594}
   m_Layer: 0
   m_Name: Food
   m_TagString: Food
@@ -151,3 +152,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   healingAmount: 10
+--- !u!114 &9005042324501361594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135507101272263985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00fa67cf949e10d498ac1da14ab7980d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlinkEffect
+  _startColor: {r: 0, g: 1, b: 0, a: 1}
+  _endColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _speed: 1

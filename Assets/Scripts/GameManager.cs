@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     PlayerMovement _playerMovement;
     public GameObject _player;
 
-    float _xRange = 8.5f;
-    float _yRange = 4.5f;
+    float _xRange = 13.5f;
+    float _yRangeMin = -8.4f;
+    float _yRangeMax = 25.5f;
 
 
     private void Update()
@@ -63,14 +64,14 @@ public class GameManager : MonoBehaviour
             _player.transform.position = new Vector2(_xRange, _player.transform.position.y);
         }
 
-        if (_player.transform.position.y > _yRange)
+        if (_player.transform.position.y > _yRangeMax)
         {
-            _player.transform.position = new Vector2(_player.transform.position.x, _yRange);
+            _player.transform.position = new Vector2(_player.transform.position.x, _yRangeMax);
         }
 
-        if (_player.transform.position.y < -_yRange)
+        if (_player.transform.position.y < _yRangeMin)
         {
-            _player.transform.position = new Vector2(_player.transform.position.x, -_yRange);
+            _player.transform.position = new Vector2(_player.transform.position.x, -_yRangeMin);
         }
     }
 
