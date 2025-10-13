@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("References")]
     [SerializeField] PathTest _meleeEnemyManager;
+    [SerializeField] Image _healthBar;
 
     [Header("Health integers")]
     [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
@@ -77,7 +79,9 @@ public class PlayerHealth : MonoBehaviour
     }
     void SettingUI()
     {
-        _playerHealth.SetText($"Health: {playerCurrentHealth}");
+        //_playerHealth.SetText($"Health: {playerCurrentHealth}");
+
+        _healthBar.fillAmount = Mathf.Clamp(playerCurrentHealth / _playerMaxHealth, 0 ,1);
     }
 
     void OnTriggerEnter2D(Collider2D other)
