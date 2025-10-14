@@ -7,9 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float _horizontalInput;                 //X axis input
     [SerializeField] public float _verticalInput;                   //Y axis input
     [SerializeField] float _speed = 5f;                             //Player speed
-
-    public bool _isBeingAttacked;
-    public bool _isDead;
+    public bool _isBeingAttacked;                                   //Bool to check when player is being attacked
+    public bool _isDead;                                            //Bool to check if player dies
 
     [Header("References")]
     Rigidbody2D _playerRb;                                          //Player rigidbody
@@ -37,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         //Calls methods
         PlayerRotation();
         ApplyAnimations();
-        //RotateWeapon();
     }
 
     private void LateUpdate()
@@ -92,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("LastDirX", _lastDir.x);
         _animator.SetFloat("LastDirY", _lastDir.y);
 
+        //Set the bools to play hit or death animation
         _animator.SetBool("IsBeingAttacked", _isBeingAttacked);
         _animator.SetBool("IsDead", _isDead);
     }
@@ -107,22 +106,6 @@ public class PlayerMovement : MonoBehaviour
         if(_playerAttackMelee._isAttacking == true)
         {
             _playerAttackMelee._isAttacking = false;
-        }
-       
-    }
-
-    //Unnecesary since the rotation is controlled on the animations
-    //Here just in case for now
-    void RotateWeapon()
-    {
-        //Check if the player has a movement direction stored
-        if (_lastDir != Vector2.zero)
-        {
-            //Convert the 2D direction (x, y) into an angle in degrees
-            float angle = Mathf.Atan2(_lastDir.y, _lastDir.x) * Mathf.Rad2Deg;
-
-            //Apply the angle as rotation to the weapon manager (only on Z axis for 2D)
-            _weaponManager.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 
@@ -155,7 +138,6 @@ public class PlayerMovement : MonoBehaviour
         //Spawn the rocks at the right time in animation
         GetComponentInChildren<PlayerAttackDistance>().SpawnRock();
     }
-
     public void ActivateSprayEvent()
     {
         //Turns on the spray in animation
