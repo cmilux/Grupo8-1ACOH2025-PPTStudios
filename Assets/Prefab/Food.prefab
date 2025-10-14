@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3791081383049198089}
   - component: {fileID: 9077854045433583479}
   - component: {fileID: 7874366913751570123}
-  - component: {fileID: 9005042324501361594}
+  - component: {fileID: 7779228434136982629}
   m_Layer: 0
   m_Name: Food
   m_TagString: Food
@@ -79,11 +79,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -281465397
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4820557, g: 1, b: 0.10849059, a: 1}
+  m_Color: {r: 0.109803915, g: 0.37280235, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   healingAmount: 10
---- !u!114 &9005042324501361594
+--- !u!114 &7779228434136982629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4135507101272263985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00fa67cf949e10d498ac1da14ab7980d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a2bf1740dd881945908bc34358de73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlinkEffect
-  _startColor: {r: 0, g: 1, b: 0, a: 1}
-  _endColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _speed: 1
+  _blinkDuration: 2.5
+  _ogColor: {r: 0.10980393, g: 0.37254903, b: 0.9960785, a: 0}
+  _spriteRenderer: {fileID: 3791081383049198089}
