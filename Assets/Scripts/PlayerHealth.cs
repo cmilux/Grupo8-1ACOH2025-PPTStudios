@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
     {
         PreventFromExceeding();
         OnDeath();
-        SettingUI();
+        // SettingUI();
     }
 
     void PreventFromExceeding()
@@ -81,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //_playerHealth.SetText($"Health: {playerCurrentHealth}");
 
-        _healthBar.fillAmount = Mathf.Clamp(playerCurrentHealth / _playerMaxHealth, 0 ,1);
+        // _healthBar.fillAmount = Mathf.Clamp(playerCurrentHealth / _playerMaxHealth, 0 ,1);
     }
 
     void OnTriggerEnter2D(Collider2D other)

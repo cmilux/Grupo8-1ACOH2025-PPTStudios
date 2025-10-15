@@ -18,7 +18,7 @@ public class PlayerInventory : MonoBehaviour
         }
 
         AmmunitionAmount();
-        SettingUI();
+        // SettingUI();
     }
 
     void AmmunitionAmount() 
@@ -37,7 +37,7 @@ public class PlayerInventory : MonoBehaviour
 
     void SettingUI()
     {
-        _playerInventory.SetText($"Rocks: {rocks}");
+        // _playerInventory.SetText($"Rocks: {rocks}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
