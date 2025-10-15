@@ -6,7 +6,9 @@ public class PlayerAttackMelee : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] GameObject _sprayGas;              //Spray game object
+    [SerializeField] GameObject _sprayParticle;         //Spray particles game object
     [SerializeField] PlayerMovement _playerAnimator;    //PlayerMovement script to get a reference of the animator
+    [SerializeField] ParticleSystem _sprayEffect;       //Spray particles
 
     [Header("Variables")]
     [SerializeField] float _holdTimer = 0f;             //Variable used to check for how long the player held the spray on
@@ -21,6 +23,12 @@ public class PlayerAttackMelee : MonoBehaviour
 
         //Find the playerMovement script to get a reference of the player's animator
         _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+
+
+        if (_sprayEffect != null)
+        {
+            _sprayEffect.Stop();
+        }
     }
     private void Update()
     {
@@ -47,6 +55,7 @@ public class PlayerAttackMelee : MonoBehaviour
             _isAttacking = false;                   //Player is not longer attacking
             _holdTimer = 0f;                        //Sets hold time back to 0
             _sprayGas.SetActive(false);       //Turns off spray gameObject
+            _sprayParticle.SetActive(false);
         }
     }
 
@@ -54,11 +63,21 @@ public class PlayerAttackMelee : MonoBehaviour
     {
         _isAttacking = true;                    //Player is attacking
         _sprayGas.SetActive(true);        //Turns the spray gameobject on
+        _sprayParticle.SetActive(true);
+        if (_sprayEffect != null)
+        {
+            _sprayEffect.Play();
+        }
     }
     public void DeactivateSpray()
     {
         _isAttacking = false;                   //Player is not longer attacking
         _sprayGas.SetActive(false);       //Turns off spray gameObject
+        _sprayParticle.SetActive(false);
+        if (_sprayEffect != null)
+        {
+            _sprayEffect.Stop(true,ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     void MeleeTimer()

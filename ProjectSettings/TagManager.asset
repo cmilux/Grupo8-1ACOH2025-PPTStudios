@@ -53,5 +53,44 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Grass
+    uniqueID: 1958729719
+    locked: 0
+  - name: Floor
+    uniqueID: 2451251377
+    locked: 0
+  - name: FloorBorders
+    uniqueID: 1474038929
+    locked: 0
+  - name: Trees
+    uniqueID: 30923073
+    locked: 0
+  - name: Flowers
+    uniqueID: 2814477051
+    locked: 0
+  - name: DecoRocks
+    uniqueID: 3687791593
+    locked: 0
+  - name: Dirt
+    uniqueID: 1517503719
+    locked: 0
+  - name: Miscelaneos
+    uniqueID: 1344776481
+    locked: 0
+  - name: Player
+    uniqueID: 4168435963
+    locked: 0
+  - name: Lamps
+    uniqueID: 1779543189
+    locked: 0
+  - name: Fence
+    uniqueID: 1790423161
+    locked: 0
+  - name: SpaceShip
+    uniqueID: 4190825933
+    locked: 0
+  - name: Food-Rocks
+    uniqueID: 4013501899
+    locked: 0
   m_RenderingLayers:
   - Default
