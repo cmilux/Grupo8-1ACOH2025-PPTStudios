@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class BossManager : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] float _maxBossHealth;
-    [SerializeField] float _currentBossHealth;                
+    [SerializeField] float _maxBossHealth;                  // Stores the boss' max health value
+    [SerializeField] float _currentBossHealth;              // Stores the boss' current health value
 
     [Header("Ranged Attack")]
     [SerializeField] Transform _firingPoint;                // Stores the firing point where the boss's ink bullets will spawn from
@@ -124,35 +124,43 @@ public class BossManager : MonoBehaviour
         // Calculates the player's direction
         Vector2 targetPosition = (_target.transform.position - transform.position).normalized;
 
+        // Creates a list of 3 directions for the ink bullets' trayectories, depending on the player's position, in different angles
         Vector2[] inkDirections = new Vector2[3];
         inkDirections[0] = targetPosition;
         inkDirections[1] = Quaternion.AngleAxis(_spreadAngle, Vector3.forward) * targetPosition;
         inkDirections[2] = Quaternion.AngleAxis(-_spreadAngle, Vector3.forward) * targetPosition;
 
+        // For each direction calculated...
         foreach (Vector2 dir in inkDirections)
         {
-            // Instancia la bala en el punto de disparo
+            // Instantiates the ink bullet, starting from the boss' firing point
             var ink = Instantiate(_inkPrefab, _firingPoint.position, Quaternion.identity);
 
-            // Le da velocidad en la dirección correspondiente
+            // Applies speed to the ink bullet's linear velocity
             ink.GetComponent<Rigidbody2D>().linearVelocity = dir * _inkSpeed;
 
-            // Destruye la bala luego de 2 segundos
+            // Destroys ink bullet after 2 secs
             Destroy(ink, 2f);
         }
     }
 
     void MeleeAttack()
     {
+        // Resets list of previously generated spawn positions before attack 
         _usedPositions.Clear();
+
+        // Sets tentacles spawned counter back to 0
         int tentaclesSpawned = 0;
 
+        // While tentacles spawned is lower than the max amount of tentacles that should be spawned...
         while (tentaclesSpawned < _maxTentacleSpawn)
         {
+            // Finds a random position inside a set range
             float x = Random.Range(-6.91f, 7.25f);
             float y = Random.Range(12.66f, 19.89f);
             Vector3 spawnPos = new Vector3(x, y, 0f);
 
+            // Checks if the random position is overlapping with any obstacle's collider. If so, reset process back to start to find a new spawn position
             if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _colliderLayers))
             {
                 continue;
@@ -160,20 +168,30 @@ public class BossManager : MonoBehaviour
 
             bool tentacleTooClose = false;
 
+            // Checks if, inside previously generated spawn positions list, the random position is too close to another one
             foreach (var pos in _usedPositions)
             {
                 if (Vector3.Distance(pos, spawnPos) < _minTentacleDistance)
                 {
+                    // If so, reset process back to start to find a new spawn position
                     tentacleTooClose = true;
                     break;
                 }
             }
 
+            // If spawn position is valid...
             if (!tentacleTooClose)
             {
+                // Instantiates the tentacle in that spawn position
                 var tentacle = Instantiate(_tentaclePrefab, spawnPos, Quaternion.identity);
-                Destroy(tentacle, 5f); 
+
+                // Destroys it after 5 secs
+                Destroy(tentacle, 5f);
+
+                // Adds spawn position to the list of previously generated spawn positions
                 _usedPositions.Add(spawnPos);
+
+                // Increase the counter up by 1
                 tentaclesSpawned++;
             }
         }
