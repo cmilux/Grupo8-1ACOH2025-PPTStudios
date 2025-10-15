@@ -10,28 +10,14 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("References")]
-    public static GameManager Instance;         //Static instance of GameManager
-    PlayerMovement _playerMovement;             //PlayerMovement script reference
-    public GameObject _player;                  //Player game object
-    [SerializeField] GameObject _entrancePoint;
+    PlayerMovement _playerMovement;
+    public GameObject _player;
 
-    [Header("Screen limit variables")]
     float _xRange = 13.5f;
     float _yRangeMin = -8.4f;
     float _yRangeMax = 25.5f;
 
-    private void Awake()
-    {
-        //If another instance exist, destroy this one
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;                        //Assign the instance
-        DontDestroyOnLoad(gameObject);          //Dont destroy between scenes
-    }
+
     private void Update()
     {
         //RestartGame();
@@ -40,19 +26,10 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Zone1");        //Loads the game scene
+        SceneManager.LoadScene("WeaponsSystem");        //Loads the game scene
     }
 
-    public void NextScene()
-    {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-        //PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
-    }
-    //I dont think this is necessary but here for testing
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName);
-    }
+    
 
    /*
     void RestartGame()

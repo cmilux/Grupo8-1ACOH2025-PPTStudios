@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a2db5a798e3b618448655d25a9f86c06
+guid: 7b429cb6dacda4549b2336c478999fe9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8257682214029519526
-    second: spr_Miscelaneos_Tree_1B_Zone_3_0
+      213: 1313745900099018443
+    second: Guia arena_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Miscelaneos_Tree_1B_Zone_3_0
+      name: Guia arena_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 75
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 646
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5595b407c1d66d80800000000000000
-      internalID: -8257682214029519526
+      spriteID: bce17848fec5b3210800000000000000
+      internalID: 1313745900099018443
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a1f0e96f66c89664abe479c2d0820cf0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Miscelaneos_Tree_1B_Zone_3_0: -8257682214029519526
+      Guia arena_0: 1313745900099018443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
