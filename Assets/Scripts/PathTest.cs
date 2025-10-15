@@ -11,35 +11,43 @@ public class PathTest : MonoBehaviour
     [SerializeField] NavMeshAgent _agent;             // Gets the agent (enemy) NavMesh
     [SerializeField] HitboxManager _hitboxManager;    // Gets the HitboxManager script from the alien
 
+    [Header("Patrol logic")]
+    [SerializeField] public Vector3[] patrolPoints;   // Stores an index of positions to be reached by the enemy during patrol state
+    [SerializeField] int _currentPatrolPoint;         // Stores the current patrol point the enemy's moving towards
+    [SerializeField] float _enemySpeed;               // Sets the enemy's speed
+    [SerializeField] bool _playerDetected;            // Checks whether the enemy has detected the player or not
+
     [Header("Variables")]
-    [SerializeField] float _enemyHealth = 100;          // Stores how much health the enemy has
-    [SerializeField] float _currentEnemyHealth;         // Stores how much health the enemy currently has
+    [SerializeField] float _enemyHealth = 100;        // Stores how much health the enemy has
+    [SerializeField] float _currentEnemyHealth;       // Stores how much health the enemy currently has
     [SerializeField] public int enemyDamage;          // Stores how much damage the enemy can do to the player
     [SerializeField] public bool canAttack = false;   // Checks if enemy is in range to attack
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _enemy1Health;   // Displays enemy health in UI
-    [SerializeField] Slider _healthBar;
+    [SerializeField] Slider _healthBar;               // Gets the enemy's health bar
 
     [Header("Animation")]
     [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
     [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
-    [SerializeField] bool _attackAnimation = false;
-    [SerializeField] bool _enemyDamaged = false;
+    [SerializeField] bool _attackAnimation = false;   // Checks whether the enemy's attack animation should be activated or not
+    [SerializeField] bool _enemyDamaged = false;      // Checks whether the enemy has been attacked or not
 
     [Header("Attack Cooldown")]
-    [SerializeField] public float attackCooldown;
-    [SerializeField] public float currentAttackCooldown;
-    [SerializeField] public bool attackReady = false;
+    [SerializeField] public float attackCooldown;          // Stores the enemy's max attack cooldown timer 
+    [SerializeField] public float currentAttackCooldown;   // Stores the enemy's current attack cooldown timer 
+    [SerializeField] public bool attackReady = false;      // Checks whether the enemy's attack is on cooldown or not
 
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
 
+        // Sets current attack cooldown timer to starting cooldown timer
         currentAttackCooldown = attackCooldown;
 
+        // Sets current enemy health to the max health value
         _currentEnemyHealth = _enemyHealth;
 
         //-------------------
@@ -49,13 +57,13 @@ public class PathTest : MonoBehaviour
         _agent.updateRotation = false;
         //Should the agent movement ignore the vertical axis
         _agent.updateUpAxis = false;
+
+        // Disables the enemy's NavMeshAgent component until player is detected
+        _agent.enabled = false;
     }
 
     void Update()
     {
-        //Follows player
-        _agent.SetDestination(_target.position);
-
         // Stores the enemy's last direction while moving
         StoreLastMove();
 
@@ -68,9 +76,22 @@ public class PathTest : MonoBehaviour
         // Checks distance with player to set "_canAttack" to either true or false
         DetectDistanceWithPlayer();
 
+        // Checks whether enemy can attack or if its attack is still in cooldown
         HandleAttackCooldown();
 
+        // Updates health bar above enemy's head to the current health value 
         UpdateHealthBar();
+
+        // Until player is detected, activate patrol state
+        if (!_playerDetected)
+        {
+            HandlePatrolState();
+        }
+        // When player is detected, activate follow state
+        else if (_playerDetected)
+        {
+            HandleFollowState();
+        }
 
         SettingUI();
     }
@@ -111,6 +132,12 @@ public class PathTest : MonoBehaviour
             EnemyDeath();
         }
         else _enemyDamaged = false;
+
+        // Checks if player enters the enemy's detection range
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _playerDetected = true;
+        }
     }
 
     private void EnemyDeath()
@@ -180,5 +207,53 @@ public class PathTest : MonoBehaviour
     private void UpdateHealthBar()
     {
         _healthBar.value = _currentEnemyHealth / _enemyHealth;
+    }
+
+    private void HandlePatrolState()
+    {
+        // Moves enemy towards the current patrol point
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[_currentPatrolPoint], _enemySpeed * Time.deltaTime);
+
+        // When the enemy has reached the current patrol point, call for an update to get the next position in the index
+        if (transform.position == patrolPoints[_currentPatrolPoint])
+        {
+            UpdatePatrolPoints();
+        }
+    }
+
+    private void UpdatePatrolPoints()
+    {
+        // Changes current patrol point to the next position in the index
+        _currentPatrolPoint++;
+
+        // When reaching the last position in the index, reset back to the first position
+        if (_currentPatrolPoint >= patrolPoints.Length)
+        {
+            _currentPatrolPoint = 0;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // When selecting the enemy, draw gizmos line between patrol points to show enemy patrol route in "Scene" mode
+        for (int i = 0; i < patrolPoints.Length; i++)
+        {
+            Vector3 p = patrolPoints[i];
+            Gizmos.DrawSphere(p, 0.12f);
+
+            if (i < patrolPoints.Length - 1)
+                Gizmos.DrawLine(p, patrolPoints[i + 1]);
+            else if (patrolPoints.Length > 1)
+                Gizmos.DrawLine(p, patrolPoints[0]);
+        }
+    }
+
+    private void HandleFollowState()
+    {
+        // Enables the enemy's NavMeshAgent component 
+        _agent.enabled = true;
+
+        // Sets the enemy's target to the player
+        _agent.SetDestination(_target.position);
     }
 }
