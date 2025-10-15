@@ -1,3 +1,4 @@
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,12 +17,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerAttackMelee _playerAttackMelee;          //Melee script reference
     [SerializeField] SpriteRenderer _spriteRenderer;                //Player sprite
     [SerializeField] Transform _weaponManager;                      //Weapon manager transform component
+    [SerializeField] Transform _initialPos;
     public Animator _animator;                                      //Player animator
+    public static PlayerMovement Instance;
 
     [Header("Vectors")]
     [SerializeField] Vector2 _lastDir;                              //Stores player last direction
     [SerializeField] Vector2 _moveDir;                              //Stores player move direction
     [SerializeField] Vector2 _moveInput;                            //Stores the input from movement
+
+    private void Awake()
+    {
+        //If another instance exist, destroy this one
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;                        //Assign the instance
+        DontDestroyOnLoad(gameObject);          //Dont destroy between scenes
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

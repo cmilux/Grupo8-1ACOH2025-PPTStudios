@@ -8,12 +8,21 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 0
+    path: Assets/Scenes/WeaponsSystem.unity
+    guid: 65b74adfda79095409544650affc1f0a
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: 9926c419909cdf84486e5a8149099afc
   - enabled: 1
-    path: Assets/Scenes/WeaponsSystem.unity
-    guid: 65b74adfda79095409544650affc1f0a
+    path: Assets/Scenes/Zone1.unity
+    guid: 8f0188a134399dc4585c78bfc19f9286
+  - enabled: 1
+    path: Assets/Scenes/Zone2.unity
+    guid: 363656ddbfed0bd40aa51fce56835e29
+  - enabled: 1
+    path: Assets/Scenes/Zone3.unity
+    guid: 33ecf53a94a89034dad683d350394ea2
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: f8fa92c5dc848de46857d9e014dcabf3
