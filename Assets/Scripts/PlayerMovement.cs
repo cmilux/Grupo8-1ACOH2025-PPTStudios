@@ -1,4 +1,3 @@
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,8 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float _horizontalInput;                 //X axis input
     [SerializeField] public float _verticalInput;                   //Y axis input
     [SerializeField] float _speed = 5f;                             //Player speed
-    public bool _isBeingAttacked;                                   //Bool to check when player is being attacked
-    public bool _isDead;                                            //Bool to check if player dies
+
+    public bool _isBeingAttacked;
+    public bool _isDead;
 
     [Header("References")]
     Rigidbody2D _playerRb;                                          //Player rigidbody
@@ -17,26 +17,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerAttackMelee _playerAttackMelee;          //Melee script reference
     [SerializeField] SpriteRenderer _spriteRenderer;                //Player sprite
     [SerializeField] Transform _weaponManager;                      //Weapon manager transform component
-    [SerializeField] Transform _initialPos;
     public Animator _animator;                                      //Player animator
-    public static PlayerMovement Instance;
 
     [Header("Vectors")]
     [SerializeField] Vector2 _lastDir;                              //Stores player last direction
     [SerializeField] Vector2 _moveDir;                              //Stores player move direction
     [SerializeField] Vector2 _moveInput;                            //Stores the input from movement
-
-    private void Awake()
-    {
-        //If another instance exist, destroy this one
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;                        //Assign the instance
-        DontDestroyOnLoad(gameObject);          //Dont destroy between scenes
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         //Calls methods
         PlayerRotation();
         ApplyAnimations();
+        //RotateWeapon();
     }
 
     private void LateUpdate()
@@ -105,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("LastDirX", _lastDir.x);
         _animator.SetFloat("LastDirY", _lastDir.y);
 
-        //Set the bools to play hit or death animation
         _animator.SetBool("IsBeingAttacked", _isBeingAttacked);
         _animator.SetBool("IsDead", _isDead);
     }
@@ -121,6 +107,22 @@ public class PlayerMovement : MonoBehaviour
         if(_playerAttackMelee._isAttacking == true)
         {
             _playerAttackMelee._isAttacking = false;
+        }
+       
+    }
+
+    //Unnecesary since the rotation is controlled on the animations
+    //Here just in case for now
+    void RotateWeapon()
+    {
+        //Check if the player has a movement direction stored
+        if (_lastDir != Vector2.zero)
+        {
+            //Convert the 2D direction (x, y) into an angle in degrees
+            float angle = Mathf.Atan2(_lastDir.y, _lastDir.x) * Mathf.Rad2Deg;
+
+            //Apply the angle as rotation to the weapon manager (only on Z axis for 2D)
+            _weaponManager.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 
@@ -153,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
         //Spawn the rocks at the right time in animation
         GetComponentInChildren<PlayerAttackDistance>().SpawnRock();
     }
+
     public void ActivateSprayEvent()
     {
         //Turns on the spray in animation
