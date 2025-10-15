@@ -1,10 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossManager : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] float _maxBossHealth;
-    [SerializeField] float _currentBossHealth;
+    [SerializeField] float _currentBossHealth;                
 
     [Header("Ranged Attack")]
     [SerializeField] Transform _firingPoint;                // Stores the firing point where the boss's ink bullets will spawn from
@@ -15,17 +18,25 @@ public class BossManager : MonoBehaviour
     [SerializeField] float _rangedAttackCooldown;           // Stores the starting ranged attack cooldown timer at the start of the game
     [SerializeField] float _currentRangedAttackCooldown;    // Stores the current ranged attack cooldown timer during the game
 
-    [Header("Melee Attack")]
-    [SerializeField] float _meleeAttackCooldown;            // Stores the starting melee attack cooldown timer at the start of the game
-    [SerializeField] float _currentMeleeAttackCooldown;     // Stores the current melee attack cooldown timer during the game
-
+    [Header("Melee Attack")] 
+    [SerializeField] GameObject _tentaclePrefab;                  // Stores the tentacle prefab
+    [SerializeField] float _meleeAttackCooldown;                  // Stores the starting melee attack cooldown timer at the start of the game
+    [SerializeField] float _currentMeleeAttackCooldown;           // Stores the current melee attack cooldown timer during the game
+    [SerializeField] float _minTentacleDistance;                  // Handles offset between tentacle spawns
+    [SerializeField] int _maxTentacleSpawn;                       // Stores the max amount of tentacles to be spawned during the attack
+    [SerializeField] LayerMask _colliderLayers;                   // Stores layers with obstacles to avoid tentacle spawns generating inside the colliders
+    private List<Vector3> _usedPositions = new List<Vector3>();   // Stores used positions during the generation of tentacle spawns to avoid overlapping spawn points
+    
 
     void Start()
     {
         _target = GameObject.FindGameObjectWithTag("Player");
-        
-        // Sets current attack cooldown timer to starting cooldown timer
+
+        // Sets current ranged attack cooldown timer to starting cooldown timer
         _currentRangedAttackCooldown = _rangedAttackCooldown;
+
+        // Sets current melee attack cooldown timer to starting cooldown timer
+        _currentMeleeAttackCooldown = _meleeAttackCooldown;
 
         // Sets current boss health to the max health value
         _currentBossHealth = _maxBossHealth;
@@ -37,7 +48,7 @@ public class BossManager : MonoBehaviour
         HandleAttackCooldowns();
     }
 
-    void OnTriggerEnter2D (Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         // Checks if boss collides with the spray
         if (other.gameObject.CompareTag("Spray"))
@@ -115,7 +126,7 @@ public class BossManager : MonoBehaviour
 
         Vector2[] inkDirections = new Vector2[3];
         inkDirections[0] = targetPosition;
-        inkDirections[1] = Quaternion.AngleAxis(_spreadAngle, Vector3.forward) * targetPosition;  
+        inkDirections[1] = Quaternion.AngleAxis(_spreadAngle, Vector3.forward) * targetPosition;
         inkDirections[2] = Quaternion.AngleAxis(-_spreadAngle, Vector3.forward) * targetPosition;
 
         foreach (Vector2 dir in inkDirections)
@@ -133,6 +144,38 @@ public class BossManager : MonoBehaviour
 
     void MeleeAttack()
     {
+        _usedPositions.Clear();
+        int tentaclesSpawned = 0;
 
+        while (tentaclesSpawned < _maxTentacleSpawn)
+        {
+            float x = Random.Range(-6.91f, 7.25f);
+            float y = Random.Range(12.66f, 19.89f);
+            Vector3 spawnPos = new Vector3(x, y, 0f);
+
+            if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _colliderLayers))
+            {
+                continue;
+            }
+
+            bool tentacleTooClose = false;
+
+            foreach (var pos in _usedPositions)
+            {
+                if (Vector3.Distance(pos, spawnPos) < _minTentacleDistance)
+                {
+                    tentacleTooClose = true;
+                    break;
+                }
+            }
+
+            if (!tentacleTooClose)
+            {
+                var tentacle = Instantiate(_tentaclePrefab, spawnPos, Quaternion.identity);
+                Destroy(tentacle, 5f); 
+                _usedPositions.Add(spawnPos);
+                tentaclesSpawned++;
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 360273356612956492}
   - component: {fileID: 4353604152009608841}
   - component: {fileID: 8716191597068229105}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,8 +160,14 @@ MonoBehaviour:
   _inkSpeed: 4
   _rangedAttackCooldown: 8
   _currentRangedAttackCooldown: 0
-  _meleeAttackCooldown: 15
+  _tentaclePrefab: {fileID: 7261770203098048379, guid: 0fafa4b8099d7944cbc8286fb2a84194, type: 3}
+  _meleeAttackCooldown: 9
   _currentMeleeAttackCooldown: 0
+  _minTentacleDistance: 3
+  _maxTentacleSpawn: 10
+  _colliderLayers:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &5587941992546328842
 GameObject:
   m_ObjectHideFlags: 0

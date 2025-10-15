@@ -15789,7 +15789,7 @@ Transform:
   m_GameObject: {fileID: 365024856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.08, z: -10}
+  m_LocalPosition: {x: 0, y: 16.52, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15846,7 +15846,7 @@ GameObject:
   - component: {fileID: 493744940}
   - component: {fileID: 493744939}
   - component: {fileID: 493744938}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lamps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19618,7 +19618,7 @@ Transform:
   m_GameObject: {fileID: 1280782504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.08, z: -10}
+  m_LocalPosition: {x: 0, y: 16.52, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19712,7 +19712,7 @@ GameObject:
   - component: {fileID: 1467860938}
   - component: {fileID: 1467860937}
   - component: {fileID: 1467860939}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Miscelaneos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20909,7 +20909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8253807570715271175, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.08
+      value: 16.52
       objectReference: {fileID: 0}
     - target: {fileID: 8253807570715271175, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
       propertyPath: m_LocalPosition.z
