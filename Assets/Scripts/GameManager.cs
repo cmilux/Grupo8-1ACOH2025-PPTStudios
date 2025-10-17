@@ -12,14 +12,12 @@ public class GameManager : MonoBehaviour
 {
     [Header("References")]
     public static GameManager Instance;         //Static instance of GameManager
-    PlayerMovement _playerMovement;             //PlayerMovement script reference
-    public GameObject _player;                  //Player game object
     [SerializeField] GameObject _entrancePoint;
 
     [Header("Screen limit variables")]
-    float _xRange = 13.5f;
-    float _yRangeMin = -8.4f;
-    float _yRangeMax = 25.5f;
+    [SerializeField] float _xRange = 13.5f;
+    [SerializeField] float _yRangeMin = -8.4f;
+    [SerializeField] float _yRangeMax = 25.5f;
 
     private void Awake()
     {
@@ -32,6 +30,7 @@ public class GameManager : MonoBehaviour
         Instance = this;                        //Assign the instance
         DontDestroyOnLoad(gameObject);          //Dont destroy between scenes
     }
+
     private void Update()
     {
         //RestartGame();
@@ -46,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-        //PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
+        PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
     }
     //I dont think this is necessary but here for testing
     public void LoadScene(string sceneName)
@@ -69,32 +68,32 @@ public class GameManager : MonoBehaviour
     //Keeps the player between certain screen range
     public void PlayerSideScreenLimit()
     {
-        if (_player == null)
+        if (PlayerMovement.Instance == null)
         {
             return;
         }
 
         //Player is on left side limit
-        if (_player.transform.position.x < -_xRange)
+        if (PlayerMovement.Instance.transform.position.x < -_xRange)
         {
-            
-            _player.transform.position = new Vector2(-_xRange, _player.transform.position.y);
+
+            PlayerMovement.Instance.transform.position = new Vector2(-_xRange, PlayerMovement.Instance.transform.position.y);
         }
 
         //Player is on right side limit
-        if (_player.transform.position.x > _xRange)
+        if (PlayerMovement.Instance.transform.position.x > _xRange)
         {
-            _player.transform.position = new Vector2(_xRange, _player.transform.position.y);
+            PlayerMovement.Instance.transform.position = new Vector2(_xRange, PlayerMovement.Instance.transform.position.y);
         }
 
-        if (_player.transform.position.y > _yRangeMax)
+        if (PlayerMovement.Instance.transform.position.y > _yRangeMax)
         {
-            _player.transform.position = new Vector2(_player.transform.position.x, _yRangeMax);
+            PlayerMovement.Instance.transform.position = new Vector2(PlayerMovement.Instance.transform.position.x, _yRangeMax);
         }
 
-        if (_player.transform.position.y < _yRangeMin)
+        if (PlayerMovement.Instance.transform.position.y < _yRangeMin)
         {
-            _player.transform.position = new Vector2(_player.transform.position.x, -_yRangeMin);
+            PlayerMovement.Instance .transform.position = new Vector2(PlayerMovement.Instance.transform.position.x, _yRangeMin);
         }
     }
 

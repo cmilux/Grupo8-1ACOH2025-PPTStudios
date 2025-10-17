@@ -14284,7 +14284,7 @@ MonoBehaviour:
     rid: -2
   m_ShadowCastingSource: 0
   m_ShadowMesh:
-    m_Mesh: {fileID: 2062116033}
+    m_Mesh: {fileID: 1970712579}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -16387,6 +16387,7 @@ GameObject:
   - component: {fileID: 365024857}
   - component: {fileID: 365024861}
   - component: {fileID: 365024860}
+  - component: {fileID: 365024862}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -16491,6 +16492,18 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   FollowOffset: {x: 0, y: 0, z: -10}
+--- !u!114 &365024862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365024856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003f2543a04e1a5488f239d49b43901c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DontDestroy
 --- !u!1001 &376102265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21650,7 +21663,7 @@ SortingGroup:
   m_SortingLayer: 10
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!43 &1174039744
+--- !u!43 &1140658072
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24595,7 +24608,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8253807570715271175, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
   m_PrefabInstance: {fileID: 1686016732}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &2062116033
+--- !u!43 &1970712579
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
