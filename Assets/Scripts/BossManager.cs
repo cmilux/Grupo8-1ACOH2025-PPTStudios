@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
+using Unity.Hierarchy;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,7 +15,7 @@ public class BossManager : MonoBehaviour
     [Header("Ranged Attack")]
     [SerializeField] Transform _firingPoint;                // Stores the firing point where the boss's ink bullets will spawn from
     [SerializeField] GameObject _inkPrefab;                 // Stores the ink bullet prefab
-    [SerializeField] GameObject _target;                    // Gets the player's game object
+    [SerializeField] Transform _target;                     // Gets the player's game object
     [SerializeField] float _spreadAngle;                    // Stores the angle at which the ink bullets will travel
     [SerializeField] float _inkSpeed;                       // Stores the speed at which the ink bullets will travel
     [SerializeField] float _rangedAttackCooldown;           // Stores the starting ranged attack cooldown timer at the start of the game
@@ -26,12 +29,9 @@ public class BossManager : MonoBehaviour
     [SerializeField] int _maxTentacleSpawn;                       // Stores the max amount of tentacles to be spawned during the attack
     [SerializeField] LayerMask _colliderLayers;                   // Stores layers with obstacles to avoid tentacle spawns generating inside the colliders
     private List<Vector3> _usedPositions = new List<Vector3>();   // Stores used positions during the generation of tentacle spawns to avoid overlapping spawn points
-    
 
     void Start()
     {
-        _target = GameObject.FindGameObjectWithTag("Player");
-
         // Sets current ranged attack cooldown timer to starting cooldown timer
         _currentRangedAttackCooldown = _rangedAttackCooldown;
 
