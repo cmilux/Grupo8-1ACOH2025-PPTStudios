@@ -77,6 +77,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerRotation()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         //Flips the sprite depending on movement direction
         if (_moveInput.x > 0)
         {

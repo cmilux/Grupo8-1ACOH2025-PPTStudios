@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     public static GameManager Instance;         //Static instance of GameManager
     [SerializeField] GameObject _entrancePoint;
+    [SerializeField] GameObject _arrowNextLevel;
+    [SerializeField] EnemyManager _enemyManager;
 
     [Header("Screen limit variables")]
     [SerializeField] float _xRange = 13.5f;
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         //RestartGame();
         PlayerSideScreenLimit();
+        ArrowGuide();
     }
 
     public void StartGame()
@@ -42,11 +45,34 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Zone1");        //Loads the game scene
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        PlayerMovement.Instance._animator.enabled = false;
+    }
+
+    public void ResumeGame()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     public void NextScene()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
     }
+
+    public void ArrowGuide()
+    {
+        if (_enemyManager.enemyCount <= 0)
+        {
+            _arrowNextLevel.SetActive(true);
+        }
+    }
+
     //I dont think this is necessary but here for testing
     public void LoadScene(string sceneName)
     {

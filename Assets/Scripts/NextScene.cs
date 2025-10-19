@@ -1,9 +1,15 @@
+using System;
 using UnityEngine;
 
 public class NextScene : MonoBehaviour
 {
     [SerializeField] bool _goToNextLevel;
     [SerializeField] string _levelName;
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
