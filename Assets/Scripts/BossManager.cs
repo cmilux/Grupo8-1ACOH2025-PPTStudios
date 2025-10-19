@@ -22,13 +22,13 @@ public class BossManager : MonoBehaviour
     [SerializeField] float _currentRangedAttackCooldown;    // Stores the current ranged attack cooldown timer during the game
 
     [Header("Melee Attack")] 
-    [SerializeField] GameObject _tentaclePrefab;                  // Stores the tentacle prefab
-    [SerializeField] float _meleeAttackCooldown;                  // Stores the starting melee attack cooldown timer at the start of the game
-    [SerializeField] float _currentMeleeAttackCooldown;           // Stores the current melee attack cooldown timer during the game
-    [SerializeField] float _minTentacleDistance;                  // Handles offset between tentacle spawns
-    [SerializeField] int _maxTentacleSpawn;                       // Stores the max amount of tentacles to be spawned during the attack
-    [SerializeField] LayerMask _colliderLayers;                   // Stores layers with obstacles to avoid tentacle spawns generating inside the colliders
-    private List<Vector3> _usedPositions = new List<Vector3>();   // Stores used positions during the generation of tentacle spawns to avoid overlapping spawn points
+    [SerializeField] GameObject _tentaclePrefab;                   // Stores the tentacle prefab
+    [SerializeField] float _meleeAttackCooldown;                   // Stores the starting melee attack cooldown timer at the start of the game
+    [SerializeField] float _currentMeleeAttackCooldown;            // Stores the current melee attack cooldown timer during the game
+    [SerializeField] float _minTentacleDistance;                   // Handles offset between tentacle spawns
+    [SerializeField] int _maxTentacleSpawn;                        // Stores the max amount of tentacles to be spawned during the attack
+    [SerializeField] LayerMask _obstacleLayers;                    // Stores the obstacles layer to avoid tentacle spawns generating inside the colliders
+    private List<Vector3> _usedPositions = new List<Vector3>();    // Stores used positions during the generation of tentacle spawns to avoid overlapping spawn points
 
     void Start()
     {
@@ -59,6 +59,8 @@ public class BossManager : MonoBehaviour
             // Apply damage to boss
             _currentBossHealth -= sprayDamage;
 
+            Destroy(other);
+
             // Checks boss's health
             BossDeath();
         }
@@ -70,6 +72,8 @@ public class BossManager : MonoBehaviour
 
             // Apply damage to boss
             _currentBossHealth -= rockDamageAmount;
+
+            Destroy(other);
 
             // Checks enemy's health
             BossDeath();
@@ -156,12 +160,12 @@ public class BossManager : MonoBehaviour
         while (tentaclesSpawned < _maxTentacleSpawn)
         {
             // Finds a random position inside a set range
-            float x = Random.Range(-6.91f, 7.25f);
-            float y = Random.Range(12.66f, 19.89f);
+            float x = Random.Range(-6.39f, 7.35f);
+            float y = Random.Range(14.12f, 21.37f);
             Vector3 spawnPos = new Vector3(x, y, 0f);
 
             // Checks if the random position is overlapping with any obstacle's collider. If so, reset process back to start to find a new spawn position
-            if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _colliderLayers))
+            if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _obstacleLayers))
             {
                 continue;
             }
