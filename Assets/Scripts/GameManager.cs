@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-
+using UnityEngine.UI;
 
 
 #if UNITY_EDITOR
@@ -10,16 +11,22 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("References")]
     public static GameManager Instance;         //Static instance of GameManager
+    
+    [Header("References")]
     [SerializeField] GameObject _entrancePoint;
     [SerializeField] GameObject _arrowNextLevel;
     [SerializeField] EnemyManager _enemyManager;
+    
+    [Header("Buttons")]
+    [SerializeField] Button exitButton;
+    [SerializeField] Button menuButton;
+    [SerializeField] Button startButton;
 
     [Header("Screen limit variables")]
-    [SerializeField] float _xRange = 13.5f;
-    [SerializeField] float _yRangeMin = -8.4f;
-    [SerializeField] float _yRangeMax = 25.5f;
+    private float _xRange = 15.7f;
+    private float _yRangeMin = -8.4f;
+    private float _yRangeMax = 28.5f;
 
     private void Awake()
     {
@@ -33,15 +40,93 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);          //Dont destroy between scenes
     }
 
-    private void Update()
+    private void Start()
     {
-        //RestartGame();
-        PlayerSideScreenLimit();
-        ArrowGuide();
+        
     }
 
+    private void Update()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Zone1" || sceneName == "Zone2" || sceneName == "Zone3")
+        {
+            //RestartGame();
+            PlayerSideScreenLimit();
+            ArrowGuide();
+        }
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1;
+
+        if (scene.name == "Zone1" || scene.name == "Zone2" || scene.name == "Zone3")
+        {
+            _arrowNextLevel = GameObject.FindGameObjectWithTag("Arrow");
+            _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
+            /*
+            var foundManager = GameObject.FindGameObjectWithTag("EnemyManager");
+            if (foundManager != null)
+            {
+                _enemyManager = foundManager.GetComponent<EnemyManager>();
+                Debug.Log("EnemyMan was found");
+            }
+            */
+        }
+        
+        if (scene.name == "GameOver")
+        {
+            exitButton  = GameObject.Find("ExitButton")?.GetComponent<Button>();
+            menuButton  = GameObject.Find("MenuButton")?.GetComponent<Button>();
+            
+            if (exitButton)
+            {
+                exitButton.onClick.AddListener(Exit);
+            }
+            
+            if (menuButton)
+            {
+                menuButton.onClick.AddListener(BackToMenu);
+            }
+        }
+
+        if (scene.name == "StartMenu")
+        {
+            startButton = GameObject.Find("StartButton").GetComponent<Button>();
+            exitButton =  GameObject.Find("ExitButton").GetComponent<Button>();
+            if (startButton)
+            {
+                startButton.onClick.AddListener(StartGame);
+            }
+
+            if (exitButton)
+            {
+                exitButton.onClick.AddListener(Exit);
+            }
+        }
+    }
     public void StartGame()
     {
+        /*
+        var oldPlayer = GameObject.FindGameObjectWithTag("Player");
+        if (oldPlayer != null)
+        {
+            Destroy(oldPlayer);
+        }
+        */
+        
+        Time.timeScale = 1;
+
         SceneManager.LoadScene("Zone1");        //Loads the game scene
     }
 
@@ -65,12 +150,28 @@ public class GameManager : MonoBehaviour
         PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
     }
 
-    public void ArrowGuide()
+    void ArrowGuide()
     {
-        if (_enemyManager.enemyCount <= 0)
+        if (SceneManager.GetActiveScene().name == "Zone3")
         {
-            _arrowNextLevel.SetActive(true);
+            return;
         }
+        
+        _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
+        Debug.Log($"EnemyMan is set");
+        
+        if (_arrowNextLevel != null)
+        {
+            if (_enemyManager.enemyCount > 0)
+            {
+                _arrowNextLevel.SetActive(false);
+            }
+            if (_enemyManager.enemyCount <= 0)
+            {
+                _arrowNextLevel.SetActive(true);
+            }
+        }
+        
     }
 
     //I dont think this is necessary but here for testing
@@ -90,6 +191,22 @@ public class GameManager : MonoBehaviour
         }
     }
    */
+   
+   public void BackToMenu()
+   {
+       SceneManager.LoadScene("StartMenu");
+   }
+
+   public void Exit()
+   {
+       Time.timeScale = 1;
+        
+#if UNITY_EDITOR
+       EditorApplication.ExitPlaymode();
+#else
+            Application.Quit();
+#endif
+   }
 
     //Keeps the player between certain screen range
     public void PlayerSideScreenLimit()
@@ -121,19 +238,5 @@ public class GameManager : MonoBehaviour
         {
             PlayerMovement.Instance .transform.position = new Vector2(PlayerMovement.Instance.transform.position.x, _yRangeMin);
         }
-    }
-
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("StartMenu");
-    }
-
-    public void Exit()
-    {
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#else
-            Application.Quit();
-#endif
     }
 }

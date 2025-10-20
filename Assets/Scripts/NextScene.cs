@@ -8,7 +8,7 @@ public class NextScene : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

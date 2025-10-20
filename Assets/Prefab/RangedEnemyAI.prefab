@@ -286,8 +286,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -126531333
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 610345122710299862, guid: 0294797f1f87ab949b8994e7cb7690f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -380,8 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ef91432ac49b0419ac5090ce5d7177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangedEnemyManager
-  _target: {fileID: 0}
-  _agent: {fileID: 0}
+  _target: {fileID: 8253807570715271175, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
+  _agent: {fileID: 2182419499592130046}
   patrolPoints:
   - {x: -7.33, y: -2.84, z: 0}
   - {x: -6.25, y: -1.75, z: 0}
@@ -399,7 +399,7 @@ MonoBehaviour:
   _enemyHealth: 100
   _currentEnemyHealth: 0
   _rotateSpeed: 0.03
-  inkSplatter: {fileID: 0}
+  inkSplatter: {fileID: 7639966755987262536, guid: f00ca26f639e24748a482d219c890255, type: 3}
   _playerHealth: {fileID: 0}
   _enemy2Health: {fileID: 0}
   _healthBar: {fileID: 3494882668435554578}
@@ -631,7 +631,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -585174075
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &858753814983253131

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PathTest : MonoBehaviour
@@ -39,6 +40,26 @@ public class PathTest : MonoBehaviour
     [SerializeField] public float currentAttackCooldown;   // Stores the enemy's current attack cooldown timer 
     [SerializeField] public bool attackReady = false;      // Checks whether the enemy's attack is on cooldown or not
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1;
+
+        if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
+        {
+            _target = PlayerMovement.Instance.gameObject.transform;
+        }
+    }
+    
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
@@ -60,6 +81,17 @@ public class PathTest : MonoBehaviour
 
         // Disables the enemy's NavMeshAgent component until player is detected
         _agent.enabled = false;
+
+        if (_target == null)
+        {
+            var playerGO = GameObject.FindGameObjectWithTag("Player");
+            if (playerGO != null)
+            {
+                _target = playerGO.transform;
+            }
+            else{Debug.Log($"{name}: Player not found on Start()._target remains null");}
+        }
+        
     }
 
     void Update()
@@ -93,7 +125,7 @@ public class PathTest : MonoBehaviour
             HandleFollowState();
         }
 
-        SettingUI();
+        //SettingUI();
     }
 
     void SettingUI()

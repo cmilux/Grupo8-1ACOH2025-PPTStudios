@@ -24,12 +24,32 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _playerHealth;
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Zone1")
+        {
+            playerCurrentHealth = _playerMaxHealth;
+            _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+            _playerAnimator._isDead =  false;
+        }
+    }
 
     private void Start()
     {
         // Start game at max health amount
-        playerCurrentHealth = _playerMaxHealth;
-        _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        //playerCurrentHealth = _playerMaxHealth;
+        //_playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        
     }
 
     private void Update()
@@ -51,11 +71,11 @@ public class PlayerHealth : MonoBehaviour
     void OnDeath()
     {
         //Checks player's health
-        if (playerCurrentHealth <= 0)
+        if (!_playerAnimator._isDead && playerCurrentHealth <= 0)
         {
             //Sets the player off the screen
             //_player.SetActive(false);
-
+            
             //animation
             _playerAnimator._isDead = true;
 

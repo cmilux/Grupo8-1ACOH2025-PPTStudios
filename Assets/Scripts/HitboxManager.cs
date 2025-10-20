@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class HitboxManager : MonoBehaviour
@@ -13,12 +14,32 @@ public class HitboxManager : MonoBehaviour
     [SerializeField] float _rotateSpeed;
     [SerializeField] PathTest _meleeEnemyManager;
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1;
+
+        if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
+        {
+            _player = PlayerMovement.Instance.gameObject;
+        }
+    }
+    
     private void Update()
     {
         RotateHitboxSpawn();
     }
 
-    // SELE: Prometo hacer anotaciones de cómo funciona esto en cuanto entienda cómo funciona esto
+    // SELE: Prometo hacer anotaciones de cï¿½mo funciona esto en cuanto entienda cï¿½mo funciona esto
     private void RotateHitboxSpawn()
     {
         Vector3 dir = (_player.transform.position - _hitboxSpawn.position).normalized;

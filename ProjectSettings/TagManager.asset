@@ -16,6 +16,9 @@ TagManager:
   - DistanceEnemy
   - InkSplatter
   - Hitbox
+  - Arrow
+  - Entrance
+  - EnemyManager
   layers:
   - Default
   - TransparentFX

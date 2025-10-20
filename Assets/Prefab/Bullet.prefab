@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e29303633fd38344923e9e377f4dd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RockManager
-  rockDamage: 10
+  rockDamage: 40
 --- !u!96 &3911262029662539685
 TrailRenderer:
   serializedVersion: 3
