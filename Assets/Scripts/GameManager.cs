@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _entrancePoint;
     [SerializeField] GameObject _arrowNextLevel;
     [SerializeField] EnemyManager _enemyManager;
+    [SerializeField] bool _isPaused;
     
     [Header("Buttons")]
     [SerializeField] Button exitButton;
     [SerializeField] Button menuButton;
     [SerializeField] Button startButton;
+    [SerializeField] Button pauseButton;
 
     [Header("Screen limit variables")]
     private float _xRange = 15.7f;
@@ -72,8 +74,15 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "Zone1" || scene.name == "Zone2" || scene.name == "Zone3")
         {
+            PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
             _arrowNextLevel = GameObject.FindGameObjectWithTag("Arrow");
             _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
+            pauseButton = GameObject.Find("PauseButton")?.GetComponent<Button>();
+
+            if (pauseButton)
+            {
+                pauseButton.onClick.AddListener(PauseGame);
+            }
             /*
             var foundManager = GameObject.FindGameObjectWithTag("EnemyManager");
             if (foundManager != null)
@@ -132,8 +141,17 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0;
-        PlayerMovement.Instance._animator.enabled = false;
+        if (_isPaused)
+        {
+            Time.timeScale = 1;
+            _isPaused = false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            PlayerMovement.Instance._animator.enabled = false;
+            _isPaused = true;
+        }
     }
 
     public void ResumeGame()
@@ -147,7 +165,7 @@ public class GameManager : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-        PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
+        //PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
     }
 
     void ArrowGuide()
