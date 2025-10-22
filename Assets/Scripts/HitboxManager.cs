@@ -13,32 +13,29 @@ public class AlienManager : MonoBehaviour
     [SerializeField] float _rotateSpeed;
     [SerializeField] PathTest _meleeEnemyManager;
 
-<<<<<<< Updated upstream
-=======
     [Header("Animation")]
     [SerializeField] Animator _alienAnimator;
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    //void OnEnable()
+    //{
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
 
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    //void OnDisable()
+    //{
+    //    SceneManager.sceneLoaded -= OnSceneLoaded;
+    //}
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Time.timeScale = 1;
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    Time.timeScale = 1;
 
-        if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
-        {
-            _player = PlayerMovement.Instance.gameObject;
-        }
-    }
-    
->>>>>>> Stashed changes
+    //    if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
+    //    {
+    //        _player = PlayerMovement.Instance.gameObject;
+    //    }
+    //}
+
     private void Update()
     {
         RotateHitboxSpawn();

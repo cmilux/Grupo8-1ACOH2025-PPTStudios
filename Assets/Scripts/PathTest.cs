@@ -40,34 +40,26 @@ public class PathTest : MonoBehaviour
     [SerializeField] public float currentAttackCooldown;   // Stores the enemy's current attack cooldown timer 
     [SerializeField] public bool attackReady = false;      // Checks whether the enemy's attack is on cooldown or not
 
-<<<<<<< Updated upstream
-=======
-    [Header("Alien Jump")]
-    [SerializeField] Transform _alien;
-    [SerializeField] float _jumpForce = 5f;
-    [SerializeField] float _gravity = 9.8f;
+    //void OnEnable()
+    //{
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    //void OnDisable()
+    //{
+    //    SceneManager.sceneLoaded -= OnSceneLoaded;
+    //}
 
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    Time.timeScale = 1;
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Time.timeScale = 1;
+    //    if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
+    //    {
+    //        _target = PlayerMovement.Instance.gameObject.transform;
+    //    }
+    //}
 
-        if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
-        {
-            _target = PlayerMovement.Instance.gameObject.transform;
-        }
-    }
-    
->>>>>>> Stashed changes
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
@@ -87,10 +79,6 @@ public class PathTest : MonoBehaviour
         //Should the agent movement ignore the vertical axis
         _agent.updateUpAxis = false;
 
-<<<<<<< Updated upstream
-        // Disables the enemy's NavMeshAgent component until player is detected
-        _agent.enabled = false;
-=======
         if (_target == null)
         {
             var playerGO = GameObject.FindGameObjectWithTag("Player");
@@ -102,7 +90,6 @@ public class PathTest : MonoBehaviour
         }
 
         UpdatePatrolPoint();
->>>>>>> Stashed changes
     }
 
     void Update()
@@ -136,13 +123,7 @@ public class PathTest : MonoBehaviour
             HandleFollowState();
         }
 
-<<<<<<< Updated upstream
-        SettingUI();
-=======
-        AlienDeath();
-
         //SettingUI();
->>>>>>> Stashed changes
     }
 
     void SettingUI()
@@ -322,39 +303,5 @@ public class PathTest : MonoBehaviour
     {
         // Sets the enemy's target to the player
         _agent.SetDestination(_target.position);
-    }
-
-    private void AlienDeath()
-    {
-        if (enemyDying)
-        {
-            AlienJump();
-        }
-    }
-
-    private IEnumerator AlienJump()
-    {
-        float verticalSpeed = _jumpForce;
-        bool falling = false;
-
-        while (true)
-        {
-            // Simula salto y caída
-            verticalSpeed -= _gravity * Time.deltaTime;
-            _alien.localPosition += Vector3.up * verticalSpeed * Time.deltaTime;
-
-            // Detecta suelo con Raycast
-            if (falling && Physics.Raycast(_alien.position, Vector3.down, out RaycastHit hit, 0.1f))
-            {
-                _alien.position = hit.point;
-                break;
-            }
-
-            if (verticalSpeed < 0f) falling = true;
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
     }
 }
