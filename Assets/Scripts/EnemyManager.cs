@@ -1,7 +1,47 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    //public static EnemyManager Instance;
+    [SerializeField] public GameObject[] meleeEnemies;
+    [SerializeField] public GameObject[] distanceEnemies;
+    public int enemyCount;
+
+    private void Awake()
+    {
+        /*8
+        if (Instance == null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        */
+    }
+
+    private void Update()
+    {
+        EnemiesOnScene();
+    }
+
+    void EnemiesOnScene()
+    {
+        meleeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        distanceEnemies = GameObject.FindGameObjectsWithTag("DistanceEnemy");
+        enemyCount = meleeEnemies.Length +  distanceEnemies.Length;
+        Debug.Log($"There are {enemyCount} melee and distance enemies");
+    }
+
+    /*public static void AddEnemy(GameObject enemy)
+    {
+
+    }*/
+
+    /*
     [Header("Stats")]
     [SerializeField] public int enemyDamage;                // Stores how much damage the enemy can do to the player
     [SerializeField] public int enemyHealth;                // Stores how much health the enemy has
@@ -13,7 +53,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] PlayerHealth _playerHealth;            // Reference to "PlayerHealth" script
     [SerializeField] float _speed;                          // Speed at which the enemy moves towards target
     [SerializeField] public bool playerDetected = false;    // Stores whether the player has entered the enemy's detection range or not
-    [SerializeField] public float detectionRange;           
+    [SerializeField] public float detectionRange;
 
     Rigidbody2D _rb;
 
@@ -68,7 +108,7 @@ public class EnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        } 
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -93,7 +133,7 @@ public class EnemyManager : MonoBehaviour
     private void DetectDistanceWithPlayer()
     {
         float distance = Vector2.Distance(transform.position, _target.transform.position);
-        
+
         if (distance < detectionRange)
         {
             playerDetected = true;
@@ -108,5 +148,6 @@ public class EnemyManager : MonoBehaviour
         // Reset attack cooldown
         currentAttackCooldown = startingAttackCooldown;
     }
+    */
 }
 

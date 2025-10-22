@@ -7,6 +7,7 @@ using TMPro;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class RangedEnemyManager : MonoBehaviour
 {
@@ -49,6 +50,28 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
     [SerializeField] bool _enemyDamaged;              // Checks whether the enemy has been damaged or not
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1;
+
+        if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
+        {
+            _playerHealth = PlayerMovement.Instance.GetComponentInChildren<PlayerHealth>();
+            //_playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+            _target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+    }
+
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
@@ -74,6 +97,20 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Disables the enemy's NavMeshAgent component until player is detected
         _agent.enabled = false;
+        
+        /*
+        if (_target == null)
+        {
+            var playerGO = GameObject.FindGameObjectWithTag("Player");
+            if (playerGO != null)
+            {
+                _target = playerGO.transform;
+            }
+            else
+            {
+                Debug.Log($"{name}:Player not found");
+            }
+        }*/
     }
 
     void Update()
@@ -99,7 +136,7 @@ public class RangedEnemyManager : MonoBehaviour
         // Updates health bar above enemy's head to the current health value 
         UpdateHealthBar();
  
-        SettingUI();
+        //SettingUI();
 
         // When the player is attacked by a ranged enemy, call for the ink splatter effect to be activated 
         //if (_playerHealth.activateInkSplatterEffect == true)

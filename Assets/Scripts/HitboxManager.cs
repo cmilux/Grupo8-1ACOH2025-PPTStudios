@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class AlienManager : MonoBehaviour
@@ -41,7 +42,7 @@ public class AlienManager : MonoBehaviour
         RotateHitboxSpawn();
     }
 
-    // SELE: Prometo hacer anotaciones de cómo funciona esto en cuanto entienda cómo funciona esto
+    // SELE: Prometo hacer anotaciones de cï¿½mo funciona esto en cuanto entienda cï¿½mo funciona esto
     private void RotateHitboxSpawn()
     {
         Vector3 dir = (_player.transform.position - _hitboxSpawn.position).normalized;

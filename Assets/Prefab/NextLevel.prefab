@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6040897390367334121}
-  - component: {fileID: 6144721377080892373}
+  - component: {fileID: 8233636635585964553}
   - component: {fileID: 3687439458128195772}
   - component: {fileID: 2207153173052423023}
+  - component: {fileID: 7375594097772414417}
   m_Layer: 0
   m_Name: NextLevel
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,13 +30,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 28.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6144721377080892373
-BoxCollider2D:
+--- !u!70 &8233636635585964553
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68,18 +69,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.044659615, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 0.13671875, y: 0.2421875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.0271726, y: 1.9825134}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.005563855, y: 0.0055639744}
+  m_Size: {x: 0.31969738, y: 0.8315778}
+  m_Direction: 0
 --- !u!212 &3687439458128195772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,12 +119,12 @@ SpriteRenderer:
   m_SortingLayerID: -281465397
   m_SortingLayer: 13
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 44dcffc3bce0ac34e8c5bd5552e8f8a9, type: 3}
+  m_Sprite: {fileID: -6396006070144275318, guid: 45b8ab96faeaa88478502040f851c0b3, type: 3}
   m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.13671875, y: 0.2421875}
+  m_Size: {x: 0.5, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -152,3 +144,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NextScene
   _goToNextLevel: 1
   _levelName: 
+--- !u!114 &7375594097772414417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551964511700108834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2bf1740dd881945908bc34358de73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlinkEffect
+  _blinkDuration: 2
+  _ogColor: {r: 1, g: 1, b: 1, a: 0}
+  _spriteRenderer: {fileID: 3687439458128195772}

@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 1795178558}
   - component: {fileID: 1795178557}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: ==GameManager==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1033,8 +1033,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9c06871575869408054e1aa51d2e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _player: {fileID: 3560986500073157858, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
   _entrancePoint: {fileID: 4200737846069457397, guid: 97dbefe2f5de881438796039143aab1b, type: 3}
+  _xRange: 15.7
+  _yRangeMin: -8.4
+  _yRangeMax: 28.5
 --- !u!4 &1795178558
 Transform:
   m_ObjectHideFlags: 0

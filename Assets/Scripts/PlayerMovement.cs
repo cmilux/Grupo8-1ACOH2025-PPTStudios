@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector2 _lastDir;                              //Stores player last direction
     [SerializeField] Vector2 _moveDir;                              //Stores player move direction
     [SerializeField] Vector2 _moveInput;                            //Stores the input from movement
-
+    
     private void Awake()
     {
         //If another instance exist, destroy this one
@@ -77,6 +77,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerRotation()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         //Flips the sprite depending on movement direction
         if (_moveInput.x > 0)
         {

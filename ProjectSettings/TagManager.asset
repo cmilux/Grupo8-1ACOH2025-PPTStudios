@@ -16,6 +16,9 @@ TagManager:
   - DistanceEnemy
   - InkSplatter
   - Hitbox
+  - Arrow
+  - Entrance
+  - EnemyManager
   layers:
   - Default
   - TransparentFX
@@ -91,6 +94,9 @@ TagManager:
     locked: 0
   - name: Food-Rocks
     uniqueID: 4013501899
+    locked: 0
+  - name: UI
+    uniqueID: 3709793221
     locked: 0
   m_RenderingLayers:
   - Default

@@ -86,7 +86,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -177,50 +177,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Tiles_Floor_B_Zone_1_2
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 76
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f8b6c99f0e71adc40800000000000000
-      internalID: 5537764946833337231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Tiles_Floor_B_Zone_1_3
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 76
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa8331f318f493da0800000000000000
-      internalID: -5964648814947911505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spr_Tiles_Floor_B_Zone_1_4
       rect:
         serializedVersion: 2
@@ -287,72 +243,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Tiles_Floor_B_Zone_1_7
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 38
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9526d8f2a777a3750800000000000000
-      internalID: 6285467596616458841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Tiles_Floor_B_Zone_1_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a854bbb1123e3e420800000000000000
-      internalID: 2658217936417408394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Tiles_Floor_B_Zone_1_9
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b7da09c2c3b915b90800000000000000
-      internalID: -7254846841969136261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spr_Tiles_Floor_B_Zone_1_10
       rect:
         serializedVersion: 2
@@ -370,28 +260,6 @@ TextureImporter:
       bones: []
       spriteID: e738570883f5eaf10800000000000000
       internalID: 2282866757401412478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Tiles_Floor_B_Zone_1_11
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af4de5dc1e285fd40800000000000000
-      internalID: 5617540016539358458
       vertices: []
       indices: 
       edges: []
