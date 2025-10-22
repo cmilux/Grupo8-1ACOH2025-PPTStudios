@@ -102,10 +102,10 @@ public class RangedEnemyManager : MonoBehaviour
         SettingUI();
 
         // When the player is attacked by a ranged enemy, call for the ink splatter effect to be activated 
-        if (_playerHealth.activateInkSplatterEffect == true)
-        {
-            StartCoroutine(InkSplatterEffect());
-        }
+        //if (_playerHealth.activateInkSplatterEffect == true)
+        //{
+        //    StartCoroutine(InkSplatterEffect());
+        //}
 
         // Until player is detected, activate patrol state
         if (!_playerDetected)

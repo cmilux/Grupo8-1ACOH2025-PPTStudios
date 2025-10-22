@@ -171,6 +171,7 @@ MonoBehaviour:
   _meleeEnemy: {fileID: 2368381465472855034}
   _rotateSpeed: 200
   _meleeEnemyManager: {fileID: 6237464456903845930}
+  _alienAnimator: {fileID: 0}
 --- !u!1 &2368381465472855034
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,11 +353,8 @@ MonoBehaviour:
   _target: {fileID: 0}
   _agent: {fileID: 2182419499592130046}
   _hitboxManager: {fileID: 1845096445344865689}
-  patrolPoints:
-  - {x: 7.2, y: 0.31, z: 0}
-  - {x: 4.06, y: 0.31, z: 0}
-  _currentPatrolPoint: 0
-  _enemySpeed: 3
+  _patrolRadius: 4
+  _enemyWaiting: 0
   _playerDetected: 0
   _enemyHealth: 100
   _currentEnemyHealth: 0
@@ -369,9 +367,14 @@ MonoBehaviour:
   _lastDir: {x: 0, y: 0}
   _attackAnimation: 0
   _enemyDamaged: 0
+  _isMoving: 0
+  enemyDying: 0
   attackCooldown: 3
   currentAttackCooldown: 0
   attackReady: 0
+  _alien: {fileID: 3798361074954341599}
+  _jumpForce: 5
+  _gravity: 9.8
 --- !u!95 &8021545404124693783
 Animator:
   serializedVersion: 7

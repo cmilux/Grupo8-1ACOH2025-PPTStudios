@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class HitboxManager : MonoBehaviour
+public class AlienManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Transform _hitboxSpawn;
@@ -13,6 +13,32 @@ public class HitboxManager : MonoBehaviour
     [SerializeField] float _rotateSpeed;
     [SerializeField] PathTest _meleeEnemyManager;
 
+<<<<<<< Updated upstream
+=======
+    [Header("Animation")]
+    [SerializeField] Animator _alienAnimator;
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1;
+
+        if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
+        {
+            _player = PlayerMovement.Instance.gameObject;
+        }
+    }
+    
+>>>>>>> Stashed changes
     private void Update()
     {
         RotateHitboxSpawn();
@@ -37,7 +63,7 @@ public class HitboxManager : MonoBehaviour
     {
         Collider2D player = Physics2D.OverlapCircle(_hitboxSpawn.transform.position, _hitboxRadius, _playerLayer);
 
-        if (player != null && _meleeEnemyManager.attackReady == true)
+        if (player != null && _meleeEnemyManager.attackReady == true && !_meleeEnemyManager.enemyDying)
         {
             var playerHealth = player.GetComponentInChildren<PlayerHealth>();
             playerHealth.playerCurrentHealth -= _meleeEnemyManager.enemyDamage;
