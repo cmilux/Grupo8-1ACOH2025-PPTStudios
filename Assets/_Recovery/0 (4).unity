@@ -707,7 +707,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1795178557}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: HowToPlay
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4246,7 +4246,6 @@ MonoBehaviour:
   menuButton: {fileID: 0}
   startButton: {fileID: 0}
   pauseButton: {fileID: 0}
-  playButton: {fileID: 0}
 --- !u!4 &1795178558
 Transform:
   m_ObjectHideFlags: 0
