@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e02a072c987d3a747bd8d3ce7e3791b9
+guid: 180adf28e9448e84b829de8aa45963d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4449534102175792092
-    second: spr_Miscelaneos_Tree_2D_Zone_3_0
+      213: 5807464304116525433
+    second: spr_Miscelaneos_Aro_1B_Zone_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Miscelaneos_Tree_2D_Zone_3_0
+      name: spr_Miscelaneos_Aro_1B_Zone_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 47
-        height: 106
+        width: 77
+        height: 84
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 32.5, y: -23}
+        - {x: 38.5, y: -11}
+        - {x: 38.5, y: 13}
+        - {x: 33.5, y: 24}
+        - {x: 27.5, y: 32}
+        - {x: 20.5, y: 38}
+        - {x: 12.5, y: 42}
+        - {x: -11.5, y: 42}
+        - {x: -22.5, y: 36}
+        - {x: -32.5, y: 26}
+        - {x: -38.5, y: 12}
+        - {x: -38.5, y: -10}
+        - {x: -31.5, y: -24}
+        - {x: -19.5, y: -35}
+        - {x: -8.5, y: -40}
+        - {x: -5.5, y: -40}
+        - {x: -5.5, y: -42}
+        - {x: 5.5, y: -42}
+        - {x: 5.5, y: -40}
+        - {x: 8.5, y: -40}
+        - {x: 9.5, y: -39}
+        - {x: 22.5, y: -34}
+      tessellationDetail: 0
       bones: []
-      spriteID: 42443d70f441042c0800000000000000
-      internalID: -4449534102175792092
+      spriteID: 97960ace302489050800000000000000
+      internalID: 5807464304116525433
       vertices: []
       indices: 
       edges: []
@@ -125,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0948c5c836b5698458f132574fba5c70
+    spriteID: 0109e18f96540ce4ba188473902c5489
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +157,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Miscelaneos_Tree_2D_Zone_3_0: -4449534102175792092
+      spr_Miscelaneos_Aro_1B_Zone_2_0: 5807464304116525433
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

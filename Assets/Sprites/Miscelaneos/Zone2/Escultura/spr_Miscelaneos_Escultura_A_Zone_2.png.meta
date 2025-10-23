@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3d91c30385dc52042b6a398568ba97cd
+guid: d47e843522cb85e46b62c797ad84e60c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1463324378565212854
-    second: spr_Miscelaneos_Columna_Zone_1_0
+      213: 4880620904334062303
+    second: spr_Miscelaneos_Escultura_A_Zone_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,27 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Miscelaneos_Columna_Zone_1_0
+      name: spr_Miscelaneos_Escultura_A_Zone_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 60
-        height: 166
-      alignment: 9
-      pivot: {x: 0.5, y: 0.09}
+        width: 32
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 25, y: -70}
-        - {x: -25, y: -70}
-        - {x: -25, y: -79}
-        - {x: 25, y: -79}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: a4583701b3a31bbe0800000000000000
-      internalID: -1463324378565212854
+      spriteID: fd27d269ad27bb340800000000000000
+      internalID: 4880620904334062303
       vertices: []
       indices: 
       edges: []
@@ -129,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9a0353407d6080845949688eafa4bbaf
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -139,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Miscelaneos_Columna_Zone_1_0: -1463324378565212854
+      spr_Miscelaneos_Escultura_A_Zone_2_0: 4880620904334062303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

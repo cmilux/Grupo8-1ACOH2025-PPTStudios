@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 287c483656a3f374cb604b72826858fd
+guid: 5c0b60eb1fa13b24ebe339e029e237cd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5842837459581543012
-    second: spr_Miscelaneos_Tree_1A_Zone_3_0
+      213: 6262029383887252801
+    second: spr_Miscelaneos_Tree_2C_Zone_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Miscelaneos_Tree_1A_Zone_3_0
+      name: spr_Miscelaneos_Tree_2C_Zone_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 76
+        width: 47
+        height: 100
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 5.5, y: -41}
+        - {x: -4.5, y: -41}
+        - {x: -16.5, y: -47}
+        - {x: -14.5, y: -49}
+        - {x: 14.5, y: -48}
+      tessellationDetail: 0
       bones: []
-      spriteID: 46224ba76bde51150800000000000000
-      internalID: 5842837459581543012
+      spriteID: 14d68a70c8237e650800000000000000
+      internalID: 6262029383887252801
       vertices: []
       indices: 
       edges: []
@@ -125,8 +130,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1bd38e9560075d642a9bccf9ed1f7a84
-    internalID: -1876152025
+    spriteID: f4bc23b03eff8c444b47b74ee4f910dd
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +140,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Miscelaneos_Tree_1A_Zone_3_0: 5842837459581543012
+      spr_Miscelaneos_Tree_2C_Zone_3_0: 6262029383887252801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerRotation()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || _isDead)
         {
             return;
         }
@@ -113,6 +113,12 @@ public class PlayerMovement : MonoBehaviour
         //Set the bools to play hit or death animation
         _animator.SetBool("IsBeingAttacked", _isBeingAttacked);
         _animator.SetBool("IsDead", _isDead);
+        if (_isDead)
+        {
+            _playerRb.linearVelocity = Vector2.zero;
+            //_moveDir.x = 0;
+            //_moveDir.y = 0;
+        }
     }
     public void EndAnimation()
     {
