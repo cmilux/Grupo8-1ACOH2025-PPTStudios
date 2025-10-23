@@ -107,7 +107,7 @@ BlendTree:
   m_Name: Melee attack
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: a0e3d7f3a6591964e8213b56e03e0d54, type: 2}
+    m_Motion: {fileID: 7400000, guid: bf2bbe858431834468aa4a0b54378841, type: 2}
     m_Threshold: 0
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1

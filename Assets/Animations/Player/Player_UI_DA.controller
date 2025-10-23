@@ -107,7 +107,7 @@ BlendTree:
   m_Name: Distance attack
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6995d4a7b2ee82b4ca3b4299a6550e3f, type: 2}
+    m_Motion: {fileID: 7400000, guid: c9b8f242da706464dad354a5babe71b4, type: 2}
     m_Threshold: 0
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
