@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button menuButton;
     [SerializeField] Button startButton;
     [SerializeField] Button pauseButton;
+    [SerializeField] Button playButton;
 
     [Header("Screen limit variables")]
     private float _xRange = 15.7f;
@@ -115,7 +116,7 @@ public class GameManager : MonoBehaviour
             exitButton =  GameObject.Find("ExitButton").GetComponent<Button>();
             if (startButton)
             {
-                startButton.onClick.AddListener(StartGame);
+                startButton.onClick.AddListener(HowToPlay);
             }
 
             if (exitButton)
@@ -123,6 +124,20 @@ public class GameManager : MonoBehaviour
                 exitButton.onClick.AddListener(Exit);
             }
         }
+
+        if (scene.name == "Controls")
+        {
+            playButton = GameObject.Find("PlayButton")?.GetComponent<Button>();
+            if (playButton)
+            {
+                playButton.onClick.AddListener(StartGame);
+            }
+        }
+    }
+
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene("Controls");
     }
     public void StartGame()
     {
@@ -151,14 +166,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             PlayerMovement.Instance._animator.enabled = false;
             _isPaused = true;
-        }
-    }
-
-    public void ResumeGame()
-    {
-        if (Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
         }
     }
 
