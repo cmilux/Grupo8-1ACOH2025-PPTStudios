@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 95af46a7078e20a43bc5fc472dbaf576
+guid: ba952bf05e5870d478d3bf99940ea264
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3188103428975311805
-    second: spr_Miscelaneos_Canteros_Lateral_Derecha_Zone_1_0
+      213: -4003866750872380332
+    second: spr_Colectable_Piedra_1A_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Miscelaneos_Canteros_Lateral_Derecha_Zone_1_0
+      name: spr_Colectable_Piedra_1A_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 122
-        height: 632
+        x: 6
+        y: 8
+        width: 19
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbb37476d2b6e3c20800000000000000
-      internalID: 3188103428975311805
+      spriteID: 45c114a47686f68c0800000000000000
+      internalID: -4003866750872380332
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Miscelaneos_Canteros_Lateral_Derecha_Zone_1_0: 3188103428975311805
+      spr_Colectable_Piedra_1A_0: -4003866750872380332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,6 +16,7 @@ public class TriggerBossCamera : MonoBehaviour
     private void Start()
     {
         _bossManager = _boss.GetComponent<BossManager>();
+        _bossManager._bossHealth.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -43,6 +44,7 @@ public class TriggerBossCamera : MonoBehaviour
         {
             _playerTriggeredBossCamera = true;
             _bossManager.enabled = true;
+            _bossManager._bossHealth.gameObject.SetActive(true);
         }
     }
 

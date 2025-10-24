@@ -5,12 +5,16 @@ using Unity.Hierarchy;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BossManager : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] float _maxBossHealth;                  // Stores the boss' max health value
     [SerializeField] float _currentBossHealth;              // Stores the boss' current health value
+
+    [Header("UI")]
+    public Slider _bossHealth;
 
     [Header("Ranged Attack")]
     [SerializeField] Transform _firingPoint;                // Stores the firing point where the boss's ink bullets will spawn from
@@ -46,6 +50,8 @@ public class BossManager : MonoBehaviour
     {
         // Checks both boss attacks cooldown timers and calls for whichever type of attack is available
         HandleAttackCooldowns();
+
+        BossHealthUI();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -78,6 +84,11 @@ public class BossManager : MonoBehaviour
             // Checks enemy's health
             BossDeath();
         }
+    }
+
+    void BossHealthUI()
+    {
+        _bossHealth.value = _currentBossHealth / _maxBossHealth;
     }
 
     void BossDeath()

@@ -183,7 +183,6 @@ public class GameManager : MonoBehaviour
         }
         
         _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
-        Debug.Log($"EnemyMan is set");
         
         if (_arrowNextLevel != null)
         {

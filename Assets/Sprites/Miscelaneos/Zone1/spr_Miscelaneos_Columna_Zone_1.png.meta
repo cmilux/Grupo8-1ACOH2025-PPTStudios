@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape:
       - - {x: 25, y: -70}
         - {x: -25, y: -70}
-        - {x: -25, y: -79}
-        - {x: 25, y: -79}
+        - {x: -25, y: -83}
+        - {x: 25, y: -83}
       tessellationDetail: 0
       bones: []
       spriteID: a4583701b3a31bbe0800000000000000
