@@ -14,9 +14,6 @@ public class AlienManager : MonoBehaviour
     [SerializeField] float _rotateSpeed;
     [SerializeField] PathTest _meleeEnemyManager;
 
-    [Header("Animation")]
-    [SerializeField] Animator _alienAnimator;
-
     //void OnEnable()
     //{
     //    SceneManager.sceneLoaded += OnSceneLoaded;

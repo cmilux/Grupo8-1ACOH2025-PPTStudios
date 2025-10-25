@@ -163,40 +163,13 @@ public class RangedEnemyManager : MonoBehaviour
         // Checks if enemy collides with a rock
         if (other.gameObject.CompareTag("Rock"))
         {
-            // Gets the damage value from the rock that the enemy has collided with
-            int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
-
-            // Apply damage to enemy
-            _currentEnemyHealth -= rockDamageAmount;
-
-            _enemyDamaged = true;
-
-            _playerDetected = true;
-
-            // Checks enemy's health
-            EnemyDeath();
+            EnemyDistanceDamage(other);
         }
         
         // Checks if enemy collides with the spray
-        if (other.gameObject.CompareTag("Spray"))
+        else if (other.gameObject.CompareTag("Spray"))
         {
-            // Gets the damage value from the spray that the enemy has collided with
-            int sprayDamage = other.gameObject.GetComponent<SprayManager>().sprayDamage;
-
-            // Apply damage to enemy
-            _currentEnemyHealth -= sprayDamage;
-
-            _enemyDamaged = true;
-
-            // Checks enemy's health
-            EnemyDeath();
-        }
-        else _enemyDamaged = false;
-
-        // Checks if player enters the enemy's detection range
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _playerDetected = true;
+            EnemyMeleeDamage(other);
         }
     }
 
@@ -229,6 +202,11 @@ public class RangedEnemyManager : MonoBehaviour
             _canAttack = true;
         }
         else _canAttack = false;
+
+        if (distance <= 5f)
+        {
+            _playerDetected = true;
+        }
     }
 
     private void HandleAttackCooldown()
@@ -318,7 +296,6 @@ public class RangedEnemyManager : MonoBehaviour
         _alienAnimator.SetFloat("Horizontal", _lastDir.x);
         _alienAnimator.SetFloat("Vertical", _lastDir.y);
         _alienAnimator.SetBool("Attack", _playAttackAnimation);
-        _alienAnimator.SetBool("Damage", _enemyDamaged);
         _alienAnimator.SetBool("Die", _enemyDying);
     }
 
@@ -384,5 +361,35 @@ public class RangedEnemyManager : MonoBehaviour
     {
         // Sets the enemy's target to the player
         _agent.SetDestination(_target.position);
+    }
+
+    private void EnemyDistanceDamage(Collider2D rock)
+    {
+        // Gets the damage value from the rock that the enemy has collided with
+        int rockDamageAmount = rock.gameObject.GetComponent<RockManager>().rockDamage;
+
+        // Apply damage to enemy
+        _currentEnemyHealth -= rockDamageAmount;
+
+        _alienAnimator.SetTrigger("Damaged");
+
+        _playerDetected = true;
+
+        // Checks enemy's health
+        EnemyDeath();
+    }
+
+    private void EnemyMeleeDamage(Collider2D spray)
+    {
+        // Gets the damage value from the spray that the enemy has collided with
+        int sprayDamage = spray.gameObject.GetComponent<SprayManager>().sprayDamage;
+
+        // Apply damage to enemy
+        _currentEnemyHealth -= sprayDamage;
+
+        _alienAnimator.SetTrigger("Damaged");
+
+        // Checks enemy's health
+        EnemyDeath();
     }
 }

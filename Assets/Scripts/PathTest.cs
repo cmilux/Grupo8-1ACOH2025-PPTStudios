@@ -32,9 +32,9 @@ public class PathTest : MonoBehaviour
     [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
     [SerializeField] bool _attackAnimation = false;   // Checks whether the enemy's attack animation should be activated or not
-    [SerializeField] bool _enemyDamaged = false;      // Checks whether the enemy has been attacked or not
     [SerializeField] bool _isMoving;
     [SerializeField] public bool enemyDying = false;
+    [SerializeField] bool _enemyDamaged;
 
     [Header("Attack Cooldown")]
     [SerializeField] public float attackCooldown;          // Stores the enemy's max attack cooldown timer 
@@ -71,6 +71,8 @@ public class PathTest : MonoBehaviour
 
         // Sets current enemy health to the max health value
         _currentEnemyHealth = _enemyHealth;
+
+        _target = GameObject.FindGameObjectWithTag("Player").transform;
 
         //-------------------
         //2D NavMesh settings
@@ -137,44 +139,19 @@ public class PathTest : MonoBehaviour
         // Checks if enemy collides with a rock
         if (other.gameObject.CompareTag("Rock"))
         {
-            // Gets the damage value from the rock that the enemy has collided with
-            int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
-
-            // Apply damage to enemy
-            _currentEnemyHealth -= rockDamageAmount;
-
-            _enemyDamaged = true;
-
-            _playerDetected = true;
-
-            //Checks enemy's health
-            EnemyDeath();
+            EnemyDistanceDamage(other);
         }
+
         // Checks if enemy collides with the spray
         else if (other.gameObject.CompareTag("Spray"))
         {
-            // Gets the damage value from the spray that the enemy has collided with
-            int sprayDamage = other.gameObject.GetComponent<SprayManager>().sprayDamage;
-
-            // Apply damage to enemy
-            _currentEnemyHealth -= sprayDamage;
-
-            _enemyDamaged = true;
-
-            //Checks enemy's health
-            EnemyDeath();
-        }
-        else _enemyDamaged = false;
-
-        // Checks if player enters the enemy's detection range
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _playerDetected = true;
+            EnemyMeleeDamage(other);
         }
     }
 
     private void EnemyDeath()
     {
+        _enemyDamaged = true;
         //Checks the enemy's health
         if (_currentEnemyHealth <= 0)
         {
@@ -205,11 +182,16 @@ public class PathTest : MonoBehaviour
     {
         float distance = Vector2.Distance(transform.position, _target.transform.position);
 
-        if (distance <= 1.05f)
+        if (distance <= _agent.stoppingDistance)
         {
             canAttack = true;
         }
         else canAttack = false;
+
+        if (distance <= 3f)
+        {
+            _playerDetected = true;
+        }
     }
 
     private void HandleNPCSprites()
@@ -232,7 +214,6 @@ public class PathTest : MonoBehaviour
         _alienAnimator.SetFloat("Horizontal", _lastDir.x);
         _alienAnimator.SetFloat("Vertical", _lastDir.y);
         _alienAnimator.SetBool("Attack", _attackAnimation);
-        _alienAnimator.SetBool("Damage", _enemyDamaged);
 
         if (canAttack)
         {
@@ -305,5 +286,37 @@ public class PathTest : MonoBehaviour
     {
         // Sets the enemy's target to the player
         _agent.SetDestination(_target.position);
+    }
+
+    private void EnemyDistanceDamage(Collider2D rock)
+    {
+        // Gets the damage value from the rock that the enemy has collided with
+        int rockDamageAmount = rock.gameObject.GetComponent<RockManager>().rockDamage;
+
+        // Apply damage to enemy
+        _currentEnemyHealth -= rockDamageAmount;
+
+        _alienAnimator.SetTrigger("Damaged");
+
+        _playerDetected = true;
+
+        //Checks enemy's health
+        EnemyDeath();
+    }
+
+    private void EnemyMeleeDamage(Collider2D spray)
+    {
+        // Gets the damage value from the spray that the enemy has collided with
+        int sprayDamage = spray.gameObject.GetComponent<SprayManager>().sprayDamage;
+
+        // Apply damage to enemy
+        _currentEnemyHealth -= sprayDamage;
+
+        _alienAnimator.SetTrigger("Damaged");
+
+        _playerDetected = true;  
+
+        //Checks enemy's health
+        EnemyDeath();
     }
 }
