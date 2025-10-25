@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     [Header("Player movement variables")]
     [SerializeField] public float _horizontalInput;                 //X axis input
     [SerializeField] public float _verticalInput;                   //Y axis input
@@ -19,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform _weaponManager;                      //Weapon manager transform component
     [SerializeField] Transform _initialPos;
     public Animator _animator;                                      //Player animator
-    public static PlayerMovement Instance;
 
     [Header("Vectors")]
     [SerializeField] Vector2 _lastDir;                              //Stores player last direction

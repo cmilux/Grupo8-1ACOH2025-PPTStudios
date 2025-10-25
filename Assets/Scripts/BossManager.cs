@@ -65,7 +65,7 @@ public class BossManager : MonoBehaviour
             // Apply damage to boss
             _currentBossHealth -= sprayDamage;
 
-            Destroy(other);
+            Destroy(other.gameObject);
 
             // Checks boss's health
             BossDeath();
@@ -79,7 +79,7 @@ public class BossManager : MonoBehaviour
             // Apply damage to boss
             _currentBossHealth -= rockDamageAmount;
 
-            Destroy(other);
+            Destroy(other.gameObject);
 
             // Checks enemy's health
             BossDeath();

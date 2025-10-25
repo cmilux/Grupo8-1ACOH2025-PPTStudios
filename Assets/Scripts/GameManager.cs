@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 
 
 #if UNITY_EDITOR
@@ -45,7 +47,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        //Set the frame rate
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
     }
 
     private void Update()

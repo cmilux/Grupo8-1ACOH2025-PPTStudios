@@ -10374,6 +10374,7 @@ MonoBehaviour:
   _weaponManager: {fileID: 6502832124687317366}
   _initialPos: {fileID: 0}
   _animator: {fileID: 2356903279374645238}
+  playerInput: {fileID: 0}
   _lastDir: {x: 0, y: 0}
   _moveDir: {x: 0, y: 0}
   _moveInput: {x: 0, y: 0}
