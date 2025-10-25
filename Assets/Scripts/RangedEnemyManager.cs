@@ -37,10 +37,10 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] float _rotateSpeed;              // Handles the speed at which the enemy rotates towards the player
 
     [Header("UI")]
-    [SerializeField] GameObject inkSplatter;          // Gets the image for the ink splatter effect
-    [SerializeField] PlayerHealth _playerHealth;      // Gets the player health script that calls for the ink splatter effect
-    [SerializeField] TextMeshProUGUI _enemy2Health;   // Displays enemy health in UI
-    [SerializeField] Slider _healthBar;               // Gets the enemy's health bar
+    [SerializeField] GameObject inkSplatter;               // Gets the image for the ink splatter effect
+    [SerializeField] PlayerHealth _playerHealth;           // Gets the player health script that calls for the ink splatter effect
+    [SerializeField] TextMeshProUGUI _enemy2Health;        // Displays enemy health in UI
+    [SerializeField] Slider _healthBar;                    // Gets the enemy's health bar
 
     [Header("Animation")]
     [SerializeField] Animator _NPCAnimator;           // Reference to the NPC's Animator component
@@ -136,10 +136,10 @@ public class RangedEnemyManager : MonoBehaviour
         //SettingUI();
 
         // When the player is attacked by a ranged enemy, call for the ink splatter effect to be activated 
-        //if (_playerHealth.activateInkSplatterEffect == true)
-        //{
-        //    StartCoroutine(InkSplatterEffect());
-        //}
+        if (_playerHealth.activateInkSplatterEffect == true)
+        {
+            StartCoroutine(InkSplatterEffect());
+        }
 
         // Until player is detected, activate patrol state
         if (!_playerDetected)
@@ -305,7 +305,7 @@ public class RangedEnemyManager : MonoBehaviour
         if (inkSplatter != null)
         {  
             inkSplatter.SetActive(true);
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(3f);
             inkSplatter.SetActive(false);
             _playerHealth.activateInkSplatterEffect = false;
         }

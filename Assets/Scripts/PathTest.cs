@@ -34,7 +34,6 @@ public class PathTest : MonoBehaviour
     [SerializeField] bool _attackAnimation = false;   // Checks whether the enemy's attack animation should be activated or not
     [SerializeField] bool _isMoving;
     [SerializeField] public bool enemyDying = false;
-    [SerializeField] bool _enemyDamaged;
 
     [Header("Attack Cooldown")]
     [SerializeField] public float attackCooldown;          // Stores the enemy's max attack cooldown timer 
@@ -151,7 +150,6 @@ public class PathTest : MonoBehaviour
 
     private void EnemyDeath()
     {
-        _enemyDamaged = true;
         //Checks the enemy's health
         if (_currentEnemyHealth <= 0)
         {
