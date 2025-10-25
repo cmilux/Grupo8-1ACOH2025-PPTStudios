@@ -72,22 +72,20 @@ public class PlayerHealth : MonoBehaviour
     {
         //Checks player's health
         if (!_playerAnimator._isDead && playerCurrentHealth <= 0)
-        {
-            //Sets the player off the screen
-            //_player.SetActive(false);
-            
+        {   
             //animation
             _playerAnimator._isDead = true;
 
+            //Starts a coroutine to make a softer transition
             StartCoroutine(WaitnLoadScene());
-            //Loads game over scene
-            //SceneManager.LoadScene("GameOver");
+
+            PlayerMovement.Instance._playerInput.enabled = false;
         }
     }
 
     IEnumerator WaitnLoadScene()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         SceneManager.LoadScene("GameOver");
     }

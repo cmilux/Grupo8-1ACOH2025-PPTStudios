@@ -1,6 +1,7 @@
 using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform _weaponManager;                      //Weapon manager transform component
     [SerializeField] Transform _initialPos;
     public Animator _animator;                                      //Player animator
+    public PlayerInput _playerInput;
 
     [Header("Vectors")]
     [SerializeField] Vector2 _lastDir;                              //Stores player last direction
@@ -44,6 +46,26 @@ public class PlayerMovement : MonoBehaviour
     {
         //Sets the player's rigidbody in its variable
         _playerRb = GetComponent<Rigidbody2D>();
+
+        _playerInput = GetComponent<PlayerInput>();
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameOver")
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
