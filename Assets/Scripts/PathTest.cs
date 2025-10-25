@@ -13,9 +13,9 @@ public class PathTest : MonoBehaviour
     [SerializeField] AlienManager _hitboxManager;     // Gets the HitboxManager script from the alien
 
     [Header("Patrol logic")]
-    [SerializeField] float _patrolRadius;       // Sets the radius of the patrol area for the enemy
-    [SerializeField] bool _enemyWaiting;
-    [SerializeField] bool _playerDetected;      // Checks whether the enemy has detected the player or not
+    [SerializeField] float _patrolRadius;             // Sets the radius of the patrol area for the enemy
+    [SerializeField] bool _enemyWaiting;              // Checks whether the enemy is waiting to go to the next patrol point or not
+    [SerializeField] bool _playerDetected;            // Checks whether the enemy has detected the player or not
 
     [Header("Variables")]
     [SerializeField] float _enemyHealth = 100;        // Stores how much health the enemy has
@@ -145,6 +145,8 @@ public class PathTest : MonoBehaviour
 
             _enemyDamaged = true;
 
+            _playerDetected = true;
+
             //Checks enemy's health
             EnemyDeath();
         }
@@ -232,7 +234,7 @@ public class PathTest : MonoBehaviour
         _alienAnimator.SetBool("Attack", _attackAnimation);
         _alienAnimator.SetBool("Damage", _enemyDamaged);
 
-        if (canAttack && attackReady)
+        if (canAttack)
         {
             _attackAnimation = true;
         }
@@ -296,7 +298,6 @@ public class PathTest : MonoBehaviour
         UpdatePatrolPoint();
 
         _agent.isStopped = false;
-        UpdatePatrolPoint();
         _enemyWaiting = false;
     }
 

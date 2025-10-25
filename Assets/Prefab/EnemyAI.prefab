@@ -372,9 +372,6 @@ MonoBehaviour:
   attackCooldown: 3
   currentAttackCooldown: 0
   attackReady: 0
-  _alien: {fileID: 3798361074954341599}
-  _jumpForce: 5
-  _gravity: 9.8
 --- !u!95 &8021545404124693783
 Animator:
   serializedVersion: 7
@@ -518,7 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2508314655006238317}
   - component: {fileID: 1544930928615716538}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HitboxSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
