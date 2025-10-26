@@ -4898,7 +4898,11 @@ MonoBehaviour:
   weapons:
   - {fileID: 9053501575805902524}
   - {fileID: 1938481484947144542}
-  _playerMovement: {fileID: 791024266424695983}
+  _playerManager: {fileID: 0}
+  weaponsUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  _playerInventory: {fileID: 795497302525772080}
 --- !u!1 &695764353701042860
 GameObject:
   m_ObjectHideFlags: 0
@@ -9896,12 +9900,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   _player: {fileID: 3560986500073157858}
   _playerAnimator: {fileID: 0}
-  _meleeEnemyManager: {fileID: 0}
-  _healthBar: {fileID: 0}
   _playerMaxHealth: 100
   playerCurrentHealth: 0
   activateInkSplatterEffect: 0
   _playerHealth: {fileID: 0}
+  _healthBar: {fileID: 0}
 --- !u!61 &806552760516706444
 BoxCollider2D:
   m_ObjectHideFlags: 0
