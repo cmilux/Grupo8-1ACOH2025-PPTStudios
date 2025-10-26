@@ -6,23 +6,20 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Player")]
+    [Header("Player references")]
     [SerializeField] GameObject _player;
-    [SerializeField] PlayerMovement _playerAnimator;
-
-    [Header("References")]
-    [SerializeField] PathTest _meleeEnemyManager;
-    [SerializeField] Image _healthBar;
+    [SerializeField] PlayerManager _playerAnimator;
 
     [Header("Health integers")]
-    [SerializeField] int _playerMaxHealth;      // Stores the max amount of health a player can have
-    [SerializeField] public int playerCurrentHealth;  // Stores how much health the player has currently
+    [SerializeField] float _playerMaxHealth;      // Stores the max amount of health a player can have
+    [SerializeField] public float playerCurrentHealth;  // Stores how much health the player has currently
 
     [Header("Booleans")]
     [SerializeField] public bool activateInkSplatterEffect;
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _playerHealth;
+    [SerializeField] Slider _healthBar;
 
     void OnEnable()
     {
@@ -39,24 +36,27 @@ public class PlayerHealth : MonoBehaviour
         if (scene.name == "Zone1")
         {
             playerCurrentHealth = _playerMaxHealth;
-            _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-            _playerAnimator._isDead =  false;
+            _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+            _playerAnimator._isDead = false;
         }
-    }
 
-    private void Start()
-    {
-        // Start game at max health amount
-        //playerCurrentHealth = _playerMaxHealth;
-        //_playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-        
+        //string sceneName = SceneManager.GetActiveScene().name;
+        if (scene.name == "Zone1" || scene.name == "Zone2" || scene.name == "Zone3")
+        {
+            _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();
+            //if (_healthBar == null) 
+            //{
+            //    Debug.Log("Wasnt Found (H)");                    
+            //}
+            SettingUI();
+        }
     }
 
     private void Update()
     {
         PreventFromExceeding();
         OnDeath();
-        // SettingUI();
+        SettingUI();
     }
 
     void PreventFromExceeding()
@@ -72,14 +72,14 @@ public class PlayerHealth : MonoBehaviour
     {
         //Checks player's health
         if (!_playerAnimator._isDead && playerCurrentHealth <= 0)
-        {   
+        {
             //animation
             _playerAnimator._isDead = true;
 
             //Starts a coroutine to make a softer transition
             StartCoroutine(WaitnLoadScene());
 
-            PlayerMovement.Instance._playerInput.enabled = false;
+            PlayerManager.Instance._playerInput.enabled = false;
         }
     }
 
@@ -99,7 +99,9 @@ public class PlayerHealth : MonoBehaviour
     {
         //_playerHealth.SetText($"Health: {playerCurrentHealth}");
 
-        // _healthBar.fillAmount = Mathf.Clamp(playerCurrentHealth / _playerMaxHealth, 0 ,1);
+        //_healthBar.fillAmount = Mathf.Clamp(playerCurrentHealth / _playerMaxHealth, 0 ,1);
+        _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();
+        _healthBar.value = playerCurrentHealth / _playerMaxHealth;
     }
 
     void OnTriggerEnter2D(Collider2D other)

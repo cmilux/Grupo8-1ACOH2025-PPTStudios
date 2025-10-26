@@ -3,13 +3,9 @@ using UnityEngine;
 
 public class NextScene : MonoBehaviour
 {
-    [SerializeField] bool _goToNextLevel;
-    [SerializeField] string _levelName;
-
-    private void Start()
-    {
-        //gameObject.SetActive(false);
-    }
+    [Header("References")]
+    [SerializeField] bool _goToNextLevel;   //Load next scene
+    [SerializeField] string _levelName;     //Used to test, load the scene requiered
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,11 +13,14 @@ public class NextScene : MonoBehaviour
         {
             if (_goToNextLevel)
             {
+                //If player collides with the arrow will load next level
                 GameManager.Instance.NextScene();
             }
-            //It may not be neccesary but here to test
+
+            //Not be neccesary but here to test
             else
             {
+                //Load the scene requiered on inspector
                 GameManager.Instance.LoadScene(_levelName);
             }
         }   

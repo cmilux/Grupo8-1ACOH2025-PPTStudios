@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    public static PlayerMovement Instance;
+    public static PlayerManager Instance;
 
     [Header("Player movement variables")]
     [SerializeField] public float _horizontalInput;                 //X axis input

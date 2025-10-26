@@ -4238,7 +4238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9c06871575869408054e1aa51d2e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _entrancePoint: {fileID: 4200737846069457397, guid: 97dbefe2f5de881438796039143aab1b, type: 3}
+  _entrancePoint: {fileID: 0}
   _arrowNextLevel: {fileID: 0}
   _enemyManager: {fileID: 0}
   _isPaused: 0

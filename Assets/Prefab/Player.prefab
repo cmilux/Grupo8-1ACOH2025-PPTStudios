@@ -4898,7 +4898,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 9053501575805902524}
   - {fileID: 1938481484947144542}
-  _playerMovement: {fileID: 0}
+  _playerMovement: {fileID: 791024266424695983}
 --- !u!1 &695764353701042860
 GameObject:
   m_ObjectHideFlags: 0
@@ -10360,7 +10360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3560986500073157858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769c2e97e801c4d4aa421865db7224d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fe882fe89ff4734c8ab80677a6ae7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   _horizontalInput: 0
@@ -10374,7 +10374,7 @@ MonoBehaviour:
   _weaponManager: {fileID: 6502832124687317366}
   _initialPos: {fileID: 0}
   _animator: {fileID: 2356903279374645238}
-  playerInput: {fileID: 0}
+  _playerInput: {fileID: 5449575228493599369}
   _lastDir: {x: 0, y: 0}
   _moveDir: {x: 0, y: 0}
   _moveInput: {x: 0, y: 0}

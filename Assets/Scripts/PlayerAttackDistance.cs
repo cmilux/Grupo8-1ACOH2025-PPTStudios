@@ -21,13 +21,13 @@ public class PlayerAttackDistance : MonoBehaviour
     public bool _isAttacking;                               //Checks if player is attacking
 
     [Header("Animator")]
-    [SerializeField] PlayerMovement _playerAnimator;        //Player animator
+    [SerializeField] PlayerManager _playerAnimator;        //Player animator
 
     private void Start()
     {
         //Get's PlayerInventory and PlayerMovement script
         _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
-        _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
 
         //Initialize cooldown to 0 so player cant shoot as soon as game starts
         _currentAttackTime = 0f;
@@ -39,6 +39,7 @@ public class PlayerAttackDistance : MonoBehaviour
         HandleThrowDirection();
         AttackInput();
         ApplyAnimations();
+        OnPlayerAttacking();
 
         //Decrease cooldown timer per frame
         if (_currentAttackTime > 0f)
@@ -143,6 +144,18 @@ public class PlayerAttackDistance : MonoBehaviour
         if (_direction != Vector2.zero)
         {
             _rockSpawnPos.right = _direction;
+        }
+    }
+
+    void OnPlayerAttacking()
+    {
+        if (_isAttacking == true)
+        {
+            PlayerManager.Instance._playerInput.enabled = false;
+        }
+        else if (_isAttacking == false)
+        {
+            PlayerManager.Instance._playerInput.enabled = true;
         }
     }
 

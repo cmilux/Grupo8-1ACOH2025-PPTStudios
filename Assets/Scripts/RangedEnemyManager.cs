@@ -66,7 +66,7 @@ public class RangedEnemyManager : MonoBehaviour
 
         if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
         {
-            _playerHealth = PlayerMovement.Instance.GetComponentInChildren<PlayerHealth>();
+            _playerHealth = PlayerManager.Instance.GetComponentInChildren<PlayerHealth>();
             //_playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
             _target = GameObject.FindGameObjectWithTag("Player").transform;
         }

@@ -13,25 +13,25 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;         //Static instance of GameManager
-    
+    public static GameManager Instance;             //Static instance of GameManager
+
     [Header("References")]
-    [SerializeField] GameObject _entrancePoint;
-    [SerializeField] GameObject _arrowNextLevel;
-    [SerializeField] EnemyManager _enemyManager;
-    [SerializeField] bool _isPaused;
-    
+    [SerializeField] GameObject _entrancePoint;     //Entrance point of player
+    [SerializeField] GameObject _arrowNextLevel;    //Arrow to load next scene
+    [SerializeField] EnemyManager _enemyManager;    //Enemy manager script
+    [SerializeField] bool _isPaused;                //Bool to check if game is paused
+
     [Header("Buttons")]
-    [SerializeField] Button exitButton;
-    [SerializeField] Button menuButton;
-    [SerializeField] Button startButton;
-    [SerializeField] Button pauseButton;
-    [SerializeField] Button playButton;
+    [SerializeField] Button exitButton;             //Exit button
+    [SerializeField] Button menuButton;             //Menu button
+    [SerializeField] Button startButton;            //Start button
+    [SerializeField] Button pauseButton;            //Pause button
+    [SerializeField] Button playButton;             //Play button
 
     [Header("Screen limit variables")]
-    private float _xRange = 15.7f;
-    private float _yRangeMin = -8.4f;
-    private float _yRangeMax = 28.5f;
+    private float _xRange = 15.7f;                  //Player X axis screen limit
+    private float _yRangeMin = -8.4f;               //Player Y axis left screen limit
+    private float _yRangeMax = 28.5f;               //Player Y axis right screen limit
 
     private void Awake()
     {
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "Zone1" || sceneName == "Zone2" || sceneName == "Zone3")
         {
-            //RestartGame();
+            //Call these methods
             PlayerSideScreenLimit();
             ArrowGuide();
         }
@@ -65,75 +65,84 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
+        //Suscribe to OnSceneLoaded
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
+        //Desuscribe to OnSceneLoaded
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        //Game time is running
         Time.timeScale = 1;
 
         if (scene.name == "Zone1" || scene.name == "Zone2" || scene.name == "Zone3")
         {
-            PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
+            //Get the entrance point of every scene and set it to the player instance
+            _entrancePoint = GameObject.FindGameObjectWithTag("Entrance");
+            PlayerManager.Instance.transform.position = _entrancePoint.transform.position;
+            //Get the next level arrow
             _arrowNextLevel = GameObject.FindGameObjectWithTag("Arrow");
+            //Get the enemy manager
             _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
+            //Get the pause button
             pauseButton = GameObject.Find("PauseButton")?.GetComponent<Button>();
 
             if (pauseButton)
             {
+                //Call the PauseGame method if it was clicked
                 pauseButton.onClick.AddListener(PauseGame);
             }
-            /*
-            var foundManager = GameObject.FindGameObjectWithTag("EnemyManager");
-            if (foundManager != null)
-            {
-                _enemyManager = foundManager.GetComponent<EnemyManager>();
-                Debug.Log("EnemyMan was found");
-            }
-            */
         }
-        
+
         if (scene.name == "GameOver")
         {
-            exitButton  = GameObject.Find("ExitButton")?.GetComponent<Button>();
-            menuButton  = GameObject.Find("MenuButton")?.GetComponent<Button>();
-            
+            //Get the exit a menu button of the game over scene
+            exitButton = GameObject.Find("ExitButton")?.GetComponent<Button>();
+            menuButton = GameObject.Find("MenuButton")?.GetComponent<Button>();
+
             if (exitButton)
             {
+                //Call the Exit method if it was clicked
                 exitButton.onClick.AddListener(Exit);
             }
-            
+
             if (menuButton)
             {
+                //Call the BackToMenu method if it was clicked
                 menuButton.onClick.AddListener(BackToMenu);
             }
         }
 
         if (scene.name == "StartMenu")
         {
+            //Get the start and exit button of the start menu
             startButton = GameObject.Find("StartButton").GetComponent<Button>();
-            exitButton =  GameObject.Find("ExitButton").GetComponent<Button>();
+            exitButton = GameObject.Find("ExitButton").GetComponent<Button>();
             if (startButton)
             {
+                //Call the HowToPlay method if it was clicked
                 startButton.onClick.AddListener(HowToPlay);
             }
 
             if (exitButton)
             {
+                //Call the Exit method if it was clicked
                 exitButton.onClick.AddListener(Exit);
             }
         }
 
         if (scene.name == "Controls")
         {
+            //Get the play button of the controls scene
             playButton = GameObject.Find("PlayButton")?.GetComponent<Button>();
             if (playButton)
             {
+                //Call the StartGame method if it was clicked
                 playButton.onClick.AddListener(StartGame);
             }
         }
@@ -141,20 +150,14 @@ public class GameManager : MonoBehaviour
 
     public void HowToPlay()
     {
+        //Loads the controls scene
         SceneManager.LoadScene("Controls");
     }
     public void StartGame()
     {
-        /*
-        var oldPlayer = GameObject.FindGameObjectWithTag("Player");
-        if (oldPlayer != null)
-        {
-            Destroy(oldPlayer);
-        }
-        */
-        
+        //Set the time to 1 to make the game run (unpaused)   
         Time.timeScale = 1;
-
+        //Load the firts scene of the game
         SceneManager.LoadScene("Zone1");        //Loads the game scene
     }
 
@@ -162,44 +165,47 @@ public class GameManager : MonoBehaviour
     {
         if (_isPaused)
         {
+            //Set the time to 1 to make the game run (unpaused) 
             Time.timeScale = 1;
             _isPaused = false;
         }
         else
         {
+            //Game is paused
             Time.timeScale = 0;
-            PlayerMovement.Instance._animator.enabled = false;
             _isPaused = true;
+            PlayerManager.Instance._animator.enabled = false;      //Dont play any player animations while game is paused
         }
     }
 
     public void NextScene()
     {
+        //Load the next scene
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-        //PlayerMovement.Instance.transform.position = _entrancePoint.transform.position;
     }
 
     void ArrowGuide()
     {
         if (SceneManager.GetActiveScene().name == "Zone3")
         {
+            //Ignore arrow
             return;
         }
-        
-        _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
-        
+
         if (_arrowNextLevel != null)
         {
             if (_enemyManager.enemyCount > 0)
             {
+                //If there are enemies alive, turn the arrow off
                 _arrowNextLevel.SetActive(false);
             }
             if (_enemyManager.enemyCount <= 0)
             {
+                //If there are no more enemies alive, turn the arrow on
                 _arrowNextLevel.SetActive(true);
             }
         }
-        
+
     }
 
     //I dont think this is necessary but here for testing
@@ -208,63 +214,53 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName);
     }
 
-   /*
-    void RestartGame()
+    public void BackToMenu()
     {
-        _playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
-
-        if (_playerHealth.playerCurrentHealth <= 0)
-        {
-            SceneManager.LoadScene("StartMenu");
-        }
+        //Load StartMenu scene
+        SceneManager.LoadScene("StartMenu");
     }
-   */
-   
-   public void BackToMenu()
-   {
-       SceneManager.LoadScene("StartMenu");
-   }
 
-   public void Exit()
-   {
-       Time.timeScale = 1;
+    public void Exit()
+    {
+        Time.timeScale = 1;
         
+        //Exit the game inside of unity or if it's a build, exit the build
 #if UNITY_EDITOR
-       EditorApplication.ExitPlaymode();
+        EditorApplication.ExitPlaymode();
 #else
             Application.Quit();
 #endif
-   }
+    }
 
     //Keeps the player between certain screen range
     public void PlayerSideScreenLimit()
     {
-        if (PlayerMovement.Instance == null)
+        if (PlayerManager.Instance == null)
         {
             return;
         }
 
-        //Player is on left side limit
-        if (PlayerMovement.Instance.transform.position.x < -_xRange)
+        //Player left X axis limit
+        if (PlayerManager.Instance.transform.position.x < -_xRange)
         {
 
-            PlayerMovement.Instance.transform.position = new Vector2(-_xRange, PlayerMovement.Instance.transform.position.y);
+            PlayerManager.Instance.transform.position = new Vector2(-_xRange, PlayerManager.Instance.transform.position.y);
+        }
+        //Player right X axis limit
+        if (PlayerManager.Instance.transform.position.x > _xRange)
+        {
+            PlayerManager.Instance.transform.position = new Vector2(_xRange, PlayerManager.Instance.transform.position.y);
         }
 
-        //Player is on right side limit
-        if (PlayerMovement.Instance.transform.position.x > _xRange)
+        //Player right Y axis limit
+        if (PlayerManager.Instance.transform.position.y > _yRangeMax)
         {
-            PlayerMovement.Instance.transform.position = new Vector2(_xRange, PlayerMovement.Instance.transform.position.y);
+            PlayerManager.Instance.transform.position = new Vector2(PlayerManager.Instance.transform.position.x, _yRangeMax);
         }
-
-        if (PlayerMovement.Instance.transform.position.y > _yRangeMax)
+        //Player left Y axis limit
+        if (PlayerManager.Instance.transform.position.y < _yRangeMin)
         {
-            PlayerMovement.Instance.transform.position = new Vector2(PlayerMovement.Instance.transform.position.x, _yRangeMax);
-        }
-
-        if (PlayerMovement.Instance.transform.position.y < _yRangeMin)
-        {
-            PlayerMovement.Instance .transform.position = new Vector2(PlayerMovement.Instance.transform.position.x, _yRangeMin);
+            PlayerManager.Instance.transform.position = new Vector2(PlayerManager.Instance.transform.position.x, _yRangeMin);
         }
     }
 }
