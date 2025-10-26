@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 360273356612956492}
   - component: {fileID: 4353604152009608841}
   - component: {fileID: 8716191597068229105}
+  - component: {fileID: 3179785875064195910}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
@@ -161,14 +162,14 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -281465397
-  m_SortingLayer: 13
+  m_SortingLayer: 14
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d8af08ef849d8a418bd8ebf5db29998, type: 3}
+  m_Sprite: {fileID: -5015170969366819611, guid: 05b14d30310da6540b53c0355e90c5a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.03125, y: 4.0078125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -213,7 +214,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4, y: 4}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 4.03125, y: 4.0078125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -227,28 +228,62 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2982085949422428543}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4023870bd34a49747b5807301a3af8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   _maxBossHealth: 300
   _currentBossHealth: 0
+  playerDetected: 0
+  _bossHealth: {fileID: 0}
   _firingPoint: {fileID: 1880578047062574566}
   _inkPrefab: {fileID: 438934401745146593, guid: 21ae711ad4bc28c4eaedd1c124cb5181, type: 3}
   _target: {fileID: 0}
   _spreadAngle: 15
   _inkSpeed: 4
-  _rangedAttackCooldown: 100
+  _rangedAttackCooldown: 5
   _currentRangedAttackCooldown: 0
   _tentaclePrefab: {fileID: 7261770203098048379, guid: 0fafa4b8099d7944cbc8286fb2a84194, type: 3}
-  _meleeAttackCooldown: 5
+  _meleeAttackCooldown: 100
   _currentMeleeAttackCooldown: 0
   _minTentacleDistance: 3
   _maxTentacleSpawn: 10
   _obstacleLayers:
     serializedVersion: 2
     m_Bits: 384
+  _bossAnimator: {fileID: 0}
+  _tentacleAnimator: {fileID: 0}
+  _meleeAttackStartAnim: 0
+  _meleeAttackFinishAnim: 0
+  _rangedAttackAnim: 0
+  _bossDamaged: 0
+  _bossDying: 0
+  _tentacleStartAnim: 0
+  _tentacleLoopAnim: 0
+  _tentacleFinishAnim: 0
+--- !u!95 &3179785875064195910
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982085949422428543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 189e234381258fd4c96330d460bdc234, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5587941992546328842
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +296,7 @@ GameObject:
   m_Layer: 0
   m_Name: FiringPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -274,7 +309,7 @@ Transform:
   m_GameObject: {fileID: 5587941992546328842}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.104, z: 0}
+  m_LocalPosition: {x: 0, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

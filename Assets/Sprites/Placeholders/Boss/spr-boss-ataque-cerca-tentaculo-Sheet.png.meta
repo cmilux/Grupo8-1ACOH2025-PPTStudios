@@ -1,0 +1,717 @@
+fileFormatVersion: 2
+guid: 51d1299319dc6e9479824670f4636906
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2181193176050810302
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_0
+  - first:
+      213: 6622458518608901499
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_1
+  - first:
+      213: -8817069396517193876
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_2
+  - first:
+      213: -7779662427544575787
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_3
+  - first:
+      213: 2065992783687852315
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_4
+  - first:
+      213: -1070097289466580280
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_5
+  - first:
+      213: -2496924852271059546
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_6
+  - first:
+      213: 4850256466682423461
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_7
+  - first:
+      213: 6621712837892240376
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_8
+  - first:
+      213: 441966675067520415
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_9
+  - first:
+      213: -4120389401597449447
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_10
+  - first:
+      213: -1793171455557932715
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_11
+  - first:
+      213: -6780918308766924873
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_12
+  - first:
+      213: 7552649585714987437
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_13
+  - first:
+      213: 4388796341011573101
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_14
+  - first:
+      213: 1790691794332764940
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_15
+  - first:
+      213: -8128903511592853500
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_16
+  - first:
+      213: -626324978939550734
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_17
+  - first:
+      213: 8239910467711264039
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_18
+  - first:
+      213: -3591311497954740261
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_19
+  - first:
+      213: -8130280127205225958
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_20
+  - first:
+      213: 7864238333677984386
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_21
+  - first:
+      213: 2662637211804022000
+    second: spr-boss-ataque-cerca-tentaculo-Sheet_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebdb30d13a7254e10800000000000000
+      internalID: 2181193176050810302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7571757fe2b7eb50800000000000000
+      internalID: 6622458518608901499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67ff94491a73a580800000000000000
+      internalID: -8817069396517193876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d0a0c59d36190490800000000000000
+      internalID: -7779662427544575787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b112c3c9d71ebac10800000000000000
+      internalID: 2065992783687852315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c27c325f204621f0800000000000000
+      internalID: -1070097289466580280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ade98d7314295dd0800000000000000
+      internalID: -2496924852271059546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8a5260f829f4340800000000000000
+      internalID: 4850256466682423461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3f5332ebc05eb50800000000000000
+      internalID: 6621712837892240376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f95c5fd695e222600800000000000000
+      internalID: 441966675067520415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bef758baf61d6c0800000000000000
+      internalID: -4120389401597449447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5596912df006d17e0800000000000000
+      internalID: -1793171455557932715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf310b99b655e1a0800000000000000
+      internalID: -6780918308766924873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da10b8558c660d860800000000000000
+      internalID: 7552649585714987437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d696781f40328ec30800000000000000
+      internalID: 4388796341011573101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b496f03b0d9d810800000000000000
+      internalID: 1790691794332764940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40025123355503f80800000000000000
+      internalID: -8128903511592853500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3aa5400c8de47f0800000000000000
+      internalID: -626324978939550734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 725e3f8d9ea0a5270800000000000000
+      internalID: 8239910467711264039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7b1ae5839192ec0800000000000000
+      internalID: -3591311497954740261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ac385ec417b2f80800000000000000
+      internalID: -8130280127205225958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ad2e31913632d60800000000000000
+      internalID: 7864238333677984386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr-boss-ataque-cerca-tentaculo-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f4b057df6693f420800000000000000
+      internalID: 2662637211804022000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 802ed5a02cde5c341b848d65d26773a5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      spr-boss-ataque-cerca-tentaculo-Sheet_0: 2181193176050810302
+      spr-boss-ataque-cerca-tentaculo-Sheet_1: 6622458518608901499
+      spr-boss-ataque-cerca-tentaculo-Sheet_10: -4120389401597449447
+      spr-boss-ataque-cerca-tentaculo-Sheet_11: -1793171455557932715
+      spr-boss-ataque-cerca-tentaculo-Sheet_12: -6780918308766924873
+      spr-boss-ataque-cerca-tentaculo-Sheet_13: 7552649585714987437
+      spr-boss-ataque-cerca-tentaculo-Sheet_14: 4388796341011573101
+      spr-boss-ataque-cerca-tentaculo-Sheet_15: 1790691794332764940
+      spr-boss-ataque-cerca-tentaculo-Sheet_16: -8128903511592853500
+      spr-boss-ataque-cerca-tentaculo-Sheet_17: -626324978939550734
+      spr-boss-ataque-cerca-tentaculo-Sheet_18: 8239910467711264039
+      spr-boss-ataque-cerca-tentaculo-Sheet_19: -3591311497954740261
+      spr-boss-ataque-cerca-tentaculo-Sheet_2: -8817069396517193876
+      spr-boss-ataque-cerca-tentaculo-Sheet_20: -8130280127205225958
+      spr-boss-ataque-cerca-tentaculo-Sheet_21: 7864238333677984386
+      spr-boss-ataque-cerca-tentaculo-Sheet_22: 2662637211804022000
+      spr-boss-ataque-cerca-tentaculo-Sheet_3: -7779662427544575787
+      spr-boss-ataque-cerca-tentaculo-Sheet_4: 2065992783687852315
+      spr-boss-ataque-cerca-tentaculo-Sheet_5: -1070097289466580280
+      spr-boss-ataque-cerca-tentaculo-Sheet_6: -2496924852271059546
+      spr-boss-ataque-cerca-tentaculo-Sheet_7: 4850256466682423461
+      spr-boss-ataque-cerca-tentaculo-Sheet_8: 6621712837892240376
+      spr-boss-ataque-cerca-tentaculo-Sheet_9: 441966675067520415
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

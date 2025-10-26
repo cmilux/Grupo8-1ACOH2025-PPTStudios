@@ -12,6 +12,7 @@ public class BossManager : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float _maxBossHealth;                  // Stores the boss' max health value
     [SerializeField] float _currentBossHealth;              // Stores the boss' current health value
+    [SerializeField] public bool playerDetected;
 
     [Header("UI")]
     public Slider _bossHealth;
@@ -34,6 +35,18 @@ public class BossManager : MonoBehaviour
     [SerializeField] LayerMask _obstacleLayers;                    // Stores the obstacles layer to avoid tentacle spawns generating inside the colliders
     private List<Vector3> _usedPositions = new List<Vector3>();    // Stores used positions during the generation of tentacle spawns to avoid overlapping spawn points
 
+    [Header("Animation")]
+    [SerializeField] Animator _bossAnimator;
+    [SerializeField] Animator _tentacleAnimator;
+    [SerializeField] bool _meleeAttackStartAnim;
+    [SerializeField] bool _meleeAttackFinishAnim;
+    [SerializeField] bool _rangedAttackAnim;
+    [SerializeField] bool _bossDamaged;
+    [SerializeField] bool _bossDying;
+    [SerializeField] bool _tentacleStartAnim;
+    [SerializeField] bool _tentacleLoopAnim;
+    [SerializeField] bool _tentacleFinishAnim;
+
     void Start()
     {
         // Sets current ranged attack cooldown timer to starting cooldown timer
@@ -44,12 +57,20 @@ public class BossManager : MonoBehaviour
 
         // Sets current boss health to the max health value
         _currentBossHealth = _maxBossHealth;
+
+        _bossAnimator = GetComponent<Animator>();
+
+        _tentacleAnimator = _tentaclePrefab.GetComponent<Animator>();
     }
 
     private void Update()
     {
         // Checks both boss attacks cooldown timers and calls for whichever type of attack is available
         HandleAttackCooldowns();
+
+        HandleBossAnimations();
+
+        HandleTentacleAnimations();
 
         BossHealthUI();
     }
@@ -103,11 +124,15 @@ public class BossManager : MonoBehaviour
 
     private void HandleAttackCooldowns()
     {
+        if (!playerDetected)
+        {
+            return;
+        }
+
         // If ranged attack cooldown time is at zero...
         if (_currentRangedAttackCooldown <= 0)
         {
-            // Attack!
-            RangedAttack();
+            _rangedAttackAnim = true;
 
             // And reset cooldown timer back to starting cooldown timer
             _currentRangedAttackCooldown = _rangedAttackCooldown;
@@ -115,6 +140,7 @@ public class BossManager : MonoBehaviour
         // If cooldown time is over zero, then tick down to zero
         else
         {
+            _rangedAttackAnim = false;
             _currentRangedAttackCooldown -= Time.deltaTime;
         }
 
@@ -210,5 +236,21 @@ public class BossManager : MonoBehaviour
                 tentaclesSpawned++;
             }
         }
+    }
+
+    void HandleBossAnimations()
+    {
+        _bossAnimator.SetBool("Melee Attack Start", _meleeAttackStartAnim);
+        _bossAnimator.SetBool("Melee Attack Finish", _meleeAttackFinishAnim);
+        _bossAnimator.SetBool("Ranged Attack", _rangedAttackAnim);
+        _bossAnimator.SetBool("Damage", _bossDamaged);
+        _bossAnimator.SetBool("Die", _bossDying);
+    }
+
+    void HandleTentacleAnimations()
+    {
+        _tentacleAnimator.SetBool("Tentacle Start", _tentacleStartAnim);
+        _tentacleAnimator.SetBool("Tentacle Loop", _tentacleLoopAnim);
+        _tentacleAnimator.SetBool("Tentacle Finish", _tentacleFinishAnim);
     }
 }
