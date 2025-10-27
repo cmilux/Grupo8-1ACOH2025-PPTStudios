@@ -9866,7 +9866,7 @@ GameObject:
   - component: {fileID: 8107024153670843278}
   m_Layer: 0
   m_Name: PlayerHealth
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10324,7 +10324,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560986500073157858}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 77e26ed31ecad0245828b107c499b7f6, type: 2}
@@ -10393,7 +10393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bedbba363817714184639b012a71881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  rocks: 1000
+  totalRocks: 0
   playerHasAmmunition: 0
   _playerInventory: {fileID: 0}
 --- !u!95 &2356903279374645238

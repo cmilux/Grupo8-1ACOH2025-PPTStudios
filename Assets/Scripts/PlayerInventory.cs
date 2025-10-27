@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     [Header("Inventory")]
-    public int rocks;                                       //Where the rocks will be saved
+    public int totalRocks;                                       //Where the rocks will be saved
+    private readonly int rockPickUpValue = 5;
     public bool playerHasAmmunition = false;                //Check if player has any ammunition
     [Header("Inventory UI")]
     [SerializeField] TextMeshProUGUI _playerInventory;      //UI inventory reference
@@ -56,12 +57,12 @@ public class PlayerInventory : MonoBehaviour
 
     void AmmunitionAmount()
     {
-        if (rocks > 0)
+        if (totalRocks > 0)
         {
             //if player has more than 0 rocks, then it has ammunition
             playerHasAmmunition = true;
         }
-        if (rocks == 0)
+        if (totalRocks == 0)
         {
             //if player has 0 rocks, then it doesn't have ammunition
             playerHasAmmunition = false;
@@ -72,7 +73,12 @@ public class PlayerInventory : MonoBehaviour
     {
         //Get the text mesh pro object
         _playerInventory = GameObject.Find("InventoryText")?.GetComponent<TextMeshProUGUI>();
-        _playerInventory.SetText($"{rocks}");
+        _playerInventory.SetText($"{totalRocks}");
+    }
+
+    public void AddRock(int rocks)
+    {
+        totalRocks += rocks;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,7 +88,7 @@ public class PlayerInventory : MonoBehaviour
         {
             //other.gameObject.SetActive(false);
             Destroy(other.gameObject);
-            rocks++;
+            AddRock(rockPickUpValue);
         }
     }
 }

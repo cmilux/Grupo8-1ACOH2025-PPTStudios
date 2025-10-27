@@ -76,7 +76,7 @@ public class PlayerAttackDistance : MonoBehaviour
         //Gets rock rb, sends it to a direction with a certain speed
         rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
         //Substracts one rock from player's inventory
-        _playerInventory.rocks--;
+        _playerInventory.totalRocks--;
         //Destroy the rock after certain seconds
         Destroy(rock, 3f);
         //After animation ends, reset attacking state
