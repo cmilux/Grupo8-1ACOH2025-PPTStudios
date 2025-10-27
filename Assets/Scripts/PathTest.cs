@@ -137,8 +137,9 @@ public class PathTest : MonoBehaviour
         // Checks if enemy collides with a rock
         if (other.gameObject.CompareTag("Rock"))
         {
-            // Gets the damage value from the rock that the enemy has collided with
+            // Gets the damage value from the rock that the enemy has collided with and destroys it
             int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
+            Destroy(other.gameObject);      //Marti: sin esto sigue volando y puede matar mas enemigos
 
             // Apply damage to enemy
             _currentEnemyHealth -= rockDamageAmount;

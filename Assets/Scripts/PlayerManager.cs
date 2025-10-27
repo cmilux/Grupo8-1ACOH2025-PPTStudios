@@ -139,8 +139,8 @@ public class PlayerManager : MonoBehaviour
         if (_isDead)
         {
             _playerRb.linearVelocity = Vector2.zero;
-            //_moveDir.x = 0;
-            //_moveDir.y = 0;
+            _playerInput.enabled = false;
+            _moveDir = Vector2.zero;
         }
     }
     public void EndAnimation()

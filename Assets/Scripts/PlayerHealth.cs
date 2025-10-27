@@ -75,17 +75,14 @@ public class PlayerHealth : MonoBehaviour
         {
             //animation
             _playerAnimator._isDead = true;
-
             //Starts a coroutine to make a softer transition
             StartCoroutine(WaitnLoadScene());
-
-            PlayerManager.Instance._playerInput.enabled = false;
         }
     }
 
     IEnumerator WaitnLoadScene()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2.2f);
 
         SceneManager.LoadScene("GameOver");
     }
