@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button pauseButton;            //Pause button
     [SerializeField] Button playButton;             //Play button
 
+    [Header("Scene transition")]
+    public Animator transition;
+    public float transitionTime = 1.0f;
+
     [Header("Screen limit variables")]
     private float _xRange = 15.7f;                  //Player X axis screen limit
     private float _yRangeMin = -8.4f;               //Player Y axis left screen limit
@@ -91,6 +95,8 @@ public class GameManager : MonoBehaviour
             _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
             //Get the pause button
             pauseButton = GameObject.Find("PauseButton")?.GetComponent<Button>();
+            //Get the Crossfade game object to play the transition animation
+            transition = GameObject.Find("Crossfade")?.GetComponent<Animator>();
 
             if (pauseButton)
             {
@@ -138,6 +144,9 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "Controls")
         {
+            //Get the Crossfade game object to play the transition animation
+            transition = GameObject.Find("Crossfade")?.GetComponent<Animator>();
+
             //Get the play button of the controls scene
             playButton = GameObject.Find("PlayButton")?.GetComponent<Button>();
             if (playButton)
@@ -180,8 +189,21 @@ public class GameManager : MonoBehaviour
 
     public void NextScene()
     {
-        //Load the next scene
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        //Load the next scene waiting the transition to be played
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");                 //Set the trigger
+        yield return new WaitForSeconds(transitionTime);    //Wait the time set on transtionTime variable
+        SceneManager.LoadScene(levelIndex);                 //Load the next scene
+    }
+
+    //I dont think this is necessary but here for testing
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName);
     }
 
     void ArrowGuide()
@@ -206,12 +228,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-    }
-
-    //I dont think this is necessary but here for testing
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName);
     }
 
     public void BackToMenu()
