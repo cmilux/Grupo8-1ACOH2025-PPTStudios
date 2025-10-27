@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: abea9296abe64184f86166122dc4cb69
+guid: e53a9b89a10b4ae479591acaa96d5ed1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 697519932861072645
-    second: spr_ph_npc_runner_back_0
+      213: -5991472602503263707
+    second: spr-npc2-stand-back_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_ph_npc_runner_back_0
+      name: spr-npc2-stand-back_0
       rect:
         serializedVersion: 2
         x: 7
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50540fdeea61ea900800000000000000
-      internalID: 697519932861072645
+      spriteID: 52ace4689630adca0800000000000000
+      internalID: -5991472602503263707
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_ph_npc_runner_back_0: 697519932861072645
+      spr-npc2-stand-back_0: -5991472602503263707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

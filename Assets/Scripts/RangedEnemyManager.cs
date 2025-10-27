@@ -16,9 +16,8 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] NavMeshAgent _agent;             // Gets the agent (enemy) NavMesh
 
     [Header("Patrol logic")]
-    [SerializeField] public Vector3[] patrolPoints;   // Stores an index of positions to be reached by the enemy during patrol state
-    [SerializeField] int _currentPatrolPoint;         // Stores the current patrol point the enemy's moving towards
-    [SerializeField] float _enemySpeed;               // Sets the enemy's speed
+    [SerializeField] float _patrolRadius;             // Sets the radius of the patrol area for the enemy
+    [SerializeField] bool _enemyWaiting;              // Checks whether the enemy is waiting to go to the next patrol point or not
     [SerializeField] bool _playerDetected;            // Checks whether the enemy has detected the player or not
 
     [Header("Attack logic")]
@@ -49,6 +48,8 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] bool _playAttackAnimation;       // Checks if alien can play the attack animation
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
     [SerializeField] bool _enemyDamaged;              // Checks whether the enemy has been damaged or not
+    [SerializeField] bool _isMoving;                  // Checks whether the enemy is moving or not
+    [SerializeField] bool _enemyDying;                  // Checks whether the enemy is moving or not
 
     void OnEnable()
     {
@@ -83,9 +84,6 @@ public class RangedEnemyManager : MonoBehaviour
         // Sets current enemy health to the max health value
         _currentEnemyHealth = _enemyHealth;
 
-        // Sets current patrol point to the first position on the index
-        _currentPatrolPoint = 0;
-
         //-------------------
         //2D NavMesh settings
         //-------------------
@@ -95,9 +93,6 @@ public class RangedEnemyManager : MonoBehaviour
         // Should the agent movement ignore the vertical axis?
         _agent.updateUpAxis = false;
 
-        // Disables the enemy's NavMeshAgent component until player is detected
-        _agent.enabled = false;
-        
         /*
         if (_target == null)
         {
@@ -111,6 +106,8 @@ public class RangedEnemyManager : MonoBehaviour
                 Debug.Log($"{name}:Player not found");
             }
         }*/
+
+        UpdatePatrolPoint();
     }
 
     void Update()
@@ -174,6 +171,8 @@ public class RangedEnemyManager : MonoBehaviour
 
             _enemyDamaged = true;
 
+            _playerDetected = true;
+
             // Checks enemy's health
             EnemyDeath();
         }
@@ -206,9 +205,16 @@ public class RangedEnemyManager : MonoBehaviour
         // Checks the enemy's health
         if (_currentEnemyHealth <= 0)
         {
-            // Destroy enemy
-            Destroy(gameObject);
+            StartCoroutine(EnemyDeathSequence());
+            _enemyDying = true;
+            _agent.isStopped = true;
         }
+    }
+
+    private IEnumerator EnemyDeathSequence()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 
     private void CheckDistanceWithPlayer()
@@ -253,7 +259,7 @@ public class RangedEnemyManager : MonoBehaviour
             _playAttackAnimation = true;
 
             // Instantiates the ink prefab at the enemy's firing point's position and rotation
-            var ink = Instantiate(_inkPrefab, _firingPoint.position, _firingPoint.rotation);
+            var ink = Instantiate(_inkPrefab, _firingPoint.position, Quaternion.identity);
 
             // Calculates the player's direction
             Vector2 direction = (_target.transform.position - transform.position).normalized;
@@ -268,11 +274,17 @@ public class RangedEnemyManager : MonoBehaviour
 
     private void RotateFiringPoint()
     {
-        // Points firing point to player's position
-        _firingPoint.LookAt(_agent.transform.position);
+        // Calculates the direction of the player
+        Vector2 direction = _agent.transform.position - _firingPoint.position;
 
-        // Makes firing point rotate around the enemy
-        _firingPoint.transform.RotateAround(transform.position, Vector3.up, _rotateSpeed * Time.deltaTime);
+        // Calculates the angle in which the ink bullet should be fired
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Rotates the firing point towards that angle
+        _firingPoint.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        // Orbits the firing point around the NPC sprite
+        _firingPoint.RotateAround(transform.position, Vector3.forward, _rotateSpeed * Time.deltaTime);
     }
 
     private void StoreLastMove()
@@ -290,6 +302,15 @@ public class RangedEnemyManager : MonoBehaviour
     {
         _NPCAnimator.SetFloat("Horizontal", _lastDir.x);
         _NPCAnimator.SetFloat("Vertical", _lastDir.y);
+
+        if (!_enemyWaiting && _agent.hasPath && _agent.velocity.sqrMagnitude > 0.05f)
+        {
+            _isMoving = true;
+        }
+        else _isMoving = false;
+
+        _NPCAnimator.SetBool("Moving", _isMoving);
+        _NPCAnimator.SetBool("Die", _enemyDying);
     }
 
     private void HandleAlienSprites()
@@ -298,6 +319,7 @@ public class RangedEnemyManager : MonoBehaviour
         _alienAnimator.SetFloat("Vertical", _lastDir.y);
         _alienAnimator.SetBool("Attack", _playAttackAnimation);
         _alienAnimator.SetBool("Damage", _enemyDamaged);
+        _alienAnimator.SetBool("Die", _enemyDying);
     }
 
     public IEnumerator InkSplatterEffect()
@@ -319,48 +341,47 @@ public class RangedEnemyManager : MonoBehaviour
 
     private void HandlePatrolState()
     {
-        // Moves enemy towards the current patrol point
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[_currentPatrolPoint], _enemySpeed * Time.deltaTime);
-
-        // When the enemy has reached the current patrol point, call for an update to get the next position in the index
-        if (transform.position == patrolPoints[_currentPatrolPoint])
+        if (_agent.pathPending || _enemyWaiting)
         {
-            UpdatePatrolPoints();
+            return;
+        }
+
+        if (!_agent.hasPath || _agent.remainingDistance <= _agent.stoppingDistance)
+        {
+            StartCoroutine(WaitBeforeMoving());
         }
     }
 
-    private void UpdatePatrolPoints()
+    private void UpdatePatrolPoint()
     {
-        // Changes current patrol point to the next position in the index
-        _currentPatrolPoint++;
+        Vector3 randomPoint = transform.position + UnityEngine.Random.insideUnitSphere * _patrolRadius;
+        NavMeshHit hit;
 
-        // When reaching the last position in the index, reset back to the first position
-        if (_currentPatrolPoint >= patrolPoints.Length)
+        if (NavMesh.SamplePosition(randomPoint, out hit, _patrolRadius, NavMesh.AllAreas))
         {
-            _currentPatrolPoint = 0;
+            _agent.SetDestination(hit.position);
+        }
+        else
+        {
+            return;
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private IEnumerator WaitBeforeMoving()
     {
-        // When selecting the enemy, draw gizmos line between patrol points to show enemy patrol route in "Scene" mode
-        for (int i = 0; i < patrolPoints.Length; i++)
-        {
-            Vector3 p = patrolPoints[i];
-            Gizmos.DrawSphere(p, 0.12f);
+        _enemyWaiting = true;
+        _agent.isStopped = true;
 
-            if (i < patrolPoints.Length - 1)
-                Gizmos.DrawLine(p, patrolPoints[i + 1]);
-            else if (patrolPoints.Length > 1)
-                Gizmos.DrawLine(p, patrolPoints[0]);
-        }
+        yield return new WaitForSeconds(1f);
+
+        UpdatePatrolPoint();
+
+        _agent.isStopped = false;
+        _enemyWaiting = false;
     }
 
     private void HandleFollowState()
     {
-        // Enables the enemy's NavMeshAgent component 
-        _agent.enabled = true;
-
         // Sets the enemy's target to the player
         _agent.SetDestination(_target.position);
     }
