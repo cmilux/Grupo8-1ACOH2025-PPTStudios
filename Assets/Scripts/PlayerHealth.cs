@@ -15,9 +15,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public float playerCurrentHealth;  // Stores how much health the player has currently
 
     [Header("SFX")]
-    private AudioSource _playerHealthSFX;
     [SerializeField] AudioClip _playerHitSFX;
     [SerializeField] AudioClip _playerDeathSFX;
+    [SerializeField] AudioClip _playerRecoverHealthSFX;
+    private AudioSource _playerHealthSFX;
 
     [Header("Booleans")]
     [SerializeField] public bool activateInkSplatterEffect;
@@ -154,6 +155,9 @@ public class PlayerHealth : MonoBehaviour
                 // Apply heal and destroy food item
                 int healAmount = other.gameObject.GetComponent<FoodManager>().healingAmount;
                 playerCurrentHealth += healAmount;
+
+                _playerHealthSFX.PlayOneShot(_playerRecoverHealthSFX, 0.3f);
+
                 Destroy(other.gameObject);
             }
             else     // If player is already at max health...

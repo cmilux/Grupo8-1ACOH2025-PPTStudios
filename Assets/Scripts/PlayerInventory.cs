@@ -9,13 +9,20 @@ public class PlayerInventory : MonoBehaviour
     public int totalRocks;                                       //Where the rocks will be saved
     private readonly int rockPickUpValue = 5;
     public bool playerHasAmmunition = false;                //Check if player has any ammunition
+
     [Header("Inventory UI")]
     [SerializeField] TextMeshProUGUI _playerInventory;      //UI inventory reference
+
+    [Header("Inventory SFX")]
+    [SerializeField] AudioClip _playerPickUpRockSFX;
+    private AudioSource _playerInventorySFX;
+
 
     private void Start()
     {
         //Get the player inventory Text UI
         _playerInventory = GameObject.Find("Inventory")?.GetComponent<TextMeshProUGUI>();
+        _playerInventorySFX = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -89,6 +96,7 @@ public class PlayerInventory : MonoBehaviour
             //other.gameObject.SetActive(false);
             Destroy(other.gameObject);
             AddRock(rockPickUpValue);
+            _playerInventorySFX.PlayOneShot(_playerPickUpRockSFX, 0.3f);
         }
     }
 }
