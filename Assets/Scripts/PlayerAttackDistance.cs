@@ -23,11 +23,17 @@ public class PlayerAttackDistance : MonoBehaviour
     [Header("Animator")]
     [SerializeField] PlayerManager _playerAnimator;        //Player animator
 
+    [Header("SFX")]
+    private AudioSource _distanceAttackSFX;
+    [SerializeField] AudioClip _dA_SFX;
+
     private void Start()
     {
         //Get's PlayerInventory and PlayerMovement script
         _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
         _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+
+        _distanceAttackSFX = GetComponent<AudioSource>();
 
         //Initialize cooldown to 0 so player cant shoot as soon as game starts
         _currentAttackTime = 0f;
@@ -75,6 +81,9 @@ public class PlayerAttackDistance : MonoBehaviour
         var rock = Instantiate(_rocksPrefab, _rockSpawnPos.position, _rockSpawnPos.rotation);
         //Gets rock rb, sends it to a direction with a certain speed
         rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
+
+        _distanceAttackSFX.PlayOneShot(_dA_SFX, 0.2f);
+
         //Substracts one rock from player's inventory
         _playerInventory.totalRocks--;
         //Destroy the rock after certain seconds

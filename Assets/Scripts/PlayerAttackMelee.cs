@@ -16,6 +16,10 @@ public class PlayerAttackMelee : MonoBehaviour
     [SerializeField] bool _isHolding = false;           //Checks if player is holding the input
     public bool _isAttacking;                           //Bool to check when player is attacking
 
+    [Header("SFX")]
+    private AudioSource _meleeAttackSFX;
+    [SerializeField] AudioClip _mA_SFX;
+
     private void Start()
     {
         //Spray is off until player press "Fire1"
@@ -24,6 +28,7 @@ public class PlayerAttackMelee : MonoBehaviour
         //Find the playerMovement script to get a reference of the player's animator
         _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
 
+        _meleeAttackSFX = GetComponent<AudioSource>();
 
         if (_sprayEffect != null)
         {
@@ -61,6 +66,8 @@ public class PlayerAttackMelee : MonoBehaviour
             _holdTimer = 0f;                        //Sets hold time back to 0
             _sprayGas.SetActive(false);         //Turns off spray gameObject with it's collider
             _sprayParticle.SetActive(false);    //Turn off the spray particle
+            //Stop the spray SFX
+            _meleeAttackSFX.Stop();
         }
     }
 
@@ -85,6 +92,8 @@ public class PlayerAttackMelee : MonoBehaviour
         {
             //Play the particles
             _sprayEffect.Play();
+            //Play the spray SFX
+            _meleeAttackSFX.PlayOneShot(_mA_SFX, 0.3f);
         }
     }
     public void DeactivateSpray()
@@ -96,6 +105,8 @@ public class PlayerAttackMelee : MonoBehaviour
         {
             //Stop the particles if not attacking
             _sprayEffect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            //Stop the spray SFX
+            //_meleeAttackSFX.Stop();
         }
     }
 

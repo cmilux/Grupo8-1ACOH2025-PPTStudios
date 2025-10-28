@@ -14,6 +14,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] public float playerCurrentHealth;  // Stores how much health the player has currently
 
+    [Header("SFX")]
+    private AudioSource _playerHealthSFX;
+    [SerializeField] AudioClip _playerHitSFX;
+    [SerializeField] AudioClip _playerDeathSFX;
+
     [Header("Booleans")]
     [SerializeField] public bool activateInkSplatterEffect;
 
@@ -43,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         //string sceneName = SceneManager.GetActiveScene().name;
         if (scene.name == "Zone1" || scene.name == "Zone2" || scene.name == "Zone3")
         {
+            _playerHealthSFX = GetComponent<AudioSource>();
             _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();
             //if (_healthBar == null) 
             //{
@@ -73,8 +79,10 @@ public class PlayerHealth : MonoBehaviour
         //Checks player's health
         if (!_playerAnimator._isDead && playerCurrentHealth <= 0)
         {
-            //animation
+            //Plays animation
             _playerAnimator._isDead = true;
+            //Plays the SFX
+            _playerHealthSFX.PlayOneShot(_playerDeathSFX, 0.3f );
             //Starts a coroutine to make a softer transition
             StartCoroutine(WaitnLoadScene());
         }
@@ -111,7 +119,10 @@ public class PlayerHealth : MonoBehaviour
             // Applies that damage amount to the player health
             playerCurrentHealth -= damageAmount;
 
+            //Plays the animation
             _playerAnimator._isBeingAttacked = true;
+            //Plays the SFX
+            _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
             StartCoroutine(WaitForAnimationToEnd());
         }
 
@@ -126,7 +137,11 @@ public class PlayerHealth : MonoBehaviour
             // Calls for the ink splatter effect handled by the ranged enemy manager
             activateInkSplatterEffect = true;
 
+            //Plays the animation
             _playerAnimator._isBeingAttacked = true;
+            //Plays the SFX
+            _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
+
             StartCoroutine(WaitForAnimationToEnd());
 
             Destroy(other.gameObject);
