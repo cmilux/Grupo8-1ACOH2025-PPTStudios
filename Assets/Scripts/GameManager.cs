@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
             //Set the time to 1 to make the game run (unpaused) 
             Time.timeScale = 1;
             _isPaused = false;
+            PlayerManager.Instance._animator.enabled = true;      //Play any player animations while game is unpaused
         }
         else
         {
