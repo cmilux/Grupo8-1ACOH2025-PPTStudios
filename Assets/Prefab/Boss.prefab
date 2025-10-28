@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3179785875064195910}
   m_Layer: 7
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,26 +242,24 @@ MonoBehaviour:
   _target: {fileID: 0}
   _spreadAngle: 15
   _inkSpeed: 4
-  _rangedAttackCooldown: 5
+  _rangedAttackCooldown: 4
   _currentRangedAttackCooldown: 0
   _tentaclePrefab: {fileID: 7261770203098048379, guid: 0fafa4b8099d7944cbc8286fb2a84194, type: 3}
-  _meleeAttackCooldown: 100
+  _meleeAttackCooldown: 12
   _currentMeleeAttackCooldown: 0
   _minTentacleDistance: 3
-  _maxTentacleSpawn: 10
+  _maxTentacleSpawn: 6
   _obstacleLayers:
     serializedVersion: 2
     m_Bits: 384
+  _isUnderGround: 0
   _bossAnimator: {fileID: 0}
-  _tentacleAnimator: {fileID: 0}
   _meleeAttackStartAnim: 0
-  _meleeAttackFinishAnim: 0
+  meleeAttackLoopAnim: 0
+  meleeAttackFinishAnim: 0
   _rangedAttackAnim: 0
   _bossDamaged: 0
   _bossDying: 0
-  _tentacleStartAnim: 0
-  _tentacleLoopAnim: 0
-  _tentacleFinishAnim: 0
 --- !u!95 &3179785875064195910
 Animator:
   serializedVersion: 7

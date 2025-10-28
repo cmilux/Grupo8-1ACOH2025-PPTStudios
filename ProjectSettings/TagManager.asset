@@ -19,6 +19,8 @@ TagManager:
   - Arrow
   - Entrance
   - EnemyManager
+  - Boss
+  - Tentacle
   layers:
   - Default
   - TransparentFX
