@@ -67,7 +67,7 @@ public class RangedEnemyManager : MonoBehaviour
 
         if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
         {
-            _playerHealth = PlayerMovement.Instance.GetComponentInChildren<PlayerHealth>();
+            _playerHealth = PlayerManager.Instance.GetComponentInChildren<PlayerHealth>();
             //_playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
             _target = GameObject.FindGameObjectWithTag("Player").transform;
         }
@@ -164,6 +164,19 @@ public class RangedEnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Rock"))
         {
             EnemyDistanceDamage(other);
+            // Gets the damage value from the rock that the enemy has collided with and destroys it
+            int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
+            Destroy(other.gameObject);          //Marti: sin esto sigue volando y puede matar mas enemigos
+
+            // Apply damage to enemy
+            _currentEnemyHealth -= rockDamageAmount;
+
+            _enemyDamaged = true;
+
+            _playerDetected = true;
+
+            // Checks enemy's health
+            EnemyDeath();
         }
         
         // Checks if enemy collides with the spray
