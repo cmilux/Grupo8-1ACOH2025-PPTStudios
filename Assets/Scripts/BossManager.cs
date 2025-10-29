@@ -160,7 +160,7 @@ public class BossManager : MonoBehaviour
         // If melee attack cooldown time is at zero...
         if (_currentMeleeAttackCooldown <= 0)
         {
-            _meleeAttackStartAnim = true;
+            _bossAnimator.Play("Melee Attack Start");
 
             // And reset cooldown timer back to starting cooldown timer
             _currentMeleeAttackCooldown = _meleeAttackCooldown;
@@ -209,8 +209,8 @@ public class BossManager : MonoBehaviour
             while (tentaclesSpawned < _maxTentacleSpawn)
             {
                 // Finds a random position inside a set range
-                float x = Random.Range(-6.39f, 7.35f);
-                float y = Random.Range(14.12f, 21.37f);
+                float x = Random.Range(-5.57f, 6.57f);
+                float y = Random.Range(14.71f, 20.02f);
                 Vector3 spawnPos = new Vector3(x, y, 0f);
 
                 // Checks if the random position is overlapping with any obstacle's collider. If so, reset process back to start to find a new spawn position
@@ -237,6 +237,10 @@ public class BossManager : MonoBehaviour
                 {
                     // Instantiates the tentacle in that spawn position
                     GameObject tentacle = Instantiate(_tentaclePrefab, spawnPos, Quaternion.identity);
+
+                    SpriteRenderer tentacleSprite = GetComponent<SpriteRenderer>();
+                    
+                    tentacleSprite.flipX = Random.Range(0, 2) == 1;
 
                     // Destroys it after 5 secs
                     Destroy(tentacle, 5f);

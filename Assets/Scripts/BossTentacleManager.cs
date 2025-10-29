@@ -10,6 +10,7 @@ public class BossTentacleManager : MonoBehaviour
     [SerializeField] public bool tentacleStartAnim;
     [SerializeField] public bool tentacleLoopAnim;
     [SerializeField] public bool tentacleFinishAnim = false;
+    [SerializeField] public int tentacleDamage;
 
     private void Start()
     {
