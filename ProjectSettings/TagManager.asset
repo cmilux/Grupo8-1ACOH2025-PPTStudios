@@ -19,6 +19,8 @@ TagManager:
   - Arrow
   - Entrance
   - EnemyManager
+  - Boss
+  - Tentacle
   layers:
   - Default
   - TransparentFX
@@ -55,6 +57,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: InkBullet
+    uniqueID: 1595817485
     locked: 0
   - name: Grass
     uniqueID: 1958729719

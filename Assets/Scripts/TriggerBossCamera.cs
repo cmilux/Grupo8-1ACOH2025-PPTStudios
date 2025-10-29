@@ -43,7 +43,6 @@ public class TriggerBossCamera : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _playerTriggeredBossCamera = true;
-            _bossManager.enabled = true;
             _bossManager._bossHealth.gameObject.SetActive(true);
         }
     }
@@ -53,6 +52,7 @@ public class TriggerBossCamera : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _playerBounds.SetActive(true);
+            _bossManager.playerDetected = true;
         }
     }
 }

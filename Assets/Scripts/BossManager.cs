@@ -12,6 +12,7 @@ public class BossManager : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float _maxBossHealth;                  // Stores the boss' max health value
     [SerializeField] float _currentBossHealth;              // Stores the boss' current health value
+    [SerializeField] public bool playerDetected;
 
     [Header("UI")]
     public Slider _bossHealth;
@@ -25,14 +26,25 @@ public class BossManager : MonoBehaviour
     [SerializeField] float _rangedAttackCooldown;           // Stores the starting ranged attack cooldown timer at the start of the game
     [SerializeField] float _currentRangedAttackCooldown;    // Stores the current ranged attack cooldown timer during the game
 
-    [Header("Melee Attack")] 
+    [Header("Melee Attack")]
     [SerializeField] GameObject _tentaclePrefab;                   // Stores the tentacle prefab
     [SerializeField] float _meleeAttackCooldown;                   // Stores the starting melee attack cooldown timer at the start of the game
     [SerializeField] float _currentMeleeAttackCooldown;            // Stores the current melee attack cooldown timer during the game
     [SerializeField] float _minTentacleDistance;                   // Handles offset between tentacle spawns
     [SerializeField] int _maxTentacleSpawn;                        // Stores the max amount of tentacles to be spawned during the attack
     [SerializeField] LayerMask _obstacleLayers;                    // Stores the obstacles layer to avoid tentacle spawns generating inside the colliders
+    [SerializeField] bool _isUnderGround;
     private List<Vector3> _usedPositions = new List<Vector3>();    // Stores used positions during the generation of tentacle spawns to avoid overlapping spawn points
+    private List<GameObject> _tentacles = new List<GameObject>();
+
+    [Header("Animation")]
+    [SerializeField] Animator _bossAnimator;
+    [SerializeField] bool _meleeAttackStartAnim;
+    [SerializeField] public bool meleeAttackLoopAnim;
+    [SerializeField] public bool meleeAttackFinishAnim;
+    [SerializeField] bool _rangedAttackAnim;
+    [SerializeField] bool _bossDamaged;
+    [SerializeField] bool _bossDying;
 
     void Start()
     {
@@ -44,6 +56,8 @@ public class BossManager : MonoBehaviour
 
         // Sets current boss health to the max health value
         _currentBossHealth = _maxBossHealth;
+
+        _bossAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -51,13 +65,15 @@ public class BossManager : MonoBehaviour
         // Checks both boss attacks cooldown timers and calls for whichever type of attack is available
         HandleAttackCooldowns();
 
+        HandleBossAnimations();
+
         BossHealthUI();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         // Checks if boss collides with the spray
-        if (other.gameObject.CompareTag("Spray"))
+        if (other.gameObject.CompareTag("Spray") && !_isUnderGround && !_bossDying)
         {
             // Gets the damage value from the spray that the boss has collided with
             int sprayDamage = other.gameObject.GetComponent<SprayManager>().sprayDamage;
@@ -65,19 +81,25 @@ public class BossManager : MonoBehaviour
             // Apply damage to boss
             _currentBossHealth -= sprayDamage;
 
+            _bossDamaged = true;
+
             Destroy(other.gameObject);
 
             // Checks boss's health
             BossDeath();
         }
 
-        if (other.gameObject.CompareTag("Rock"))
+        if (other.gameObject.CompareTag("Rock") && !_isUnderGround && !_bossDying)
         {
             // Gets the damage value from the rock that the boss has collided with
             int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
 
             // Apply damage to boss
             _currentBossHealth -= rockDamageAmount;
+
+            _bossAnimator.SetTrigger("Damaged");
+
+            _bossDamaged = true;
 
             Destroy(other.gameObject);
 
@@ -96,18 +118,34 @@ public class BossManager : MonoBehaviour
         // If boss' current health has reached 0...
         if (_currentBossHealth <= 0)
         {
-            // Destroy boss
-            Destroy(gameObject);
+            _bossAnimator.Play("Die");
+            _bossDying = true;
+            StartCoroutine(BossDeathSequence());
         }
+    }
+
+    private IEnumerator BossDeathSequence()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 
     private void HandleAttackCooldowns()
     {
+        if (!playerDetected)
+        {
+            return;
+        }
+
+        if (_bossDying)
+        {
+            return;
+        }
+
         // If ranged attack cooldown time is at zero...
         if (_currentRangedAttackCooldown <= 0)
         {
-            // Attack!
-            RangedAttack();
+            _rangedAttackAnim = true;
 
             // And reset cooldown timer back to starting cooldown timer
             _currentRangedAttackCooldown = _rangedAttackCooldown;
@@ -115,14 +153,14 @@ public class BossManager : MonoBehaviour
         // If cooldown time is over zero, then tick down to zero
         else
         {
+            _rangedAttackAnim = false;
             _currentRangedAttackCooldown -= Time.deltaTime;
         }
 
         // If melee attack cooldown time is at zero...
         if (_currentMeleeAttackCooldown <= 0)
         {
-            // Attack!
-            MeleeAttack();
+            _bossAnimator.Play("Melee Attack Start");
 
             // And reset cooldown timer back to starting cooldown timer
             _currentMeleeAttackCooldown = _meleeAttackCooldown;
@@ -167,48 +205,72 @@ public class BossManager : MonoBehaviour
         // Sets tentacles spawned counter back to 0
         int tentaclesSpawned = 0;
 
-        // While tentacles spawned is lower than the max amount of tentacles that should be spawned...
-        while (tentaclesSpawned < _maxTentacleSpawn)
-        {
-            // Finds a random position inside a set range
-            float x = Random.Range(-6.39f, 7.35f);
-            float y = Random.Range(14.12f, 21.37f);
-            Vector3 spawnPos = new Vector3(x, y, 0f);
-
-            // Checks if the random position is overlapping with any obstacle's collider. If so, reset process back to start to find a new spawn position
-            if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _obstacleLayers))
+            // While tentacles spawned is lower than the max amount of tentacles that should be spawned...
+            while (tentaclesSpawned < _maxTentacleSpawn)
             {
-                continue;
-            }
+                // Finds a random position inside a set range
+                float x = Random.Range(-5.57f, 6.57f);
+                float y = Random.Range(14.71f, 20.02f);
+                Vector3 spawnPos = new Vector3(x, y, 0f);
 
-            bool tentacleTooClose = false;
-
-            // Checks if, inside previously generated spawn positions list, the random position is too close to another one
-            foreach (var pos in _usedPositions)
-            {
-                if (Vector3.Distance(pos, spawnPos) < _minTentacleDistance)
+                // Checks if the random position is overlapping with any obstacle's collider. If so, reset process back to start to find a new spawn position
+                if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _obstacleLayers))
                 {
-                    // If so, reset process back to start to find a new spawn position
-                    tentacleTooClose = true;
-                    break;
+                    continue;
                 }
-            }
 
-            // If spawn position is valid...
-            if (!tentacleTooClose)
-            {
-                // Instantiates the tentacle in that spawn position
-                var tentacle = Instantiate(_tentaclePrefab, spawnPos, Quaternion.identity);
+                bool tentacleTooClose = false;
 
-                // Destroys it after 5 secs
-                Destroy(tentacle, 5f);
+                // Checks if, inside previously generated spawn positions list, the random position is too close to another one
+                foreach (var pos in _usedPositions)
+                {
+                    if (Vector3.Distance(pos, spawnPos) < _minTentacleDistance)
+                    {
+                        // If so, reset process back to start to find a new spawn position
+                        tentacleTooClose = true;
+                        break;
+                    }
+                }
 
-                // Adds spawn position to the list of previously generated spawn positions
-                _usedPositions.Add(spawnPos);
+                // If spawn position is valid...
+                if (!tentacleTooClose)
+                {
+                    // Instantiates the tentacle in that spawn position
+                    GameObject tentacle = Instantiate(_tentaclePrefab, spawnPos, Quaternion.identity);
 
-                // Increase the counter up by 1
-                tentaclesSpawned++;
-            }
+                    SpriteRenderer tentacleSprite = GetComponent<SpriteRenderer>();
+                    
+                    tentacleSprite.flipX = Random.Range(0, 2) == 1;
+
+                    // Destroys it after 5 secs
+                    Destroy(tentacle, 5f);
+
+                    // Adds spawn position to the list of previously generated spawn positions
+                    _usedPositions.Add(spawnPos);
+
+                    // Increase the counter up by 1
+                    tentaclesSpawned++;
+                }
+            }  
+        
+        if (tentaclesSpawned >= _maxTentacleSpawn)
+        {
+            StartCoroutine(HandleBossReappearence());
         }
+    }
+
+    void HandleBossAnimations()
+    {
+        _bossAnimator.SetBool("Melee Attack Start", _meleeAttackStartAnim);
+        _bossAnimator.SetBool("Melee Attack Finish", meleeAttackFinishAnim);
+        _bossAnimator.SetBool("Ranged Attack", _rangedAttackAnim);
+        _bossAnimator.SetBool("Die", _bossDying);
+        _bossAnimator.SetBool("Damaged", _bossDamaged);
+    }
+
+    IEnumerator HandleBossReappearence()
+    {
+        yield return new WaitForSeconds(4.9f);
+        _bossAnimator.Play("Melee Attack Finish");
     }
 }
