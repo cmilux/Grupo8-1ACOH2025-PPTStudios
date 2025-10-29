@@ -29,11 +29,13 @@ public class PlayerHealth : MonoBehaviour
 
     void OnEnable()
     {
+        //Suscribe to OnSceneLoaded
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
+        //Desuscribe to OnSceneLoaded
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
@@ -41,29 +43,26 @@ public class PlayerHealth : MonoBehaviour
     {
         if (scene.name == "Zone1")
         {
-            playerCurrentHealth = _playerMaxHealth;
-            _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
-            _playerAnimator._isDead = false;
+            playerCurrentHealth = _playerMaxHealth;                                                     //Set player health to max
+            _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();       //Find the playerManager script
+            _playerAnimator._isDead = false;                                                            //Player is alive
         }
 
-        //string sceneName = SceneManager.GetActiveScene().name;
         if (scene.name == "Zone1" || scene.name == "Zone2" || scene.name == "Zone3")
         {
-            _playerHealthSFX = GetComponent<AudioSource>();
-            _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();
-            //if (_healthBar == null) 
-            //{
-            //    Debug.Log("Wasnt Found (H)");                    
-            //}
-            SettingUI();
+            _playerHealthSFX = GetComponent<AudioSource>();                                             //Get the audio source
+            _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();                //Get the player health slider UI
+            SettingUI();                                                                                //Update player life in UI
         }
     }
 
     private void Update()
     {
+        //Call methods
         PreventFromExceeding();
         OnDeath();
         SettingUI();
+        OnPlayerBeingAttacked();
     }
 
     void PreventFromExceeding()
@@ -75,6 +74,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void OnPlayerBeingAttacked()
+    {
+        if (_playerAnimator._isBeingAttacked == true)
+        {
+            //Player cant move if is being attacked
+            PlayerManager.Instance._playerInput.enabled = false;
+        }
+        else if (_playerAnimator._isBeingAttacked == false)
+        {
+            //Player can move if not being attacked
+            PlayerManager.Instance._playerInput.enabled = true;
+        }
+    }
     void OnDeath()
     {
         //Checks player's health
@@ -85,12 +97,13 @@ public class PlayerHealth : MonoBehaviour
             //Plays the SFX
             _playerHealthSFX.PlayOneShot(_playerDeathSFX, 0.3f );
             //Starts a coroutine to make a softer transition
-            StartCoroutine(WaitnLoadScene());
+            StartCoroutine(WaitnLoadGameOverScene());
         }
     }
 
-    IEnumerator WaitnLoadScene()
+    IEnumerator WaitnLoadGameOverScene()
     {
+        //Waits for animation to play before showing GameOver scene
         yield return new WaitForSeconds(2.2f);
 
         SceneManager.LoadScene("GameOver");
@@ -98,14 +111,13 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator WaitForAnimationToEnd()
     {
-        yield return new WaitForSeconds(1.5f);
+        //Wait for hit animation to player to fully play
+        yield return new WaitForSeconds(1f);
         _playerAnimator._isBeingAttacked = false;
     }
     void SettingUI()
     {
-        //_playerHealth.SetText($"Health: {playerCurrentHealth}");
-
-        //_healthBar.fillAmount = Mathf.Clamp(playerCurrentHealth / _playerMaxHealth, 0 ,1);
+        //Set and update the player life to the slider object in UI
         _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();
         _healthBar.value = playerCurrentHealth / _playerMaxHealth;
     }
@@ -124,6 +136,7 @@ public class PlayerHealth : MonoBehaviour
             _playerAnimator._isBeingAttacked = true;
             //Plays the SFX
             _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
+            //Wait for animation to finish
             StartCoroutine(WaitForAnimationToEnd());
         }
 
@@ -142,11 +155,24 @@ public class PlayerHealth : MonoBehaviour
             _playerAnimator._isBeingAttacked = true;
             //Plays the SFX
             _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
-
+            //Wait for animation to finish
             StartCoroutine(WaitForAnimationToEnd());
-
+            //Destroy the ink
             Destroy(other.gameObject);
         }
+
+        //if (other.gameObject.CompareTag("Tentacle"))
+        //{
+        //    // Gets the damage value from the tentacle that the player has collided with 
+        //    int damageAmount = other.gameObject.GetComponent<BossTentacleManager>().tentacleDamage;
+        //
+        //    // Applies that damage amount to the player health
+        //    playerCurrentHealth -= damageAmount;
+        //    // Player is being attacked
+        //    _playerAnimator._isBeingAttacked = true;
+        //    // Wait for animation to finish
+        //    StartCoroutine(WaitForAnimationToEnd());
+        //}
 
         if (other.gameObject.CompareTag("Food"))
         {
@@ -155,9 +181,9 @@ public class PlayerHealth : MonoBehaviour
                 // Apply heal and destroy food item
                 int healAmount = other.gameObject.GetComponent<FoodManager>().healingAmount;
                 playerCurrentHealth += healAmount;
-
+                //Play the recover life SFX
                 _playerHealthSFX.PlayOneShot(_playerRecoverHealthSFX, 0.3f);
-
+                //Destroy the food
                 Destroy(other.gameObject);
             }
             else     // If player is already at max health...

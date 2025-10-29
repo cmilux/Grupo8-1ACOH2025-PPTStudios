@@ -8,7 +8,8 @@ public class PlayerAttackMelee : MonoBehaviour
     [SerializeField] GameObject _sprayGas;              //Spray game object
     [SerializeField] GameObject _sprayParticle;         //Spray particles game object
     [SerializeField] PlayerManager _playerAnimator;    //PlayerMovement script to get a reference of the animator
-    [SerializeField] ParticleSystem _sprayEffect;       //Spray particles
+    [SerializeField] ParticleSystem _sprayEffect;       //Spray particles   
+    [SerializeField] WeaponManager _weaponManager;               //Weapon manager script
 
     [Header("Variables")]
     [SerializeField] float _holdTimer = 0f;             //Variable used to check for how long the player held the spray on
@@ -28,6 +29,10 @@ public class PlayerAttackMelee : MonoBehaviour
         //Find the playerMovement script to get a reference of the player's animator
         _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
 
+        //Get the weapon manager script
+        _weaponManager = GameObject.FindWithTag("Player").GetComponentInChildren<WeaponManager>();
+
+        //Get the audio source
         _meleeAttackSFX = GetComponent<AudioSource>();
 
         if (_sprayEffect != null)
@@ -47,6 +52,12 @@ public class PlayerAttackMelee : MonoBehaviour
 
     public void IsButtonBeingHold()
     {
+        //Prevent shooting if the mouse if clicking on a UI element
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         //If the mouse or gamepad was pressed
         if ((Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
             (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame))

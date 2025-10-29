@@ -8,6 +8,7 @@ public class PlayerAttackDistance : MonoBehaviour
     [SerializeField] Transform _rockSpawnPos;               //Transform position from where the rock will be spawned
     [SerializeField] GameObject _rocksPrefab;               //Get's the rock prefab
     PlayerInventory _playerInventory;                       //Player inventory script
+    [SerializeField] WeaponManager _weaponManager;                   //Weapon manager script
 
     [Header("Vectors")]
     [SerializeField] Vector2 _worldPosition;                 //Get mouse position on screen
@@ -19,6 +20,7 @@ public class PlayerAttackDistance : MonoBehaviour
     [SerializeField] float _attackCooldown;                 //Cooldown time between attacks
     [SerializeField] float _currentAttackTime;              //Tracks current cooldown timer
     public bool _isAttacking;                               //Checks if player is attacking
+    private bool _rockJustSpawned;                          //Check if player just spawned a rock
 
     [Header("Animator")]
     [SerializeField] PlayerManager _playerAnimator;        //Player animator
@@ -33,6 +35,10 @@ public class PlayerAttackDistance : MonoBehaviour
         _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
         _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
 
+        //Get the weapon manager script
+        _weaponManager = GameObject.FindWithTag("Player").GetComponentInChildren<WeaponManager>();
+
+        //Get the audio source
         _distanceAttackSFX = GetComponent<AudioSource>();
 
         //Initialize cooldown to 0 so player cant shoot as soon as game starts
@@ -56,6 +62,12 @@ public class PlayerAttackDistance : MonoBehaviour
 
     void AttackInput()
     {
+        //Prevent shooting if the mouse if clicking on a UI element
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         //Prevent shooting while cooldown is active
         if (_currentAttackTime > 0) return;
 
@@ -77,11 +89,19 @@ public class PlayerAttackDistance : MonoBehaviour
     /// </summary>
     public void SpawnRock()
     {
+        //Prevent double spawn
+        if (_rockJustSpawned)
+        {
+            return;
+        }
+        _rockJustSpawned = true;
+
         //Creates a new object in rock using the rock prefab in a position and rotation (rockSpawnPos)
         var rock = Instantiate(_rocksPrefab, _rockSpawnPos.position, _rockSpawnPos.rotation);
         //Gets rock rb, sends it to a direction with a certain speed
         rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
 
+        //Play the SFX
         _distanceAttackSFX.PlayOneShot(_dA_SFX, 0.2f);
 
         //Substracts one rock from player's inventory
@@ -90,12 +110,19 @@ public class PlayerAttackDistance : MonoBehaviour
         Destroy(rock, 3f);
         //After animation ends, reset attacking state
         StartCoroutine(ResetAttackFlag());
+        StartCoroutine(ResetRockSpawn());
     }
 
     IEnumerator ResetAttackFlag()
     {
         yield return new WaitForSeconds(0.1f);        //Waits 0.1 seconds
         _isAttacking = false;                               //Returns that player is not attacking
+    }
+
+    IEnumerator ResetRockSpawn()
+    {
+        yield return new WaitForSeconds(0.05f);
+        _rockJustSpawned = false;
     }
 
     /// <summary>
