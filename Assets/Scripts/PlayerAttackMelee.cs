@@ -66,8 +66,7 @@ public class PlayerAttackMelee : MonoBehaviour
             _holdTimer = 0f;                        //Sets hold time back to 0
             _sprayGas.SetActive(false);         //Turns off spray gameObject with it's collider
             _sprayParticle.SetActive(false);    //Turn off the spray particle
-            //Stop the spray SFX
-            _meleeAttackSFX.Stop();
+            _meleeAttackSFX.Stop();                 //Stop the spray SFX
         }
     }
 
@@ -105,8 +104,6 @@ public class PlayerAttackMelee : MonoBehaviour
         {
             //Stop the particles if not attacking
             _sprayEffect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            //Stop the spray SFX
-            //_meleeAttackSFX.Stop();
         }
     }
 

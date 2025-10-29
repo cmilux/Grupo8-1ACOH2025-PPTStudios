@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == "Controls")
         {
             //Get the Crossfade game object to play the transition animation
-            transition = GameObject.Find("Crossfade")?.GetComponent<Animator>();
+            //transition = GameObject.Find("Crossfade")?.GetComponent<Animator>();
 
             //Get the play button of the controls scene
             playButton = GameObject.Find("PlayButton")?.GetComponent<Button>();
