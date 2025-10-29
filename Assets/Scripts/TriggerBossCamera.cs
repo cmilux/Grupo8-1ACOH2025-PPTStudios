@@ -43,7 +43,7 @@ public class TriggerBossCamera : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _playerTriggeredBossCamera = true;
-            _bossManager._bossHealth.gameObject.SetActive(true);
+            _bossManager._bossHealth.gameObject.SetActive(true);            //PROBLEMA ACA
         }
     }
 

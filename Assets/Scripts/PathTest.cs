@@ -146,7 +146,7 @@ public class PathTest : MonoBehaviour
             // Apply damage to enemy
             _currentEnemyHealth -= rockDamageAmount;
 
-            _enemyDamaged = true;
+            //_enemyDamaged = true; //Ver si es necesaria.
 
             _playerDetected = true;
 

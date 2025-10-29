@@ -175,6 +175,7 @@ public class BossManager : MonoBehaviour
     void RangedAttack()
     {
         // Calculates the player's direction
+        //PROBLEMA ACA
         Vector2 targetPosition = (_target.transform.position - transform.position).normalized;
 
         // Creates a list of 3 directions for the ink bullets' trayectories, depending on the player's position, in different angles

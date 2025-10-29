@@ -63,10 +63,10 @@ public class PlayerAttackDistance : MonoBehaviour
     void AttackInput()
     {
         //Prevent shooting if the mouse if clicking on a UI element
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
+        //if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        //{
+        //    return;
+        //}
 
         //Prevent shooting while cooldown is active
         if (_currentAttackTime > 0) return;

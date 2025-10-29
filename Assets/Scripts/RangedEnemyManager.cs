@@ -47,7 +47,7 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] bool _playAttackAnimation;       // Checks if alien can play the attack animation
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
-    [SerializeField] bool _enemyDamaged;              // Checks whether the enemy has been damaged or not
+    [SerializeField] bool _enemyDamaged;              // Checks whether the enemy has been damaged or not       NO TIENE REFERENCIAS
     [SerializeField] bool _isMoving;                  // Checks whether the enemy is moving or not
     [SerializeField] bool _enemyDying;                  // Checks whether the enemy is moving or not
 
@@ -136,10 +136,10 @@ public class RangedEnemyManager : MonoBehaviour
         //SettingUI();
 
         // When the player is attacked by a ranged enemy, call for the ink splatter effect to be activated 
-        if (_playerHealth.activateInkSplatterEffect == true)
-        {
-            StartCoroutine(InkSplatterEffect());
-        }
+        //if (_playerHealth.activateInkSplatterEffect == true)
+        //{
+        //    StartCoroutine(InkSplatterEffect());
+        //}
 
         // Until player is detected, activate patrol state
         if (!_playerDetected)

@@ -53,10 +53,10 @@ public class PlayerAttackMelee : MonoBehaviour
     public void IsButtonBeingHold()
     {
         //Prevent shooting if the mouse if clicking on a UI element
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
+        //if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        //{
+        //    return;
+        //}
 
         //If the mouse or gamepad was pressed
         if ((Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
