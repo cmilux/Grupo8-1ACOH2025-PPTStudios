@@ -44,10 +44,27 @@ public class PlayerAttackMelee : MonoBehaviour
     private void Update()
     {
         //Calling methods
-        IsButtonBeingHold();
+        //IsButtonBeingHold();
         MeleeTimer();
         ApplyAnimation();
         OnPlayerAttacking();
+    }
+
+    public void StartAttack()
+    {
+        if (!_isAttacking)
+        {
+            PlayerManager.Instance.SetCanSwitchWeapon(false);
+            _isAttacking = true;
+            ActivateSpray();
+            StartCoroutine(StopMeleeAttackAfterTime());
+        }
+    }
+
+    private IEnumerator StopMeleeAttackAfterTime()
+    {
+        yield return new WaitForSeconds(_requiredHoldTime);
+        DeactivateSpray();
     }
 
     public void IsButtonBeingHold()

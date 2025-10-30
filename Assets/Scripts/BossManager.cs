@@ -5,6 +5,7 @@ using Unity.Hierarchy;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossManager : MonoBehaviour
@@ -121,6 +122,7 @@ public class BossManager : MonoBehaviour
             _bossAnimator.Play("Die");
             _bossDying = true;
             StartCoroutine(BossDeathSequence());
+            StartCoroutine(WaitnLoadGameOverScene());
         }
     }
 
@@ -128,6 +130,14 @@ public class BossManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
+    }
+
+    IEnumerator WaitnLoadGameOverScene()
+    {
+        //Waits for animation to play before showing GameOver scene
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene("GameOver");
     }
 
     private void HandleAttackCooldowns()

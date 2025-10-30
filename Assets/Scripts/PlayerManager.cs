@@ -18,16 +18,18 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerAttackDistance _playerAttackDistance;    //Distance script reference
     [SerializeField] PlayerAttackMelee _playerAttackMelee;          //Melee script reference
     [SerializeField] SpriteRenderer _spriteRenderer;                //Player sprite
-    [SerializeField] Transform _weaponManager;                      //Weapon manager transform component
+    [SerializeField] Transform _weaponManagerTransform;             //Weapon manager transform component
+    [SerializeField] WeaponManager _weaponManager;
     [SerializeField] Transform _initialPos;
     public Animator _animator;                                      //Player animator
     public PlayerInput _playerInput;
+    public bool canSwitchWeapon = true;
 
     [Header("Vectors")]
     [SerializeField] Vector2 _lastDir;                              //Stores player last direction
     [SerializeField] Vector2 _moveDir;                              //Stores player move direction
     [SerializeField] Vector2 _moveInput;                            //Stores the input from movement
-    
+
     private void Awake()
     {
         //If another instance exist, destroy this one
@@ -47,6 +49,10 @@ public class PlayerManager : MonoBehaviour
         _playerRb = GetComponent<Rigidbody2D>();
 
         _playerInput = GetComponent<PlayerInput>();
+
+        _weaponManager = GetComponentInChildren<WeaponManager>();
+        _playerAttackDistance = GetComponentInChildren<PlayerAttackDistance>(true);
+        _playerAttackMelee = GetComponentInChildren<PlayerAttackMelee>(true);
     }
 
     void OnEnable()
@@ -80,11 +86,39 @@ public class PlayerManager : MonoBehaviour
         StoreLastMove();
     }
 
-    private void OnMove(InputValue inputValue)
+    public void OnMove(InputAction.CallbackContext context)
     {
+        Vector2 inputValue = context.ReadValue<Vector2>();
         //Calls onMove method from new input
-        _moveInput = inputValue.Get<Vector2>();
+        _moveInput = inputValue;
         _playerRb.linearVelocity = _moveInput * _speed;
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (_weaponManager.currentWeaponIndex == 0)
+        {
+            _playerAttackDistance.StartAttack();
+        }
+        else if (_weaponManager.currentWeaponIndex == 1)
+        {
+            _playerAttackMelee.StartAttack();
+        }
+    }
+
+    //public void OnSwitchWeapon(InputAction.CallbackContext context)
+    //{
+    //    if (!context.performed || !canSwitchWeapon)
+    //    {
+    //        _weaponManager.SwitchWeapons();
+    //    }
+    //}
+
+    public void SetCanSwitchWeapon(bool value)
+    {
+        canSwitchWeapon = value;
     }
 
     void StoreLastMove()
@@ -113,7 +147,7 @@ public class PlayerManager : MonoBehaviour
         {
             _spriteRenderer.flipX = false;
         }
-        
+
         //Forces the sprite to not flip while player moves around Y axis
         else if (_moveInput.y > 0 || _moveInput.y < 0)
         {
@@ -151,7 +185,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         //Turns the melee attack animatio off
-        if(_playerAttackMelee._isAttacking == true)
+        if (_playerAttackMelee._isAttacking == true)
         {
             _playerAttackMelee._isAttacking = false;
         }

@@ -4803,7 +4803,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -281465397
-  m_SortingLayer: 13
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_RenderMode: 1
   m_MeshDistribution: 0
@@ -4845,8 +4845,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227567427399503863}
   m_Enabled: 0
-  m_SortingLayerID: -281465397
-  m_SortingLayer: 13
+  m_SortingLayerID: -126531333
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!1 &622026738323734970
@@ -4898,6 +4898,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 9053501575805902524}
   - {fileID: 1938481484947144542}
+  currentWeaponIndex: 0
   _playerManager: {fileID: 0}
   weaponsUI:
   - {fileID: 0}
@@ -9705,7 +9706,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1344776481
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9849,6 +9850,7 @@ MonoBehaviour:
   _sprayParticle: {fileID: 227567427399503863}
   _playerAnimator: {fileID: 0}
   _sprayEffect: {fileID: 672692826792551205}
+  _weaponManager: {fileID: 0}
   _holdTimer: 0
   _requiredHoldTime: 1.5
   _isHolding: 0
@@ -10538,7 +10540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccaffe68545eb7942a3901091155679d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SprayManager
-  sprayDamage: 5
+  sprayDamage: 30
 --- !u!1 &3560986500073157858
 GameObject:
   m_ObjectHideFlags: 0
@@ -10628,7 +10630,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -126531333
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 3323061161735268425, guid: dbc56809c688e6b41b01e649156dfbe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10771,10 +10773,12 @@ MonoBehaviour:
   _playerAttackDistance: {fileID: 74919302197063428}
   _playerAttackMelee: {fileID: 7095734031644441189}
   _spriteRenderer: {fileID: 2357681385051012907}
-  _weaponManager: {fileID: 6502832124687317366}
+  _weaponManagerTransform: {fileID: 6502832124687317366}
+  _weaponManager: {fileID: 3371515546673584884}
   _initialPos: {fileID: 0}
   _animator: {fileID: 2356903279374645238}
   _playerInput: {fileID: 5449575228493599369}
+  canSwitchWeapon: 1
   _lastDir: {x: 0, y: 0}
   _moveDir: {x: 0, y: 0}
   _moveInput: {x: 0, y: 0}
@@ -10829,7 +10833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
   m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -10842,7 +10846,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 791024266424695983}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -10850,7 +10866,19 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/DualShock4GamepadHID/rightStick,/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 791024266424695983}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: 'Player/Attack[/DualShock4GamepadHID/rightTrigger,/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
@@ -10917,6 +10945,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6d0ec59b-06ec-483e-845d-e8ec9a570766
+    m_ActionName: 'Player/Aim[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 21fe2888-b517-4319-8e13-ecd0dd4ffe6b
+    m_ActionName: 'Player/SwitchWeapon[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -11209,6 +11245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDistance
   _rockSpawnPos: {fileID: 5725283816623698729}
   _rocksPrefab: {fileID: 438934401745146593, guid: e369246d364bd35439cf94a4f3039a67, type: 3}
+  _weaponManager: {fileID: 0}
   _worldPosition: {x: 0, y: 0}
   _direction: {x: 0, y: 0}
   _rockSpeed: 5

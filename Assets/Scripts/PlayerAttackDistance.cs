@@ -49,7 +49,7 @@ public class PlayerAttackDistance : MonoBehaviour
     {
         //Calling methods
         HandleThrowDirection();
-        AttackInput();
+        //AttackInput();
         ApplyAnimations();
         OnPlayerAttacking();
 
@@ -60,6 +60,15 @@ public class PlayerAttackDistance : MonoBehaviour
         }
     }
 
+    public void StartAttack()
+    {
+        if (_playerInventory.playerHasAmmunition && _currentAttackTime <= 0)
+        {
+            PlayerManager.Instance.SetCanSwitchWeapon(false);
+            _currentAttackTime = _attackCooldown;
+            _isAttacking = true;
+        }
+    }
     void AttackInput()
     {
         //Prevent shooting if the mouse if clicking on a UI element

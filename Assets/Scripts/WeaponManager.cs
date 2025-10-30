@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class WeaponManager : MonoBehaviour
 {
     [Header("References")]
     public GameObject[] weapons;                        //Array for weapons
-    private int currentWeaponIndex = 0;                 //Index to check what weapon is selected
+    public int currentWeaponIndex = 0;                 //Index to check what weapon is selected
     [SerializeField] PlayerManager _playerManager;    //PlayerMovement script
     public Image[] weaponsUI;
 
@@ -77,10 +78,15 @@ public class WeaponManager : MonoBehaviour
     private void Update()
     {
         //Checks if space or westButton were pressed
-        if ((Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame) ||
-            (Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame))
+        //if ((Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame) ||
+        //    (Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame))
+        //{
+        //    //Calls the method
+        //    SwitchWeapons();
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Calls the method
             SwitchWeapons();
         }
     }
@@ -100,6 +106,14 @@ public class WeaponManager : MonoBehaviour
         _playerManager.UpdateActiveAttack(currentWeaponIndex);
         //Calls the method
         UpdateActiveUI();
+        //WeaponSwitchCooldown();
+    }
+
+    IEnumerator WeaponSwitchCooldown()
+    {
+        PlayerManager.Instance.canSwitchWeapon = false;
+        yield return new WaitForSeconds(0.3f);
+        PlayerManager.Instance.canSwitchWeapon = true;
     }
 
     public void UpdateActiveUI()
