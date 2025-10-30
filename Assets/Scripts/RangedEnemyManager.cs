@@ -47,9 +47,8 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] Animator _alienAnimator;         // Reference to the alien's Animator component
     [SerializeField] bool _playAttackAnimation;       // Checks if alien can play the attack animation
     [SerializeField] Vector2 _lastDir;                // Stores the last direction the enemy has moved in
-    [SerializeField] bool _enemyDamaged;              // Checks whether the enemy has been damaged or not       NO TIENE REFERENCIAS
     [SerializeField] bool _isMoving;                  // Checks whether the enemy is moving or not
-    [SerializeField] bool _enemyDying;                  // Checks whether the enemy is moving or not
+    [SerializeField] bool _enemyDying;                // Checks whether the enemy is moving or not
 
     void OnEnable()
     {
@@ -164,19 +163,6 @@ public class RangedEnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Rock"))
         {
             EnemyDistanceDamage(other);
-            // Gets the damage value from the rock that the enemy has collided with and destroys it
-            int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
-            Destroy(other.gameObject);          //Marti: sin esto sigue volando y puede matar mas enemigos
-
-            // Apply damage to enemy
-            _currentEnemyHealth -= rockDamageAmount;
-
-            _enemyDamaged = true;
-
-            _playerDetected = true;
-
-            // Checks enemy's health
-            EnemyDeath();
         }
         
         // Checks if enemy collides with the spray
@@ -383,6 +369,8 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Apply damage to enemy
         _currentEnemyHealth -= rockDamageAmount;
+
+        Destroy(rock.gameObject);
 
         _alienAnimator.SetTrigger("Damaged");
 

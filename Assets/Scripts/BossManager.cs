@@ -205,18 +205,23 @@ public class BossManager : MonoBehaviour
 
         // Sets tentacles spawned counter back to 0
         int tentaclesSpawned = 0;
+        int attempts = 0;
+        int maxAttempts = 300;
 
             // While tentacles spawned is lower than the max amount of tentacles that should be spawned...
-            while (tentaclesSpawned < _maxTentacleSpawn)
+            while (tentaclesSpawned < _maxTentacleSpawn && attempts < maxAttempts)
             {
+                attempts++;
+
                 // Finds a random position inside a set range
-                float x = Random.Range(-5.57f, 6.57f);
-                float y = Random.Range(14.71f, 20.02f);
+                float x = Random.Range(-5.67f, 6.57f);
+                float y = Random.Range(15.21f, 20.02f);
                 Vector3 spawnPos = new Vector3(x, y, 0f);
 
                 // Checks if the random position is overlapping with any obstacle's collider. If so, reset process back to start to find a new spawn position
                 if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _obstacleLayers))
                 {
+                    attempts++;
                     continue;
                 }
 
@@ -239,7 +244,7 @@ public class BossManager : MonoBehaviour
                     // Instantiates the tentacle in that spawn position
                     GameObject tentacle = Instantiate(_tentaclePrefab, spawnPos, Quaternion.identity);
 
-                    SpriteRenderer tentacleSprite = GetComponent<SpriteRenderer>();
+                    SpriteRenderer tentacleSprite = tentacle.GetComponent<SpriteRenderer>();
                     
                     tentacleSprite.flipX = Random.Range(0, 2) == 1;
 
@@ -254,7 +259,7 @@ public class BossManager : MonoBehaviour
                 }
             }  
         
-        if (tentaclesSpawned >= _maxTentacleSpawn)
+        if (tentaclesSpawned >= _maxTentacleSpawn || attempts >= maxAttempts)
         {
             StartCoroutine(HandleBossReappearence());
         }

@@ -139,19 +139,6 @@ public class PathTest : MonoBehaviour
         if (other.gameObject.CompareTag("Rock"))
         {
             EnemyDistanceDamage(other);
-            // Gets the damage value from the rock that the enemy has collided with and destroys it
-            int rockDamageAmount = other.gameObject.GetComponent<RockManager>().rockDamage;
-            Destroy(other.gameObject);      //Marti: sin esto sigue volando y puede matar mas enemigos
-
-            // Apply damage to enemy
-            _currentEnemyHealth -= rockDamageAmount;
-
-            //_enemyDamaged = true; //Ver si es necesaria.
-
-            _playerDetected = true;
-
-            //Checks enemy's health
-            EnemyDeath();
         }
 
         // Checks if enemy collides with the spray
@@ -306,6 +293,8 @@ public class PathTest : MonoBehaviour
 
         // Apply damage to enemy
         _currentEnemyHealth -= rockDamageAmount;
+
+        Destroy(rock.gameObject);
 
         _alienAnimator.SetTrigger("Damaged");
 
