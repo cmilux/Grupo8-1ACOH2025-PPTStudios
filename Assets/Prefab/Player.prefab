@@ -10004,11 +10004,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   _player: {fileID: 3560986500073157858}
   _playerAnimator: {fileID: 791024266424695983}
+  _enemyDamage: {fileID: 0}
   _playerMaxHealth: 100
   playerCurrentHealth: 0
   _playerHitSFX: {fileID: 8300000, guid: 4b977b6e45235f843b07061e3dd8d705, type: 3}
   _playerDeathSFX: {fileID: 8300000, guid: 369eae58919470844b6b6c4374cb7fca, type: 3}
   _playerRecoverHealthSFX: {fileID: 8300000, guid: d6126147507be7e4b8cd93d21fe992d6, type: 3}
+  _playerHealthSFX: {fileID: 0}
   activateInkSplatterEffect: 0
   _playerHealth: {fileID: 0}
   _healthBar: {fileID: 0}
@@ -10398,7 +10400,7 @@ GameObject:
   - component: {fileID: 8896666827606695950}
   - component: {fileID: 7898460235496040368}
   - component: {fileID: 4613600516832525031}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spray
   m_TagString: Spray
   m_Icon: {fileID: 0}
