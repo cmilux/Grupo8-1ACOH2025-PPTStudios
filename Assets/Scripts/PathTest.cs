@@ -65,13 +65,16 @@ public class PathTest : MonoBehaviour
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
 
+        attackReady = true;
+
         // Sets current attack cooldown timer to starting cooldown timer
         currentAttackCooldown = attackCooldown;
 
         // Sets current enemy health to the max health value
         _currentEnemyHealth = _enemyHealth;
 
-        _target = GameObject.FindGameObjectWithTag("Player").transform;
+        //_target = GameObject.FindGameObjectWithTag("Player").transform;
+        _target = GameObject.Find("Player")?.GetComponent<Transform>();
 
         //-------------------
         //2D NavMesh settings
@@ -224,6 +227,7 @@ public class PathTest : MonoBehaviour
 
     private void HandleAttackCooldown()
     {
+        Debug.Log($"[PathTest] Cooldown: {currentAttackCooldown:F2}  Ready: {attackReady}");
         if (attackReady == false)
         {
             currentAttackCooldown -= Time.deltaTime;

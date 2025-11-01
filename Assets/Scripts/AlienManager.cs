@@ -13,6 +13,7 @@ public class AlienManager : MonoBehaviour
     [SerializeField] GameObject _meleeEnemy;
     [SerializeField] float _rotateSpeed;
     [SerializeField] PathTest _meleeEnemyManager;
+    [SerializeField] PlayerHealth _playerHealth;
 
     //void OnEnable()
     //{
@@ -34,9 +35,18 @@ public class AlienManager : MonoBehaviour
     //    }
     //}
 
+    private void Start()
+    {
+        _playerHealth = GameObject.Find("Player")?.GetComponentInChildren<PlayerHealth>();
+    }
+
     private void Update()
     {
-        RotateHitboxSpawn();
+        //RotateHitboxSpawn();
+        if (_meleeEnemyManager.canAttack)
+        {
+            SpawnHitbox();
+        }
     }
 
     // SELE: Prometo hacer anotaciones de c�mo funciona esto en cuanto entienda c�mo funciona esto
@@ -56,12 +66,32 @@ public class AlienManager : MonoBehaviour
     
     private void SpawnHitbox()
     {
-        Collider2D player = Physics2D.OverlapCircle(_hitboxSpawn.transform.position, _hitboxRadius, _playerLayer);
+        Debug.Log($"[AlienManager] Checking attack: attackReady={_meleeEnemyManager.attackReady}, canAttack={_meleeEnemyManager.canAttack}, enemyDying={_meleeEnemyManager.enemyDying}");
 
+        Debug.Log($"Hitbox pos: {_hitboxSpawn.position}, radius: {_hitboxRadius}");
+        Debug.Log($"Player pos: {_player.transform.position}");
+        Collider2D player = Physics2D.OverlapCircle(_hitboxSpawn.transform.position, _hitboxRadius, _playerLayer);
+        Debug.Log($"Detected collider: {player}");
+
+        if (player == null)
+        {
+            Debug.Log("Player collider is null in alien manager");
+        }
+        else
+        {
+            Debug.Log("Player collider is NOT null");
+        }
         if (player != null && _meleeEnemyManager.attackReady == true && !_meleeEnemyManager.enemyDying)
         {
             var playerHealth = player.GetComponentInChildren<PlayerHealth>();
+            if (playerHealth == null)
+            {
+                Debug.Log("Player is null in alien manager");
+            }
             playerHealth.playerCurrentHealth -= _meleeEnemyManager.enemyDamage;
+            //PlayerManager.Instance._isBeingAttacked = true;
+            //_playerHealth._playerHealthSFX.PlayOneShot(_playerHealth._playerHitSFX, 0.3f);
+            Debug.Log("Player was attacked");
 
             _meleeEnemyManager.attackReady = false;
             _meleeEnemyManager.currentAttackCooldown = _meleeEnemyManager.attackCooldown;

@@ -32,7 +32,6 @@ public class PlayerAttackDistance : MonoBehaviour
     private void Start()
     {
         //Get's PlayerInventory and PlayerMovement script
-        //_playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
         _playerInventory = GetComponentInParent<PlayerInventory>();
         if (_playerInventory == null)
         {
@@ -197,7 +196,6 @@ public class PlayerAttackDistance : MonoBehaviour
             _direction = mouseDir;
         }
 
-        
         //Apply to spawn direction
         if (_direction != Vector2.zero)
         {

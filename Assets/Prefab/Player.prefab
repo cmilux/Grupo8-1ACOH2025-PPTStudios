@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 672692826792551205}
   - component: {fileID: 7382386182521506692}
   - component: {fileID: 6212978604936575105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SprayParticles
   m_TagString: Spray
   m_Icon: {fileID: 0}
@@ -4859,7 +4859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6502832124687317366}
   - component: {fileID: 3371515546673584884}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9752,7 +9752,7 @@ GameObject:
   - component: {fileID: 1710789542664812384}
   - component: {fileID: 7095734031644441189}
   - component: {fileID: 4281126421614319733}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PepperSpray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9968,7 +9968,7 @@ GameObject:
   - component: {fileID: 1729893213304345258}
   - component: {fileID: 5218746376848895951}
   - component: {fileID: 3565006276707819133}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerHealth
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -10071,7 +10071,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 6200000, guid: 77e26ed31ecad0245828b107c499b7f6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -11116,7 +11116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5725283816623698729}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnRocksPos
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -11150,7 +11150,7 @@ GameObject:
   - component: {fileID: 4143329877553567072}
   - component: {fileID: 74919302197063428}
   - component: {fileID: 4548170337570267424}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ThrowRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

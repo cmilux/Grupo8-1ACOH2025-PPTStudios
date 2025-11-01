@@ -115,7 +115,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -126531333
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 1
   m_Sprite: {fileID: 61227512781541994, guid: c40c4f7d03a399a4da47e9348bbb2556, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitboxManager
   _hitboxSpawn: {fileID: 2508314655006238317}
-  _hitboxRadius: 0.38
+  _hitboxRadius: 1.5
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -171,6 +171,7 @@ MonoBehaviour:
   _meleeEnemy: {fileID: 2368381465472855034}
   _rotateSpeed: 200
   _meleeEnemyManager: {fileID: 6237464456903845930}
+  _playerHealth: {fileID: 0}
 --- !u!1 &2368381465472855034
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -126531333
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 8561283412337027050, guid: c2f5cbb43aaead541b7faebe4875f707, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -364,7 +365,6 @@ MonoBehaviour:
   _alienAnimator: {fileID: 8135943346111406696}
   _lastDir: {x: 0, y: 0}
   _attackAnimation: 0
-  _enemyDamaged: 0
   _isMoving: 0
   enemyDying: 0
   attackCooldown: 3
@@ -493,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 6245362321463961324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -544,7 +544,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -126531333
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 4
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

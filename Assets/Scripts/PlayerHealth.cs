@@ -17,10 +17,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public float playerCurrentHealth;  // Stores how much health the player has currently
 
     [Header("SFX")]
-    [SerializeField] AudioClip _playerHitSFX;
+    public AudioClip _playerHitSFX;
     [SerializeField] AudioClip _playerDeathSFX;
     [SerializeField] AudioClip _playerRecoverHealthSFX;
-    private AudioSource _playerHealthSFX;
+    public AudioSource _playerHealthSFX;
 
     [Header("Booleans")]
     [SerializeField] public bool activateInkSplatterEffect;
@@ -153,6 +153,16 @@ public class PlayerHealth : MonoBehaviour
         _healthBar.value = playerCurrentHealth / _playerMaxHealth;
     }
 
+    void PlaySFX()
+    {
+        //Plays the animation
+        //_playerAnimator._isBeingAttacked = true;
+        //Plays the SFX
+        _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
+        //Wait for animation to finish
+        StartCoroutine(WaitForAnimationToEnd());
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -192,18 +202,20 @@ public class PlayerHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        //if (other.gameObject.CompareTag("Tentacle"))
-        //{
-        //    // Gets the damage value from the tentacle that the player has collided with 
-        //    int damageAmount = other.gameObject.GetComponent<BossTentacleManager>().tentacleDamage;
-        //
-        //    // Applies that damage amount to the player health
-        //    playerCurrentHealth -= damageAmount;
-        //    // Player is being attacked
-        //    _playerAnimator._isBeingAttacked = true;
-        //    // Wait for animation to finish
-        //    StartCoroutine(WaitForAnimationToEnd());
-        //}
+        if (other.gameObject.CompareTag("Tentacle"))
+        {
+            // Gets the damage value from the tentacle that the player has collided with 
+            int damageAmount = other.gameObject.GetComponent<BossTentacleManager>().tentacleDamage;
+        
+            // Applies that damage amount to the player health
+            playerCurrentHealth -= damageAmount;
+            // Player is being attacked
+            _playerAnimator._isBeingAttacked = true;
+            //Plays the SFX
+            _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
+            // Wait for animation to finish
+            StartCoroutine(WaitForAnimationToEnd());
+        }
 
         if (other.gameObject.CompareTag("Food"))
         {
