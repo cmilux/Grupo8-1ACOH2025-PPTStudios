@@ -122,6 +122,12 @@ public class PlayerManager : MonoBehaviour
     {
         if (!context.performed) return;
 
+        //Prevent shooting if the mouse if clicking on a UI element
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         if (_weaponManager == null)
         {
             Debug.LogError("PlayerManager.OnAttack: weaponManager is NULL");

@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
             //Call these methods
             PlayerSideScreenLimit();
             ArrowGuide();
+            RestartScene();
+            NextSceneDEBUG();
         }
     }
 
@@ -108,9 +110,10 @@ public class GameManager : MonoBehaviour
             }
             //Get the pause button
             pauseButton = GameObject.Find("PauseButton")?.GetComponent<Button>();
-            if (pauseButton == null)
+            if (pauseButton != null)
             {
-                Debug.Log(message: $"pause button is null in game manager");
+                Debug.Log($"[GameManager] Pause {pauseButton} is NOT NULL");
+                //Debug.Log(message: $"pause button is null in game manager");
             }
             //Get the Crossfade game object to play the transition animation
             transition = GameObject.Find("Crossfade")?.GetComponent<Animator>();
@@ -191,6 +194,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Zone1");        //Loads the game scene
     }
 
+    public void RestartScene()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+        }
+    }
+
     public void PauseGame()
     {
         if (_isPaused)
@@ -206,6 +217,16 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             _isPaused = true;
             PlayerManager.Instance._animator.enabled = false;      //Dont play any player animations while game is paused
+
+            Debug.Log("[GameManager] Pause button was clicked");
+        }
+    }
+
+    void NextSceneDEBUG()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            NextScene();
         }
     }
 

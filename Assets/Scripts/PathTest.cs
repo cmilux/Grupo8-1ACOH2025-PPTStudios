@@ -227,7 +227,7 @@ public class PathTest : MonoBehaviour
 
     private void HandleAttackCooldown()
     {
-        Debug.Log($"[PathTest] Cooldown: {currentAttackCooldown:F2}  Ready: {attackReady}");
+        //Debug.Log($"[PathTest] Cooldown: {currentAttackCooldown:F2}  Ready: {attackReady}");
         if (attackReady == false)
         {
             currentAttackCooldown -= Time.deltaTime;

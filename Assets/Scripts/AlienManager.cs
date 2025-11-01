@@ -66,12 +66,12 @@ public class AlienManager : MonoBehaviour
     
     private void SpawnHitbox()
     {
-        Debug.Log($"[AlienManager] Checking attack: attackReady={_meleeEnemyManager.attackReady}, canAttack={_meleeEnemyManager.canAttack}, enemyDying={_meleeEnemyManager.enemyDying}");
-
-        Debug.Log($"Hitbox pos: {_hitboxSpawn.position}, radius: {_hitboxRadius}");
-        Debug.Log($"Player pos: {_player.transform.position}");
+        //.Log($"[AlienManager] Checking attack: attackReady={_meleeEnemyManager.attackReady}, canAttack={_meleeEnemyManager.canAttack}, enemyDying={_meleeEnemyManager.enemyDying}");
+        //
+        //.Log($"Hitbox pos: {_hitboxSpawn.position}, radius: {_hitboxRadius}");
+        //.Log($"Player pos: {_player.transform.position}");
         Collider2D player = Physics2D.OverlapCircle(_hitboxSpawn.transform.position, _hitboxRadius, _playerLayer);
-        Debug.Log($"Detected collider: {player}");
+        //Debug.Log($"Detected collider: {player}");
 
         if (player == null)
         {

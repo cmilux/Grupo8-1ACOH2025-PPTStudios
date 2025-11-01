@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject _player;
     [SerializeField] PlayerManager _playerAnimator;
 
-    PathTest _enemyDamage;
+    [SerializeField] PathTest _enemyDamage;
 
     [Header("Health integers")]
     [SerializeField] float _playerMaxHealth;      // Stores the max amount of health a player can have
@@ -52,11 +52,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player manager is null in playerhealth");
         }
 
-        _enemyDamage = GameObject.FindGameObjectWithTag("Enemy").GetComponent<PathTest>();
-        if (_enemyDamage == null)
-        {
-            Debug.Log("Path test is null in playerhealth");
-        }
+        
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -167,6 +163,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            //THIS NEEDS TO BE FIXED
+            _enemyDamage = GameObject.Find("Enemy")?.GetComponent<PathTest>();
+            if (_enemyDamage == null)
+            {
+                Debug.Log("Path test is null in playerhealth");
+            }
+
             // Gets the damage value from the enemy that the player has collided with 
             int damageAmount = _enemyDamage.enemyDamage;
 
