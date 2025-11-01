@@ -27,13 +27,25 @@ public class PlayerAttackMelee : MonoBehaviour
         _sprayGas.SetActive(false);
 
         //Find the playerMovement script to get a reference of the player's animator
-        _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+        _playerAnimator = GetComponentInParent<PlayerManager>();
+        if (_playerAnimator == null)
+        {
+            Debug.Log($"playyer manager is null in melee attack");
+        }
 
         //Get the weapon manager script
-        _weaponManager = GameObject.FindWithTag("Player").GetComponentInChildren<WeaponManager>();
+        _weaponManager = GetComponentInParent<WeaponManager>();
+        if (_weaponManager == null)
+        {
+            Debug.Log($"weapon manager is null in melee attack");
+        }
 
         //Get the audio source
         _meleeAttackSFX = GetComponent<AudioSource>();
+        if (_meleeAttackSFX == null)
+        {
+            Debug.Log($"sfx is null in melee attack");
+        }
 
         if (_sprayEffect != null)
         {
@@ -156,6 +168,6 @@ public class PlayerAttackMelee : MonoBehaviour
     void ApplyAnimation()
     {
         //Applies the bool _isAttacking to the melee animation
-        _playerAnimator._animator.SetBool("IsMeleeAttacking", _isAttacking);
+        PlayerManager.Instance._animator.SetBool("IsMeleeAttacking", _isAttacking);
     }
 }

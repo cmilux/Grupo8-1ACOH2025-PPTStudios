@@ -32,11 +32,24 @@ public class PlayerAttackDistance : MonoBehaviour
     private void Start()
     {
         //Get's PlayerInventory and PlayerMovement script
-        _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
-        _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+        //_playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
+        _playerInventory = GetComponentInParent<PlayerInventory>();
+        if (_playerInventory == null)
+        {
+            Debug.Log(message: $"inventory is null in distance attack");
+        }
+        _playerAnimator = GetComponentInParent<PlayerManager>();
+        if (_playerAnimator == null)
+        {
+            Debug.Log(message: $"player manager is null in distance attack");
+        }
 
         //Get the weapon manager script
-        _weaponManager = GameObject.FindWithTag("Player").GetComponentInChildren<WeaponManager>();
+        _weaponManager = GetComponentInParent<WeaponManager>();
+        if (_weaponManager == null)
+        {
+            Debug.Log(message: $"weapon manager is null in distance attack");
+        }
 
         //Get the audio source
         _distanceAttackSFX = GetComponent<AudioSource>();
@@ -207,6 +220,6 @@ public class PlayerAttackDistance : MonoBehaviour
     void ApplyAnimations()
     {
         //Applies the bool _isAttacking to the distance animation
-        _playerAnimator._animator.SetBool("IsDistanceAttacking", _isAttacking);
+        PlayerManager.Instance._animator.SetBool("IsDistanceAttacking", _isAttacking);
     }
 }

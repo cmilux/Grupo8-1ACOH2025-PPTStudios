@@ -89,14 +89,35 @@ public class GameManager : MonoBehaviour
             //Get the entrance point of every scene and set it to the player instance
             _entrancePoint = GameObject.FindGameObjectWithTag("Entrance");
             PlayerManager.Instance.transform.position = _entrancePoint.transform.position;
+            if (_entrancePoint == null)
+            {
+                Debug.Log($"entrance is null in game manager");
+            }
+
             //Get the next level arrow
             _arrowNextLevel = GameObject.FindGameObjectWithTag("Arrow");
+            if (_arrowNextLevel == null)
+            {
+                Debug.Log(message: $"arrow is null in game manager");
+            }
             //Get the enemy manager
             _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
+            if (_enemyManager == null)
+            {
+                Debug.Log(message: $"enemy manager is null in game manager");
+            }
             //Get the pause button
             pauseButton = GameObject.Find("PauseButton")?.GetComponent<Button>();
+            if (pauseButton == null)
+            {
+                Debug.Log(message: $"pause button is null in game manager");
+            }
             //Get the Crossfade game object to play the transition animation
             transition = GameObject.Find("Crossfade")?.GetComponent<Animator>();
+            if (transition == null)
+            {
+                Debug.Log(message: $"transition is null in game manager");
+            }
 
             if (pauseButton)
             {

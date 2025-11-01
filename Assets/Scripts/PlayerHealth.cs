@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject _player;
     [SerializeField] PlayerManager _playerAnimator;
 
+    PathTest _enemyDamage;
+
     [Header("Health integers")]
     [SerializeField] float _playerMaxHealth;      // Stores the max amount of health a player can have
     [SerializeField] public float playerCurrentHealth;  // Stores how much health the player has currently
@@ -39,17 +41,42 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    private void Start()
+    {
+        playerCurrentHealth = _playerMaxHealth;
+        Debug.Log($"Player health {playerCurrentHealth}");
+
+        _playerAnimator = GetComponentInParent<PlayerManager>();
+        if (_playerAnimator == null)
+        {
+            Debug.Log("Player manager is null in playerhealth");
+        }
+
+        _enemyDamage = GameObject.FindGameObjectWithTag("Enemy").GetComponent<PathTest>();
+        if (_enemyDamage == null)
+        {
+            Debug.Log("Path test is null in playerhealth");
+        }
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Zone1")
-        {
-            playerCurrentHealth = _playerMaxHealth;                                                     //Set player health to max
-            _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();       //Find the playerManager script
-            _playerAnimator._isDead = false;                                                            //Player is alive
-        }
+        //if (scene.name == "Zone1")
+        //{
+        //    playerCurrentHealth = _playerMaxHealth;                                                     //Set player health to max
+        //    _playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();       //Find the playerManager script
+        //    _playerAnimator._isDead = false;                                                            //Player is alive
+        //}
 
         if (scene.name == "Zone1" || scene.name == "Zone2" || scene.name == "Zone3")
         {
+            //playerCurrentHealth = _playerMaxHealth;                                                     //Set player health to max
+            //_playerAnimator = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();       //Find the playerManager script
+            _playerAnimator._isDead = false;                                                            //Player is alive
+            if (_playerAnimator == null)
+            {
+                Debug.Log($"Player manager is null in playerhealths");
+            }
             _playerHealthSFX = GetComponent<AudioSource>();                                             //Get the audio source
             _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();                //Get the player health slider UI
             SettingUI();                                                                                //Update player life in UI
@@ -92,6 +119,10 @@ public class PlayerHealth : MonoBehaviour
         //Checks player's health
         if (!_playerAnimator._isDead && playerCurrentHealth <= 0)
         {
+            if (_playerAnimator == null)
+            {
+                Debug.Log($"Player manager is null in playerhealths");
+            }
             //Plays animation
             _playerAnimator._isDead = true;
             //Plays the SFX
@@ -127,7 +158,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             // Gets the damage value from the enemy that the player has collided with 
-            int damageAmount = other.gameObject.GetComponent<PathTest>().enemyDamage;
+            int damageAmount = _enemyDamage.enemyDamage;
 
             // Applies that damage amount to the player health
             playerCurrentHealth -= damageAmount;

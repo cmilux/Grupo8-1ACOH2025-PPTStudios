@@ -47,12 +47,36 @@ public class PlayerManager : MonoBehaviour
     {
         //Sets the player's rigidbody in its variable
         _playerRb = GetComponent<Rigidbody2D>();
+        if (_playerRb == null)
+        {
+            Debug.LogError("Rigidbody is null");
 
+        }
         _playerInput = GetComponent<PlayerInput>();
+        if (_playerInput == null)
+        {
+            Debug.LogError("Player inout is null");
+
+        }
 
         _weaponManager = GetComponentInChildren<WeaponManager>();
+        if (_weaponManager == null)
+        {
+            Debug.LogError("Weapon manager is null");
+
+        }
         _playerAttackDistance = GetComponentInChildren<PlayerAttackDistance>(true);
+        if (_playerAttackDistance == null)
+        {
+            Debug.LogError("Player distance attack is null");
+
+        }
         _playerAttackMelee = GetComponentInChildren<PlayerAttackMelee>(true);
+        if (_playerAttackMelee == null)
+        {
+            Debug.LogError("Player melee attack is null");
+
+        }
     }
 
     void OnEnable()
@@ -98,12 +122,28 @@ public class PlayerManager : MonoBehaviour
     {
         if (!context.performed) return;
 
+        if (_weaponManager == null)
+        {
+            Debug.LogError("PlayerManager.OnAttack: weaponManager is NULL");
+            return;
+        }
+
         if (_weaponManager.currentWeaponIndex == 0)
         {
+            if (_playerAttackDistance == null)
+            {
+                Debug.LogError("PlayerManager.OnAttack: distance is NULL");
+                return;
+            }
             _playerAttackDistance.StartAttack();
         }
         else if (_weaponManager.currentWeaponIndex == 1)
         {
+            if (_playerAttackMelee == null)
+            {
+                Debug.LogError("PlayerManager.OnAttack: melee is NULL");
+                return;
+            }
             _playerAttackMelee.StartAttack();
         }
     }
@@ -155,7 +195,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void ApplyAnimations()
+    public void ApplyAnimations()
     {
         //Set the walk animation depending on axis
         _animator.SetFloat("Horizontal", _moveDir.x);
@@ -168,9 +208,14 @@ public class PlayerManager : MonoBehaviour
 
         //Set the bools to play hit or death animation
         _animator.SetBool("IsBeingAttacked", _isBeingAttacked);
+        if (_isBeingAttacked)
+        {
+            Debug.Log(_isBeingAttacked);
+        }
         _animator.SetBool("IsDead", _isDead);
         if (_isDead)
         {
+            Debug.Log(_isDead);
             _playerRb.linearVelocity = Vector2.zero;
             _playerInput.enabled = false;
             _moveDir = Vector2.zero;
@@ -197,6 +242,17 @@ public class PlayerManager : MonoBehaviour
         _playerAttackDistance._isAttacking = false;
         _playerAttackMelee._isAttacking = false;
 
+        if (_playerAttackDistance == null)
+        {
+            Debug.LogError("PlayerAttackDistance is NULL!");
+        }
+            
+        if (_playerAttackMelee == null)
+        {
+            Debug.LogError("PlayerAttackMelee is NULL!");
+        }
+           
+
         //Checks if distance attack [index 0 on weapon manager] is set
         if (weaponIndex == 0)
         {
@@ -219,15 +275,18 @@ public class PlayerManager : MonoBehaviour
     {
         //Spawn the rocks at the right time in animation
         GetComponentInChildren<PlayerAttackDistance>().SpawnRock();
+        Debug.LogError("SpawnRockEvent");
     }
     public void ActivateSprayEvent()
     {
         //Turns on the spray in animation
         GetComponentInChildren<PlayerAttackMelee>().ActivateSpray();
+        Debug.LogError("Spray event");
     }
     public void DeactivateSprayEvent()
     {
         //Turns off the spray in animation
         GetComponentInChildren<PlayerAttackMelee>().DeactivateSpray();
+        Debug.LogError("Spray event");
     }
 }

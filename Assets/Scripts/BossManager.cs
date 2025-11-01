@@ -59,6 +59,9 @@ public class BossManager : MonoBehaviour
         _currentBossHealth = _maxBossHealth;
 
         _bossAnimator = GetComponent<Animator>();
+
+        //_target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        _target = GameObject.Find("Player")?.GetComponent<Transform>();
     }
 
     private void Update()
@@ -83,8 +86,6 @@ public class BossManager : MonoBehaviour
             _currentBossHealth -= sprayDamage;
 
             _bossDamaged = true;
-
-            Destroy(other.gameObject);
 
             // Checks boss's health
             BossDeath();
@@ -135,7 +136,7 @@ public class BossManager : MonoBehaviour
     IEnumerator WaitnLoadGameOverScene()
     {
         //Waits for animation to play before showing GameOver scene
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         SceneManager.LoadScene("GameOver");
     }
@@ -187,6 +188,10 @@ public class BossManager : MonoBehaviour
         // Calculates the player's direction
         //PROBLEMA ACA
         Vector2 targetPosition = (_target.transform.position - transform.position).normalized;
+        if (targetPosition == null)
+        {
+            Debug.Log($"target position from boss manager is null");
+        }
 
         // Creates a list of 3 directions for the ink bullets' trayectories, depending on the player's position, in different angles
         Vector2[] inkDirections = new Vector2[3];

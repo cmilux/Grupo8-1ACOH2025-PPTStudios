@@ -36,8 +36,8 @@ public class WeaponManager : MonoBehaviour
         weaponsUI[currentWeaponIndex].gameObject.SetActive(true);       //Turns on the UI weapon being used
 
         //Gets the PlayerManager and the PlayerInventory scripts
-        _playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
-        _playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
+        _playerManager = GetComponentInParent<PlayerManager>();
+        _playerInventory = GetComponentInParent<PlayerInventory>();
     }
 
     void OnEnable()
@@ -93,6 +93,24 @@ public class WeaponManager : MonoBehaviour
 
     public void SwitchWeapons()
     {
+        Debug.Log($"SwitchWeapons called. weapons=={weapons}, weaponsUI=={weaponsUI}, currentWeaponIndex={currentWeaponIndex}");
+
+        if (weapons == null)
+        {
+            Debug.LogError("WEAPONS array is NULL in WeaponManager!");
+            return;
+        }
+        if (weaponsUI == null)
+        {
+            Debug.LogError("WEAPONS UI array is NULL in WeaponManager!");
+            return;
+        }
+        if (weapons.Length == 0 || weaponsUI.Length == 0)
+        {
+            Debug.LogError($"WEAPON arrays have zero length (weapons={weapons?.Length}, weaponsUI={weaponsUI?.Length})");
+            return;
+        }
+
         //Turn off the current weapon (object and UI)
         weapons[currentWeaponIndex].SetActive(false);
         weaponsUI[currentWeaponIndex].gameObject.SetActive(false);
@@ -104,6 +122,10 @@ public class WeaponManager : MonoBehaviour
         weaponsUI[currentWeaponIndex].gameObject.SetActive(true);
         //Lets the PlayerManager know what weapon is on
         _playerManager.UpdateActiveAttack(currentWeaponIndex);
+        if (currentWeaponIndex != 0 || currentWeaponIndex != 1)
+        {
+            Debug.Log("current weapon is null");
+        }
         //Calls the method
         UpdateActiveUI();
         //WeaponSwitchCooldown();
