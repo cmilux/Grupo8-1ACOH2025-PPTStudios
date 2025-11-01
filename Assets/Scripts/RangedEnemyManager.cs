@@ -206,6 +206,11 @@ public class RangedEnemyManager : MonoBehaviour
         {
             _playerDetected = true;
         }
+
+        if (_enemyDying == true)
+        {
+            _canAttack = false;
+        }
     }
 
     private void HandleAttackCooldown()
