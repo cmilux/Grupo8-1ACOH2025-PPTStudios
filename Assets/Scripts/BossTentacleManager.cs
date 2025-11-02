@@ -12,9 +12,15 @@ public class BossTentacleManager : MonoBehaviour
     [SerializeField] public bool tentacleFinishAnim = false;
     [SerializeField] public int tentacleDamage;
 
+    [Header("SFX")]
+    [SerializeField] AudioSource _tentacleAudioSource;
+    [SerializeField] AudioClip _meleeTentacle;
+
     private void Start()
     {
         tentacleAnimator = GetComponent<Animator>();
+        _tentacleAudioSource = GetComponent<AudioSource>();
+        StartCoroutine(TentacleSFX());
         bossManager = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossManager>();
     }
 
@@ -42,5 +48,11 @@ public class BossTentacleManager : MonoBehaviour
         tentacleLoopAnim = false;
         yield return new WaitForSeconds(0.9f);
         _sequenceStarted = false;
+    }
+
+    public IEnumerator TentacleSFX()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _tentacleAudioSource.PlayOneShot(_meleeTentacle);
     }
 }

@@ -47,6 +47,13 @@ public class BossManager : MonoBehaviour
     [SerializeField] bool _bossDamaged;
     [SerializeField] bool _bossDying;
 
+    [Header("SFX")]
+    [SerializeField] AudioSource _bossAudioSource;
+    [SerializeField] AudioClip _damageSFX;
+    [SerializeField] AudioClip _dieSFX;
+    [SerializeField] AudioClip _meleeSFX;
+    [SerializeField] AudioClip _rangedSFX;
+
     void Start()
     {
         // Sets current ranged attack cooldown timer to starting cooldown timer
@@ -59,6 +66,8 @@ public class BossManager : MonoBehaviour
         _currentBossHealth = _maxBossHealth;
 
         _bossAnimator = GetComponent<Animator>();
+
+        _bossAudioSource = GetComponent<AudioSource>();
 
         //_target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         _target = GameObject.Find("Player")?.GetComponent<Transform>();
@@ -87,6 +96,8 @@ public class BossManager : MonoBehaviour
 
             _bossDamaged = true;
 
+            _bossAudioSource.PlayOneShot(_damageSFX);
+
             // Checks boss's health
             BossDeath();
         }
@@ -102,6 +113,8 @@ public class BossManager : MonoBehaviour
             _bossAnimator.SetTrigger("Damaged");
 
             _bossDamaged = true;
+
+            _bossAudioSource.PlayOneShot(_damageSFX);
 
             Destroy(other.gameObject);
 
@@ -121,6 +134,7 @@ public class BossManager : MonoBehaviour
         if (_currentBossHealth <= 0)
         {
             _bossAnimator.Play("Die");
+            _bossAudioSource.PlayOneShot(_dieSFX);
             _bossDying = true;
             StartCoroutine(BossDeathSequence());
             StartCoroutine(WaitnLoadGameOverScene());
@@ -173,6 +187,8 @@ public class BossManager : MonoBehaviour
         {
             _bossAnimator.Play("Melee Attack Start");
 
+            StartCoroutine(MeleeSFX());
+
             // And reset cooldown timer back to starting cooldown timer
             _currentMeleeAttackCooldown = _meleeAttackCooldown;
         }
@@ -186,12 +202,13 @@ public class BossManager : MonoBehaviour
     void RangedAttack()
     {
         // Calculates the player's direction
-        //PROBLEMA ACA
         Vector2 targetPosition = (_target.transform.position - transform.position).normalized;
         if (targetPosition == null)
         {
             Debug.Log($"target position from boss manager is null");
         }
+
+        _bossAudioSource.PlayOneShot(_rangedSFX);
 
         // Creates a list of 3 directions for the ink bullets' trayectories, depending on the player's position, in different angles
         Vector2[] inkDirections = new Vector2[3];
@@ -292,6 +309,13 @@ public class BossManager : MonoBehaviour
     IEnumerator HandleBossReappearence()
     {
         yield return new WaitForSeconds(4.9f);
+        _bossAudioSource.PlayOneShot(_meleeSFX);
         _bossAnimator.Play("Melee Attack Finish");
+    }
+
+    IEnumerator MeleeSFX()
+    {
+        yield return new WaitForSeconds(1f);
+        _bossAudioSource.PlayOneShot(_meleeSFX);
     }
 }
