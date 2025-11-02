@@ -66,6 +66,10 @@ public class GameManager : MonoBehaviour
             ArrowGuide();
             RestartScene();
             NextSceneDEBUG();
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                Exit();
+            }
         }
     }
 

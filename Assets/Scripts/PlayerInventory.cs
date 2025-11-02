@@ -60,6 +60,7 @@ public class PlayerInventory : MonoBehaviour
         //Call method
         AmmunitionAmount();
         SettingUI();
+        AddRockDEBUG();
     }
 
     void AmmunitionAmount()
@@ -86,6 +87,14 @@ public class PlayerInventory : MonoBehaviour
     public void AddRock(int rocks)
     {
         totalRocks += rocks;
+    }
+
+    public void AddRockDEBUG()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            AddRock(rockPickUpValue*5);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

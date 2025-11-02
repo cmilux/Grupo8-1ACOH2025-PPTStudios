@@ -10781,6 +10781,7 @@ MonoBehaviour:
   _animator: {fileID: 2356903279374645238}
   _playerInput: {fileID: 5449575228493599369}
   canSwitchWeapon: 1
+  canDistanceAttack: 1
   _lastDir: {x: 0, y: 0}
   _moveDir: {x: 0, y: 0}
   _moveInput: {x: 0, y: 0}
@@ -10952,7 +10953,19 @@ MonoBehaviour:
     m_ActionId: 6d0ec59b-06ec-483e-845d-e8ec9a570766
     m_ActionName: 'Player/Aim[/Mouse/position]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 791024266424695983}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: OnSwitchWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 21fe2888-b517-4319-8e13-ecd0dd4ffe6b
     m_ActionName: 'Player/SwitchWeapon[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0

@@ -110,11 +110,14 @@ public class PlayerAttackDistance : MonoBehaviour
     /// </summary>
     public void SpawnRock()
     {
+        //KEEPS HAPPENING
+        //TRIED TO THINK ABOUT READING POSITION AND GETTING THE LAST INPUT BUT I HAVE NO IDEAAA
         //Prevent double spawn
-        if (_rockJustSpawned)
+        if (_rockJustSpawned || !_isAttacking)
         {
             return;
         }
+
         _rockJustSpawned = true;
 
         //Creates a new object in rock using the rock prefab in a position and rotation (rockSpawnPos)
@@ -136,7 +139,7 @@ public class PlayerAttackDistance : MonoBehaviour
 
     IEnumerator ResetAttackFlag()
     {
-        yield return new WaitForSeconds(0.1f);        //Waits 0.1 seconds
+        yield return new WaitForSeconds(_attackCooldown);        //Waits 0.3 seconds
         _isAttacking = false;                               //Returns that player is not attacking
     }
 

@@ -86,6 +86,7 @@ public class PlayerHealth : MonoBehaviour
         OnDeath();
         SettingUI();
         OnPlayerBeingAttacked();
+        HealthCheat();
     }
 
     void PreventFromExceeding()
@@ -157,6 +158,14 @@ public class PlayerHealth : MonoBehaviour
         _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
         //Wait for animation to finish
         StartCoroutine(WaitForAnimationToEnd());
+    }
+
+    void HealthCheat()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            playerCurrentHealth += 100;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

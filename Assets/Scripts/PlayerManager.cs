@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Vectors")]
     [SerializeField] Vector2 _lastDir;                              //Stores player last direction
     [SerializeField] Vector2 _moveDir;                              //Stores player move direction
-    [SerializeField] Vector2 _moveInput;                            //Stores the input from movement
+    public Vector2 _moveInput;                            //Stores the input from movement
 
     private void Awake()
     {
@@ -156,7 +156,7 @@ public class PlayerManager : MonoBehaviour
 
     //public void OnSwitchWeapon(InputAction.CallbackContext context)
     //{
-    //    if (!context.performed || !canSwitchWeapon)
+    //    if (context.performed && canSwitchWeapon)
     //    {
     //        _weaponManager.SwitchWeapons();
     //    }
