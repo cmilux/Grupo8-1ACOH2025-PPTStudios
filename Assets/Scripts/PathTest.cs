@@ -40,6 +40,13 @@ public class PathTest : MonoBehaviour
     [SerializeField] public float currentAttackCooldown;   // Stores the enemy's current attack cooldown timer 
     [SerializeField] public bool attackReady = false;      // Checks whether the enemy's attack is on cooldown or not
 
+    [Header("SFX")]
+    [SerializeField] public AudioSource meleeEnemyAudioSource;
+    [SerializeField] public AudioClip attackSFX;
+    [SerializeField] AudioClip _damageSFX;
+    [SerializeField] AudioClip _dieSFX;
+    [SerializeField] public bool isPlayingAttackSFX;
+
     //void OnEnable()
     //{
     //    SceneManager.sceneLoaded += OnSceneLoaded;
@@ -64,6 +71,8 @@ public class PathTest : MonoBehaviour
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
+
+        meleeEnemyAudioSource = GetComponent<AudioSource>();
 
         attackReady = true;
 
@@ -156,6 +165,9 @@ public class PathTest : MonoBehaviour
         //Checks the enemy's health
         if (_currentEnemyHealth <= 0)
         {
+            meleeEnemyAudioSource.loop = true;
+            meleeEnemyAudioSource.clip = _dieSFX;
+            meleeEnemyAudioSource.Play();
             StartCoroutine(EnemyDeathSequence());
             enemyDying = true;
             _agent.isStopped = true;
@@ -186,6 +198,12 @@ public class PathTest : MonoBehaviour
         if (distance <= _agent.stoppingDistance)
         {
             canAttack = true;
+
+            if (!isPlayingAttackSFX)
+            {
+                StartCoroutine(HandleAttackSFX());
+                isPlayingAttackSFX = true;
+            }
         }
         else canAttack = false;
 
@@ -302,6 +320,8 @@ public class PathTest : MonoBehaviour
 
         _alienAnimator.SetTrigger("Damaged");
 
+        meleeEnemyAudioSource.PlayOneShot(_damageSFX);
+
         _playerDetected = true;
 
         //Checks enemy's health
@@ -318,9 +338,18 @@ public class PathTest : MonoBehaviour
 
         _alienAnimator.SetTrigger("Damaged");
 
+        meleeEnemyAudioSource.PlayOneShot(_damageSFX);
+
         _playerDetected = true;  
 
         //Checks enemy's health
         EnemyDeath();
+    }
+
+    public IEnumerator HandleAttackSFX()
+    {
+        meleeEnemyAudioSource.PlayOneShot(attackSFX);
+        yield return new WaitForSeconds(1.4f);
+        isPlayingAttackSFX = false;
     }
 }

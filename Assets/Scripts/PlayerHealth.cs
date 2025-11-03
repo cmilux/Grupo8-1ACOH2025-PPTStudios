@@ -170,9 +170,8 @@ public class PlayerHealth : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Hitbox"))
         {
-            //THIS NEEDS TO BE FIXED
             _enemyDamage = GameObject.Find("Enemy")?.GetComponent<PathTest>();
             if (_enemyDamage == null)
             {

@@ -50,6 +50,12 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] bool _isMoving;                  // Checks whether the enemy is moving or not
     [SerializeField] bool _enemyDying;                // Checks whether the enemy is moving or not
 
+    [Header("SFX")]
+    [SerializeField] AudioSource _rangedEnemyAudioSource;
+    [SerializeField] AudioClip _attackSFX;
+    [SerializeField] AudioClip _damageSFX;
+    [SerializeField] AudioClip _dieSFX;
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -76,6 +82,8 @@ public class RangedEnemyManager : MonoBehaviour
     {
         // Gets the NavMeshAgent from the enemy
         _agent = GetComponent<NavMeshAgent>();
+
+        _rangedEnemyAudioSource = GetComponent<AudioSource>();
 
         // Sets current attack cooldown timer to starting cooldown timer
         _currentAttackCooldown = _attackCooldown;
@@ -178,6 +186,9 @@ public class RangedEnemyManager : MonoBehaviour
         if (_currentEnemyHealth <= 0)
         {
             StartCoroutine(EnemyDeathSequence());
+            _rangedEnemyAudioSource.loop = true;
+            _rangedEnemyAudioSource.clip = _dieSFX;
+            _rangedEnemyAudioSource.Play();
             _enemyDying = true;
             _agent.isStopped = true;
         }
@@ -239,6 +250,8 @@ public class RangedEnemyManager : MonoBehaviour
         {
             // Plays the alien's attack animation
             _playAttackAnimation = true;
+
+            _rangedEnemyAudioSource.PlayOneShot(_attackSFX);
 
             // Instantiates the ink prefab at the enemy's firing point's position and rotation
             var ink = Instantiate(_inkPrefab, _firingPoint.position, Quaternion.identity);
@@ -375,6 +388,8 @@ public class RangedEnemyManager : MonoBehaviour
         // Apply damage to enemy
         _currentEnemyHealth -= rockDamageAmount;
 
+        _rangedEnemyAudioSource.PlayOneShot(_damageSFX);
+
         Destroy(rock.gameObject);
 
         _alienAnimator.SetTrigger("Damaged");
@@ -389,6 +404,8 @@ public class RangedEnemyManager : MonoBehaviour
     {
         // Gets the damage value from the spray that the enemy has collided with
         int sprayDamage = spray.gameObject.GetComponent<SprayManager>().sprayDamage;
+
+        _rangedEnemyAudioSource.PlayOneShot(_damageSFX);
 
         // Apply damage to enemy
         _currentEnemyHealth -= sprayDamage;

@@ -1,46 +1,46 @@
 fileFormatVersion: 2
-guid: a6b60bc24e390bf43a13c5fa5ce209bd
+guid: 271ccb478f69b7d4fbb5b6d9908a586f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4061906353401488047
-    second: spr-npc2-desorientado-right_0
+      213: 6310352284130662849
+    second: spr-npc2-desorientado-side-right_0
   - first:
-      213: 2586067670132023875
-    second: spr-npc2-desorientado-right_1
+      213: 3936690982714268977
+    second: spr-npc2-desorientado-side-right_1
   - first:
-      213: 7537769930012523253
-    second: spr-npc2-desorientado-right_2
+      213: 768422243175857229
+    second: spr-npc2-desorientado-side-right_2
   - first:
-      213: 8411890231752149114
-    second: spr-npc2-desorientado-right_3
+      213: 209024625954790988
+    second: spr-npc2-desorientado-side-right_3
   - first:
-      213: 4067628597409578799
-    second: spr-npc2-desorientado-right_4
+      213: -7072338417079061593
+    second: spr-npc2-desorientado-side-right_4
   - first:
-      213: 6454843289542900342
-    second: spr-npc2-desorientado-right_5
+      213: 372056939285136388
+    second: spr-npc2-desorientado-side-right_5
   - first:
-      213: -4583037349739825284
-    second: spr-npc2-desorientado-right_6
+      213: -289442054824285881
+    second: spr-npc2-desorientado-side-right_6
   - first:
-      213: 4731885201535836585
-    second: spr-npc2-desorientado-right_7
+      213: 6147010158060400636
+    second: spr-npc2-desorientado-side-right_7
   - first:
-      213: 6978567333377527632
-    second: spr-npc2-desorientado-right_8
+      213: -6200178563048753525
+    second: spr-npc2-desorientado-side-right_8
   - first:
-      213: -5008998291290036891
-    second: spr-npc2-desorientado-right_9
+      213: -6203866748723709242
+    second: spr-npc2-desorientado-side-right_9
   - first:
-      213: -7004442392619007118
-    second: spr-npc2-desorientado-right_10
+      213: -4175765498449110369
+    second: spr-npc2-desorientado-side-right_10
   - first:
-      213: -2692772762082683462
-    second: spr-npc2-desorientado-right_11
+      213: -4194251938231932465
+    second: spr-npc2-desorientado-side-right_11
   - first:
-      213: 9072694703939569201
-    second: spr-npc2-desorientado-right_12
+      213: 5446779639262637769
+    second: spr-npc2-desorientado-side-right_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr-npc2-desorientado-right_0
+      name: spr-npc2-desorientado-side-right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa2e569be4ace5830800000000000000
-      internalID: 4061906353401488047
+      spriteID: 1c9de2ff7ffd29750800000000000000
+      internalID: 6310352284130662849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-right_1
+      name: spr-npc2-desorientado-side-right_1
       rect:
         serializedVersion: 2
         x: 32
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 342675b28de83e320800000000000000
-      internalID: 2586067670132023875
+      spriteID: 13dda2f579fe1a630800000000000000
+      internalID: 3936690982714268977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-right_2
+      name: spr-npc2-desorientado-side-right_2
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fa740580d98b9860800000000000000
-      internalID: 7537769930012523253
+      spriteID: d4c710a75fbf9aa00800000000000000
+      internalID: 768422243175857229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-right_3
+      name: spr-npc2-desorientado-side-right_3
       rect:
         serializedVersion: 2
         x: 96
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a784a2109990db470800000000000000
-      internalID: 8411890231752149114
+      spriteID: c4e18533aca96e200800000000000000
+      internalID: 209024625954790988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-right_4
+      name: spr-npc2-desorientado-side-right_4
       rect:
         serializedVersion: 2
         x: 128
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2f71da78ae137830800000000000000
-      internalID: 4067628597409578799
+      spriteID: 7a377a63ea10add90800000000000000
+      internalID: -7072338417079061593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-right_5
+      name: spr-npc2-desorientado-side-right_5
       rect:
         serializedVersion: 2
         x: 160
@@ -261,8 +261,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67ab40ac5c5349950800000000000000
-      internalID: 6454843289542900342
+      spriteID: 4044f46a0dfc92500800000000000000
+      internalID: 372056939285136388
       vertices: []
       indices: 
       edges: []
@@ -271,7 +271,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bf5db3bb06d94e8499e160b6ff840e91
+    spriteID: ef43a6efb0a6204409c2473991d921c0
     internalID: 0
     vertices: []
     indices: 
@@ -283,12 +283,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      spr-npc2-desorientado-right_0: 4061906353401488047
-      spr-npc2-desorientado-right_1: 2586067670132023875
-      spr-npc2-desorientado-right_2: 7537769930012523253
-      spr-npc2-desorientado-right_3: 8411890231752149114
-      spr-npc2-desorientado-right_4: 4067628597409578799
-      spr-npc2-desorientado-right_5: 6454843289542900342
+      spr-npc2-desorientado-side-right_0: 6310352284130662849
+      spr-npc2-desorientado-side-right_1: 3936690982714268977
+      spr-npc2-desorientado-side-right_2: 768422243175857229
+      spr-npc2-desorientado-side-right_3: 209024625954790988
+      spr-npc2-desorientado-side-right_4: -7072338417079061593
+      spr-npc2-desorientado-side-right_5: 372056939285136388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

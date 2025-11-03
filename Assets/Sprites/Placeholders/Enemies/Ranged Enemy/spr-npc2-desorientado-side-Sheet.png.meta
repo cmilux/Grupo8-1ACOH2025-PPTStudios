@@ -3,44 +3,44 @@ guid: f1af1f179d651854ba0bc40425e8577c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7739263178017875241
-    second: spr-npc2-desorientado-side-Sheet_0
+      213: 4383596753706207448
+    second: spr-npc2-desorientado-side-sheet_0
   - first:
-      213: -5119908525351641358
-    second: spr-npc2-desorientado-side-Sheet_1
+      213: 317444544680141620
+    second: spr-npc2-desorientado-side-sheet_1
   - first:
-      213: 5160902277975958188
-    second: spr-npc2-desorientado-side-Sheet_2
+      213: 7216073979767583407
+    second: spr-npc2-desorientado-side-sheet_2
   - first:
-      213: -1640371790452526891
-    second: spr-npc2-desorientado-side-Sheet_3
+      213: -7529799231094050151
+    second: spr-npc2-desorientado-side-sheet_3
   - first:
-      213: -4211391931872243954
-    second: spr-npc2-desorientado-side-Sheet_4
+      213: -1145185263319963944
+    second: spr-npc2-desorientado-side-sheet_4
   - first:
-      213: -8210151572854498177
-    second: spr-npc2-desorientado-side-Sheet_5
+      213: 8733718284059834614
+    second: spr-npc2-desorientado-side-sheet_5
   - first:
-      213: -3383061494396196716
-    second: spr-npc2-desorientado-side-Sheet_6
+      213: -3017995145955634755
+    second: spr-npc2-desorientado-side-sheet_6
   - first:
-      213: 782857456683770310
-    second: spr-npc2-desorientado-side-Sheet_7
+      213: -8881984968889926101
+    second: spr-npc2-desorientado-side-sheet_7
   - first:
-      213: 6464597130978725185
-    second: spr-npc2-desorientado-side-Sheet_8
+      213: 1646847783947166502
+    second: spr-npc2-desorientado-side-sheet_8
   - first:
-      213: -3870396999592940457
-    second: spr-npc2-desorientado-side-Sheet_9
+      213: 2225377321267660881
+    second: spr-npc2-desorientado-side-sheet_9
   - first:
-      213: -3590830046764980684
-    second: spr-npc2-desorientado-side-Sheet_10
+      213: 2463924061400996815
+    second: spr-npc2-desorientado-side-sheet_10
   - first:
-      213: 6964278838545689541
-    second: spr-npc2-desorientado-side-Sheet_11
+      213: 674543388672370631
+    second: spr-npc2-desorientado-side-sheet_11
   - first:
-      213: -7730402491482169524
-    second: spr-npc2-desorientado-side-Sheet_12
+      213: -4416074880397774442
+    second: spr-npc2-desorientado-side-sheet_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr-npc2-desorientado-side-Sheet_0
+      name: spr-npc2-desorientado-side-sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7dadbfad42d989490800000000000000
-      internalID: -7739263178017875241
+      spriteID: 8d8c63fa50aa5dc30800000000000000
+      internalID: 4383596753706207448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-side-Sheet_1
+      name: spr-npc2-desorientado-side-sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2fedbe7925e62f8b0800000000000000
-      internalID: -5119908525351641358
+      spriteID: 433ab89a12ac76400800000000000000
+      internalID: 317444544680141620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-side-Sheet_2
+      name: spr-npc2-desorientado-side-sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca2e24737453f9740800000000000000
-      internalID: 5160902277975958188
+      spriteID: fa27cfc5d05a42460800000000000000
+      internalID: 7216073979767583407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-side-Sheet_3
+      name: spr-npc2-desorientado-side-sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d071823c8a3c39e0800000000000000
-      internalID: -1640371790452526891
+      spriteID: 99231a07e77c08790800000000000000
+      internalID: -7529799231094050151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-side-Sheet_4
+      name: spr-npc2-desorientado-side-sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0f0fc2d9512e85c0800000000000000
-      internalID: -4211391931872243954
+      spriteID: 8d62dc9021c7b10f0800000000000000
+      internalID: -1145185263319963944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr-npc2-desorientado-side-Sheet_5
+      name: spr-npc2-desorientado-side-sheet_5
       rect:
         serializedVersion: 2
         x: 160
@@ -261,8 +261,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7c94ebc4aeaf0e80800000000000000
-      internalID: -8210151572854498177
+      spriteID: 6f878b19186643970800000000000000
+      internalID: 8733718284059834614
       vertices: []
       indices: 
       edges: []
@@ -271,7 +271,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3df077e6db84b4648a206a1cb860304a
+    spriteID: 12d9fe1391e853441b641afdeea41cfa
     internalID: 0
     vertices: []
     indices: 
@@ -283,12 +283,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      spr-npc2-desorientado-side-Sheet_0: -7739263178017875241
-      spr-npc2-desorientado-side-Sheet_1: -5119908525351641358
-      spr-npc2-desorientado-side-Sheet_2: 5160902277975958188
-      spr-npc2-desorientado-side-Sheet_3: -1640371790452526891
-      spr-npc2-desorientado-side-Sheet_4: -4211391931872243954
-      spr-npc2-desorientado-side-Sheet_5: -8210151572854498177
+      spr-npc2-desorientado-side-sheet_0: 4383596753706207448
+      spr-npc2-desorientado-side-sheet_1: 317444544680141620
+      spr-npc2-desorientado-side-sheet_2: 7216073979767583407
+      spr-npc2-desorientado-side-sheet_3: -7529799231094050151
+      spr-npc2-desorientado-side-sheet_4: -1145185263319963944
+      spr-npc2-desorientado-side-sheet_5: 8733718284059834614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
