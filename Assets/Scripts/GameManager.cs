@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button pauseButton;            //Pause button
     [SerializeField] Button playButton;             //Play button
 
-    [SerializeField] AudioSource _gameManagerMus;
+    public AudioSource _gameManagerMus;
     [SerializeField] AudioClip _menuMus;
     [SerializeField] AudioClip _zone1Mus;
     [SerializeField] AudioClip _zone2Mus;

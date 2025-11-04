@@ -96,7 +96,7 @@ public class BossManager : MonoBehaviour
 
             _bossDamaged = true;
 
-            _bossAudioSource.PlayOneShot(_damageSFX);
+            _bossAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
             // Checks boss's health
             BossDeath();
@@ -114,7 +114,7 @@ public class BossManager : MonoBehaviour
 
             _bossDamaged = true;
 
-            _bossAudioSource.PlayOneShot(_damageSFX);
+            _bossAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
             Destroy(other.gameObject);
 
@@ -134,7 +134,7 @@ public class BossManager : MonoBehaviour
         if (_currentBossHealth <= 0)
         {
             _bossAnimator.Play("Die");
-            _bossAudioSource.PlayOneShot(_dieSFX);
+            _bossAudioSource.PlayOneShot(_dieSFX, 0.3f);
             _bossDying = true;
             StartCoroutine(BossDeathSequence());
             StartCoroutine(WaitnLoadGameOverScene());
@@ -172,7 +172,7 @@ public class BossManager : MonoBehaviour
         {
             _rangedAttackAnim = true;
             //Play boss SFX
-            _bossAudioSource.PlayOneShot(_rangedSFX);
+            _bossAudioSource.PlayOneShot(_rangedSFX, 0.3f);
 
             // And reset cooldown timer back to starting cooldown timer
             _currentRangedAttackCooldown = _rangedAttackCooldown;
@@ -309,13 +309,13 @@ public class BossManager : MonoBehaviour
     IEnumerator HandleBossReappearence()
     {
         yield return new WaitForSeconds(4.9f);
-        _bossAudioSource.PlayOneShot(_meleeSFX);
+        _bossAudioSource.PlayOneShot(_meleeSFX, 0.3f);
         _bossAnimator.Play("Melee Attack Finish");
     }
 
     IEnumerator MeleeSFX()
     {
         yield return new WaitForSeconds(1f);
-        _bossAudioSource.PlayOneShot(_meleeSFX);
+        _bossAudioSource.PlayOneShot(_meleeSFX, 0.3f);
     }
 }

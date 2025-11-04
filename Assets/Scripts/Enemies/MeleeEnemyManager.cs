@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PathTest : MonoBehaviour
+public class MeleeEnemyManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Transform _target;               // Gets target transform

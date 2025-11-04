@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject _player;
     [SerializeField] PlayerManager _playerAnimator;
 
-    [SerializeField] PathTest _enemyDamage;
+    [SerializeField] MeleeEnemyManager _enemyDamage;
 
     [Header("Health integers")]
     [SerializeField] float _playerMaxHealth;      // Stores the max amount of health a player can have
@@ -122,6 +122,8 @@ public class PlayerHealth : MonoBehaviour
             _playerAnimator._isDead = true;
             //Plays the SFX
             _playerHealthSFX.PlayOneShot(_playerDeathSFX, 0.3f);
+            //Turn music volume low
+            GameManager.Instance._gameManagerMus.volume = 0.1f;
             //Starts a coroutine to make a softer transition
             StartCoroutine(WaitnLoadGameOverScene());
         }
@@ -169,7 +171,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hitbox"))
         {
-            _enemyDamage = GameObject.Find("Enemy")?.GetComponent<PathTest>();
+            _enemyDamage = GameObject.Find("Enemy")?.GetComponent<MeleeEnemyManager>();
             if (_enemyDamage == null)
             {
                 Debug.Log("Path test is null in playerhealth");

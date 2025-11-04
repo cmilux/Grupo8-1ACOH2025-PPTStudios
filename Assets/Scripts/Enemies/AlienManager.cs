@@ -12,7 +12,7 @@ public class AlienManager : MonoBehaviour
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _meleeEnemy;
     [SerializeField] float _rotateSpeed;
-    [SerializeField] PathTest _meleeEnemyManager;
+    [SerializeField] MeleeEnemyManager _meleeEnemyManager;
     [SerializeField] PlayerHealth _playerHealth;
 
     private void Start()
