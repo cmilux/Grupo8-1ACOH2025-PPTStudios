@@ -186,9 +186,6 @@ public class RangedEnemyManager : MonoBehaviour
         if (_currentEnemyHealth <= 0)
         {
             StartCoroutine(EnemyDeathSequence());
-            //_rangedEnemyAudioSource.loop = true;
-            //_rangedEnemyAudioSource.clip = _dieSFX;
-            //_rangedEnemyAudioSource.volume = 0.2f;
             _rangedEnemyAudioSource.PlayOneShot(_dieSFX, 0.2f);
             _enemyDying = true;
             _agent.isStopped = true;

@@ -10094,8 +10094,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: -0.0049803257}
+  m_Size: {x: 0.5, y: 1.0436311}
   m_Direction: 0
 --- !u!82 &1729893213304345258
 AudioSource:
@@ -10781,7 +10781,6 @@ MonoBehaviour:
   _animator: {fileID: 2356903279374645238}
   _playerInput: {fileID: 5449575228493599369}
   canSwitchWeapon: 1
-  canDistanceAttack: 1
   _lastDir: {x: 0, y: 0}
   _moveDir: {x: 0, y: 0}
   _moveInput: {x: 0, y: 0}
