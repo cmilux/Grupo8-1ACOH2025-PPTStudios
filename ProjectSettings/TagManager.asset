@@ -21,6 +21,7 @@ TagManager:
   - EnemyManager
   - Boss
   - Tentacle
+  - ColliderZone3
   layers:
   - Default
   - TransparentFX

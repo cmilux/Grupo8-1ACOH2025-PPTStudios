@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject _entrancePoint;     //Entrance point of player
     [SerializeField] GameObject _arrowNextLevel;    //Arrow to load next scene
+    [SerializeField] GameObject _colliderZone3;
     [SerializeField] EnemyManager _enemyManager;    //Enemy manager script
     [SerializeField] bool _isPaused;                //Bool to check if game is paused
 
@@ -118,6 +119,9 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log(message: $"arrow is null in game manager");
             }
+
+            _colliderZone3 = GameObject.FindGameObjectWithTag("ColliderZone3");
+
             //Get the enemy manager
             _enemyManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyManager>();
             if (_enemyManager == null)
@@ -187,6 +191,12 @@ public class GameManager : MonoBehaviour
                 //Call the BackToMenu method if it was clicked
                 menuButton.onClick.AddListener(BackToMenu);
             }
+
+            //Music
+            _gameManagerMus.clip = _menuMus;
+            _gameManagerMus.loop = true;
+            _gameManagerMus.volume = 0.2f;
+            _gameManagerMus.Play();
         }
 
         if (scene.name == "StartMenu")
@@ -302,23 +312,28 @@ public class GameManager : MonoBehaviour
 
     void ArrowGuide()
     {
-        if (SceneManager.GetActiveScene().name == "Zone3")
-        {
-            //Ignore arrow
-            return;
-        }
-
         if (_arrowNextLevel != null)
         {
             if (_enemyManager.enemyCount > 0)
             {
                 //If there are enemies alive, turn the arrow off
                 _arrowNextLevel.SetActive(false);
+                if (_colliderZone3 != null)
+                {
+                    //Allow the player to move to the boss area
+                    _colliderZone3.SetActive(true);
+                }
+                
             }
             if (_enemyManager.enemyCount <= 0)
             {
                 //If there are no more enemies alive, turn the arrow on
                 _arrowNextLevel.SetActive(true);
+                if (_colliderZone3 != null)
+                {
+                    //Dont allow the player to move to the boss area
+                    _colliderZone3.SetActive(false);
+                }
             }
         }
 

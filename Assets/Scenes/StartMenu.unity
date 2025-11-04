@@ -4591,6 +4591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _entrancePoint: {fileID: 0}
   _arrowNextLevel: {fileID: 0}
+  _colliderZone3: {fileID: 0}
   _enemyManager: {fileID: 0}
   _isPaused: 0
   exitButton: {fileID: 0}
