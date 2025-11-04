@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button pauseButton;            //Pause button
     [SerializeField] Button playButton;             //Play button
 
+    [SerializeField] AudioSource _gameManagerMus;
+    [SerializeField] AudioClip _menuMus;
+    [SerializeField] AudioClip _zone1Mus;
+    [SerializeField] AudioClip _zone2Mus;
+    [SerializeField] AudioClip _zone3Mus;
+
     [Header("Scene transition")]
     public Animator transition;
     public float transitionTime = 1.0f;
@@ -74,6 +80,8 @@ public class GameManager : MonoBehaviour
             {
                 PauseGame();
             }
+
+            _gameManagerMus = GetComponent<AudioSource>();
         }
     }
 
@@ -137,6 +145,31 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (scene.name == "Zone1")
+        {
+            //Music
+            _gameManagerMus.clip = _zone1Mus;
+            _gameManagerMus.loop = true;
+            _gameManagerMus.volume = 0.2f;
+            _gameManagerMus.Play();
+        }
+        if (scene.name == "Zone2")
+        {
+            //Music
+            _gameManagerMus.clip = _zone2Mus;
+            _gameManagerMus.loop = true;
+            _gameManagerMus.volume = 0.2f;
+            _gameManagerMus.Play();
+        }
+        if (scene.name == "Zone3")
+        {
+            //Music
+            _gameManagerMus.clip = _zone3Mus;
+            _gameManagerMus.loop = true;
+            _gameManagerMus.volume = 0.2f;
+            _gameManagerMus.Play();
+        }
+
         if (scene.name == "GameOver")
         {
             //Get the exit a menu button of the game over scene
@@ -172,6 +205,12 @@ public class GameManager : MonoBehaviour
                 //Call the Exit method if it was clicked
                 exitButton.onClick.AddListener(Exit);
             }
+
+            //Music
+            _gameManagerMus.clip = _menuMus;
+            _gameManagerMus.loop = true;
+            _gameManagerMus.volume = 0.3f;
+            _gameManagerMus.Play();
         }
 
         if (scene.name == "Controls")
@@ -218,6 +257,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             _isPaused = false;
             PlayerManager.Instance._animator.enabled = true;      //Play any player animations while game is unpaused
+
+            _gameManagerMus.volume = 0.2f;
         }
         else
         {
@@ -225,6 +266,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             _isPaused = true;
             PlayerManager.Instance._animator.enabled = false;      //Dont play any player animations while game is paused
+
+            _gameManagerMus.volume = 0.1f;
 
             Debug.Log("[GameManager] Pause button was clicked");
         }

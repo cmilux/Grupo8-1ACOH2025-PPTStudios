@@ -139,7 +139,7 @@ public class RangedEnemyManager : MonoBehaviour
 
         // Updates health bar above enemy's head to the current health value 
         UpdateHealthBar();
- 
+
         //SettingUI();
 
         // When the player is attacked by a ranged enemy, call for the ink splatter effect to be activated 
@@ -172,7 +172,7 @@ public class RangedEnemyManager : MonoBehaviour
         {
             EnemyDistanceDamage(other);
         }
-        
+
         // Checks if enemy collides with the spray
         else if (other.gameObject.CompareTag("Spray"))
         {
@@ -186,9 +186,10 @@ public class RangedEnemyManager : MonoBehaviour
         if (_currentEnemyHealth <= 0)
         {
             StartCoroutine(EnemyDeathSequence());
-            _rangedEnemyAudioSource.loop = true;
-            _rangedEnemyAudioSource.clip = _dieSFX;
-            _rangedEnemyAudioSource.Play();
+            //_rangedEnemyAudioSource.loop = true;
+            //_rangedEnemyAudioSource.clip = _dieSFX;
+            //_rangedEnemyAudioSource.volume = 0.2f;
+            _rangedEnemyAudioSource.PlayOneShot(_dieSFX, 0.2f);
             _enemyDying = true;
             _agent.isStopped = true;
         }
@@ -290,7 +291,7 @@ public class RangedEnemyManager : MonoBehaviour
         if (moveDir != Vector2.zero)
         {
             _lastDir = moveDir;
-        }  
+        }
     }
 
     private void HandleNPCSprites()
@@ -320,7 +321,7 @@ public class RangedEnemyManager : MonoBehaviour
     {
         // Sets ink splatter effect active for a few seconds, then makes it inactive again
         if (inkSplatter != null)
-        {  
+        {
             inkSplatter.SetActive(true);
             yield return new WaitForSeconds(3f);
             inkSplatter.SetActive(false);
