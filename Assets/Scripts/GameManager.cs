@@ -70,6 +70,10 @@ public class GameManager : MonoBehaviour
             {
                 Exit();
             }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                PauseGame();
+            }
         }
     }
 

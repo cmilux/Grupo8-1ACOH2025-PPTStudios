@@ -171,6 +171,8 @@ public class BossManager : MonoBehaviour
         if (_currentRangedAttackCooldown <= 0)
         {
             _rangedAttackAnim = true;
+            //Play boss SFX
+            _bossAudioSource.PlayOneShot(_rangedSFX);
 
             // And reset cooldown timer back to starting cooldown timer
             _currentRangedAttackCooldown = _rangedAttackCooldown;
@@ -207,8 +209,6 @@ public class BossManager : MonoBehaviour
         {
             Debug.Log($"target position from boss manager is null");
         }
-
-        _bossAudioSource.PlayOneShot(_rangedSFX);
 
         // Creates a list of 3 directions for the ink bullets' trayectories, depending on the player's position, in different angles
         Vector2[] inkDirections = new Vector2[3];
