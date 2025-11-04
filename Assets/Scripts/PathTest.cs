@@ -47,26 +47,6 @@ public class PathTest : MonoBehaviour
     [SerializeField] AudioClip _dieSFX;
     [SerializeField] public bool isPlayingAttackSFX;
 
-    //void OnEnable()
-    //{
-    //    SceneManager.sceneLoaded += OnSceneLoaded;
-    //}
-
-    //void OnDisable()
-    //{
-    //    SceneManager.sceneLoaded -= OnSceneLoaded;
-    //}
-
-    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    Time.timeScale = 1;
-
-    //    if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
-    //    {
-    //        _target = PlayerMovement.Instance.gameObject.transform;
-    //    }
-    //}
-
     void Start()
     {
         // Gets the NavMeshAgent from the enemy
@@ -100,7 +80,7 @@ public class PathTest : MonoBehaviour
             {
                 _target = playerGO.transform;
             }
-            else{Debug.Log($"{name}: Player not found on Start()._target remains null");}
+            else { Debug.Log($"{name}: Player not found on Start()._target remains null"); }
         }
 
         UpdatePatrolPoint();
@@ -265,9 +245,9 @@ public class PathTest : MonoBehaviour
     {
         if (_agent.pathPending || _enemyWaiting)
         {
-            return; 
+            return;
         }
-               
+
         if (!_agent.hasPath || _agent.remainingDistance <= _agent.stoppingDistance)
         {
             StartCoroutine(WaitBeforeMoving());
@@ -320,7 +300,7 @@ public class PathTest : MonoBehaviour
 
         _alienAnimator.SetTrigger("Damaged");
 
-        meleeEnemyAudioSource.PlayOneShot(_damageSFX);
+        meleeEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
         _playerDetected = true;
 
@@ -338,9 +318,9 @@ public class PathTest : MonoBehaviour
 
         _alienAnimator.SetTrigger("Damaged");
 
-        meleeEnemyAudioSource.PlayOneShot(_damageSFX);
+        meleeEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
-        _playerDetected = true;  
+        _playerDetected = true;
 
         //Checks enemy's health
         EnemyDeath();
@@ -348,7 +328,7 @@ public class PathTest : MonoBehaviour
 
     public IEnumerator HandleAttackSFX()
     {
-        meleeEnemyAudioSource.PlayOneShot(attackSFX);
+        meleeEnemyAudioSource.PlayOneShot(attackSFX, 0.3f);
         yield return new WaitForSeconds(1.4f);
         isPlayingAttackSFX = false;
     }

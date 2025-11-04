@@ -15,26 +15,6 @@ public class AlienManager : MonoBehaviour
     [SerializeField] PathTest _meleeEnemyManager;
     [SerializeField] PlayerHealth _playerHealth;
 
-    //void OnEnable()
-    //{
-    //    SceneManager.sceneLoaded += OnSceneLoaded;
-    //}
-
-    //void OnDisable()
-    //{
-    //    SceneManager.sceneLoaded -= OnSceneLoaded;
-    //}
-
-    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    Time.timeScale = 1;
-
-    //    if (/*scene.name == "Zone1" ||*/ scene.name == "Zone2" || scene.name == "Zone3")
-    //    {
-    //        _player = PlayerMovement.Instance.gameObject;
-    //    }
-    //}
-
     private void Start()
     {
         _playerHealth = GameObject.Find("Player")?.GetComponentInChildren<PlayerHealth>();
@@ -66,12 +46,7 @@ public class AlienManager : MonoBehaviour
     
     private void SpawnHitbox()
     {
-        //.Log($"[AlienManager] Checking attack: attackReady={_meleeEnemyManager.attackReady}, canAttack={_meleeEnemyManager.canAttack}, enemyDying={_meleeEnemyManager.enemyDying}");
-        //
-        //.Log($"Hitbox pos: {_hitboxSpawn.position}, radius: {_hitboxRadius}");
-        //.Log($"Player pos: {_player.transform.position}");
         Collider2D player = Physics2D.OverlapCircle(_hitboxSpawn.transform.position, _hitboxRadius, _playerLayer);
-        //Debug.Log($"Detected collider: {player}");
 
         if (player == null)
         {
@@ -89,13 +64,22 @@ public class AlienManager : MonoBehaviour
                 Debug.Log("Player is null in alien manager");
             }
             playerHealth.playerCurrentHealth -= _meleeEnemyManager.enemyDamage;
-            //PlayerManager.Instance._isBeingAttacked = true;
-            //_playerHealth._playerHealthSFX.PlayOneShot(_playerHealth._playerHitSFX, 0.3f);
-            Debug.Log("Player was attacked");
+
+            StartCoroutine(StopAnimationDamage());
+
+            //Plays the SFX
+            _playerHealth._playerHealthSFX.PlayOneShot(_playerHealth._playerHitSFX, 0.3f);
 
             _meleeEnemyManager.attackReady = false;
             _meleeEnemyManager.currentAttackCooldown = _meleeEnemyManager.attackCooldown;
         }
+    }
+
+    IEnumerator StopAnimationDamage()
+    {
+        PlayerManager.Instance._isBeingAttacked = true;             //Plays the animation
+        yield return new WaitForSeconds(1f);
+        PlayerManager.Instance._isBeingAttacked = false;            //Stops the animation
     }
 
     private void OnDrawGizmos()

@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 1845096445344865689}
   m_Layer: 6
   m_Name: Alien
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitboxManager
   _hitboxSpawn: {fileID: 2508314655006238317}
-  _hitboxRadius: 1.5
+  _hitboxRadius: 1.2
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -375,6 +375,7 @@ MonoBehaviour:
   attackSFX: {fileID: 8300000, guid: aef1c15620e179d4285a28b72aa8d4ec, type: 3}
   _damageSFX: {fileID: 8300000, guid: 2fea7ef2139ac114c9552c39c3ba2d91, type: 3}
   _dieSFX: {fileID: 8300000, guid: 8849475cfdd1f3d49a1814f7739b5267, type: 3}
+  isPlayingAttackSFX: 0
 --- !u!95 &8021545404124693783
 Animator:
   serializedVersion: 7

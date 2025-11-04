@@ -9,20 +9,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public GameObject[] distanceEnemies;
     public int enemyCount;
 
-    private void Awake()
-    {
-        /*8
-        if (Instance == null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-        */
-    }
-
     private void Update()
     {
         EnemiesOnScene();

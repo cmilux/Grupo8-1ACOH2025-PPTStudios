@@ -51,8 +51,6 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("Player manager is null in playerhealth");
         }
-
-        
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -123,7 +121,7 @@ public class PlayerHealth : MonoBehaviour
             //Plays animation
             _playerAnimator._isDead = true;
             //Plays the SFX
-            _playerHealthSFX.PlayOneShot(_playerDeathSFX, 0.3f );
+            _playerHealthSFX.PlayOneShot(_playerDeathSFX, 0.3f);
             //Starts a coroutine to make a softer transition
             StartCoroutine(WaitnLoadGameOverScene());
         }
@@ -150,14 +148,13 @@ public class PlayerHealth : MonoBehaviour
         _healthBar.value = playerCurrentHealth / _playerMaxHealth;
     }
 
-    void PlaySFX()
+    void PlayAnimation()
     {
         //Plays the animation
-        //_playerAnimator._isBeingAttacked = true;
+        _playerAnimator._isBeingAttacked = true;
         //Plays the SFX
         _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
         //Wait for animation to finish
-        StartCoroutine(WaitForAnimationToEnd());
     }
 
     void HealthCheat()
@@ -185,9 +182,9 @@ public class PlayerHealth : MonoBehaviour
             playerCurrentHealth -= damageAmount;
 
             //Plays the animation
-            _playerAnimator._isBeingAttacked = true;
+            //_playerAnimator._isBeingAttacked = true;
             //Plays the SFX
-            _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
+            //_playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
             //Wait for animation to finish
             StartCoroutine(WaitForAnimationToEnd());
         }
@@ -217,7 +214,7 @@ public class PlayerHealth : MonoBehaviour
         {
             // Gets the damage value from the tentacle that the player has collided with 
             int damageAmount = other.gameObject.GetComponent<BossTentacleManager>().tentacleDamage;
-        
+
             // Applies that damage amount to the player health
             playerCurrentHealth -= damageAmount;
             // Player is being attacked

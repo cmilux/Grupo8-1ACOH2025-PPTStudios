@@ -251,7 +251,7 @@ public class RangedEnemyManager : MonoBehaviour
             // Plays the alien's attack animation
             _playAttackAnimation = true;
 
-            _rangedEnemyAudioSource.PlayOneShot(_attackSFX);
+            _rangedEnemyAudioSource.PlayOneShot(_attackSFX, 0.3f);
 
             // Instantiates the ink prefab at the enemy's firing point's position and rotation
             var ink = Instantiate(_inkPrefab, _firingPoint.position, Quaternion.identity);
@@ -388,7 +388,7 @@ public class RangedEnemyManager : MonoBehaviour
         // Apply damage to enemy
         _currentEnemyHealth -= rockDamageAmount;
 
-        _rangedEnemyAudioSource.PlayOneShot(_damageSFX);
+        _rangedEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
         Destroy(rock.gameObject);
 
@@ -405,7 +405,7 @@ public class RangedEnemyManager : MonoBehaviour
         // Gets the damage value from the spray that the enemy has collided with
         int sprayDamage = spray.gameObject.GetComponent<SprayManager>().sprayDamage;
 
-        _rangedEnemyAudioSource.PlayOneShot(_damageSFX);
+        _rangedEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
         // Apply damage to enemy
         _currentEnemyHealth -= sprayDamage;
