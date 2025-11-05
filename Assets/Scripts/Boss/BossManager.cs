@@ -40,6 +40,7 @@ public class BossManager : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] Animator _bossAnimator;
+    [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] bool _meleeAttackStartAnim;
     [SerializeField] public bool meleeAttackLoopAnim;
     [SerializeField] public bool meleeAttackFinishAnim;
@@ -79,6 +80,8 @@ public class BossManager : MonoBehaviour
 
         _bossAnimator = GetComponent<Animator>();
 
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
         _bossAudioSource = GetComponent<AudioSource>();
 
         //_target = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -110,8 +113,11 @@ public class BossManager : MonoBehaviour
 
             if (!_bossAttacking)
             {
+                _bossDamaged = true;
                 _bossAnimator.SetTrigger("Damaged");
             }
+
+            StartCoroutine(FlashDamageEffect());
 
             _bossAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
@@ -129,8 +135,11 @@ public class BossManager : MonoBehaviour
 
             if (!_bossAttacking)
             {
+                _bossDamaged = true;
                 _bossAnimator.SetTrigger("Damaged");
             }
+
+            StartCoroutine(FlashDamageEffect());
 
             _bossAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
@@ -425,4 +434,13 @@ public class BossManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _bossAudioSource.PlayOneShot(_meleeSFX, 0.3f);
     }
+
+    IEnumerator FlashDamageEffect()
+    {
+        _spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        _spriteRenderer.color = Color.white;
+    }
 }
+
+
