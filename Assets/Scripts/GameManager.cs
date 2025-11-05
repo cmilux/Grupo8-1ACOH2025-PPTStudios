@@ -320,8 +320,10 @@ public class GameManager : MonoBehaviour
                 _arrowNextLevel.SetActive(false);
                 if (_colliderZone3 != null)
                 {
-                    //Allow the player to move to the boss area
+                    //Dont allow the player to move to the boss area
                     _colliderZone3.SetActive(true);
+                    //Turn the boss game obj off
+                    _enemyManager.boss.SetActive(false);
                 }
                 
             }
@@ -331,8 +333,10 @@ public class GameManager : MonoBehaviour
                 _arrowNextLevel.SetActive(true);
                 if (_colliderZone3 != null)
                 {
-                    //Dont allow the player to move to the boss area
+                    //Allow the player to move to the boss area
                     _colliderZone3.SetActive(false);
+                    //Turn the boss game obj on
+                    _enemyManager.boss.SetActive(true);
                 }
             }
         }

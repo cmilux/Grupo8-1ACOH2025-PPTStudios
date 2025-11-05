@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     //public static EnemyManager Instance;
-    [SerializeField] public GameObject[] meleeEnemies;
-    [SerializeField] public GameObject[] distanceEnemies;
+    public GameObject[] meleeEnemies;
+    public GameObject[] distanceEnemies;
+    public GameObject boss;
     public int enemyCount;
 
     private void Update()

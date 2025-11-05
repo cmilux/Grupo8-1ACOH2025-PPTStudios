@@ -164,20 +164,21 @@ public class BossManager : MonoBehaviour
             _bossAudioSource.PlayOneShot(_dieSFX, 0.3f);
             _bossDying = true;
             StartCoroutine(BossDeathSequence());
-            StartCoroutine(WaitnLoadGameOverScene());
+            //StartCoroutine(WaitnLoadGameOverScene());
         }
     }
 
     private IEnumerator BossDeathSequence()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 
     IEnumerator WaitnLoadGameOverScene()
     {
         //Waits for animation to play before showing GameOver scene
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         SceneManager.LoadScene("GameOver");
     }
