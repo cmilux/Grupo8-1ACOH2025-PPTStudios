@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4023870bd34a49747b5807301a3af8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _maxBossHealth: 300
+  _maxBossHealth: 900
   _currentBossHealth: 0
   playerDetected: 0
   _bossHealth: {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _spreadAngle: 15
   _inkSpeed: 4
-  _rangedAttackCooldown: 4
+  _rangedAttackCooldown: 5
   _currentRangedAttackCooldown: 0
   _tentaclePrefab: {fileID: 7261770203098048379, guid: 0fafa4b8099d7944cbc8286fb2a84194, type: 3}
   _meleeAttackCooldown: 20
@@ -262,11 +262,18 @@ MonoBehaviour:
   _rangedAttackAnim: 0
   _bossDamaged: 0
   _bossDying: 0
+  _bossAttacking: 0
   _bossAudioSource: {fileID: 1917659469251856108}
   _damageSFX: {fileID: 8300000, guid: 4aba0447f85059e4c8f9770ca13fa5d3, type: 3}
   _dieSFX: {fileID: 8300000, guid: fc660dbaf59e5634fb2d0c78529ddc14, type: 3}
   _meleeSFX: {fileID: 8300000, guid: 179d73d647321ec43841e734bc52b30b, type: 3}
   _rangedSFX: {fileID: 8300000, guid: 64404ec162822c74c844b30563a724d2, type: 3}
+  _spawnCooldown: 30
+  _currentSpawnCooldown: 0
+  _maxItemsSpawned: 5
+  _minItemDistance: 2
+  _foodPrefab: {fileID: 4135507101272263985, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
+  _rockPrefab: {fileID: 438934401745146593, guid: ffa2bad51acfc2e48b5b7b5045d2c80b, type: 3}
 --- !u!95 &3179785875064195910
 Animator:
   serializedVersion: 7

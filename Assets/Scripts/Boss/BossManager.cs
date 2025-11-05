@@ -46,6 +46,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] bool _rangedAttackAnim;
     [SerializeField] bool _bossDamaged;
     [SerializeField] bool _bossDying;
+    [SerializeField] bool _bossAttacking;
 
     [Header("SFX")]
     [SerializeField] AudioSource _bossAudioSource;
@@ -54,6 +55,15 @@ public class BossManager : MonoBehaviour
     [SerializeField] AudioClip _meleeSFX;
     [SerializeField] AudioClip _rangedSFX;
 
+    [Header("Spawn Pickups")]
+    [SerializeField] float _spawnCooldown;
+    [SerializeField] float _currentSpawnCooldown;
+    [SerializeField] float _maxItemsSpawned;
+    [SerializeField] float _minItemDistance;
+    [SerializeField] GameObject _foodPrefab;
+    [SerializeField] GameObject _rockPrefab;
+    private List<Vector3> _usedSpawnPositions = new List<Vector3>();
+
     void Start()
     {
         // Sets current ranged attack cooldown timer to starting cooldown timer
@@ -61,6 +71,8 @@ public class BossManager : MonoBehaviour
 
         // Sets current melee attack cooldown timer to starting cooldown timer
         _currentMeleeAttackCooldown = _meleeAttackCooldown;
+
+        _currentSpawnCooldown = _spawnCooldown;
 
         // Sets current boss health to the max health value
         _currentBossHealth = _maxBossHealth;
@@ -80,6 +92,8 @@ public class BossManager : MonoBehaviour
 
         HandleBossAnimations();
 
+        HandleSpawnCooldowns();
+
         BossHealthUI();
     }
 
@@ -94,7 +108,10 @@ public class BossManager : MonoBehaviour
             // Apply damage to boss
             _currentBossHealth -= sprayDamage;
 
-            _bossDamaged = true;
+            if (!_bossAttacking)
+            {
+                _bossAnimator.SetTrigger("Damaged");
+            }
 
             _bossAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
@@ -110,9 +127,10 @@ public class BossManager : MonoBehaviour
             // Apply damage to boss
             _currentBossHealth -= rockDamageAmount;
 
-            _bossAnimator.SetTrigger("Damaged");
-
-            _bossDamaged = true;
+            if (!_bossAttacking)
+            {
+                _bossAnimator.SetTrigger("Damaged");
+            }
 
             _bossAudioSource.PlayOneShot(_damageSFX, 0.3f);
 
@@ -171,6 +189,9 @@ public class BossManager : MonoBehaviour
         if (_currentRangedAttackCooldown <= 0)
         {
             _rangedAttackAnim = true;
+
+            _bossAttacking = true;
+
             //Play boss SFX
             _bossAudioSource.PlayOneShot(_rangedSFX, 0.3f);
 
@@ -189,6 +210,8 @@ public class BossManager : MonoBehaviour
         {
             _bossAnimator.Play("Melee Attack Start");
 
+            _bossAttacking = true;
+
             StartCoroutine(MeleeSFX());
 
             // And reset cooldown timer back to starting cooldown timer
@@ -198,6 +221,87 @@ public class BossManager : MonoBehaviour
         else
         {
             _currentMeleeAttackCooldown -= Time.deltaTime;
+        }
+    }
+
+    private void HandleSpawnCooldowns()
+    {
+        if (!playerDetected)
+        {
+            return;
+        }
+
+        if (_bossDying)
+        {
+            return;
+        }
+
+        if (_currentSpawnCooldown <= 0)
+        {
+            SpawnPickups();
+            _currentSpawnCooldown = _spawnCooldown;
+        }
+        else
+        {
+            _currentSpawnCooldown -= Time.deltaTime;
+        }
+    }
+
+    void SpawnPickups()
+    {
+        _usedSpawnPositions.Clear();
+
+        int itemsSpawned = 0;
+        int attempts = 0;
+        int maxAttempts = 300;
+
+        while (itemsSpawned < _maxItemsSpawned && attempts < maxAttempts)
+        {
+            attempts++;
+
+            float x = Random.Range(-5.67f, 6.57f);
+            float y = Random.Range(15.21f, 20.02f);
+            Vector3 spawnPos = new Vector3(x, y, 0f);
+  
+            if (Physics2D.OverlapCircle((Vector2)spawnPos, 1f, _obstacleLayers))
+            {
+                attempts++;
+                continue;
+            }
+
+            bool itemTooClose = false;
+
+            foreach (var pos in _usedSpawnPositions)
+            {
+                if (Vector3.Distance(pos, spawnPos) < _minItemDistance)
+                {
+                    itemTooClose = true;
+                    break;
+                }
+            }
+
+            if (!itemTooClose)
+            {
+                int random = Random.Range(0, 2);
+                GameObject itemToSpawn;
+
+                if (random == 0)
+                {
+                    itemToSpawn = _foodPrefab;
+                }
+                else
+                {
+                    itemToSpawn = _rockPrefab;
+                }
+
+                GameObject spawnedItem = Instantiate(itemToSpawn, spawnPos, Quaternion.identity);
+
+                Destroy(spawnedItem, 8f);
+
+                _usedSpawnPositions.Add(spawnPos);
+
+                itemsSpawned++;
+            }
         }
     }
 
@@ -228,6 +332,8 @@ public class BossManager : MonoBehaviour
             // Destroys ink bullet after 2 secs
             Destroy(ink, 2f);
         }
+
+        _bossAttacking = false;
     }
 
     void MeleeAttack()
@@ -309,6 +415,7 @@ public class BossManager : MonoBehaviour
     IEnumerator HandleBossReappearence()
     {
         yield return new WaitForSeconds(4.9f);
+        _bossAttacking = false;
         _bossAudioSource.PlayOneShot(_meleeSFX, 0.3f);
         _bossAnimator.Play("Melee Attack Finish");
     }

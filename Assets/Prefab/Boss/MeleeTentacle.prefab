@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5882549517650044499}
   - component: {fileID: -7444824571384902545}
   - component: {fileID: 642594555436850385}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MeleeTentacle
   m_TagString: Tentacle
   m_Icon: {fileID: 0}
