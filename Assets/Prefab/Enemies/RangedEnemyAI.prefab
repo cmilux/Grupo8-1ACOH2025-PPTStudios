@@ -388,7 +388,7 @@ MonoBehaviour:
   _playerDetected: 0
   _canAttack: 0
   _attackThreshold: 5
-  _attackCooldown: 1.5
+  _attackCooldown: 2.5
   _currentAttackCooldown: 0
   _firingPoint: {fileID: 4713164510645346116}
   _inkPrefab: {fileID: 438934401745146593, guid: 21ae711ad4bc28c4eaedd1c124cb5181, type: 3}
