@@ -35,8 +35,8 @@ RectTransform:
   - {fileID: 974483686044818186}
   - {fileID: 6329753687084850283}
   - {fileID: 2207928012714831762}
-  - {fileID: 8305146708071641242}
   - {fileID: 6744902230463496768}
+  - {fileID: 8305146708071641242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -542,8 +542,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4854777690030255680, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
