@@ -3241,6 +3241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _entrancePoint: {fileID: 0}
   _arrowNextLevel: {fileID: 0}
+  _colliderZone3: {fileID: 0}
   _enemyManager: {fileID: 0}
   _isPaused: 0
   exitButton: {fileID: 0}
@@ -3248,6 +3249,11 @@ MonoBehaviour:
   startButton: {fileID: 0}
   pauseButton: {fileID: 0}
   playButton: {fileID: 0}
+  _gameManagerMus: {fileID: 0}
+  _menuMus: {fileID: 0}
+  _zone1Mus: {fileID: 0}
+  _zone2Mus: {fileID: 0}
+  _zone3Mus: {fileID: 0}
   transition: {fileID: 0}
   transitionTime: 1
 --- !u!4 &532392372
@@ -3798,7 +3804,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1843715919
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4860,7 +4866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -745072143496345934, guid: 93708d3840265814185e124186e3cb30, type: 3}
+  m_Sprite: {fileID: -7210351607504810313, guid: 247288476cc958648ab590e68f968423, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4993,7 +4999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -745072143496345934, guid: 93708d3840265814185e124186e3cb30, type: 3}
+  m_Sprite: {fileID: -7210351607504810313, guid: 247288476cc958648ab590e68f968423, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5164,7 +5170,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1344776481
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.4375, y: 4.220625, z: 0}

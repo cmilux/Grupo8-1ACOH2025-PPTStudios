@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour
 {
     [Header("Inventory")]
     public int totalRocks;                                       //Where the rocks will be saved
-    private readonly int rockPickUpValue = 5;
+    private readonly int rockPickUpValue = 3;
     public bool playerHasAmmunition = false;                //Check if player has any ammunition
 
     [Header("Inventory UI")]

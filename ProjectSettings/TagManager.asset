@@ -22,6 +22,7 @@ TagManager:
   - Boss
   - Tentacle
   - ColliderZone3
+  - Minimap
   layers:
   - Default
   - TransparentFX
@@ -34,6 +35,7 @@ TagManager:
   - Spaceship
   - Spray
   - Pickups
+  - Lights
   - 
   - 
   - 
@@ -53,8 +55,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Minimap
   m_SortingLayers:
   - name: Default
     uniqueID: 0

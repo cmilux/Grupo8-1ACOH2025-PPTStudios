@@ -13,11 +13,13 @@ public class TriggerBossCamera : MonoBehaviour
     [SerializeField] GameObject _invisibleWalls;
     [SerializeField] bool _playerTriggeredBossCamera;                              // Checks if the player's triggered the box collider at the start of the boss zone 
     [SerializeField] List<GameObject> _bossZoneBounds = new List<GameObject>();    // Stores all the boss zone's bounds to be set active when switching cameras
+    public GameObject minimap;
 
     private void Start()
     {
         _bossManager = _boss.GetComponent<BossManager>();
-        _bossManager._bossHealth.gameObject.SetActive(false);
+        _bossManager.bossHealth.gameObject.SetActive(false);
+        minimap = GameObject.FindGameObjectWithTag("Minimap");
     }
 
     private void Update()
@@ -47,7 +49,8 @@ public class TriggerBossCamera : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _playerTriggeredBossCamera = true;
-            _bossManager._bossHealth.gameObject.SetActive(true);
+            _bossManager.bossHealth.gameObject.SetActive(true);
+            minimap.SetActive(false);
         }
     }
 

@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6389740}
   - component: {fileID: 6389741}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8369009}
   - component: {fileID: 8369010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 30104607}
   - component: {fileID: 30104608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 33174359}
   - component: {fileID: 33174360}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34748595}
   - component: {fileID: 34748596}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46091001}
   - component: {fileID: 46091002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52673280}
   - component: {fileID: 52673281}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,6 +777,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!4 &55127580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+  m_PrefabInstance: {fileID: 8314308360546118004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &59669094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -788,6 +793,10 @@ PrefabInstance:
     - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
       propertyPath: m_Name
       value: NextLevel_GUIDE (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
       propertyPath: m_TagString
@@ -851,103 +860,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5600129862744867749, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
   m_PrefabInstance: {fileID: 59669094}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &82618982
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1827344532}
-    m_Modifications:
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 419.10413
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 54.583313
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 201
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -48
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100927388027010174, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-      propertyPath: m_Name
-      value: Inventory
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
 --- !u!1 &85436210
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 85436211}
   - component: {fileID: 85436212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,11 +944,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!224 &91417214 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-  m_PrefabInstance: {fileID: 271071958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98147296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1003,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d4ac17a46190ed42ac49a81878a5e0a, type: 2}
+  - {fileID: 2100000, guid: 56c9ba57b10808444ac6b5ccedefe84a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13388,7 +13295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 100265468}
   - component: {fileID: 100265469}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13472,7 +13379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108835545}
   - component: {fileID: 108835546}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GlassFloor_Light2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13556,7 +13463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112943417}
   - component: {fileID: 112943418}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13640,7 +13547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113215774}
   - component: {fileID: 113215775}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13885,7 +13792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 133313553}
   - component: {fileID: 133313554}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13969,7 +13876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140105897}
   - component: {fileID: 140105898}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14053,7 +13960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141240434}
   - component: {fileID: 141240435}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14137,7 +14044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 155745284}
   - component: {fileID: 155745285}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14793,7 +14700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185190786}
   - component: {fileID: 185190787}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14877,7 +14784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 187491262}
   - component: {fileID: 187491263}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14951,11 +14858,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!224 &194975377 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-  m_PrefabInstance: {fileID: 1886129613}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &199891905
 GameObject:
   m_ObjectHideFlags: 0
@@ -14966,7 +14868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 199891906}
   - component: {fileID: 199891907}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15050,7 +14952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 200449122}
   - component: {fileID: 200449123}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15134,7 +15036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 206063412}
   - component: {fileID: 206063413}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15218,7 +15120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248535733}
   - component: {fileID: 248535734}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RoofBuilding_Light2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15302,7 +15204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251413226}
   - component: {fileID: 251413227}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15386,7 +15288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253779306}
   - component: {fileID: 253779307}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15470,7 +15372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267592473}
   - component: {fileID: 267592474}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15544,111 +15446,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1001 &271071958
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1827344532}
-    m_Modifications:
-    - target: {fileID: 3586405919902214832, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586405919902214832, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 127
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -27
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110022822494906221, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498461742194927725, guid: ce4786121a084da47b755894396376e0, type: 3}
-      propertyPath: m_Name
-      value: PlayerHealthUI
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ce4786121a084da47b755894396376e0, type: 3}
 --- !u!1 &277924937
 GameObject:
   m_ObjectHideFlags: 0
@@ -15659,7 +15456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 277924938}
   - component: {fileID: 277924939}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15743,7 +15540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 301920758}
   - component: {fileID: 301920759}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15827,7 +15624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 309575168}
   - component: {fileID: 309575169}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15911,7 +15708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 312137054}
   - component: {fileID: 312137055}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16047,184 +15844,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7168590555543057559, guid: ffa2bad51acfc2e48b5b7b5045d2c80b, type: 3}
   m_PrefabInstance: {fileID: 317419238}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &333556589
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 12
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 36
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 20
-    localAABB:
-      m_Center: {x: 0.000000014901161, y: 0.013186693, z: 0}
-      m_Extent: {x: 0.13376053, y: 0.39011312, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 0
-  m_KeepIndices: 0
-  m_IndexFormat: 1
-  m_IndexBuffer: 030000000400000005000000050000000000000003000000000000000800000009000000090000000100000000000000010000000c0000000d0000000d0000000200000001000000020000001000000011000000110000000300000002000000030000000600000007000000000000000a0000000b000000010000000e0000000f000000020000001200000013000000
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 20
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 560
-    _typelessdata: 0aefedbd407cbcbe00000000000080bf0000000084f808be407dce3e84f808be407dce3e00000000000080bf0000000086f8083e507dce3e86f8083e507dce3e00000000000080bf0000000086f8083e80fcc0be86f8083e80fcc0be00000000000080bf000000000aefedbd407cbcbe86f8083e80fcc0be0000000000000000000000000aefedbd407cbcbe0aefedbd407cbcbe00000000000000000000000086f8083e80fcc0be86f8083e80fcc0be000000000000803f000000000aefedbd407cbcbe86f8083e80fcc0be0000000000004040000000000aefedbd407cbcbe0aefedbd407cbcbe00000000000000000000000084f808be407dce3e84f808be407dce3e0000000000000000000000000aefedbd407cbcbe0aefedbd407cbcbe000000000000803f0000000084f808be407dce3e0aefedbd407cbcbe00000000000040400000000084f808be407dce3e84f808be407dce3e00000000000000000000000086f8083e507dce3e86f8083e507dce3e00000000000000000000000084f808be407dce3e84f808be407dce3e000000000000803f0000000086f8083e507dce3e84f808be407dce3e00000000000040400000000086f8083e507dce3e86f8083e507dce3e00000000000000000000000086f8083e80fcc0be86f8083e80fcc0be00000000000000000000000086f8083e507dce3e86f8083e507dce3e000000000000803f0000000086f8083e80fcc0be86f8083e507dce3e00000000000040400000000086f8083e80fcc0be
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
-  m_MeshLodInfo:
-    serializedVersion: 2
-    m_LodSelectionCurve:
-      serializedVersion: 1
-      m_LodSlope: 0
-      m_LodBias: 0
-    m_NumLevels: 1
-    m_SubMeshes:
-    - serializedVersion: 2
-      m_Levels:
-      - serializedVersion: 1
-        m_IndexStart: 0
-        m_IndexCount: 0
 --- !u!1 &339343590
 GameObject:
   m_ObjectHideFlags: 0
@@ -16235,7 +15854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339343591}
   - component: {fileID: 339343592}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16384,6 +16003,10 @@ PrefabInstance:
       value: NextLevel_GUIDE (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -16509,7 +16132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388491939}
   - component: {fileID: 388491940}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FrontBuilding_Light2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16598,7 +16221,7 @@ GameObject:
   - component: {fileID: 395676303}
   - component: {fileID: 395676304}
   - component: {fileID: 395676305}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16696,7 +16319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421663555}
   - component: {fileID: 421663556}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16770,103 +16393,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1001 &428362808
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1827344532}
-    m_Modifications:
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -23
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -19
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4369354025460683193, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-      propertyPath: m_Name
-      value: Spray_UI
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
 --- !u!1 &452883391
 GameObject:
   m_ObjectHideFlags: 0
@@ -17031,7 +16557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 458537480}
   - component: {fileID: 458537481}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17172,7 +16698,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4095
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -17196,7 +16722,8 @@ Transform:
   m_LocalPosition: {x: -7.6204023, y: -4.26198, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 55127580}
   m_Father: {fileID: 1316811852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &459019344
@@ -17285,7 +16812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 464570759}
   - component: {fileID: 464570760}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17431,7 +16958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 493182419}
   - component: {fileID: 493182420}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17550,7 +17077,7 @@ GameObject:
   - component: {fileID: 512573818}
   - component: {fileID: 512573819}
   - component: {fileID: 512573820}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17850,7 +17377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 539717703}
   - component: {fileID: 539717704}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17933,7 +17460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 546782017}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lamps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17979,7 +17506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584491600}
   - component: {fileID: 584491601}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18063,7 +17590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 589511420}
   - component: {fileID: 589511421}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18147,7 +17674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 602032011}
   - component: {fileID: 602032012}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18231,7 +17758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 602670720}
   - component: {fileID: 602670721}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18315,7 +17842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 606432953}
   - component: {fileID: 606432954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18399,7 +17926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616760249}
   - component: {fileID: 616760250}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18642,7 +18169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635550768}
   - component: {fileID: 635550769}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18726,7 +18253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639416550}
   - component: {fileID: 639416551}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18810,7 +18337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 648240020}
   - component: {fileID: 648240021}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18894,7 +18421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 665935242}
   - component: {fileID: 665935243}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19040,7 +18567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691243102}
   - component: {fileID: 691243103}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19124,7 +18651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 696633589}
   - component: {fileID: 696633590}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19292,7 +18819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 704125884}
   - component: {fileID: 704125885}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19415,7 +18942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 710869870}
   - component: {fileID: 710869871}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19569,7 +19096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 726438516}
   - component: {fileID: 726438517}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19654,7 +19181,7 @@ GameObject:
   - component: {fileID: 728769814}
   - component: {fileID: 728769815}
   - component: {fileID: 728769816}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19757,7 +19284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 756725459}
   - component: {fileID: 756725460}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19952,7 +19479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770285885}
   - component: {fileID: 770285886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20197,7 +19724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 802608900}
   - component: {fileID: 802608901}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20281,7 +19808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808020549}
   - component: {fileID: 808020550}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20407,7 +19934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 822134443}
   - component: {fileID: 822134444}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20490,7 +20017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 831031234}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cantero Inferior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20577,7 +20104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849980158}
   - component: {fileID: 849980159}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20661,7 +20188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851316700}
   - component: {fileID: 851316701}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20745,7 +20272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 858809431}
   - component: {fileID: 858809432}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20829,7 +20356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 869989003}
   - component: {fileID: 869989004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20913,7 +20440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871789738}
   - component: {fileID: 871789739}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20997,7 +20524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880777009}
   - component: {fileID: 880777010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21081,7 +20608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897475885}
   - component: {fileID: 897475886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21165,7 +20692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 901181894}
   - component: {fileID: 901181895}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21249,7 +20776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 913775161}
   - component: {fileID: 913775162}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21333,7 +20860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919358410}
   - component: {fileID: 919358411}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21472,7 +20999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939584745}
   - component: {fileID: 939584746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21556,7 +21083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944368123}
   - component: {fileID: 944368124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21640,7 +21167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 949356138}
   - component: {fileID: 949356139}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21786,7 +21313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1013765619}
   - component: {fileID: 1013765620}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21870,7 +21397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024590061}
   - component: {fileID: 1024590062}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21954,7 +21481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024994835}
   - component: {fileID: 1024994836}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22100,7 +21627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1027237139}
   - component: {fileID: 1027237140}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22192,7 +21719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23
+      value: 18.81
       objectReference: {fileID: 0}
     - target: {fileID: 8798040741278243438, guid: 5816b737b2f1a3141bd674820d55c15a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22246,7 +21773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046662242}
   - component: {fileID: 1046662243}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22330,7 +21857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1051936940}
   - component: {fileID: 1051936941}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22520,7 +22047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063534060}
   - component: {fileID: 1063534061}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22604,7 +22131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1072339517}
   - component: {fileID: 1072339518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22688,7 +22215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101616901}
   - component: {fileID: 1101616902}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22772,7 +22299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1102248995}
   - component: {fileID: 1102248996}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22856,7 +22383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136559224}
   - component: {fileID: 1136559225}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22940,7 +22467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1138483667}
   - component: {fileID: 1138483668}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23024,7 +22551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1146504458}
   - component: {fileID: 1146504459}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23108,7 +22635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1152114141}
   - component: {fileID: 1152114142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23192,7 +22719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153146397}
   - component: {fileID: 1153146398}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23276,7 +22803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153969345}
   - component: {fileID: 1153969346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23484,7 +23011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1166173501}
   - component: {fileID: 1166173502}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23569,7 +23096,7 @@ GameObject:
   - component: {fileID: 1173537253}
   - component: {fileID: 1173537254}
   - component: {fileID: 1173537255}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23666,7 +23193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181080774}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CanteroLateral_Derecha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23735,7 +23262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196359089}
   - component: {fileID: 1196359090}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23819,7 +23346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1220297541}
   - component: {fileID: 1220297542}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23903,7 +23430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1224324257}
   - component: {fileID: 1224324258}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23987,7 +23514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1227897414}
   - component: {fileID: 1227897415}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24134,6 +23661,10 @@ PrefabInstance:
     - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
       propertyPath: m_Name
       value: NextLevel_GUIDE (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
       propertyPath: m_TagString
@@ -24851,7 +24382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261104095}
   - component: {fileID: 1261104096}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25123,7 +24654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274052871}
   - component: {fileID: 1274052872}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25207,7 +24738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1288995627}
   - component: {fileID: 1288995628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25290,7 +24821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298297502}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CanteroLateral_Izq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25416,184 +24947,6 @@ Transform:
   - {fileID: 4324375962220767915}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1331683168
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 12
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 36
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 20
-    localAABB:
-      m_Center: {x: 0.000000014901161, y: 0.013186693, z: 0}
-      m_Extent: {x: 0.13376053, y: 0.39011312, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 0
-  m_KeepIndices: 0
-  m_IndexFormat: 1
-  m_IndexBuffer: 030000000400000005000000050000000000000003000000000000000800000009000000090000000100000000000000010000000c0000000d0000000d0000000200000001000000020000001000000011000000110000000300000002000000030000000600000007000000000000000a0000000b000000010000000e0000000f000000020000001200000013000000
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 20
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 560
-    _typelessdata: 0aefedbd407cbcbe00000000000080bf0000000084f808be407dce3e84f808be407dce3e00000000000080bf0000000086f8083e507dce3e86f8083e507dce3e00000000000080bf0000000086f8083e80fcc0be86f8083e80fcc0be00000000000080bf000000000aefedbd407cbcbe86f8083e80fcc0be0000000000000000000000000aefedbd407cbcbe0aefedbd407cbcbe00000000000000000000000086f8083e80fcc0be86f8083e80fcc0be000000000000803f000000000aefedbd407cbcbe86f8083e80fcc0be0000000000004040000000000aefedbd407cbcbe0aefedbd407cbcbe00000000000000000000000084f808be407dce3e84f808be407dce3e0000000000000000000000000aefedbd407cbcbe0aefedbd407cbcbe000000000000803f0000000084f808be407dce3e0aefedbd407cbcbe00000000000040400000000084f808be407dce3e84f808be407dce3e00000000000000000000000086f8083e507dce3e86f8083e507dce3e00000000000000000000000084f808be407dce3e84f808be407dce3e000000000000803f0000000086f8083e507dce3e84f808be407dce3e00000000000040400000000086f8083e507dce3e86f8083e507dce3e00000000000000000000000086f8083e80fcc0be86f8083e80fcc0be00000000000000000000000086f8083e507dce3e86f8083e507dce3e000000000000803f0000000086f8083e80fcc0be86f8083e507dce3e00000000000040400000000086f8083e80fcc0be
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
-  m_MeshLodInfo:
-    serializedVersion: 2
-    m_LodSelectionCurve:
-      serializedVersion: 1
-      m_LodSlope: 0
-      m_LodBias: 0
-    m_NumLevels: 1
-    m_SubMeshes:
-    - serializedVersion: 2
-      m_Levels:
-      - serializedVersion: 1
-        m_IndexStart: 0
-        m_IndexCount: 0
 --- !u!1 &1343148846
 GameObject:
   m_ObjectHideFlags: 0
@@ -25604,7 +24957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1343148847}
   - component: {fileID: 1343148848}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25688,7 +25041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1355790491}
   - component: {fileID: 1355790492}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25762,11 +25115,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!224 &1359926782 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1617126892413871491, guid: 4808e8e247cf16846b565bfb21538cdc, type: 3}
-  m_PrefabInstance: {fileID: 82618982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1370853327
 GameObject:
   m_ObjectHideFlags: 0
@@ -25777,7 +25125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1370853328}
   - component: {fileID: 1370853329}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25984,7 +25332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1411122485}
   - component: {fileID: 1411122486}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26068,7 +25416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1412921574}
   - component: {fileID: 1412921575}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26152,7 +25500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423822022}
   - component: {fileID: 1423822023}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26236,7 +25584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432025806}
   - component: {fileID: 1432025807}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26320,7 +25668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437025350}
   - component: {fileID: 1437025351}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26404,7 +25752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1440242855}
   - component: {fileID: 1440242856}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34143,7 +33491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466933732}
   - component: {fileID: 1466933733}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34227,7 +33575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474804423}
   - component: {fileID: 1474804424}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34350,7 +33698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1493471764}
   - component: {fileID: 1493471765}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34434,7 +33782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1506794782}
   - component: {fileID: 1506794783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34518,7 +33866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528130762}
   - component: {fileID: 1528130763}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34602,7 +33950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1571376407}
   - component: {fileID: 1571376408}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34783,7 +34131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580093660}
   - component: {fileID: 1580093661}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35021,7 +34369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1590341436}
   - component: {fileID: 1590341437}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35167,7 +34515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1644330917}
   - component: {fileID: 1644330918}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35251,7 +34599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1654875169}
   - component: {fileID: 1654875170}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35335,7 +34683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664300886}
   - component: {fileID: 1664300887}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35481,7 +34829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707792403}
   - component: {fileID: 1707792404}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35565,7 +34913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1714927481}
   - component: {fileID: 1714927482}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35649,7 +34997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1729517563}
   - component: {fileID: 1729517564}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35733,7 +35081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1745491420}
   - component: {fileID: 1745491421}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35817,7 +35165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746859684}
   - component: {fileID: 1746859685}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37394,108 +36742,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!1001 &1766451282
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1827344532}
-    m_Modifications:
-    - target: {fileID: 2515276486969290698, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_Name
-      value: Crossfade
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
---- !u!224 &1766451283 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3468536230971640766, guid: 4b7f8c3ee05f69d438703954f2c1a6f0, type: 3}
-  m_PrefabInstance: {fileID: 1766451282}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1770033041
 GameObject:
   m_ObjectHideFlags: 0
@@ -37506,7 +36752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770033042}
   - component: {fileID: 1770033043}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37744,7 +36990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1786699189}
   - component: {fileID: 1786699190}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37828,7 +37074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1818820911}
   - component: {fileID: 1818820912}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37912,7 +37158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1826681011}
   - component: {fileID: 1826681012}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37986,113 +37232,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &1827344528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1827344532}
-  - component: {fileID: 1827344531}
-  - component: {fileID: 1827344530}
-  - component: {fileID: 1827344529}
-  m_Layer: 5
-  m_Name: ==Canvas==
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1827344529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827344528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1827344530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827344528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &1827344531
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827344528}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &1827344532
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827344528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2088060729}
-  - {fileID: 91417214}
-  - {fileID: 1888907980}
-  - {fileID: 194975377}
-  - {fileID: 1359926782}
-  - {fileID: 1766451283}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1830540016
 GameObject:
   m_ObjectHideFlags: 0
@@ -38103,7 +37242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830540017}
   - component: {fileID: 1830540018}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38187,7 +37326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832221005}
   - component: {fileID: 1832221006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38271,7 +37410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1839261690}
   - component: {fileID: 1839261691}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38355,7 +37494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1840693704}
   - component: {fileID: 1840693705}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38439,7 +37578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1866182971}
   - component: {fileID: 1866182972}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38513,103 +37652,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1001 &1886129613
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1827344532}
-    m_Modifications:
-    - target: {fileID: 2420870286202758655, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_Name
-      value: Rock_UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -23
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -19
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525774150339807265, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9c5e9fada36eec844ae8fa3a19d155b7, type: 3}
 --- !u!1 &1886759749
 GameObject:
   m_ObjectHideFlags: 0
@@ -38620,7 +37662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1886759750}
   - component: {fileID: 1886759751}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38694,108 +37736,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!224 &1888907980 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 508232902585442337, guid: 8ee05c9c40f81db4abb39971eb908f18, type: 3}
-  m_PrefabInstance: {fileID: 428362808}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1903566127
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1827344532}
-    m_Modifications:
-    - target: {fileID: 6421344062940224888, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_Name
-      value: PauseButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -55.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 19.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fafe90255a620be49864a70098a800dd, type: 3}
 --- !u!1 &1931253290
 GameObject:
   m_ObjectHideFlags: 0
@@ -38806,7 +37746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931253291}
   - component: {fileID: 1931253292}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38890,7 +37830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1938698768}
   - component: {fileID: 1938698769}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38974,7 +37914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1942753468}
   - component: {fileID: 1942753469}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (73)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39058,7 +37998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961133854}
   - component: {fileID: 1961133855}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39212,7 +38152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2014556386}
   - component: {fileID: 2014556387}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39296,7 +38236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2028502674}
   - component: {fileID: 2028502675}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39380,7 +38320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2038145049}
   - component: {fileID: 2038145050}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39464,7 +38404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2039353774}
   - component: {fileID: 2039353775}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39548,7 +38488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047867815}
   - component: {fileID: 2047867816}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39793,7 +38733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2068367369}
   - component: {fileID: 2068367370}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39877,7 +38817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077918915}
   - component: {fileID: 2077918916}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40048,7 +38988,7 @@ GameObject:
   - component: {fileID: 2080738874}
   - component: {fileID: 2080738875}
   - component: {fileID: 2080738876}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40136,11 +39076,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlickeringLight
   flickerLight: {fileID: 0}
   flickerLightComponent: {fileID: 0}
---- !u!224 &2088060729 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7373309837797742096, guid: fafe90255a620be49864a70098a800dd, type: 3}
-  m_PrefabInstance: {fileID: 1903566127}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2102694868
 GameObject:
   m_ObjectHideFlags: 0
@@ -40151,7 +39086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102694869}
   - component: {fileID: 2102694870}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40235,7 +39170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2140815038}
   - component: {fileID: 2140815039}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light 2D (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40513,41 +39448,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1407462857309435933, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_ShadowMesh.m_Mesh
-      value: 
-      objectReference: {fileID: 1331683168}
     - target: {fileID: 3560986500073157858, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429486450496213622, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429486450496213622, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429486450496213622, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429486450496213622, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429486450496213622, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429486450496213622, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429486450496213622, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8253807570715271175, guid: 05612ce36b68fec49bcadf855ef35626, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40605,6 +39508,10 @@ PrefabInstance:
     - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
       propertyPath: m_Name
       value: NextLevel_GUIDE
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1216387000620394603, guid: fa2939a8237b4354d9c8a196573c7d6f, type: 3}
       propertyPath: m_TagString
@@ -40673,6 +39580,10 @@ PrefabInstance:
       value: NextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2551964511700108834, guid: 853806d1ebdfa964794e895c74000385, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551964511700108834, guid: 853806d1ebdfa964794e895c74000385, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -40686,7 +39597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6040897390367334121, guid: 853806d1ebdfa964794e895c74000385, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26
+      value: 21.4
       objectReference: {fileID: 0}
     - target: {fileID: 6040897390367334121, guid: 853806d1ebdfa964794e895c74000385, type: 3}
       propertyPath: m_LocalPosition.z
@@ -40771,7 +39682,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 6.950904, y: 0}
+  m_Offset: {x: 6.950904, y: 2.3505044}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -40781,8 +39692,170 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 24.020487, y: 0.875}
+  m_Size: {x: 24.020487, y: 5.576009}
   m_EdgeRadius: 0
+--- !u!1001 &8314308360546118004
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 459019343}
+    m_Modifications:
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.229598
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.4619799
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487795973274586692, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479092376525599686, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+      propertyPath: m_Name
+      value: Minimap
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd42238774261ac40a0e64c630e791d2, type: 3}
+--- !u!1001 &8910263397471645523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4587575636109556492, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_Name
+      value: ==Canvas==
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854812463551414357, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838600415521986263, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838600415521986263, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ddd845c2fdf15cc4bb1d2e7ee980be11, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -40794,8 +39867,8 @@ SceneRoots:
   - {fileID: 1261497118}
   - {fileID: 1406366033}
   - {fileID: 1323144748}
-  - {fileID: 1827344532}
   - {fileID: 634081662}
   - {fileID: 1490838274}
   - {fileID: 820096629}
   - {fileID: 706989429}
+  - {fileID: 8910263397471645523}

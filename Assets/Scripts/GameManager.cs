@@ -5,8 +5,6 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -29,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button pauseButton;            //Pause button
     [SerializeField] Button playButton;             //Play button
 
+    [Header("Music")]
     public AudioSource _gameManagerMus;
     [SerializeField] AudioClip _menuMus;
     [SerializeField] AudioClip _zone1Mus;
@@ -70,7 +69,7 @@ public class GameManager : MonoBehaviour
         {
             //Call these methods
             PlayerSideScreenLimit();
-            ArrowGuide();
+            ArrowAndBossZone();
             RestartScene();
             NextSceneDEBUG();
             if (Input.GetKeyDown(KeyCode.O))
@@ -310,7 +309,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName);
     }
 
-    void ArrowGuide()
+    void ArrowAndBossZone()
     {
         if (_arrowNextLevel != null)
         {

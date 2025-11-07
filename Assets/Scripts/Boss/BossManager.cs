@@ -16,7 +16,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] public bool playerDetected;
 
     [Header("UI")]
-    public Slider _bossHealth;
+    public Slider bossHealth;
 
     [Header("Ranged Attack")]
     [SerializeField] Transform _firingPoint;                // Stores the firing point where the boss's ink bullets will spawn from
@@ -152,7 +152,7 @@ public class BossManager : MonoBehaviour
 
     void BossHealthUI()
     {
-        _bossHealth.value = _currentBossHealth / _maxBossHealth;
+        bossHealth.value = _currentBossHealth / _maxBossHealth;
     }
 
     void BossDeath()

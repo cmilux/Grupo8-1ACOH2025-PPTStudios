@@ -132,7 +132,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator WaitnLoadGameOverScene()
     {
         //Waits for animation to play before showing GameOver scene
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(2.5f);
 
         SceneManager.LoadScene("GameOver");
     }
@@ -148,15 +148,6 @@ public class PlayerHealth : MonoBehaviour
         //Set and update the player life to the slider object in UI
         _healthBar = GameObject.Find("PlayerHealthUI")?.GetComponent<Slider>();
         _healthBar.value = playerCurrentHealth / _playerMaxHealth;
-    }
-
-    void PlayAnimation()
-    {
-        //Plays the animation
-        _playerAnimator._isBeingAttacked = true;
-        //Plays the SFX
-        _playerHealthSFX.PlayOneShot(_playerHitSFX, 0.3f);
-        //Wait for animation to finish
     }
 
     void HealthCheat()
