@@ -132,7 +132,7 @@ public class PlayerAttackMelee : MonoBehaviour
             //Play the particles
             _sprayEffect.Play();
             //Play the spray SFX
-            _meleeAttackSFX.PlayOneShot(_mA_SFX, 0.3f);
+            _meleeAttackSFX.PlayOneShot(_mA_SFX, 0.25f);
         }
     }
     public void DeactivateSpray()

@@ -126,7 +126,7 @@ public class PlayerAttackDistance : MonoBehaviour
         rock.GetComponent<Rigidbody2D>().linearVelocity = _rockSpawnPos.transform.right * _rockSpeed;
 
         //Play the SFX
-        _distanceAttackSFX.PlayOneShot(_dA_SFX, 0.2f);
+        _distanceAttackSFX.PlayOneShot(_dA_SFX, 0.15f);
 
         //Substracts one rock from player's inventory
         _playerInventory.totalRocks--;

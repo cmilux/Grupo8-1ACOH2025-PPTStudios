@@ -147,6 +147,7 @@ public class MeleeEnemyManager : MonoBehaviour
         {
             meleeEnemyAudioSource.loop = true;
             meleeEnemyAudioSource.clip = _dieSFX;
+            meleeEnemyAudioSource.volume = 0.05f;
             meleeEnemyAudioSource.Play();
             StartCoroutine(EnemyDeathSequence());
             enemyDying = true;
@@ -300,7 +301,7 @@ public class MeleeEnemyManager : MonoBehaviour
 
         _alienAnimator.SetTrigger("Damaged");
 
-        meleeEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
+        meleeEnemyAudioSource.PlayOneShot(_damageSFX, 0.6f);
 
         _playerDetected = true;
 
@@ -318,7 +319,7 @@ public class MeleeEnemyManager : MonoBehaviour
 
         _alienAnimator.SetTrigger("Damaged");
 
-        meleeEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
+        meleeEnemyAudioSource.PlayOneShot(_damageSFX, 0.6f);
 
         _playerDetected = true;
 

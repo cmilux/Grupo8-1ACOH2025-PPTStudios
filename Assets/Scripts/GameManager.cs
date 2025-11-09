@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
             //Music
             _gameManagerMus.clip = _zone1Mus;
             _gameManagerMus.loop = true;
-            _gameManagerMus.volume = 0.2f;
+            _gameManagerMus.volume = 0.1f;
             _gameManagerMus.Play();
         }
         if (scene.name == "Zone2")
@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
             //Music
             _gameManagerMus.clip = _zone2Mus;
             _gameManagerMus.loop = true;
-            _gameManagerMus.volume = 0.2f;
+            _gameManagerMus.volume = 0.1f;
             _gameManagerMus.Play();
         }
         if (scene.name == "Zone3")
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
             //Music
             _gameManagerMus.clip = _zone3Mus;
             _gameManagerMus.loop = true;
-            _gameManagerMus.volume = 0.2f;
+            _gameManagerMus.volume = 0.1f;
             _gameManagerMus.Play();
         }
 
