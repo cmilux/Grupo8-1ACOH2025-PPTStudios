@@ -82,6 +82,11 @@ public class PlayerInventory : MonoBehaviour
         //Get the text mesh pro object
         _playerInventory = GameObject.Find("InventoryText")?.GetComponent<TextMeshProUGUI>();
         _playerInventory.SetText($"{totalRocks}");
+
+        if (totalRocks <= 0)
+        {
+            totalRocks = 0;
+        }
     }
 
     public void AddRock(int rocks)
