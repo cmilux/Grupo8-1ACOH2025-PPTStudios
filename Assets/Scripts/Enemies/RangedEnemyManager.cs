@@ -185,8 +185,11 @@ public class RangedEnemyManager : MonoBehaviour
         // Checks the enemy's health
         if (_currentEnemyHealth <= 0)
         {
+            _rangedEnemyAudioSource.loop = true;
+            _rangedEnemyAudioSource.clip = _dieSFX;
+            _rangedEnemyAudioSource.volume = 0.05f;
+            _rangedEnemyAudioSource.Play();
             StartCoroutine(EnemyDeathSequence());
-            _rangedEnemyAudioSource.PlayOneShot(_dieSFX, 0.2f);
             _enemyDying = true;
             _agent.isStopped = true;
         }
@@ -276,7 +279,8 @@ public class RangedEnemyManager : MonoBehaviour
         // Rotates the firing point towards that angle
         _firingPoint.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        // Orbits the firing point around the NPC sprite
+        // Orbits the firing point around the
+        // sprite
         _firingPoint.RotateAround(transform.position, Vector3.forward, _rotateSpeed * Time.deltaTime);
     }
 
@@ -386,7 +390,7 @@ public class RangedEnemyManager : MonoBehaviour
         // Apply damage to enemy
         _currentEnemyHealth -= rockDamageAmount;
 
-        _rangedEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
+        _rangedEnemyAudioSource.PlayOneShot(_damageSFX, 0.6f);
 
         Destroy(rock.gameObject);
 
@@ -403,7 +407,7 @@ public class RangedEnemyManager : MonoBehaviour
         // Gets the damage value from the spray that the enemy has collided with
         int sprayDamage = spray.gameObject.GetComponent<SprayManager>().sprayDamage;
 
-        _rangedEnemyAudioSource.PlayOneShot(_damageSFX, 0.3f);
+        _rangedEnemyAudioSource.PlayOneShot(_damageSFX, 0.6f);
 
         // Apply damage to enemy
         _currentEnemyHealth -= sprayDamage;
